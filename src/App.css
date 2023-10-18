@@ -1,0 +1,10 @@
+:root{
+  --main-color: #564380;
+  --white: #FFF;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
