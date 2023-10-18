@@ -2,20 +2,12 @@ import '../styles/Header.css'
 
 export const Header = () => {
   return (
-    <header>
-      <h1>LOGO</h1>
-      {/* Action buttons */}
+    <header className="header">
+      <h2 className="header__logo">LOGO</h2>
       <section className="header__buttons">
-        <button>Crear cuenta</button>
-        <button>Iniciar sesion</button>
-      </section>
-
-      {/* Search form */}
-      <section className="header__search-bar">
-        <h1>Busca tu instrumento ideal</h1>
-        <input type="search" name="" id="" />
-        <button type="submit">Buscar</button>
+        <button className="header__buttons__button">Crear cuenta</button>
+        <button className="header__buttons__button">Iniciar sesión</button>
       </section>
     </header>
-  )
-}
+  );
+};
