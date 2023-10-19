@@ -1,4 +1,3 @@
-import '../styles/Search.css'
 
 export const SearchIcon = () => {
   return (

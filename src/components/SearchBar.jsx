@@ -1,4 +1,4 @@
-import { Search } from './SearchIcon'
+import { SearchIcon } from './SearchIcon'
 
 export const SearchBar = () => {
   return (
@@ -16,7 +16,7 @@ export const SearchBar = () => {
           className="header__search-bar__form__button"
           type="submit"
         >
-          <Search />
+          <SearchIcon />
         </button>
       </form>
     </section>

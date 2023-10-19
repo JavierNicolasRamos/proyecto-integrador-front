@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./Gallery.css";
+import "../styles/Gallery.css";
 
 const Gallery = () => {
   const { id } = useParams();
