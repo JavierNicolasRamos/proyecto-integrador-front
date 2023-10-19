@@ -1,0 +1,50 @@
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.main-image {
+  flex: 1;
+  max-width: 50%;
+  text-align: center;
+}
+
+.main-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-grid {
+  flex: 1;
+  max-width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.view-more {
+  align-self: flex-end;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: right;
+}
+
+.additional-images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.additional-images .grid-item {
+  width: 25%;
+}
