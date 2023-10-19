@@ -1,8 +1,11 @@
+import '../styles/Header.css'
+import { Menu } from './Menu';
 
-const Header = () => {
+export const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
-
-export default Header
+    <header className="header">
+      <h2 className="header__logo">LOGO</h2>
+      <Menu/>
+    </header>
+  );
+};

@@ -1,0 +1,10 @@
+svg{
+  background-color: #564380;
+  height: 48px;
+  padding: 0px;
+  border: none;
+}
+
+svg:hover{
+  cursor: pointer;
+}
