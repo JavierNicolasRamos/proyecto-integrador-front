@@ -1,0 +1,60 @@
+/* Card.css */
+
+/* Contenedor de las tarjetas */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas flexibles */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra horizontalmente las filas */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 20px; /* Espacio alrededor del contenedor */
+    background-color: #ffff; /* Color de fondo */
+  }
+  
+  .card {
+    border: 1px solid white; 
+    border-radius: 10px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #ffff;
+    box-shadow: 0 4px 6px rgba(83, 82, 82, 0.7); 
+    transition: transform 0.2s; 
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); 
+  }
+  
+  .card img {
+    width: 100%; 
+    height: auto; 
+    max-height: 200px; 
+  }
+  
+  h3 {
+    margin: 10px 0;
+  }
+  
+  p {
+    margin: 0;
+    color: #777;
+    margin-bottom: 20px; 
+  }
+  
+  .button-link {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 50px;
+    text-decoration: none;
+  }
+  
+  .button-link:hover {
+    background-color: #0056b3;
+    margin-top: 50px;
+    text-decoration: none;
+  }
