@@ -1,10 +1,15 @@
-import { SearchBar } from '../components/SearchBar'
+import React from 'react'
+import Card from "../components/Card";
+import productos from '../components/Product';
 
 const Home = () => {
   return (
-    <>
-      <SearchBar />
-    </>
+    <div className="product-grid">
+      {productos.map((producto) => (
+        <Card key={producto.id} producto={producto} />
+      ))}
+    </div>
+    
   )
 }
 
