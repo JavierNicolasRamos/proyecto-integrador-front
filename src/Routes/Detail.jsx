@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import productos from '../components/Product';
 import "./Detail.css";
