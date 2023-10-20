@@ -1,5 +1,3 @@
-import React from 'react';
-import productos from '../components/Product';
 
 const Detail = ({id}) => {
   const producto = productos.find((p) => p.id === Number(id));

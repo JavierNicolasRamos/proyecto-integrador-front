@@ -1,0 +1,57 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  height: 50px;
+  background-color: rgb(68, 176, 140);
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.footer-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.footer-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+footer p {
+  margin: 0;
+  padding-top: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+footer div {
+  display: flex;
+  flex-direction: row;
+}
+:root {
+  --victoria-50: #f2f2fb;
+  --victoria-100: #e7e7f8;
+  --victoria-200: #d5d3f2;
+  --victoria-300: #bcb8e9;
+  --victoria-400: #a49adf;
+  --victoria-500: #9481d3;
+  --victoria-600: #8468c3;
+  --victoria-700: #7257ab;
+  --victoria-800: #564380;
+  --victoria-900: #4d406f;
+  --victoria-950: #2e2541;
+  --white: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
