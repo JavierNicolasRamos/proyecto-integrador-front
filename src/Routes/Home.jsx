@@ -4,9 +4,11 @@ import productos from '../components/Product';
 const Home = () => {
   return (
     <div className="product-grid">
-      {productos.map((producto) => (
-        <Card key={producto.id} producto={producto} />
-      ))}
+      {
+        productos.map((producto) => (
+          <Card key={producto.id} producto={producto} />
+        ))
+      }
     </div>
     
   )
