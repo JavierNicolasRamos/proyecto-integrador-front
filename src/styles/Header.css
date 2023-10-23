@@ -1,7 +1,7 @@
 .header {
   position: sticky;
   top: 0;
-  height: 12vh;
+  height: 8vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,12 +26,12 @@
 
 .header__buttons__button-login,
 .header__buttons__button-create{
-  height: 48px;
-  width: 200px;
+  height: 36px;
+  width: 150px;
   border-radius: 5px;
   border: none;
   margin: 10px;
-  font-size: 22px;
+  font-size: 20px;
   transition: all .1s ease-in-out;
 }
 
@@ -48,59 +48,13 @@
 .header__buttons__button-create{
   font-weight: bold;
   background-color: var(--white);
-  color: var(--victoria-800);
+  color: var(--victoria-950);
 }
 
 .header__buttons__button-create:hover{
-  background-color: var(--victoria-500);
+  background-color: var(--victoria-400);
   color: var(--white);
   cursor: pointer;
-  border: 1px solid var(--victoria-800);
-}
-
-.header__search-bar {
-  text-align: center;
-  background-color: var(--white);
-  display: block;
-  width: 100%;
-  padding: 30px;
-  height: 200px;
-}
-
-.header__search-bar__title{
-  font-size: 48px;
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.header__search-bar__form{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header__search-bar__form__button{
-  padding: 0;
-  background-color: var(--main-color);
-  border: 1px solid var(--main-color);
-  height: 52px;
-  padding: 2px;
-}
-
-.header__search-bar__form__input{
-  height: 48px;
-  width: 80%;
-  padding: 25px;
-  font-size: 28px;
-  border-radius: 5px 0px 0px 5px;
-  border: 1px solid grey;
-}
-
-.header__search-bar__form__input:focus{
-  outline: none;
-  border: 1px solid #3483fa;
 }
 
 .open{
@@ -113,7 +67,6 @@
 
 /* MEDIA QUERIE FOR MOBILES */
 @media (max-width: 480px) {
-
   aside{
     position: absolute;
     height: 100vh;
