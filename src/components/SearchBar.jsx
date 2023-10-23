@@ -1,4 +1,5 @@
 import { SearchIcon } from './SearchIcon'
+import '../styles/SearchBar.css'
 
 export const SearchBar = () => {
   return (
@@ -7,7 +8,7 @@ export const SearchBar = () => {
       <form method="GET" className="header__search-bar__form">
         <input
           className="header__search-bar__form__input"
-          placeholder="Guitarra, bajo y mucho mas ..."
+          placeholder="Guitarra 🎸, saxofon 🎷 y mucho mas 🎶"
           type="search"
           name=""
           id=""
