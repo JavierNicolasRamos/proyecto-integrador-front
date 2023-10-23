@@ -10,9 +10,10 @@
 }
 
 .header__logo{
-  padding: 20px;
+  padding: 5px;
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 5px;
+  width: 200px;
 }
 
 .header__buttons {

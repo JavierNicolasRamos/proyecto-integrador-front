@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import '../styles/Header.css'
 import { Menu } from './Menu';
 
 export const Header = () => {
   return (
     <header className="header">
-      <h2 className="header__logo">LOGO</h2>
+      <Link to="/home">
+        <img src='../src/images/DH.png' className="header__logo" /> 
+      </Link>
       <Menu/>
     </header>
   );
