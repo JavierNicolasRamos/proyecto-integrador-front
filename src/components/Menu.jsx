@@ -13,9 +13,9 @@ export const Menu = () => {
   }  
   
   useEffect(() => {
-    if (window.innerWidth < 480) {
-      setIsClosed(false);
-      setShowOptions(true);
+    if (window.innerWidth < 768) {
+      setIsClosed(true);
+      setShowOptions(false);
     }
   }, []);
 
