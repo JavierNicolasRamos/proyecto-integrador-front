@@ -1,4 +1,15 @@
 :root {
+  --gold-50: #ffffe7;
+  --gold-100: #feffc1;
+  --gold-200: #fffd86;
+  --gold-300: #fff441;
+  --gold-400: #ffe60d;
+  --gold-500: #ffd700;
+  --gold-600: #d19e00;
+  --gold-700: #a67102;
+  --gold-800: #89580a;
+  --gold-900: #74480f;
+  --gold-950: #442604;
   --victoria-50: #f2f2fb;
   --victoria-100: #e7e7f8;
   --victoria-200: #d5d3f2;
