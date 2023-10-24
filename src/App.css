@@ -1,31 +1,32 @@
-:root {
-  --gold-50: #ffffe7;
-  --gold-100: #feffc1;
-  --gold-200: #fffd86;
-  --gold-300: #fff441;
-  --gold-400: #ffe60d;
-  --gold-500: #ffd700;
-  --gold-600: #d19e00;
-  --gold-700: #a67102;
-  --gold-800: #89580a;
-  --gold-900: #74480f;
-  --gold-950: #442604;
-  --victoria-50: #f2f2fb;
-  --victoria-100: #e7e7f8;
-  --victoria-200: #d5d3f2;
-  --victoria-300: #bcb8e9;
-  --victoria-400: #a49adf;
-  --victoria-500: #9481d3;
-  --victoria-600: #8468c3;
-  --victoria-700: #7257ab;
-  --victoria-800: #564380;
-  --victoria-900: #4d406f;
-  --victoria-950: #2e2541;
-  --white: #fff;
+:root{
+  --light-grey: #333333;
+  --dark-grey: #191D20;
+  --red: #ED2839;
+  --title: #513d3f;
+  --white: #FFF;
+  --black: #000000;
+  --btn: #292F33;
+  --main-font: Helvetica, Arial, sans-serif;
+  --secondary-font: "Calibri", Arial, sans-serif;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.btn{
+  width: 121px;
+  background-color: var(--btn);
+  height: 43px;
+  padding: 10px;
+  color: var(--white);
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+}
+
+.btn:hover{
+  cursor: pointer;
 }
