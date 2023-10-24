@@ -1,21 +1,20 @@
 .footer {
   display: flex;
   flex-direction: column;
-
 }
 
 .footer-brand-logos {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 50px 10% 50px 10%
+  padding: 50px 10% 50px 10%;
 }
 
 .footer-brand-logos-boxes {
   display: flex;
   width: 238px;
   height: 112px;
-  background: rgba(241,  241, 241, 1);
+  background: rgba(241, 241, 241, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -26,9 +25,81 @@
   padding-top: 25px;
 }
 
-.footer-contact {
+.footer-principal {
   background: rgba(0, 0, 0, 1);
-  height: 265px
+  height: 265px;
+  color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 10% 30px 10%;
+}
+
+.footer-principal-contact-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-principal-title {
+  font-family: Helvetica;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.footer-principal-contact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-principal-contact-content-text {
+  display: flex;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.colored-text {
+  color: rgba(237, 40, 57, 1);
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+.footer-principal-information {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  
+}
+
+.footer-principal-information-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-principal-information-content p {
+  font-family: Helvetica;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 30px;
+}
+
+.footer-principal-information-content a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.footer-principal-information-logo img {
+  width: 130px;
+  padding-top: 40px;
 }
 
 .footer-copyright {
@@ -37,39 +108,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  }
-
-.footer-copyright p{
-color: rgba(255, 255, 255, 1);
-font-family: Helvetica;
-font-size: 20px;
-font-weight: 400;
-line-height: 23px;
-padding: 0px;
-
 }
 
-
-.footer-icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 200px;
-}
-
-.footer-icons img {
-  width: 30px;
-  height: 30px;
-}
-
-footer p {
-  margin: 0;
-  padding-top: 1rem;
-  font-weight: 600;
-  color: white;
-}
-
-footer div {
-
+.footer-copyright p {
+  color: rgba(255, 255, 255, 1);
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  padding: 0px;
 }
