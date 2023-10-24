@@ -30,3 +30,22 @@
 .btn:hover{
   cursor: pointer;
 }
+
+.navigation-menu{
+  position: sticky;
+  top: 0;
+  background-color: var(--red);
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-menu a{
+  text-decoration: none;
+  color: var(--white);
+  font-size: 15px;
+  font-family: var(--main-font);
+  margin: 0 70px;
+  font-weight: 700;
+}
