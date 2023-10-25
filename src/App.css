@@ -6,6 +6,7 @@
   --white: #FFF;
   --black: #000000;
   --btn: #292F33;
+  --body: #e8e8e8;
   --main-font: Helvetica, Arial, sans-serif;
   --secondary-font: "Calibri", Arial, sans-serif;
 }
@@ -14,6 +15,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: var(--body);
 }
 
 .btn{
