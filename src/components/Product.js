@@ -1,8 +1,6 @@
 import imagen1 from "../images/imagen1.jpg";
 import imagen2 from "../images/imagen2.jpg";
 import imagen3 from "../images/imagen3.jpg";
-import guitarra from "../images/guitarra.png";
-
 
 const productos = [
   {
@@ -17,7 +15,7 @@ const productos = [
     nombre: "Producto 2",
     descripcion: "Esta es la descripción del producto 2.",
     precio: 1129.99,
-    imagen: guitarra,
+    imagen: imagen1,
   },
   {
     id: 3,
