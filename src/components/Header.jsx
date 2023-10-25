@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Header.css";
-import { SearchIcon } from "./SearchIcon";
 import { Menu } from "./Menu";
 
 export const Header = () => {
