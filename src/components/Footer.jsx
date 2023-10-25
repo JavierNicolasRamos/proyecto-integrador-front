@@ -1,4 +1,7 @@
 import "../styles/Footer.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookSquare, faSquareThreads, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+
 
 const Footer = () => {
   return (
@@ -44,7 +47,11 @@ const Footer = () => {
               <p className="colored-text">contacto@musicrental.com.ar</p>
             </div>
           </div>
-          <div className="footer-principal-contact-socialnetworklogos"></div>
+          <div className="footer-principal-contact-socialnetworklogos">
+          <a href="https://www.facebook.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faFacebookSquare} /></a>
+          <a href="https://www.threads.net/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faSquareThreads} /></a>
+          <a href="https://twitter.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faXTwitter} /></a>
+          </div>
         </div>
         <div className="footer-principal-information">
           <div className="footer-principal-information-content">
