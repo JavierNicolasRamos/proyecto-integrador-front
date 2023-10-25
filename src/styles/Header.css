@@ -1,76 +1,69 @@
-.phone{
+.phone {
   background-color: var(--light-grey);
   text-align: center;
   width: 100%;
   display: block;
 }
 
-.phone-text{
+.phone-text {
   color: var(--white);
   padding: 4px 0;
   font-family: var(--secondary-font);
   font-weight: 700;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
-.header__search-bar{
+.header__search-bar {
   width: 100%;
+  height: 15vh;
   display: flex;
-  justify-content: space-between;
-  height: 133px;
+  justify-content: space-around;
   align-items: center;
   background-color: var(--dark-grey);
 }
 
-.header__search-bar__logo{
-  width: 100px;
-  height: 100px;
-  margin-left: 2vw;
+.header__search-bar__img {
+  width: 10vw;
+  height: 10vh;
 }
 
-.header__search-bar__img{
-  width: 100px;
-  height: 100px;
-}
-
-.header__search-bar__form{
+.header__search-bar__form {
   width: 60%;
-  margin-left: 10vw;
+  padding: 10vw;
   display: flex;
   align-items: center;
 }
 
-.header__search-bar__form__input{
+.header__search-bar__form__input {
   width: 100%;
-  height: 44px;
+  min-width: min-content;
+  height: 5vh;
   border-radius: 50px;
-  border: 2px solid var(--black);
-  padding: 0 17px;
+  border: 10% solid var(--black);
+  padding: 1vw;
   font-size: 17px;
 }
 
-.header__search-bar__form__input::placeholder{
-  background-image: url('../images/search.svg');
+.header__search-bar__form__input::placeholder {
+  background-image: url("../images/search.svg"); /*//TODO: fontawesome*/
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: contain;
+  background-position: 95% 50%;
+  background-size: 4vh;
 }
 
-.header__search-bar__form__submit{
+.header__search-bar__form__submit {
   display: flex;
   align-items: center;
 }
 
-.header__search-bar__form__input:focus{
+.header__search-bar__form__input:focus {
   outline: none;
 }
 
-.header__action-buttons{
+.header__action-buttons {
   display: flex;
-  margin-right: 5vw;
-  margin-left: 3vw;
   gap: 1vw;
 }
