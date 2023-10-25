@@ -61,7 +61,7 @@ const Footer = () => {
             <a href="">Blog</a>
           </div>
           <div className="footer-principal-information-logo">
-            <img src="src/images/header-logo.svg" alt="logo" />
+            <img src="/src/images/header-logo.svg" alt="logo" />
           </div>
         </div>
       </div>
