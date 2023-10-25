@@ -17,21 +17,24 @@ export const Header = () => {
       </section>
       <header className={`header ${!isHome ? 'hide' : ''}`}>
         <section className="header__search-bar">
-          <Link to={"/home"} className="header__search-bar__logo">
-            <img className="header__search-bar__img" src="src/images/header-logo.svg" alt="Imagen del logo de music rental" />
+          
+          <Link to={"/home"} className="header_search-bar_logo">
+            <img className="header_search-bar_img" src="src/images/header-logo.svg" alt="Imagen del logo de music rental" />
           </Link>
-          <form method="GET" className="header__search-bar__form">
+          
+          <form method="GET" className="header_search-bar_form">
             <input
-              className="header__search-bar__form__input"
+              className="header_search-barform_input"
               placeholder="¿Qué estás buscando?"
               type="search"
               name=""
               id=""
             />
-            <button className="header__search-bar__form__submit" type="submit">
+            <button className="header_search-barform_submit" type="submit">
               <SearchIcon/>
             </button>
           </form>
+
           <div className="header__action-buttons">
             <button className="header__action-button-register btn">
               Registrarse
