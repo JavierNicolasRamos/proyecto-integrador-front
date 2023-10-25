@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import productos from '../components/Product';
+import "../styles/Home.css"
 
 const Home = () => {
   return (
