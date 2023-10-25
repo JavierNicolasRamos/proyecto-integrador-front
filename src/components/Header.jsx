@@ -25,8 +25,8 @@ export const Header = () => {
               className="header__search-bar__form__input"
               placeholder="¿Qué estás buscando?"
               type="search"
-              name=""
-              id=""
+              name="" //TODO: Agregar name
+              id="" //TODO: Agregar id
             />
             <button className="header__search-bar__form__submit" type="submit">
               <SearchIcon/>

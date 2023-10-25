@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
           <div className="footer-principal-contact-content">
             <div className="footer-principal-contact-content-text">
-              <p>Wapp: </p>
+              <p>Whatsapp: </p>
               <p className="colored-text">11 4576 - 8765</p>
             </div>
             <div className="footer-principal-contact-content-text">
