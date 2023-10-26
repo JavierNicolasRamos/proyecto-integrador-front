@@ -1,20 +1,23 @@
 .footer {
-  display: flex;
   flex-direction: column;
+  background-color: var(--white);
+  justify-content: space-around;
 }
 
 .footer-brand-logos {
+  padding: 4vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 50px 10% 50px 10%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .footer-brand-logos-boxes {
   display: flex;
-  width: 238px;
-  height: 112px;
-  background: rgba(241, 241, 241, 1);
+  max-width: 20vw;
+  min-width: 12vw;
+  height: 8vw;
+  background: var(--white);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -26,57 +29,71 @@
   transition: all 0.5s;
 }
 
+.footer-brand-logos-boxes img{
+  width: 90%;
+}
+
 .footer-brand-logos-boxes .gibson {
-  padding-top: 25px;
+  padding-top: 3vh;
 }
 
 .footer-principal {
-  background: rgba(0, 0, 0, 1);
-  height: 265px;
-  color: rgba(255, 255, 255, 1);
+  background: var(--black);
+  color: var(--white);
+  padding: 5vh 0;
   display: flex;
-  justify-content: space-between;
-  padding: 30px 10% 30px 10%;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .footer-principal-contact-box {
   display: flex;
   flex-direction: column;
+  height: 20vh;
 }
 
 .footer-principal-title {
-  font-family: Helvetica;
+  font-family: var(--main-font);
   font-size: 30px;
   font-weight: 700;
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 2vh;
 }
 
-.footer-principal-contact-content {
-  display: flex;
-  flex-direction: column;
+.footer-principal-contact-content{
+  width: 100%;
+  padding-bottom: 2vh;
 }
 
-.footer-principal-contact-content-text {
+.footer-principal-contact-content-text{
+  font-family: var(--main-font);
   display: flex;
-  font-family: Helvetica;
-  font-size: 20px;
+  flex-wrap: wrap;
+  font-size: 1.2em;
   font-weight: 700;
-  line-height: 23px;
-  letter-spacing: 0em;
   text-align: left;
+  padding-bottom: 1vh;
+}
+
+.footer-principal-contact-content-text p{
+  display: inline-block;
+  min-width: min-content;
 }
 
 .colored-text {
-  color: rgba(237, 40, 57, 1);
+  color: var(--red);
   font-weight: 500;
-  padding-left: 5px;
+}
+
+.footer-principal-contact-socialnetworklogos{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .fontAwesomeIcons {
-  color: rgba(237, 40, 57, 1);
+  color: var(--red);
   height: 45px;
-  padding: 10px 10px 0px 0px;
 }
 
 .fontAwesomeIcons:hover {
@@ -84,61 +101,96 @@
   transition: all 0.5s;
 }
 
-.footer-principal-information {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
+.whatsapp,
+.mail{
+  display: none;
 }
 
 .footer-principal-information-content {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  font-size: 20px;
+  width: auto;
+  height: 20vh;
 }
 
 .footer-principal-information-content p {
   font-family: Helvetica;
-  font-size: 30px;
+  font-size: 1.5em;
   font-weight: 700;
+  padding-bottom: 2vh;
   text-align: left;
-  padding-bottom: 30px;
 }
 
 .footer-principal-information-content a {
-  color: rgba(255, 255, 255, 1);
+  color: var(--white);
   text-decoration: none;
-  font-family: Helvetica;
-  font-size: 20px;
+  font-family: var(--main-font);
+  font-size: 1em;
   font-weight: 700;
-  padding-bottom: 5px;
+  padding-bottom: 2vh;
+  min-width: min-content;
+  display: block;
 }
 
 .footer-principal-information-content a:hover {
-  color: rgba(237, 40, 57, 1);
+  color: var(--red);
 }
 
 .footer-principal-information-logo img {
-  width: 130px;
-  padding-top: 40px;
+  display: inline-block;
+  width: 6vw;
 }
 
 .footer-principal-information-logo img:hover {
   transform: scale(1.05);
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .footer-copyright {
-  height: 63px;
-  background: rgba(51, 51, 51, 1);
+  height: 4vh;
+  background: var(--light-grey);
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: min-content;
 }
 
 .footer-copyright p {
-  color: rgba(255, 255, 255, 1);
-  font-family: Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 23px;
-  padding: 0px;
+  color: var(--white);
+  font-family: var(--main-font);
+  font-size: 1.1em;
+}
+
+/* MOBILE SCREEN */
+@media (max-width: 480px) {
+  .footer-principal{
+    flex-direction: column;
+    align-items: space-around;
+    height: 60vh;
+    gap: 5vh;
+  }
+
+  .footer-principal-contact-box,
+  .footer-principal-information-content{
+    width: 90%;
+    max-width: none;
+  }
+
+  .footer-principal-contact-content{
+    display: none;
+  }
+
+  .footer-copyright {
+    background: var(--light-grey);
+    text-align: center;
+    height: auto;
+  }
+
+  .whatsapp,
+  .mail{
+    display: inline-block;
+  } 
+
+
 }

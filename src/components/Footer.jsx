@@ -1,6 +1,7 @@
 import "../styles/Footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faSquareThreads, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookSquare, faSquareThreads, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 
 const Footer = () => {
@@ -40,7 +41,7 @@ const Footer = () => {
           <div className="footer-principal-contact-content">
             <div className="footer-principal-contact-content-text">
               <p>Whatsapp: </p>
-              <p className="colored-text">11 4576 - 8765</p>
+              <p className="colored-text">11-4576-8765</p>
             </div>
             <div className="footer-principal-contact-content-text">
               <p>Mail:</p>
@@ -48,12 +49,13 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-principal-contact-socialnetworklogos">
-          <a href="https://www.facebook.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faFacebookSquare} /></a>
-          <a href="https://www.threads.net/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faSquareThreads} /></a>
-          <a href="https://twitter.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faXTwitter} /></a>
+            <a href="https://www.facebook.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faFacebookSquare} /></a>
+            <a href="https://www.threads.net/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faSquareThreads} /></a>
+            <a href="https://twitter.com/"><FontAwesomeIcon className="fontAwesomeIcons" icon={faXTwitter} /></a>
+            <a href=""><FontAwesomeIcon className="fontAwesomeIcons whatsapp" icon={faWhatsapp} /></a>
+            <a href=""><FontAwesomeIcon className="fontAwesomeIcons mail" icon={faEnvelope} /></a>
           </div>
         </div>
-        <div className="footer-principal-information">
           <div className="footer-principal-information-content">
             <p>Información</p>
             <a href="">Requisitos para alquilar</a>
@@ -63,7 +65,6 @@ const Footer = () => {
           <div className="footer-principal-information-logo">
             <img src="/src/images/header-logo.svg" alt="logo" />
           </div>
-        </div>
       </div>
       <div className="footer-copyright">
         <p>Copyright 2023 © | Music Rental | Design by El Olimpo</p>
