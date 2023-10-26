@@ -44,6 +44,9 @@
 // }
 
 // export default Detail;
+
+
+//empiezo a modificar
 import { useParams } from 'react-router-dom';
 import productos from '../components/Product';
 import "../styles/Detail.css";
@@ -69,7 +72,7 @@ const Detail = () => {
     }
   }, [id]);
 
-  const { nombre, imagen, precio, descripcion } = producto;
+  const { nombre, imagen, descripcion } = producto;
 
   const handleRentClick = () => {
     // Lógica para manejar el alquiler
@@ -102,19 +105,28 @@ const Detail = () => {
                   <label htmlFor="hasta">Hasta</label>
                   <input type="date" id="hasta" className="input-date" />
                 </div>
-                <button className="button-rent">Rentar</button>
-                <button className="button-cart">Agregar al Carrito</button>
+                <button className="button-rent" onClick={handleRentClick}>
+                  Rentar
+                </button>
+                <button className="button-cart" onClick={handleAddToCartClick}>
+                  Agregar al Carrito
+                </button>
               </div>
             </div>
           </div>
           <div className="product-image-container">
             <img src={imagen} alt={nombre} className="product-image" />
           </div>
+          <div className="small-images-container">
+            <img src={imagen} alt="Small Image 1" className="small-image" />
+            <img src={imagen} alt="Small Image 2" className="small-image" />
+            <img src={imagen} alt="Small Image 3" className="small-image" />
+          </div>
+          
         </>
+        
       )}
     </div>
   );
 }
-
-
 export default Detail;
