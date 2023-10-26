@@ -8,15 +8,16 @@
   padding: 4vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .footer-brand-logos-boxes {
   display: flex;
   max-width: 20vw;
-  height: 12vh;
-  background: rgba(241, 241, 241, 1);
+  min-width: 12vw;
+  height: 8vw;
+  background: var(--white);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -39,15 +40,16 @@
 .footer-principal {
   background: var(--black);
   color: var(--white);
-  padding: 2vh;
+  padding: 5vh 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .footer-principal-contact-box {
-  display: inline-block;
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
 }
 
 .footer-principal-title {
@@ -59,8 +61,8 @@
 }
 
 .footer-principal-contact-content{
-  width: 70%;
-  word-break: break-all;
+  width: 100%;
+  padding-bottom: 2vh;
 }
 
 .footer-principal-contact-content-text{
@@ -70,6 +72,7 @@
   font-size: 1.2em;
   font-weight: 700;
   text-align: left;
+  padding-bottom: 1vh;
 }
 
 .footer-principal-contact-content-text p{
@@ -107,6 +110,7 @@
   display: inline-block;
   font-size: 20px;
   width: auto;
+  height: 20vh;
 }
 
 .footer-principal-information-content p {
@@ -132,13 +136,9 @@
   color: var(--red);
 }
 
-.footer-principal-information-logo{
-  display: inline-block;
-}
-
 .footer-principal-information-logo img {
   display: inline-block;
-  width: 20vw;
+  width: 6vw;
 }
 
 .footer-principal-information-logo img:hover {
