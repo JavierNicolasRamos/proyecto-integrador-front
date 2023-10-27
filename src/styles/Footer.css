@@ -30,17 +30,17 @@
 }
 
 .footer-brand-logos-boxes img{
-  width: 90%;
+  width: 80%;
 }
 
 .footer-brand-logos-boxes .gibson {
-  padding-top: 3vh;
+  padding-top: 2vh;
 }
 
 .footer-principal {
   background: var(--black);
   color: var(--white);
-  padding: 5vh 0;
+  padding: 5vh 2vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -49,7 +49,8 @@
 .footer-principal-contact-box {
   display: flex;
   flex-direction: column;
-  height: 20vh;
+  height: 25vh;
+  padding: 0 2vw;
 }
 
 .footer-principal-title {
@@ -69,10 +70,12 @@
   font-family: var(--main-font);
   display: flex;
   flex-wrap: wrap;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 700;
   text-align: left;
   padding-bottom: 1vh;
+  height: auto;
+  word-break: break-all;
 }
 
 .footer-principal-contact-content-text p{
@@ -93,7 +96,7 @@
 
 .fontAwesomeIcons {
   color: var(--red);
-  height: 45px;
+  height: 5vh;
 }
 
 .fontAwesomeIcons:hover {
@@ -110,11 +113,11 @@
   display: inline-block;
   font-size: 20px;
   width: auto;
-  height: 20vh;
+  height: 25vh;
 }
 
 .footer-principal-information-content p {
-  font-family: Helvetica;
+  font-family: var(--main-font);
   font-size: 1.5em;
   font-weight: 700;
   padding-bottom: 2vh;
@@ -138,7 +141,7 @@
 
 .footer-principal-information-logo img {
   display: inline-block;
-  width: 6vw;
+  height: 10vh;
 }
 
 .footer-principal-information-logo img:hover {
@@ -175,6 +178,7 @@
   .footer-principal-information-content{
     width: 90%;
     max-width: none;
+    font-size: 1em;
   }
 
   .footer-principal-contact-content{

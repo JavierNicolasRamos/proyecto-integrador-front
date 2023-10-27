@@ -15,10 +15,28 @@
 
 .product-grid{
   width: 90%;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+  padding: 2vw;
+  gap: 2.5vw;
+}
+
+.product-grid div{
+  display: flex;
   justify-content: center;
-  gap: 4vw;
-  padding: 6vh;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2vw;
+}
+
+.product-grid div a{
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .product-grid{
+    justify-content: center;
+  }
 }
