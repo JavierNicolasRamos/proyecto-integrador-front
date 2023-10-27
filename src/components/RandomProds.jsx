@@ -10,7 +10,7 @@ export const RandomProds = () => {
   useEffect(() => {
     async function getRandomProds() {
       try {
-        const response = await axios.get(`http://localhost:8002/instrumentos`, {
+        const response = await axios.get(`http://localhost:8001/instrumentos`, {
           params: {
             page: 1,
             size: 10,

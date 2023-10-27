@@ -9,7 +9,7 @@ export const RecommendedProds = () => {
   useEffect(() => {
     async function getBestProds() {
       try {
-        const response = await axios.get(`http://localhost:8002/instrumentos/paginado`, {
+        const response = await axios.get(`http://localhost:8001/instrumentos/paginado`, {
           params: {
             page: 0,
             size: 5,
