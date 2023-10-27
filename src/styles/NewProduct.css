@@ -6,7 +6,7 @@
 .NewProductSection {
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 80vh;
   width: 50%;
   background-color: rgba(25, 29, 32, 1);
   margin: 1.5vw;
@@ -38,21 +38,29 @@
   padding: 2vw;
   font-family: Helvetica;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .NewProductSection form label {
   padding: 2vh 0 0.8vh 0;
 }
 
-.NewProductSection form input {
+.NewProductSection form input, .NewProductSection form textarea  {
   padding: 1vh 0 1vh 0;
   border-radius: 45px;
+  padding-left: 1vw;
+  font-family: Helvetica;
+  font-size: 1rem;
+  font-weight: 400;
+
 }
 
 .NewProductSection form input::placeholder {
-  padding-left: 1.5vw;
+  vertical-align: top;
+  line-height: 1;
 }
+
+
 
 #detail {
   height: 15vh;
@@ -67,6 +75,11 @@
   border-radius: 20px;
   margin: 1vh 0 1vh;
   height: 10vh;
+}
+
+#images {
+  height: 100%;
+  width: 100%;
 }
 
 .uploadImages::before {
@@ -116,4 +129,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  padding-left: 0;
 }

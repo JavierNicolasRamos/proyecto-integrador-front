@@ -52,7 +52,7 @@ const NewProduct = () => {
       <section className="NewProductSection">
         <div className="NewProduct-title"><p>Agregar productos</p></div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Nombre Producto</label>
+          <label htmlFor="name">Nombre del Producto</label>
           <input
             id="name"
             type="text"
@@ -71,7 +71,7 @@ const NewProduct = () => {
           />
 
           <label htmlFor="detail">Descripción</label>
-          <input
+          <textarea
             id="detail"
             type="text"
             placeholder="Guitarra eléctrica, marca, modelo"
