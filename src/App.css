@@ -47,6 +47,7 @@ body{
   align-items: center;
   justify-content: space-evenly;
   outline: 1px solid var(--red);
+  z-index: 4;
 }
 
 .navigation-menu a{
