@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import productos from '../components/Product';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
@@ -29,7 +29,7 @@ const Detail = () => {
     getProductById();
   }, [id, setProductExists, setProducto, setFechaDesde, setFechaHasta, setDisponible]);
 
-  const { nombre, imagen, descripcion } = producto;
+  const { nombre, imagen, categoria, detalle,} = producto;
 
   const handleRentClick = () => {
     // Lógica para manejar el alquiler
@@ -51,8 +51,11 @@ const Detail = () => {
         <>
           <div className="product-details-container">
             <div className="product-info">
+              <div>
               <h2 className="product-name">{nombre}</h2>
-              <p className="product-description">{descripcion}</p>
+              <p className="prodcut-description">{categoria.descripcion}</p>
+              </div>
+              <p className="product-description">{detalle}</p>
               <div className="product-actions">
                 <div className="date-input">
                   <label htmlFor="desde">Desde</label>
@@ -72,12 +75,14 @@ const Detail = () => {
             </div>
           </div>
           <div className="product-image-container">
-            <img src={imagen} alt={nombre} className="product-image" />
+          <Link to={`/product/gallery/${id}`}>
+            <img src={imagen[0].imagen} alt={nombre} className="product-image" />
+          </Link>
           </div>
           <div className="small-images-container">
-            <img src={imagen} alt="Small Image 1" className="small-image" />
-            <img src={imagen} alt="Small Image 2" className="small-image" />
-            <img src={imagen} alt="Small Image 3" className="small-image" />
+            <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
+            <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
+            <img src={imagen[3].imagen} alt="Small Image 3" className="small-image" />
           </div>
           
         </>
