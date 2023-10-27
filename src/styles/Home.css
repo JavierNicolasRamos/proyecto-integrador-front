@@ -13,12 +13,17 @@
   object-fit: cover;
 }
 
-.product-grid{
-  width: 90%;
-  margin: 0 auto;
+.prueba{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 4vw;
-  padding: 6vh;
+  justify-content: space-evenly;
+  gap: 8vh;
+}
+
+.product-grid{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 5vw;
 }
