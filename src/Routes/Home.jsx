@@ -8,7 +8,7 @@ const Home = () => {
       <img className="home__hero" src="src/images/banner.svg" alt="imagenes de guitarras Yamaha" />
       <h2 className="home__title">Productos que pueden interesarte</h2>
       <div className="product-grid">
-        <div className="prueba">
+        <div>
         {
           productos.map((producto) => (
             <Card key={producto.id} producto={producto} />
