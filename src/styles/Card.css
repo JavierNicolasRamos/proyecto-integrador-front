@@ -8,10 +8,7 @@
   background-color: var(--body);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   min-width: min-content;
-  max-width: 10vw;
-  max-height: 100%;
-  min-height: 170px;
-  max-height: 200px;
+  max-width: 15vw;
 }
 
 .card .card__image{
@@ -22,15 +19,23 @@
 
 .card__details{
   width: 100%;
-  height: 10vh;
-  padding: 1vh;
+  height: auto;
+  padding: 2vw;
 }
 
 .card__details-name {
-  font-size: .8em;
+  font-size: 1.2em;
   padding-bottom: 2vh;
 }
 
 .card__details-price{
-  font-size: 1.2em;
+  font-size: 1.5em;
+}
+
+@media (max-width: 480px) {
+
+  .card{
+    max-width: 60vw;
+    width: 100%;
+  }
 }
