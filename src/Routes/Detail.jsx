@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import productos from '../components/Product';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Detail = () => {
 
@@ -15,13 +16,18 @@ const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    // Realiza la búsqueda del producto cuando el componente se monta
-    const foundProduct = productos.find(producto => producto.id == id);
-    if (foundProduct) {
-      setProducto(foundProduct);
-      setProductExists(true);
+
+    const getProductById = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8001/instrumentos/${id}`);
+        setProducto(response.data);
+        setProductExists(true);
+      } catch (error) {
+        console.error(error);
+      }
     }
-  }, [id]);
+    getProductById();
+  }, [id, setProductExists, setProducto, setFechaDesde, setFechaHasta, setDisponible]);
 
   const { nombre, imagen, descripcion } = producto;
 
