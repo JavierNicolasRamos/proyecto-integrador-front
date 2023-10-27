@@ -2,7 +2,7 @@ import "../styles/Card.css";
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 // eslint-disable-next-line react/prop-types
-const Card = ({producto}) => {
+const Card = ({id, name, image, score, category}) => {
 
   // useEffect(() => {
   //   axios.get('URL')
@@ -14,16 +14,15 @@ const Card = ({producto}) => {
   //     });
   // }, []);
   // eslint-disable-next-line react/prop-types
-  const {id, nombre, precio, imagen } = producto
 
   return (
     <Link to={`/product/detail/${id}`}>
       <div className="card">
-        {/* ver como lo llama en el back */}
-        <img className="card__image" src={imagen} alt={nombre} />
+        <img className="card__image" src={image} alt={name} />
         <div className="card__details">
-          <h3 className="card__details-name">{nombre}</h3>
-          <div className="card__details-price">${precio}</div>
+          <h3 className="card__details-name">{name}</h3>
+          <p className="card__details-category">{category}</p>
+          <p className="card__details-score">⭐ {score}</p>
         </div>
       </div>
     </Link>

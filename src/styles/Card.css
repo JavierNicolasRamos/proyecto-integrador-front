@@ -7,29 +7,45 @@
   color: var(--title);
   background-color: var(--body);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  min-width: min-content;
-  max-width: 15vw;
+  max-width: 230px;
+  min-height: 350px;
+  transition: all .3 ease-in-out;
+}
+
+.card:hover{
+  outline: 4px solid var(--red);
 }
 
 .card .card__image{
   width: 100%;
-  height: auto;
+  min-height: 30vh;
+  max-height: 30vh;
+  object-position: center center;
   object-fit: cover;
 }
 
 .card__details{
+  padding: 1vw;
   width: 100%;
   height: auto;
-  padding: 2vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__details-name {
-  font-size: 1.2em;
-  padding-bottom: 2vh;
+  font-size: 1.5em;
+  width: 100%;
 }
 
-.card__details-price{
-  font-size: 1.5em;
+.card__details-category{
+  font-size: 1.2em;
+}
+
+.card__details-score{
+  align-self: flex-end;
+  justify-self: end;
+  font-weight: 700;
+  font-size: 1.4em;
 }
 
 @media (max-width: 480px) {
@@ -37,5 +53,6 @@
   .card{
     max-width: 60vw;
     width: 100%;
+    max-height: none;
   }
 }
