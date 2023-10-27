@@ -4,19 +4,26 @@
   color: var(--title);
   font-weight: 700;
   font-size: 30px;
-  margin-top: 33px;
+  min-width: min-content;
 }
 
 .home__hero{
   width: 100%;
-  height: 280px;
+  height: auto;
   object-fit: cover;
 }
 
-.product-grid{
-  width: 80%;
-  margin: 0 auto;
+.prueba{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
+  gap: 8vh;
+}
+
+.product-grid{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 5vw;
 }

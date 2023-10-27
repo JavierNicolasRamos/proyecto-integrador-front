@@ -7,13 +7,17 @@
 
 .phone-text {
   color: var(--white);
-  padding: 4px 0;
+  padding: 1vh;
   font-family: var(--secondary-font);
   font-weight: 700;
 }
 
 .hide {
   display: none;
+}
+
+.header{
+  width: 100%;
 }
 
 .header__search-bar {
@@ -31,27 +35,28 @@
 }
 
 .header__search-bar__form {
-  width: 60%;
-  padding: 10vw;
+  max-width: min-content;
+  min-width: 50vw;
+  padding: 0 4vw;
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .header__search-bar__form__input {
   width: 100%;
-  min-width: min-content;
   height: 5vh;
   border-radius: 50px;
-  border: 10% solid var(--black);
+  border: 2px solid var(--black);
   padding: 1vw;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .header__search-bar__form__input::placeholder {
   background-image: url("../images/search.svg"); /*//TODO: fontawesome*/
   background-repeat: no-repeat;
-  background-position: 95% 50%;
-  background-size: 4vh;
+  background-position: 100% 50%;
+  background-size: 2vh;
 }
 
 .header__search-bar__form__submit {
@@ -66,4 +71,6 @@
 .header__action-buttons {
   display: flex;
   gap: 1vw;
+  flex-wrap: wrap;
+  min-width: min-content;
 }

@@ -19,17 +19,19 @@
 
 body{
   background-color: var(--body);
+  height: 85vh;
 }
 
 .btn{
-  width: 121px;
+  min-width: min-content;
+  min-width: min-content;
   background-color: var(--btn);
-  height: 43px;
-  padding: 10px;
+  height: auto;
+  padding: 1vh 2vh;
   color: var(--white);
   border-radius: 10px;
   border: none;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .btn:hover{
@@ -38,19 +40,19 @@ body{
 
 .navigation-menu{
   position: sticky;
-  top: 0;
+  top: 0px;
   background-color: var(--red);
-  height: 38px;
+  height: 5vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  outline: 1px solid var(--red);
 }
 
 .navigation-menu a{
   text-decoration: none;
   color: var(--white);
-  font-size: 15px;
+  font-size: 1em;
   font-family: var(--main-font);
-  margin: 0 70px;
   font-weight: 700;
 }
