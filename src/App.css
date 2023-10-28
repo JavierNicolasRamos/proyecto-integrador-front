@@ -1,12 +1,12 @@
-:root{
+:root {
   --light-grey: #333333;
-  --dark-grey: #191D20;
-  --red: #ED2839;
+  --dark-grey: #1e2122;
+  --red: #ed2839;
   --title: #513d3f;
-  --white: #FFF;
-  --black: #000000;
-  --btn: #292F33;
-  --body: #e8e8e8;
+  --white: #e5e5e5;
+  --black: #252525;
+  --btn: #292f33;
+  --body: #e5e5e5;
   --main-font: Helvetica, Arial, sans-serif;
   --secondary-font: "Calibri", Arial, sans-serif;
 }
@@ -17,12 +17,12 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: var(--body);
   height: 85vh;
 }
 
-.btn{
+.btn {
   min-width: min-content;
   min-width: min-content;
   background-color: var(--btn);
@@ -34,11 +34,11 @@ body{
   font-size: 16px;
 }
 
-.btn:hover{
+.btn:hover {
   cursor: pointer;
 }
 
-.navigation-menu{
+.navigation-menu {
   position: sticky;
   top: 0px;
   background-color: var(--red);
@@ -50,7 +50,7 @@ body{
   z-index: 4;
 }
 
-.navigation-menu a{
+.navigation-menu a {
   text-decoration: none;
   color: var(--white);
   font-size: 1em;
