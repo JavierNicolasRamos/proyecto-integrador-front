@@ -1,11 +1,10 @@
-import { Link, useParams } from 'react-router-dom';
-import productos from '../components/Product';
+import { Link, useParams } from "react-router-dom";
+import productos from "../components/Product";
 import "../styles/Detail.css";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Detail = () => {
-
   const [productExists, setProductExists] = useState(false);
   const [producto, setProducto] = useState({});
   const [fechaDesde, setFechaDesde] = useState("");
@@ -16,20 +15,28 @@ const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-
     const getProductById = async () => {
       try {
-        const response = await axios.get(`http://localhost:8001/instrumentos/${id}`);
+        const response = await axios.get(
+          `http://localhost:8001/instrumentos/${id}`
+        );
         setProducto(response.data);
         setProductExists(true);
       } catch (error) {
         console.error(error);
       }
-    }
+    };
     getProductById();
-  }, [id, setProductExists, setProducto, setFechaDesde, setFechaHasta, setDisponible]);
+  }, [
+    id,
+    setProductExists,
+    setProducto,
+    setFechaDesde,
+    setFechaHasta,
+    setDisponible,
+  ]);
 
-  const { nombre, imagen, categoria, detalle,} = producto;
+  const { nombre, imagen, categoria, detalle } = producto;
 
   const handleRentClick = () => {
     // Lógica para manejar el alquiler
@@ -52,8 +59,8 @@ const Detail = () => {
           <div className="product-details-container">
             <div className="product-info">
               <div>
-              <h2 className="product-name">{nombre}</h2>
-              <p className="prodcut-description">{categoria.descripcion}</p>
+                <h2 className="product-name">{nombre}</h2>
+                <p className="prodcut-description">{categoria.descripcion}</p>
               </div>
               <p className="product-description">{detalle}</p>
               <div className="product-actions">
@@ -75,20 +82,34 @@ const Detail = () => {
             </div>
           </div>
           <div className="product-image-container">
-          <Link to={`/product/gallery/${id}`}>
-            <img src={imagen[0].imagen} alt={nombre} className="product-image" />
-          </Link>
+            <img
+              src={imagen[0].imagen}
+              alt={nombre}
+              className="product-image"
+            />
           </div>
           <div className="small-images-container">
-            <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
-            <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
-            <img src={imagen[3].imagen} alt="Small Image 3" className="small-image" />
+            <img
+              src={imagen[1].imagen}
+              alt="Small Image 1"
+              className="small-image"
+            />
+            <img
+              src={imagen[2].imagen}
+              alt="Small Image 2"
+              className="small-image"
+            />
+            <Link to={`/product/gallery/${id}`} className="LinkToGallery">
+              <img
+                src={imagen[3].imagen}
+                alt="Small Image 3"
+                className="small-image small-image-3"
+              />
+            </Link>
           </div>
-          
         </>
-        
       )}
     </div>
   );
-}
+};
 export default Detail;
