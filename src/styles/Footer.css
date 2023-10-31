@@ -1,3 +1,7 @@
+.hide{
+  display: none;
+}
+
 .footer {
   flex-direction: column;
   background-color: var(--white);
