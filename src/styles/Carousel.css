@@ -1,0 +1,33 @@
+
+.slick-slider {
+    position: relative;
+    padding: 0 16px; /* Espacio en los laterales */
+    margin-left: 7%;
+    margin-right: 5%;
+  }
+  
+  /* Estilo para cada tarjeta del carrusel */
+  .slick-slide {
+    padding:4px; /* Espacio entre las tarjetas */
+  }
+  
+  /* Estilo para las flechas "Anterior" y "Siguiente" */
+  button.slick-arrow {
+    background-color: rgb(58, 58, 58); 
+    border: none; /* Sin borde */
+    color: #333; /* Color de la flecha */
+    font-size: 24px; /* Tamaño de la flecha */
+    position: absolute;
+    top: 50%; /* Alineado verticalmente en el centro */
+    transform: translateY(-50%);
+    z-index: 1; 
+    cursor: pointer;
+  }
+  
+  button.slick-prev {
+    left: 0; /* Alinea a la izquierda */
+  }
+  
+  button.slick-next {
+    right: 0; /* Alinea a la derecha */
+  }

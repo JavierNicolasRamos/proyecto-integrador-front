@@ -3,6 +3,7 @@ import productos from '../components/Product';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Carousel from './Carousel';
 
 const Detail = () => {
 
@@ -44,11 +45,15 @@ const Detail = () => {
   };
 
   return (
-    <div className="detail-container">
+    // empiezo a modificar
+    // empiezo a modificar
+    
+    <div>
       {productExists === false ? (
         <div>Producto no encontrado</div>
       ) : (
         <>
+        <div className="detail-container">
           <div className="product-details-container">
             <div className="product-info">
               <div>
@@ -75,20 +80,24 @@ const Detail = () => {
             </div>
           </div>
           <div className="product-image-container">
-          <Link to={`/product/gallery/${id}`}>
+        <Link to={`/product/gallery/${id}`}>
+          <div className="image-wrapper">
             <img src={imagen[0].imagen} alt={nombre} className="product-image" />
-          </Link>
+            <div className="small-images-container">
+              <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
+              <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
+              <img src={imagen[3].imagen} alt="Small Image 3" className="small-image" />
+            </div>
           </div>
-          <div className="small-images-container">
-            <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
-            <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
-            <img src={imagen[3].imagen} alt="Small Image 3" className="small-image" />
-          </div>
-          
+        </Link>
+        </div>
+        </div>
+        <h2 className="detail__title">Productos que pueden interesarte</h2>
+        <Carousel />
         </>
-        
-      )}
+      )} 
     </div>
+   
   );
 }
 export default Detail;
