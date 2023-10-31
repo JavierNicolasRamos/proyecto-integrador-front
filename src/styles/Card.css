@@ -1,6 +1,5 @@
 .card {
   border-radius: 20px; 
-  background-color: var(--white);
   overflow: hidden;
   display: inline-block;
   font-family: var(--main-font);

@@ -32,12 +32,16 @@ export const Header = () => {
           </form>
 
           <div className="header__action-buttons">
-            <button className="header__action-button-register btn">
-              Registrarse
-            </button>
-            <button className="header__action-button-login btn">
-              Iniciar sesión
-            </button>
+            <Link to={"/register"}>
+              <button className="header__action-button-register btn">
+                Registrarse
+              </button>
+            </Link>
+            <Link to={"/login"}>
+              <button className="header__action-button-login btn">
+                Iniciar sesión
+              </button>
+            </Link>
           </div>
         </section>
       </header>
