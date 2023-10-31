@@ -5,9 +5,12 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 
 const Footer = () => {
+
+  const isLogin = location.pathname === "/login"
+
   return (
     <footer className="footer">
-      <div className="footer-brand-logos">
+      <div className={`footer-brand-logos ${isLogin ? 'hide' : ''}`}>
         <div className="footer-brand-logos-boxes">
           <img
             className="ibanez"
@@ -33,6 +36,7 @@ const Footer = () => {
           <img className="esp" src="/src/images/Logo-Esp.svg" alt="Logo-Esp" />
         </div>
       </div>
+
       <div className="footer-principal">
         <div className="footer-principal-contact-box">
           <div className="footer-principal-title">
