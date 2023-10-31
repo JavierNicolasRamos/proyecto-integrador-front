@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../styles/Gallery.css";
+import GalleryGridItem from "../components/GalleryGridItem";
 
 const Gallery = () => {
   const { id } = useParams();
 
-  const [visibleImages, setVisibleImages] = useState(5);
   const [imageUrls, setImageUrls] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -34,7 +35,7 @@ const Gallery = () => {
   }, [id]);
 
   const showAllImages = () => {
-    setVisibleImages(imageUrls.length);
+    setShowAll(true);
   };
 
   return (
@@ -43,19 +44,18 @@ const Gallery = () => {
         <img src={imageUrls[0]} alt="First Image" />
       </div>
       <div className="image-grid">
-        {imageUrls.slice(1, 5).map((url, index, array) => (
-          <div
+        {imageUrls.slice(1, 5).map((url, index) => (
+          <GalleryGridItem
+            showAll={showAll}
+            index={index}
             key={index}
-            className={`grid-item grid-item-${index + 2}`}
-            onClick={index === array.length - 1 ? showAllImages : null}
+            onClick={showAllImages}
           >
             <img src={url} alt={`Imagen ${index + 2}`} />
-          </div>
+          </GalleryGridItem>
         ))}
       </div>
-      {visibleImages < imageUrls.length ? (
-        null
-      ) : (
+      {!showAll ? null : (
         <div className="additional-images">
           {imageUrls.slice(5).map((url, index) => (
             <div key={index} className="grid-item">
