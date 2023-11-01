@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
-import productos from '../components/Product';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from './Carousel';
+
 
 const Detail = () => {
 
