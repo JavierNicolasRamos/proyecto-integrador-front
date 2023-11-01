@@ -27,8 +27,7 @@ export const Caracteristicas = () => {
 
   return (
     <div className="caracteristicas-container">
-      <h2 className="home__title">Caracteristica del Producto</h2>
-      <div className="product-grid">
+      <div className="data-grid">
         {caracteristicasProds.map((caracteristicasProduct) => (
           <div className="caracteristicas-card" key={caracteristicasProduct.id}>
             <p>Marca: {caracteristicasProduct.marca}</p>

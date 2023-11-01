@@ -3,7 +3,7 @@ import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Carousel from './Carousel';
-
+import Caracteristicas from '../components/Caracteristicas';
 
 const Detail = () => {
 
@@ -92,6 +92,8 @@ const Detail = () => {
         </Link>
         </div>
         </div>
+        <h2 className="detail__title">Caracteristicas del producto</h2>
+        <Caracteristicas/>
         <h2 className="detail__title">Productos que pueden interesarte</h2>
         <Carousel />
         </>
