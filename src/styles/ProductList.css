@@ -1,0 +1,6 @@
+.adminProductList {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--black);
+    padding: 2vw;
+}

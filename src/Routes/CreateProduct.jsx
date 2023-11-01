@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/CreateProduct.css";
 import CreateProductError from "../components/CreateProductError";
-import { Menu } from "../components/Menu";
 
 const CreateProduct = () => {
   const [name, setName] = useState("");
@@ -49,8 +48,8 @@ const CreateProduct = () => {
   };
 
   return (
-    <div>
-      <Menu />
+
+
 
       <div className="createProductPage">
         <section className="createProductSection">
@@ -103,7 +102,7 @@ const CreateProduct = () => {
         </section>
         <section className="lastAddedSection"></section>
       </div>
-    </div>
+
   );
 };
 
