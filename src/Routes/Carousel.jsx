@@ -13,14 +13,14 @@ const Carousel = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await axios.get('http://localhost:8001/instrumentos', {
+        const response = await axios.get('http://localhost:8001/instrumentos/paginado', {
           params: {
-            page: 1,
-            size: 4,
+            page: 0,
+            size: 10,
             sort: 'puntuacion,desc', // Ordenar por puntuación de forma descendente
           },
         });
-        setProducts(response.data);
+        setProducts(response.data.content);
       } catch (error) {
         console.error(error);
       }
