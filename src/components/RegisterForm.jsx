@@ -51,14 +51,14 @@ export const RegisterForm = () => {
 
   return (
     <>
-    <form className="form-register" onSubmit={handleSubmit}>
+    <form className="form-register" onSubmit={handleSubmit} >
       <div className="form-register__content">
         <div className="form-register__name">
           <label htmlFor="name">Nombre</label>
           <input
             type="text"
             id="name"
-            placeholder="Juan Pablo"
+            placeholder="Ej: Juan Pablo"
             value={formData.name}
             onChange={handleChange}
           />
@@ -68,7 +68,7 @@ export const RegisterForm = () => {
           <input
             type="text"
             id="lastName"
-            placeholder="Perez"
+            placeholder="Ej: Perez"
             value={formData.lastName}
             onChange={handleChange}
           />
@@ -78,7 +78,7 @@ export const RegisterForm = () => {
           <input
             type="email"
             id="mail"
-            placeholder="Usuario@gmail.com"
+            placeholder="Ej: Usuario@gmail.com"
             value={formData.mail}
             onChange={handleChange}
             />
@@ -88,7 +88,6 @@ export const RegisterForm = () => {
           <input
             type="password"
             id="password"
-            placeholder="*********"
             value={formData.password}
             onChange={handleChange}
             />
@@ -98,7 +97,6 @@ export const RegisterForm = () => {
           <input
             type="date"
             id="bornDate"
-            placeholder=""
             value={formData.bornDate}
             onChange={handleChange}
             />
@@ -108,8 +106,9 @@ export const RegisterForm = () => {
           <input
             type="number"
             id="dni"
-            placeholder="11.111.111"
+            placeholder="Ej: 11.111.111"
             value={formData.dni}
+            min={0}
             onChange={handleChange}
             />
         </div>
