@@ -30,32 +30,36 @@
 
 .register__title a {
   color: var(--white);
+  font-size: 1.1em;
   margin-left: auto; /* Empuja el Link a la derecha del contenedor */
 }
 
 .form-register{
-  display: flex;
-  flex-direction: column;
   background-color: var(--dark-grey);
   width: 100%;
   border-radius: 0 0 15px 15px;
 }
 
 .form-register__content{
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4vw;
+  padding: 2vw;
 }
 
-.form-register div{
-  padding: 2% 0;
+.form-register__content div{
+  width: 45%;
   display: flex;
   flex-direction: column;
+  gap: 2vh;
 }
 
 .form-register label{
-  padding-bottom: 1vw;
-  font-size: 1em;
+  font-size: 1.4em;
 }
 
 .form-register div input{
@@ -66,29 +70,22 @@
   border-radius: 45px;
   font-size: 1em;
   height: 3vw; 
-  width: 70%;
+  width: 100%;
   border: none;
 }
 
 .form-register div input:focus{
-  outline: 3px solid var(--red);
+  outline: 5px solid var(--red);
 }
 
-.form-register__bornDate,
-.form-register__dni{
-  width: 50%;
-}
-
-.form-register__submit{
-  height: 20vh;
-  display: flex;
-  justify-content: center;
-  padding-left: 1vw;
+.form-register .form-register__submit{
+  margin-right: auto;
   width: 25%;
+  padding-left: 1vw;
 }
 
 .form-register .form-register__submit button{
-  width: 90%;
+  width: 100%;
   background-color: var(--red);
   border: none;
   height: 3vw;
@@ -97,8 +94,12 @@
   border-radius: 10px;
   font-size: 1.2em;
   margin: 0 auto;
+  transition: all .2 ease-in-out;
 }
 
 .form-register .form-register__submit button:hover{
   cursor: pointer;
+  background-color: var(--white);
+  color: var(--red);
+  outline: 2px solid var(--red);
 }
