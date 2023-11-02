@@ -1,18 +1,15 @@
 .detail-container {
   display: flex;
   color: white;
-  height: 85vh;
-  width: 100%;
-  margin: 0 auto;
-  padding: 20px;
-  margin-top: 4%;
-  margin-left: 10%;
-  margin-bottom: 8%;
+  height: 108vh;
+  width: 85%;
+  margin: 5% auto;
+  
 }
-
 .product-details-container {
   flex: 1;
-  padding: 2rem;
+  padding: 0.5rem;
+  width: 30%;
   background: linear-gradient(120deg, rgb(27, 26, 26) 50%, rgb(44, 43, 43) 20%);
 }
 
@@ -22,35 +19,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding: 1rem;
-  margin-left: 6%;
+  padding-left: 2%;
+  
 }
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+}
 .product-image {
-  width: 100%;
+  width: auto;
+  max-width: 90%;
   max-height: 80vh;
 }
 
 .small-images-container {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   align-items: center;
-  gap: 6%; /* Espacio entre las imágenes pequeñas */
-  width: 37%;
-  margin-right: 5%;
+  gap: 4%; 
+  padding-top: 5%;
+
 }
 
-.small-image {
-  width: 30%;
+.small-image{
+  width: 200px; 
+  height: 100px;
   max-height: auto;
+  max-width: auto;
 }
 
 .LinkToGallery {
   position: relative;
   background-color: rgba(255, 255, 255, 0.5);
-  width: 30%;
   max-height: auto;
+  width: 200px; 
+  height: 100px;
+  max-height: auto;
+  max-width: auto;
 }
 
 .LinkToGallery img {
@@ -131,4 +138,13 @@
 
 .button-cart {
   background: rgb(19, 18, 18);
+}
+.detail__title{
+  text-align: center;
+  font-family: var(--main-font);
+  color: var(--title);
+  font-weight: 700;
+  font-size: 30px;
+  min-width: min-content;
+  margin-bottom: 5%;
 }

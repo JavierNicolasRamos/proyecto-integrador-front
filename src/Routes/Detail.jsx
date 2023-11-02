@@ -1,8 +1,9 @@
-import { Link, useParams } from "react-router-dom";
-import productos from "../components/Product";
+import { Link, useParams } from 'react-router-dom';
 import "../styles/Detail.css";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import Carousel from './Carousel';
+import Caracteristicas from '../components/Caracteristicas';
 
 const Detail = () => {
   const [productExists, setProductExists] = useState(false);
@@ -51,11 +52,12 @@ const Detail = () => {
   };
 
   return (
-    <div className="detail-container">
+    <div>
       {productExists === false ? (
         <div>Producto no encontrado</div>
       ) : (
         <>
+        <div className="detail-container">
           <div className="product-details-container">
             <div className="product-info">
               <div>
@@ -82,13 +84,9 @@ const Detail = () => {
             </div>
           </div>
           <div className="product-image-container">
-            <img
-              src={imagen[0].imagen}
-              alt={nombre}
-              className="product-image"
-            />
-          </div>
-          <div className="small-images-container">
+          <div className="image-wrapper">
+            <img src={imagen[0].imagen} alt={nombre} className="product-image" />
+            <div className="small-images-container">
             <img
               src={imagen[1].imagen}
               alt="Small Image 1"
@@ -107,9 +105,18 @@ const Detail = () => {
               />
             </Link>
           </div>
+          </div>
+        
+        </div>
+        </div>
+        <h2 className="detail__title">Caracteristicas del producto</h2>
+        <Caracteristicas/>
+        <Carousel />
         </>
-      )}
+      )} 
+
     </div>
+   
   );
 };
 export default Detail;
