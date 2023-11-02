@@ -80,16 +80,30 @@ const Detail = () => {
             </div>
           </div>
           <div className="product-image-container">
-        <Link to={`/product/gallery/${id}`}>
+      
           <div className="image-wrapper">
             <img src={imagen[0].imagen} alt={nombre} className="product-image" />
             <div className="small-images-container">
-              <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
-              <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
-              <img src={imagen[3].imagen} alt="Small Image 3" className="LinkToGallery"/>
-            </div>
+            <img
+              src={imagen[1].imagen}
+              alt="Small Image 1"
+              className="small-image"
+            />
+            <img
+              src={imagen[2].imagen}
+              alt="Small Image 2"
+              className="small-image"
+            />
+            <Link to={`/product/gallery/${id}`} className="LinkToGallery">
+              <img
+                src={imagen[3].imagen}
+                alt="Small Image 3"
+                className="small-image small-image-3"
+              />
+            </Link>
           </div>
-        </Link>
+          </div>
+        
         </div>
         </div>
         <h2 className="detail__title">Caracteristicas del producto</h2>

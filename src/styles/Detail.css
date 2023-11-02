@@ -50,18 +50,20 @@
   max-width: auto;
 }
 
-.LinkToGallery{
+.LinkToGallery {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  max-height: auto;
   width: 200px; 
   height: 100px;
   max-height: auto;
   max-width: auto;
-  opacity: 10;
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .LinkToGallery img {
-  opacity: 10;
-  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
 }
 
 .LinkToGallery:after {
@@ -76,7 +78,7 @@
 }
 
 .LinkToGallery:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
   transition: all 0.3s;
 }
 
