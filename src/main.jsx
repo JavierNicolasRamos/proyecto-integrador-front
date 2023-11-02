@@ -8,6 +8,8 @@ import Gallery from "./Routes/Gallery";
 import NewProduct from "./Routes/NewProduct";
 import NotFound from "./Routes/NotFound";
 import Listado from "./Routes/Listado";
+import { Register } from "./Routes/Register";
+import { Login } from "./Routes/Login";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -20,6 +22,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/product/gallery/:id" element={<Gallery />} />
           <Route path="/product/new" element={<NewProduct />} />
           <Route path="/listado" element={<Listado />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
