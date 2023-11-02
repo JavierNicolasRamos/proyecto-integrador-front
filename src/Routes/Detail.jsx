@@ -94,7 +94,6 @@ const Detail = () => {
         </div>
         <h2 className="detail__title">Caracteristicas del producto</h2>
         <Caracteristicas/>
-        <h2 className="detail__title">Productos que pueden interesarte</h2>
         <Carousel />
         </>
       )} 
