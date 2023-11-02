@@ -2,15 +2,29 @@ import "../styles/Footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faSquareThreads, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 
 const Footer = () => {
 
-  const isLogin = location.pathname === "/login"
+  const location = useLocation(); // Obtén la ubicación actual
+  const isLogin = location.pathname === "/login";
+  const isRegister = location.pathname === "/register";
 
+  const [showBrands, setShowBrands] = useState(true);
+
+  useEffect(() => {
+    if (isLogin || isRegister) {
+      setShowBrands(false);
+    } else {
+      setShowBrands(true);
+    }
+  }, [location.pathname]); // Observa cambios en la ubicación
+  
   return (
     <footer className="footer">
-      <div className={`footer-brand-logos ${isLogin ? 'hide' : ''}`}>
+      <div className={`footer-brand-logos ${showBrands ? '' : 'hide'}`}>
         <div className="footer-brand-logos-boxes">
           <img
             className="ibanez"
