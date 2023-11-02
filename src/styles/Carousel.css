@@ -2,13 +2,16 @@
 .slick-slider {
     position: relative;
     padding: 0 16px; /* Espacio en los laterales */
-    margin-left: 7%;
-    margin-right: 5%;
+    margin: 2% 15%;
+    width: 900px;
+    height: auto;
+
   }
   
   /* Estilo para cada tarjeta del carrusel */
   .slick-slide {
-    padding:4px; /* Espacio entre las tarjetas */
+    padding:20px;
+    width: 5%; /* Espacio entre las tarjetas */
   }
   
   /* Estilo para las flechas "Anterior" y "Siguiente" */
@@ -30,4 +33,14 @@
   
   button.slick-next {
     right: 0; /* Alinea a la derecha */
+  }
+
+  .carousel__title{
+    text-align: center;
+    font-family: var(--main-font);
+    color: var(--title);
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 6%;
+
   }

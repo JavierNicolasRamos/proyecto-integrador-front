@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Card from '../components/Card'; 
 import "../styles/Carousel.css"
+import "../styles/Card.css";
 
 const Carousel = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ const Carousel = () => {
           params: {
             page: 1,
             size: 4,
-            sort: 'nombre',
+            sort: 'puntuacion,desc', // Ordenar por puntuación de forma descendente
           },
         });
         setProducts(response.data);
@@ -40,6 +41,8 @@ const Carousel = () => {
   };
 
   return (
+    <div>
+      <h2 className="carousel__title">Mejores puntuados</h2>
     <Slider {...settings}>
       {products.map((product) => (
         <Card
@@ -52,8 +55,8 @@ const Carousel = () => {
         />
       ))}
     </Slider>
+    </div>
   );
 };
+
 export default Carousel;
-
-

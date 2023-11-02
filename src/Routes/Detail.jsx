@@ -86,7 +86,7 @@ const Detail = () => {
             <div className="small-images-container">
               <img src={imagen[1].imagen} alt="Small Image 1" className="small-image" />
               <img src={imagen[2].imagen} alt="Small Image 2" className="small-image" />
-              <img src={imagen[3].imagen} alt="Small Image 3" className="small-image" />
+              <img src={imagen[3].imagen} alt="Small Image 3" className="LinkToGallery"/>
             </div>
           </div>
         </Link>
