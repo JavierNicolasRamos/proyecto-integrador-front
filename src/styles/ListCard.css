@@ -25,6 +25,7 @@
     font-size: 1.2vw;
     font-weight: 700;
     color: var(--white);
+    cursor: pointer;
 }
 
 .productListUpdateBtn {
