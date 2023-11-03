@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ListCard from "../components/ListCard";
-import "../styles/ProductList.css";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/ProductList.css";
 
 const ProductList = () => {
-  const [page, setpage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
 
+  const params = {
+    page: currentPage - 1,
+    size: 10,
+    sort: "id,asc",
+  };
+
+  // Obtain paged products
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8001/instrumentos`);
+      const response = await axios.get(
+        `http://localhost:8001/instrumentos/paginado`,
+        { params }
+      );
       if (response.status === 200) {
-        const instrumentData = response.data;
-        const pageStart = page * 10 - 10;
-        const pageEnd = pageStart + 10 + 1;
-        const pageProducts = instrumentData.slice(pageStart, pageEnd);
-
-        setProducts(pageProducts);
+        setProducts(response.data.content);
       } else {
         console.error("La solicitud a la API no fue exitosa");
       }
@@ -28,7 +33,31 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [page]);
+  }, [currentPage]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // Obtain Products Quantuty
+  const fetchTotalProducts = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8001/instrumentos`);
+      if (response.status === 200) {
+        const total = response.data.length;
+        const totalPages = Math.ceil(total / 10 + 1);
+        setTotalPages(totalPages);
+      } else {
+        console.error("La solicitud a la API no fue exitosa");
+      }
+    } catch (error) {
+      console.error("Error al obtener datos de la API:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTotalProducts();
+  }, []);
 
   // Delete Handler
 
@@ -52,16 +81,45 @@ const ProductList = () => {
   };
 
   return (
-    <div className="adminProductList">
-      {products.map((product) => (
-        <ListCard
-          key={product.id}
-          id={product.id}
-          name={product.nombre}
-          handleDelete={handleDelete}
-          fetchProducts={fetchProducts}
-        />
-      ))}
+    <div>
+      <div className="adminProductList">
+        <div>
+          {products.map((product) => (
+            <ListCard
+              key={product.id}
+              id={product.id}
+              name={product.nombre}
+              handleDelete={handleDelete}
+              fetchProducts={fetchProducts}
+            />
+          ))}
+        </div>
+        <div className="pageNumbersDiv">
+          <button
+            className="pageNumber currentNumberPage"
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            <img src="/src/images/PrevPage.svg" alt="PrevPage" />
+          </button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              className={`pageNumber ${
+                index + 1 === currentPage ? "currentNumberPage" : ""
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+          <button
+            className="pageNumber currentNumberPage"
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            <img src="/src/images/NextPage.svg" alt="PrevPage" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
