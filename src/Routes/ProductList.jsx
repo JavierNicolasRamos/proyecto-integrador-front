@@ -97,7 +97,7 @@ const ProductList = () => {
         <div className="pageNumbersDiv">
           <button
             className="pageNumber currentNumberPage"
-            onClick={() => setCurrentPage(currentPage - 1)}
+            onClick={() => setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1)}
           >
             <img src="/src/images/PrevPage.svg" alt="PrevPage" />
           </button>
@@ -114,7 +114,7 @@ const ProductList = () => {
           ))}
           <button
             className="pageNumber currentNumberPage"
-            onClick={() => setCurrentPage(currentPage + 1)}
+            onClick={() => setCurrentPage(currentPage + 1 > totalPages? currentPage : currentPage + 1 )}
           >
             <img src="/src/images/NextPage.svg" alt="PrevPage" />
           </button>
