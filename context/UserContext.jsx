@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
       email: "fegv.2@hotmail.com.ar",
   });
 
-  // const [isLogged, setIsLogged] = useState(false)
+  const [isLogged, setIsLogged] = useState(true)
 
   // Definimos funciones para actualizar el estado
   const updateUser = (user) => {
@@ -29,7 +29,8 @@ export const UserProvider = ({ children }) => {
   // Creamos el objeto con los datos y funciones proporcionados a los componentes hijos
   const userValue = {
     user,
-    // isLogged,
+    isLogged,
+    setIsLogged,
     updateUser,
   };
 
