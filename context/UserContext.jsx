@@ -7,8 +7,7 @@ const UserContext = createContext()
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   // Definimos estados
-  const [user, setUser] = useState(
-    {
+  const [user, setUser] = useState({
       id: "1",
       nombre: "Federico",
       apellido: "Galan",
@@ -18,8 +17,9 @@ export const UserProvider = ({ children }) => {
       numero: "22525796",
       movil: "22525796",
       email: "fegv.2@hotmail.com.ar",
-    }
-  );
+  });
+
+  // const [isLogged, setIsLogged] = useState(false)
 
   // Definimos funciones para actualizar el estado
   const updateUser = (user) => {
@@ -29,6 +29,7 @@ export const UserProvider = ({ children }) => {
   // Creamos el objeto con los datos y funciones proporcionados a los componentes hijos
   const userValue = {
     user,
+    // isLogged,
     updateUser,
   };
 
