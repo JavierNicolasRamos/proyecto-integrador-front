@@ -1,6 +1,5 @@
 import React from "react";
 import ListCard from "../components/ListCard";
-import DeleteConfirmationDialog from "../components/DeleteConfirmationDialog";
 import "../styles/ProductList.css";
 import { useEffect, useState } from "react";
 import axios from "axios";

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ListCard.css";
 import DeleteConfirmationDialog from "./DeleteConfirmationDialog";
 
@@ -24,6 +23,7 @@ const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
     fetchProducts();
   };
 
+
   return (
     <div className="listcard">
       <div className="productListId">ID - {id}</div>
@@ -36,11 +36,13 @@ const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
           Eliminar
         </button>
       </div>
-      <DeleteConfirmationDialog
-        isOpen={isConfirmationOpen}
-        onCancel={handleCancelDelete}
-        onConfirm={handleConfirmDelete}
-      />
+      {isConfirmationOpen && (
+        <DeleteConfirmationDialog
+          isOpen={isConfirmationOpen}
+          onCancel={handleCancelDelete}
+          onConfirm={handleConfirmDelete}
+        />
+      )}
     </div>
   );
 };
