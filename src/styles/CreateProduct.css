@@ -45,7 +45,7 @@
   padding: 2vh 0 0.8vh 0;
 }
 
-.createProductSection form input, .createProductSection form textarea  {
+.createProductSection form input, .createProductSection form textarea, .createProductSection form select  {
   padding: 1vh 0 1vh 0;
   border-radius: 45px;
   padding-left: 1vw;
