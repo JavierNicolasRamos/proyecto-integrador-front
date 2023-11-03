@@ -1,0 +1,33 @@
+.adminProductList {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  padding: 2vw;
+  height: 80vh;
+justify-content: space-between;
+}
+
+.pageNumbersDiv {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.pageNumbersDiv img {
+height: 1.2vw;
+}
+
+.pageNumber {
+  font-family: var(--main-font);
+  font-size: 1.7vw;
+  font-weight: 700;
+  color: rgb(199, 199, 199);
+  border: 0px;
+  background-color: var(--black);
+  cursor: pointer;
+}
+
+.currentNumberPage {
+    color: var(--red);
+}
