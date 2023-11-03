@@ -45,7 +45,7 @@ const ProductList = () => {
       const response = await axios.get(`http://localhost:8001/instrumentos`);
       if (response.status === 200) {
         const total = response.data.length;
-        const totalPages = Math.ceil(total / 10 + 1);
+        const totalPages = Math.floor(total / 10) + 1;
         setTotalPages(totalPages);
       } else {
         console.error("La solicitud a la API no fue exitosa");
