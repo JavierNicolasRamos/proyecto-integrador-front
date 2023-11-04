@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Carousel from './Carousel';
+import ProductCarrusel from '../components/ProductCarrusel';
 import Caracteristicas from '../components/Caracteristicas';
 
 const Detail = () => {
@@ -111,7 +111,7 @@ const Detail = () => {
         </div>
         <h2 className="detail__title">Caracteristicas del producto</h2>
         <Caracteristicas/>
-        <Carousel />
+        <ProductCarrusel/>
         </>
       )} 
 
