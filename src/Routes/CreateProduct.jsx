@@ -10,24 +10,7 @@ const CreateProduct = () => {
   const [images, setImages] = useState([]);
   const [showCard, setShowCard] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const nameIsValid = validateName(name);
-
-    if (!nameIsValid) {
-      setShowError(true);
-      setShowCard(false);
-    } else {
-      setShowError(false);
-      setShowCard(true);
-    }
-  };
-
-  const handleImageChange = (e) => {
-    const selectedImages = Array.from(e.target.files);
-    setImages(selectedImages);
-  };
+  // Name validation
 
   const validateName = (name) => {
     const trimLeftApplied = name.trimLeft();
@@ -39,11 +22,66 @@ const CreateProduct = () => {
     }
   };
 
+  // Submit Handler
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const nameIsValid = validateName(name);
+
+    if (!nameIsValid) {
+      setShowError(true);
+      setShowCard(false);
+    } else {
+      setShowError(false);
+      setShowCard(true);
+
+      // Create Request Body
+      const productData = {
+        nombre: name,
+        categoria: {
+          id: selectedCategoryId,
+          descripcion: selectedCategoryDescription,
+        },
+        detalle: detail,
+      };
+
+      // Add Images if present
+      if (images.length > 0) {
+        productData.imagen = images.map((image) => ({ imagen: image }));
+      }
+
+      // To make a POST request to the API:
+
+      axios
+        .post("http://localhost:8001/instrumentos", productData)
+        .then((response) => {
+          console.log("Producto agregado exitosamente:", response.data);
+          setName("");
+          setDetail("");
+          setImages([]);
+          setSelectedCategoryId("");
+        })
+        .catch((error) => {
+          console.error("Error al agregar el producto:", error);
+        });
+    }
+  };
+
+  // Images handler
+
+  const handleImageChange = (e) => {
+    const selectedImages = Array.from(e.target.files);
+    setImages(selectedImages);
+  };
+
   // Fetch Categories
 
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
+   
 
+  
   useEffect(() => {
     axios
       .get("http://localhost:8001/categoria")
@@ -57,6 +95,21 @@ const CreateProduct = () => {
         console.error("Error al obtener categorías:", error);
       });
   }, []);
+
+    // Get category detail from category id
+
+    const [selectedCategoryDescription, setSelectedCategoryDescription] = useState("");
+
+    useEffect(() => {
+      if (selectedCategoryId) {
+        const selectedCategory = categories.find((category) => category.id === selectedCategoryId);
+        if (selectedCategory) {
+          setSelectedCategoryDescription(selectedCategory.descripcion);
+        }
+      } else {
+        setSelectedCategoryDescription("");
+      }
+    }, [selectedCategoryId, categories]);
 
   return (
     <div className="createProductPage">
