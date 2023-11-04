@@ -7,7 +7,7 @@ import Detail from "./Routes/Detail";
 import Gallery from "./Routes/Gallery";
 import NewProduct from "./Routes/NewProduct";
 import NotFound from "./Routes/NotFound";
-import Listado from "./Routes/Listado";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,7 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/product/detail/:id" element={<Detail/>} />
           <Route path="/product/gallery/:id" element={<Gallery />} />
           <Route path="/product/new" element={<NewProduct />} />
-          <Route path="/listado" element={<Listado />}/>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
