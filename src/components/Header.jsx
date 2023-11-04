@@ -1,19 +1,23 @@
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Header.css";
 import { Menu } from "./Menu";
+import { HeaderProfile } from "./HeaderProfile";
+import { useUser } from "../../context/UserContext";
+
 
 export const Header = () => {
   const location = useLocation();
 
   // Verifica si la ruta actual es la página de inicio
   const isHome = location.pathname === "/home"
-
+  const { isLogged } = useUser()
 
   return (
     <>
       <section className="phone">
         <p className="phone-text">🔥 3, 6, 12 y 18 Cuotas fijas EN TODOS LOS PRODUCTOS - 📞 11 3984 9613</p>
       </section>
+      
       <header className={`header ${!isHome ? 'hide' : ''}`}>
         <section className="header__search-bar">
           
@@ -31,15 +35,26 @@ export const Header = () => {
             />
           </form>
 
-          <div className="header__action-buttons">
-            <button className="header__action-button-register btn">
-              Registrarse
-            </button>
-            <button className="header__action-button-login btn">
-              Iniciar sesión
-            </button>
+          {
+            isLogged ? 
+            <HeaderProfile/>
+            :
+            <div className="header__action-buttons">
+            <Link to={"/register"}>
+              <button className="header__action-button-register btn">
+                Registrarse
+              </button>
+            </Link>
+            <Link to={"/login"}>
+              <button className="header__action-button-login btn">
+                Iniciar sesión
+              </button>
+            </Link>
           </div>
+          }
+
         </section>
+
       </header>
       <Menu/>
     </>

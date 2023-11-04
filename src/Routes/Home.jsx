@@ -1,11 +1,12 @@
-import ProductCarrusel from "../components/ProductCarrusel";
+import { ProductCarrusel } from "../components/ProductCarrusel";
+import { Hero } from "../components/Hero";
 import { RandomProds } from "../components/RandomProds";
 import "../styles/Home.css"
 
 const Home = () => {
   return (
     <>
-      <img className="home__hero" src="src/images/banner.svg" alt="imagenes de guitarras Yamaha" />
+      <Hero/>
       <RandomProds/>
       <ProductCarrusel/>
     </>

@@ -1,9 +1,9 @@
-.NewProductPage {
+.createProductPage {
   display: flex;
   background-color: white;
 }
 
-.NewProductSection {
+.createProductSection {
   display: flex;
   flex-direction: column;
   height: 80vh;
@@ -16,7 +16,7 @@
 
 }
 
-.NewProduct-title {
+.createProduct-title {
   background-color: rgba(237, 40, 57, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   height: 10vh;
@@ -26,13 +26,13 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.NewProduct-title p {
+.createProduct-title p {
   font-family: Helvetica;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.NewProductSection form {
+.createProductSection form {
   display: flex;
   flex-direction: column;
   padding: 2vw;
@@ -41,11 +41,11 @@
   font-weight: 500;
 }
 
-.NewProductSection form label {
+.createProductSection form label {
   padding: 2vh 0 0.8vh 0;
 }
 
-.NewProductSection form input, .NewProductSection form textarea  {
+.createProductSection form input, .createProductSection form textarea  {
   padding: 1vh 0 1vh 0;
   border-radius: 45px;
   padding-left: 1vw;
@@ -55,7 +55,7 @@
 
 }
 
-.NewProductSection form input::placeholder {
+.createProductSection form input::placeholder {
   vertical-align: top;
   line-height: 1;
 }

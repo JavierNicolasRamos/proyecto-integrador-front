@@ -1,12 +1,15 @@
 :root {
   --light-grey: #333333;
-  --dark-grey: #1e2122;
+  --dark-grey: #191D20;
+  --grey: #383836;
   --red: #ed2839;
-  --title: #513d3f;
-  --white: #e5e5e5;
+  --title: #1E1E1E;
+  --white: #FFF;
   --black: #252525;
+  --total-black: #000000;
   --btn: #292f33;
-  --body: #e5e5e5;
+  --body: #e5e5e5; 
+  --facebook: #3B589A;
   --main-font: Helvetica, Arial, sans-serif;
   --secondary-font: "Calibri", Arial, sans-serif;
 }
