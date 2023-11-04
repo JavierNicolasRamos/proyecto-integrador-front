@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/home" element={<Home />} />
           <Route path="/product/detail/:id" element={<Detail/>} />
           <Route path="/product/gallery/:id" element={<Gallery />} />
-          <Route path="/product/new" element={<NewProduct />} />
+          {/* <Route path="/product/new" element={<NewProduct />} /> */}
           <Route path="/product/create" element={<CreateProduct />} />
           <Route path="/product/list" element={<ProductList />} />
           <Route path="/login" element={<Login />} />

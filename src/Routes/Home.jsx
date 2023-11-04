@@ -1,4 +1,4 @@
-import { ProductCarrusel } from "../components/ProductCarrusel";
+import  ProductCarrusel  from "../components/ProductCarrusel";
 import { Hero } from "../components/Hero";
 import { RandomProds } from "../components/RandomProds";
 import "../styles/Home.css"
