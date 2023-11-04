@@ -41,6 +41,7 @@ const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
           isOpen={isConfirmationOpen}
           onCancel={handleCancelDelete}
           onConfirm={handleConfirmDelete}
+          item={"este instrumento"}
         />
       )}
     </div>
