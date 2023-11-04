@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "../styles/Header.css";
 import { Menu } from "./Menu";
 import { HeaderProfile } from "./HeaderProfile";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../context/UserContext";
 
 
 export const Header = () => {
