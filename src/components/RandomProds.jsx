@@ -1,37 +1,16 @@
-import axios from "axios";
 import Card from "./Card";
-// import productos from "./Product";
-import { useEffect, useState } from "react";
+import { useFetchRandomProds } from "../hooks/index";
 
 export const RandomProds = () => {
+  const { randomProds , isFetching } = useFetchRandomProds();
 
-  const [randomProds, setRandomProds] = useState([])
-  
-  useEffect(() => {
-    async function getRandomProds() {
-      try {
-        const response = await axios.get(`http://localhost:8001/instrumentos`, {
-          params: {
-            page: 1,
-            size: 10,
-            sort: 'nombre',
-          },
-        });
-        setRandomProds(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  
-    getRandomProds();
-  }, []);
+  if ( isFetching ) return <h4>Cargando...</h4>; //hacer un spinner
 
   return (
     <>
       <h2 className="home__title">Productos que pueden interesarte</h2>
       <div className="product-grid">
         {randomProds.map((randomProduct) => (
-          // console.log(randomProduct)
           <Card 
             key={randomProduct.id} 
             id={randomProduct.id} 

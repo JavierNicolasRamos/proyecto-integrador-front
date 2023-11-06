@@ -1,0 +1,1 @@
+export { useFetchRandomProds } from "./useFetchRandomProds";
