@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Card } from "../components/Card";
 import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Card from "../components/Card";
 import "../styles/Carousel.css";
-import "../styles/Card.css";
 
-const ProductCarrusel = () => {
+export const ProductCarrusel = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -32,31 +31,35 @@ const ProductCarrusel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
-    slidesToShow: 4,
+    speed: 6000,
+    slidesToShow: 5,
     slidesToScroll: 2,
-    draggable: true,
+    draggable: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    adaptiveHeight: true,
+    centerPadding: '200px',
     prevArrow: <button></button>,
     nextArrow: <button></button>,
   };
 
   return (
-    <div>
+    <>
       <h2 className="carousel__title">Mejores puntuados</h2>
-    <Slider {...settings}>
-      {products.map((product) => (
-        <Card
-          key={product.id}
-          id={product.id}
-          name={product.nombre}
-          image={product.imagen[0].imagen}
-          score={product.puntuacion}
-          category={product.categoria.descripcion}
-        />
-      ))}
-    </Slider>
+      <div className="carousel__content">
+        <Slider {...settings}>
+          {products.map((product) => (
+            <Card
+              key={product.id}
+              id={product.id}
+              name={product.nombre}
+              image={product.imagen[0].imagen}
+              score={product.puntuacion}
+              category={product.categoria.descripcion}
+            />
+          ))}
+        </Slider>
     </div>
+    </>
   );
 };
-
-export default ProductCarrusel;
