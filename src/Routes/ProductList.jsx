@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ListCard from "../components/ListCard";
+import { useState, useEffect } from "react";
+import { ListCard } from "../components/ListCard";
 import axios from "axios";
 import "../styles/ProductList.css";
 
-const ProductList = () => {
+export const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -123,5 +123,3 @@ const ProductList = () => {
     </div>
   );
 };
-
-export default ProductList;

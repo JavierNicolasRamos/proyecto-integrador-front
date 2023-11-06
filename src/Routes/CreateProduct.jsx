@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/CreateProduct.css";
-import CreateProductError from "../components/CreateProductError";
+import { CreateProductError } from "../components/CreateProductError";
 import axios from "axios";
 
-const CreateProduct = () => {
+export const CreateProduct = () => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
@@ -173,5 +173,3 @@ const CreateProduct = () => {
     </div>
   );
 };
-
-export default CreateProduct;
