@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/AdminPanel.css";
 
-const AdminPanel = () => {
+export const AdminPanel = () => {
   const adminPanelRoutes = [
     {
       name: "Cuenta",
@@ -43,4 +43,3 @@ const AdminPanel = () => {
   );
 };
 
-export default AdminPanel;

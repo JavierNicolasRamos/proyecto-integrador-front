@@ -10,6 +10,7 @@ import { NotFound } from "./Routes/NotFound";
 import { Register } from "./Routes/Register";
 import { Login } from "./Routes/Login";
 import { ProductList } from "./Routes/ProductList";
+import { AdminPanel } from "./Routes/AdminPanel";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
