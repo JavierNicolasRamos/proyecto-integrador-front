@@ -15,29 +15,18 @@
   object-fit: cover;
 }
 
-.product-grid{
+.product__grid-content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: space-evenly;
   width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   margin: 0 auto;
-  padding: 2vw;
-  gap: 2.5vw;
 }
 
-.product-grid div{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 1vw;
-}
-
-.product-grid a{
-  text-decoration: none;
-}
 
 @media (max-width: 480px) {
-  .product-grid{
+  .product__grid{
     justify-content: center;
   }
 }

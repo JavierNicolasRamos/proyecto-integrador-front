@@ -2,10 +2,10 @@ import { Link, useParams } from 'react-router-dom';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductCarrusel from '../components/ProductCarrusel';
-import Caracteristicas from '../components/Caracteristicas';
+import { ProductCarrusel } from '../components/ProductCarrusel';
+import { Caracteristicas } from '../components/Caracteristicas';
 
-const Detail = () => {
+export const Detail = () => {
   const [productExists, setProductExists] = useState(false);
   const [producto, setProducto] = useState({});
   const [fechaDesde, setFechaDesde] = useState("");
@@ -119,4 +119,3 @@ const Detail = () => {
    
   );
 };
-export default Detail;

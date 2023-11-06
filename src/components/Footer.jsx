@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 
-const Footer = () => {
+export const Footer = () => {
 
   const location = useLocation(); // Obtén la ubicación actual
   const isLogin = location.pathname === "/login";
@@ -90,5 +90,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

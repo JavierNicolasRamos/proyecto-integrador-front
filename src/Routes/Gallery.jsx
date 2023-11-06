@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { GalleryGridItem } from "../components/GalleryGridItem";
 import axios from "axios";
 import "../styles/Gallery.css";
-import GalleryGridItem from "../components/GalleryGridItem";
 
-const Gallery = () => {
+export const Gallery = () => {
   const { id } = useParams();
 
   const [imageUrls, setImageUrls] = useState([]);
@@ -67,5 +67,3 @@ const Gallery = () => {
     </div>
   );
 };
-
-export default Gallery;
