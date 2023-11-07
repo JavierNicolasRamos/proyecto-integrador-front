@@ -1,0 +1,23 @@
+.pageNumbersDiv {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.pageNumbersDiv img {
+height: 1.2vw;
+}
+
+.pageNumbers {
+  font-family: var(--main-font);
+  font-size: 1.7vw;
+  font-weight: 700;
+  color: rgb(5, 5, 5);
+  border: 0px;
+  cursor: pointer;
+}
+
+.currentNumberPages {
+    color: var(--red);
+}

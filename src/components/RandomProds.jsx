@@ -2,6 +2,7 @@ import axios from "axios";
 import Card from "./Card";
 // import productos from "./Product";
 import { useEffect, useState } from "react";
+import "../styles/RandomProds.css"
 
 export const RandomProds = () => {
 
@@ -78,7 +79,7 @@ useEffect(() => {
       </div>
       <div className="pageNumbersDiv">
           <button
-            className="pageNumber currentNumberPage"
+            className="pageNumbers currentNumberPage"
             onClick={() => setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1)}
           >
             <img src="/src/images/PrevPage.svg" alt="PrevPage" />
@@ -87,7 +88,7 @@ useEffect(() => {
             <button
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
-              className={`pageNumber ${
+              className={`pageNumbers ${
                 index + 1 === currentPage ? "currentNumberPage" : ""
               }`}
             >
@@ -95,7 +96,7 @@ useEffect(() => {
             </button>
           ))}
           <button
-            className="pageNumber currentNumberPage"
+            className="pageNumbers currentNumberPages"
             onClick={() => setCurrentPage(currentPage + 1 > totalPages? currentPage : currentPage + 1 )}
           >
             <img src="/src/images/NextPage.svg" alt="PrevPage" />
