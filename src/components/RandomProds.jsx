@@ -18,7 +18,7 @@ export const RandomProds = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8001/instrumentos/paginado`,
+          `http://localhost:8001/instruments/paginado`,
           { params }
         );
         if (response.status === 200) {
@@ -41,7 +41,7 @@ export const RandomProds = () => {
 
     const fetchTotalProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8001/instrumentos`);
+        const response = await axios.get(`http://localhost:8001/instruments`);
         if (response.status === 200) {
           const total = response.data.length;
           const totalPages = Math.floor(total / 10) + 1;
@@ -66,10 +66,10 @@ export const RandomProds = () => {
             <Card 
               key={randomProduct.id} 
               id={randomProduct.id} 
-              name={randomProduct.nombre} 
-              image={randomProduct.imagen[0].imagen}
-              score={randomProduct.puntuacion}
-              category={randomProduct.categoria.descripcion}   
+              name={randomProduct.name} 
+              image={randomProduct.image[0].image}
+              score={randomProduct.score}
+              category={randomProduct.category.detail}   
             />
           ))}
         </div>
