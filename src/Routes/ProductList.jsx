@@ -18,7 +18,7 @@ export const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8001/instrumentos/paginado`,
+        `http://localhost:8001/instrumentss/paginated`,
         { params }
       );
       if (response.status === 200) {
@@ -42,7 +42,7 @@ export const ProductList = () => {
   // Obtain Products Quantuty
   const fetchTotalProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8001/instrumentos`);
+      const response = await axios.get(`http://localhost:8001/instruments`);
       if (response.status === 200) {
         const total = response.data.length;
         const totalPages = Math.floor(total / 10) + 1;

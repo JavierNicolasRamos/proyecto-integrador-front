@@ -12,7 +12,7 @@ export const fetchRandomProds = async () => {
     let res
 
     try {
-        const {data} = await axios.get(`http://localhost:8001/instrumentos`);
+        const {data} = await axios.get(`http://localhost:8001/instruments`);
         res = data
     } catch (e) {
         if (errorMessages[e.status]) {

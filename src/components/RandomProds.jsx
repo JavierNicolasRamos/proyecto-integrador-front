@@ -14,10 +14,10 @@ export const RandomProds = () => {
             <Card 
               key={randomProduct.id} 
               id={randomProduct.id} 
-              name={randomProduct.nombre} 
-              image={randomProduct.imagen[0].imagen}
-              score={randomProduct.puntuacion}
-              category={randomProduct.categoria.descripcion}   
+              name={randomProduct.name} 
+              image={randomProduct.image[0].image}
+              score={randomProduct.score}
+              category={randomProduct.category.name}   
             />
           ))}
         </div>

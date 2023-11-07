@@ -52,9 +52,8 @@ export const CreateProduct = () => {
       }
 
       // To make a POST request to the API:
-
       axios
-        .post("http://localhost:8001/instrumentos", productData)
+        .post("http://localhost:8001/instruments", productData)
         .then((response) => {
           console.log("Producto agregado exitosamente:", response.data);
           setName("");
@@ -69,22 +68,19 @@ export const CreateProduct = () => {
   };
 
   // Images handler
-
   const handleImageChange = (e) => {
     const selectedImages = Array.from(e.target.files);
     setImages(selectedImages);
   };
 
   // Fetch Categories
-
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
    
-
   
   useEffect(() => {
     axios
-      .get("http://localhost:8001/categoria")
+      .get("http://localhost:8001/category/list")
       .then((response) => {
         const sortedCategories = response.data.sort((a, b) => {
           return a.descripcion.localeCompare(b.descripcion);

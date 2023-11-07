@@ -12,11 +12,11 @@ export const ProductCarrusel = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await axios.get('http://localhost:8001/instrumentos/paginado', {
+        const response = await axios.get('http://localhost:8001/instruments/paginated', {
           params: {
             page: 0,
             size: 10,
-            sort: 'puntuacion,desc', 
+            sort: 'score,detail', 
           },
         });
         setProducts(response.data.content);
@@ -52,10 +52,10 @@ export const ProductCarrusel = () => {
             <Card
               key={product.id}
               id={product.id}
-              name={product.nombre}
-              image={product.imagen[0].imagen}
-              score={product.puntuacion}
-              category={product.categoria.descripcion}
+              name={product.name}
+              image={product.image[0].image}
+              score={product.score}
+              category={product.category.name}
             />
           ))}
         </Slider>
