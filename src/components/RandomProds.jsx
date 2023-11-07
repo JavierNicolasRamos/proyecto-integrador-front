@@ -1,8 +1,7 @@
 import axios from "axios";
-import Card from "./Card";
+import { Card }  from "./Card";
 import { useEffect, useState } from "react";
 import "../styles/RandomProds.css"
-
 
 export const RandomProds = () => {
     const [randomProds, setRandomProds] = useState([])
