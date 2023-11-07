@@ -18,7 +18,7 @@ export const RandomProds = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8001/instruments/paginado`,
+          `http://localhost:8001/instruments/paginated`,
           { params }
         );
         if (response.status === 200) {
