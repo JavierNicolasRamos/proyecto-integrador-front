@@ -1,19 +1,8 @@
 import "../styles/Card.css";
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
-// eslint-disable-next-line react/prop-types
-const Card = ({id, name, image, score, category}) => {
 
-  // useEffect(() => {
-  //   axios.get('URL')
-  //     .then(response => {
-  //       setProducto(response.data);// ver como esta puesto en el back modificar .data
-  //     })
-  //     .catch(error => {
-  //       console.error('Error al obtener datos:', error);
-  //     });
-  // }, []);
-  // eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types
+export const Card = ({id, name, image, score, category}) => {
 
   return (
     <Link to={`/product/detail/${id}`}>
@@ -28,5 +17,3 @@ const Card = ({id, name, image, score, category}) => {
     </Link>
   )
 }
-         
-export default Card

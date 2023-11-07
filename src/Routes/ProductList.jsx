@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ListCard from "../components/ListCard";
+import { useState, useEffect } from "react";
+import { ListCard } from "../components/ListCard";
 import axios from "axios";
 import "../styles/ProductList.css";
 
-const ProductList = () => {
+export const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -18,7 +18,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8001/instrumentos/paginado`,
+        `http://localhost:8001/instrumentss/paginated`,
         { params }
       );
       if (response.status === 200) {
@@ -42,7 +42,7 @@ const ProductList = () => {
   // Obtain Products Quantuty
   const fetchTotalProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8001/instrumentos`);
+      const response = await axios.get(`http://localhost:8001/instruments`);
       if (response.status === 200) {
         const total = response.data.length;
         const totalPages = Math.floor(total / 10) + 1;
@@ -123,5 +123,3 @@ const ProductList = () => {
     </div>
   );
 };
-
-export default ProductList;

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "../styles/ListCard.css";
 import DeleteConfirmationDialog from "./DeleteConfirmationDialog";
 
-const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
+// eslint-disable-next-line react/prop-types
+export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
   const handleUpdateClick = () => {
@@ -47,5 +48,3 @@ const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
     </div>
   );
 };
-
-export default ListCard;

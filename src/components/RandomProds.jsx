@@ -1,10 +1,11 @@
 import axios from "axios";
 import Card from "./Card";
-// import productos from "./Product";
 import { useEffect, useState } from "react";
 import "../styles/RandomProds.css"
 
+
 export const RandomProds = () => {
+  const { randomProds , isFetching } = useFetchRandomProds();
 
   const [randomProds, setRandomProds] = useState([])
   const [totalPages, setTotalPages] = useState(1);
@@ -16,8 +17,6 @@ export const RandomProds = () => {
     sort: "id,asc",
   };
   
-  
-// Obtain paged products
 const fetchProducts = async () => {
   try {
     const response = await axios.get(
@@ -42,7 +41,6 @@ const handlePageChange = (page) => {
   setCurrentPage(page);
 };
 
-// Obtain Products Quantuty
 const fetchTotalProducts = async () => {
   try {
     const response = await axios.get(`http://localhost:8001/instrumentos`);
@@ -66,7 +64,6 @@ useEffect(() => {
       <h2 className="home__title">Productos que pueden interesarte</h2>
       <div className="product-grid">
         {randomProds.map((randomProduct) => (
-          // console.log(randomProduct)
           <Card 
             key={randomProduct.id} 
             id={randomProduct.id} 
@@ -102,7 +99,6 @@ useEffect(() => {
             <img src="/src/images/NextPage.svg" alt="PrevPage" />
           </button>
         </div>
-</div>
-
+    </div>
   );
 };

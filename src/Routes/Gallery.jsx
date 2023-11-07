@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { GalleryGridItem } from "../components/GalleryGridItem";
 import axios from "axios";
 import "../styles/Gallery.css";
-import GalleryGridItem from "../components/GalleryGridItem";
 
-const Gallery = () => {
+export const Gallery = () => {
   const { id } = useParams();
 
   const [imageUrls, setImageUrls] = useState([]);
@@ -14,13 +14,13 @@ const Gallery = () => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8001/instrumentos/${id}`
+          `http://localhost:8001/instruments/id/${id}`
         );
         if (response.status === 200) {
           const instrumentData = response.data;
-          const filteredImages = instrumentData.imagen
+          const filteredImages = instrumentData.image
             .filter((image) => !image.eliminado)
-            .map((image) => image.imagen);
+            .map((image) => image.image);
 
           setImageUrls(filteredImages);
         } else {
@@ -67,5 +67,3 @@ const Gallery = () => {
     </div>
   );
 };
-
-export default Gallery;

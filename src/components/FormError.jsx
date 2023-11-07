@@ -1,4 +1,5 @@
-// eslint-disable-next-line react/prop-types
+import PropTypes from 'prop-types';
+
 export const FormError = ({ errors }) => {
   return (
     <div className="error-messages">
@@ -7,4 +8,8 @@ export const FormError = ({ errors }) => {
       ))}
     </div>
   );
+};
+
+FormError.propTypes = {
+  errors: PropTypes.object.isRequired,
 };

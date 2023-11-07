@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/CreateProduct.css";
-import CreateProductError from "../components/CreateProductError";
+import { CreateProductError } from "../components/CreateProductError";
 import axios from "axios";
 
-const CreateProduct = () => {
+export const CreateProduct = () => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
@@ -52,9 +52,8 @@ const CreateProduct = () => {
       }
 
       // To make a POST request to the API:
-
       axios
-        .post("http://localhost:8001/instrumentos", productData)
+        .post("http://localhost:8001/instruments", productData)
         .then((response) => {
           console.log("Producto agregado exitosamente:", response.data);
           setName("");
@@ -69,22 +68,19 @@ const CreateProduct = () => {
   };
 
   // Images handler
-
   const handleImageChange = (e) => {
     const selectedImages = Array.from(e.target.files);
     setImages(selectedImages);
   };
 
   // Fetch Categories
-
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
    
-
   
   useEffect(() => {
     axios
-      .get("http://localhost:8001/categoria")
+      .get("http://localhost:8001/category/list")
       .then((response) => {
         const sortedCategories = response.data.sort((a, b) => {
           return a.descripcion.localeCompare(b.descripcion);
@@ -173,5 +169,3 @@ const CreateProduct = () => {
     </div>
   );
 };
-
-export default CreateProduct;

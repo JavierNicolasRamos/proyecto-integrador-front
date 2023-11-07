@@ -2,10 +2,10 @@ import { Link, useParams } from 'react-router-dom';
 import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductCarrusel from '../components/ProductCarrusel';
-import Caracteristicas from '../components/Caracteristicas';
+import { ProductCarrusel } from '../components/ProductCarrusel';
+import { Caracteristicas } from '../components/Caracteristicas';
 
-const Detail = () => {
+export const Detail = () => {
   const [productExists, setProductExists] = useState(false);
   const [producto, setProducto] = useState({});
   const [fechaDesde, setFechaDesde] = useState("");
@@ -19,7 +19,7 @@ const Detail = () => {
     const getProductById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8001/instrumentos/${id}`
+          `http://localhost:8001/instruments/id/${id}`
         );
         setProducto(response.data);
         setProductExists(true);
@@ -37,7 +37,7 @@ const Detail = () => {
     setDisponible,
   ]);
 
-  const { nombre, imagen, categoria, detalle } = producto;
+  const { name, image, category, detail } = producto;
 
   const handleRentClick = () => {
     // Lógica para manejar el alquiler
@@ -61,10 +61,10 @@ const Detail = () => {
           <div className="product-details-container">
             <div className="product-info">
               <div>
-                <h2 className="product-name">{nombre}</h2>
-                <p className="prodcut-description">{categoria.descripcion}</p>
+                <h2 className="product-name">{name}</h2>
+                <p className="prodcut-description">{category.name}</p>
               </div>
-              <p className="product-description">{detalle}</p>
+              <p className="product-description">{detail}</p>
               <div className="product-actions">
                 <div className="date-input">
                   <label htmlFor="desde">Desde</label>
@@ -85,21 +85,21 @@ const Detail = () => {
           </div>
           <div className="product-image-container">
           <div className="image-wrapper">
-            <img src={imagen[0].imagen} alt={nombre} className="product-image" />
+            <img src={image[0].image} alt={name} className="product-image" />
             <div className="small-images-container">
             <img
-              src={imagen[1].imagen}
+              src={image[1].image}
               alt="Small Image 1"
               className="small-image"
             />
             <img
-              src={imagen[2].imagen}
+              src={image[2].image}
               alt="Small Image 2"
               className="small-image"
             />
             <Link to={`/product/gallery/${id}`} className="LinkToGallery">
               <img
-                src={imagen[3].imagen}
+                src={image[3].image}
                 alt="Small Image 3"
                 className="small-image small-image-3"
               />
@@ -119,4 +119,3 @@ const Detail = () => {
    
   );
 };
-export default Detail;

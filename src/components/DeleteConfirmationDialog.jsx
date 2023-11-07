@@ -1,6 +1,6 @@
-import React from "react";
 import "../styles/DeleteConfirmationDialog.css"; 
 
+// eslint-disable-next-line react/prop-types
 const DeleteConfirmationDialog = ({ isOpen, onCancel, onConfirm, item }) => {
   const modalClass = isOpen ? "confirmation-dialog open" : "confirmation-dialog";
 
