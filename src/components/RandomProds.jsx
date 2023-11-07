@@ -68,7 +68,7 @@ export const RandomProds = () => {
               name={randomProduct.name} 
               image={randomProduct.image[0].image}
               score={randomProduct.score}
-              category={randomProduct.category.detail}   
+              category={randomProduct.category.name}   
             />
           ))}
         </div>
