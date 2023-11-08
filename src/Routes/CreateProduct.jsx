@@ -165,7 +165,6 @@ export const CreateProduct = () => {
 
         {showError && <CreateProductError />}
       </section>
-      <section className="lastAddedSection"></section>
     </div>
   );
 };

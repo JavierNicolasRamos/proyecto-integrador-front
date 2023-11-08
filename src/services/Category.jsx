@@ -46,9 +46,9 @@ export const postCategory = async (name, detail, image) => {
   let res;
 
   try {
-    const { data } = await axios.post(`http://localhost:8001/category/list`, {
-      params,
-    }, {headers: {'Content-Type': "multipart/formdata"}});
+    const { data } = await axios.post(`http://localhost:8001/category`, params, {
+      headers: { 'Content-Type': "multipart/form-data" }
+    });
     res = data;
   } catch (e) {
     if (errorMessages[e.status]) {
