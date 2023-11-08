@@ -31,14 +31,23 @@ export const Characteristics = () => {
         <div className="data-grid">
           <div className="caracteristicas-card">
             <h2>Caracteristicas</h2>
-            <p>Nombre {producto.name}</p>
-            <p>Categoría {producto.category.name}</p>
-            <p>Año de Lanzamiento {producto.uploadDate}</p>
-            <ul>
-              {producto.characteristics.map((characteristic, index) => (
-                <li key={index}>{characteristic.name}</li>
-              ))}
-            </ul>
+            <div className="box-detail">
+            <div className="column">
+                <p>Nombre</p>
+                <p>Categoría</p>
+                <p>Año de Lanzamiento</p>
+              </div>
+              <div className="column">
+                <p>{producto.name}</p>
+                <p>{producto.category.name}</p>
+                <p>{producto.uploadDate}</p>
+              </div>
+              <ul>
+                {producto.characteristics.map((characteristic, index) => (
+                  <li key={index}>{characteristic.name}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       ) : (
