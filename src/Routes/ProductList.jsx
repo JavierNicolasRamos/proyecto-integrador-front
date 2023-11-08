@@ -18,7 +18,7 @@ export const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8001/instrumentss/paginated`,
+        `http://localhost:8001/instruments/paginated`,
         { params }
       );
       if (response.status === 200) {
@@ -63,7 +63,7 @@ export const ProductList = () => {
 
   const handleDelete = async (Id) => {
     try {
-      const url = `http://localhost:8001/instrumentos/${Id}`;
+      const url = `http://localhost:8001/instruments/${Id}`;
       const response = await axios.delete(url);
 
       if (response.status === 200) {
@@ -88,7 +88,7 @@ export const ProductList = () => {
             <ListCard
               key={product.id}
               id={product.id}
-              name={product.nombre}
+              name={product.name}
               handleDelete={handleDelete}
               fetchProducts={fetchProducts}
             />
