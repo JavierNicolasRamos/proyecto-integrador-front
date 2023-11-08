@@ -12,7 +12,7 @@ export const CreateProduct = () => {
 
   // Name validation
 
-  const validateName = (name) => {
+  const validateName = (name) => {  
     const trimLeftApplied = name.trimLeft();
 
     if (trimLeftApplied.length >= 3) {
