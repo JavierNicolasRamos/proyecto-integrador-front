@@ -1,24 +1,22 @@
-.createProductPage {
+.createCategoryPage {
   display: flex;
   justify-content: center;
   background-color: var(--grey);
   width: 100%;
 }
 
-.createProductSection {
+.createCategorySection {
   display: flex;
   flex-direction: column;
-  height: 80vh;
   width: 50%;
   background-color: rgba(25, 29, 32, 1);
   margin: 4vw;
   border-radius: 20px;
   color: white;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
 }
 
-.createProduct-title {
+.createCategory-title {
   background-color: rgba(237, 40, 57, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   height: 10vh;
@@ -28,13 +26,13 @@
   border-radius: 20px 20px 0px 0px;
 }
 
-.createProduct-title p {
+.createCategory-title p {
   font-family: Helvetica;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.createProductSection form {
+.createCategorySection form {
   display: flex;
   flex-direction: column;
   padding: 2vw;
@@ -43,11 +41,11 @@
   font-weight: 500;
 }
 
-.createProductSection form label {
+.createCategorySection form label {
   padding: 2vh 0 0.8vh 0;
 }
 
-.createProductSection form input, .createProductSection form textarea, .createProductSection form select  {
+.createCategorySection form input, .createCategorySection form textarea, .createCategorySection form select  {
   padding: 1vh 0 1vh 0;
   border-radius: 45px;
   padding-left: 1vw;
@@ -57,7 +55,7 @@
 
 }
 
-.createProductSection form input::placeholder {
+.createCategorySection form input::placeholder {
   vertical-align: top;
   line-height: 1;
 }
@@ -108,6 +106,13 @@
   cursor: pointer;
 }
 
+.lastAddedSection {
+  background-color: white;
+  width: 50%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 #agregar {
   background-color: rgba(237, 40, 57, 1);
   width: 126px;
@@ -129,7 +134,7 @@
 }
 
 @media (max-width: 768px) {
-  .createProductSection {
+  .createCategorySection {
     width: 80%;
   }
 
