@@ -3,7 +3,7 @@ import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ProductCarrusel } from '../components/ProductCarrusel';
-import { Caracteristicas } from '../components/Caracteristicas';
+import { Characteristics } from '../components/Characteristics';
 
 export const Detail = () => {
   const [productExists, setProductExists] = useState(false);
@@ -109,8 +109,8 @@ export const Detail = () => {
         
         </div>
         </div>
-        <h2 className="detail__title">Caracteristicas del producto</h2>
-        <Caracteristicas/>
+        <Characteristics/>
+        
         <ProductCarrusel/>
         </>
       )} 

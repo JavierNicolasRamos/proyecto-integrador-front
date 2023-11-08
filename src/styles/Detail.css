@@ -1,16 +1,17 @@
 .detail-container {
   display: flex;
   color: white;
-  height: 108vh;
-  width: 85%;
-  margin: 5% auto;
+  height: 115vh;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
   
 }
 .product-details-container {
   flex: 1;
   padding: 0.5rem;
   width: 30%;
-  background: linear-gradient(120deg, rgb(27, 26, 26) 50%, rgb(44, 43, 43) 20%);
+  background:  rgb(44, 43, 43)
 }
 
 .product-image-container {
@@ -148,3 +149,7 @@
   min-width: min-content;
   margin-bottom: 5%;
 }
+
+
+
+
