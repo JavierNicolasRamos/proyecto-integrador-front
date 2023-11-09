@@ -6,7 +6,7 @@ export const fetchCategory = async () => {
     400: "Error del cliente",
     401: "No autorizado",
     403: "Acceso prohibido",
-    404: "No se encontraron productos",
+    404: "No se encontraron categorías",
   };
 
   let res;

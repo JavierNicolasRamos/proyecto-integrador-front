@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { postCategory } from "../services/Category";
+import { useState } from "react";
+import { postCategory } from "../services/index";
 
 export const usePostCategory = () => {
     const [ isFetching , setIsFetching ] = useState(true);

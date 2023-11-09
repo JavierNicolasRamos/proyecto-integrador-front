@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchRandomProds } from "../services/RandomProds";
+import { fetchRandomProds } from "../services/index";
 
 export const useFetchRandomProds = () => {
     const [ randomProds , setRandomProds ] = useState([]);

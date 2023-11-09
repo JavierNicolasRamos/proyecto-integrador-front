@@ -8,7 +8,7 @@ export const CreateProduct = () => {
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
   const [images, setImages] = useState([]);
-  const [showCard, setShowCard] = useState(false);
+  const [/*showCard*/, setShowCard] = useState(false);
 
   // Name validation
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCategory } from "../services/Category";
+import { fetchCategory } from "../services/index";
 
 export const useFetchCategoryListAdmin = () => {
     const [ category , setCategory ] = useState([]);
@@ -12,4 +12,4 @@ export const useFetchCategoryListAdmin = () => {
     }, []);
   
     return { category , isFetching };
-  }     
+}     
