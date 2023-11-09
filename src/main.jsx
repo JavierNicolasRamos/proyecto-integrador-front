@@ -12,6 +12,7 @@ import { Login } from "./Routes/Login";
 import { ProductList } from "./Routes/ProductList";
 import { AdminPanel } from "./Routes/AdminPanel";
 import { CreateCategory } from "./Routes/CreateCategory";
+import { AdminCategoryList } from "./Routes/AdminCategoryList";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,10 +23,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/home" element={<Home />} />
           <Route path="/product/detail/:id" element={<Detail/>} />
           <Route path="/product/gallery/:id" element={<Gallery />} />
-          <Route path="/adminpanel" element={<AdminPanel />} />
-          <Route path="/category/create" element={<CreateCategory />} />
-          <Route path="/product/create" element={<CreateProduct />} />
-          <Route path="/product/list" element={<ProductList />} />
+          <Route path="/admin/panel" element={<AdminPanel />} />
+          <Route path="/admin/category/create" element={<CreateCategory />} />
+          <Route path="/admin/category/list" element={<AdminCategoryList />} />
+          <Route path="/admin/product/create" element={<CreateProduct />} />
+          <Route path="/admin/product/list" element={<ProductList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="*" element={<NotFound />} />

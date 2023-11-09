@@ -12,7 +12,7 @@ export const CreateProduct = () => {
 
   // Name validation
 
-  const validateName = (name) => {  
+  const validateName = (name) => {
     const trimLeftApplied = name.trimLeft();
 
     if (trimLeftApplied.length >= 3) {
@@ -38,22 +38,20 @@ export const CreateProduct = () => {
 
       // Create Request Body
       const productData = {
-        nombre: name,
-        categoria: {
+        name: name,
+        detail: detail,
+        category: {
           id: selectedCategoryId,
           descripcion: selectedCategoryDescription,
         },
-        detalle: detail,
+        image: images.map((image) => ({ image: image })),
       };
-
-      // Add Images if present
-      if (images.length > 0) {
-        productData.imagen = images.map((image) => ({ imagen: image }));
-      }
 
       // To make a POST request to the API:
       axios
-        .post("http://localhost:8001/instruments", productData)
+        .post("http://localhost:8001/instruments", productData, {
+          headers: { "Content-Type": "multipart/form-data" }
+        })
         .then((response) => {
           console.log("Producto agregado exitosamente:", response.data);
           setName("");
@@ -69,21 +67,20 @@ export const CreateProduct = () => {
 
   // Images handler
   const handleImageChange = (e) => {
-    const selectedImages = Array.from(e.target.files);
-    setImages(selectedImages);
+    const newImages = Array.from(e.target.files);
+    setImages((prevImages) => [...prevImages, ...newImages]);
   };
 
   // Fetch Categories
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
-   
-  
+
   useEffect(() => {
     axios
       .get("http://localhost:8001/category/list")
       .then((response) => {
         const sortedCategories = response.data.sort((a, b) => {
-          return a.descripcion.localeCompare(b.descripcion);
+          return a.name.localeCompare(b.name);
         });
         setCategories(sortedCategories);
       })
@@ -92,26 +89,29 @@ export const CreateProduct = () => {
       });
   }, []);
 
-    // Get category detail from category id
+  // Get category detail from category id
 
-    const [selectedCategoryDescription, setSelectedCategoryDescription] = useState("");
+  const [selectedCategoryDescription, setSelectedCategoryDescription] =
+    useState("");
 
-    useEffect(() => {
-      if (selectedCategoryId) {
-        const selectedCategory = categories.find((category) => category.id === selectedCategoryId);
-        if (selectedCategory) {
-          setSelectedCategoryDescription(selectedCategory.descripcion);
-        }
-      } else {
-        setSelectedCategoryDescription("");
+  useEffect(() => {
+    if (selectedCategoryId) {
+      const selectedCategory = categories.find(
+        (category) => category.id === selectedCategoryId
+      );
+      if (selectedCategory) {
+        setSelectedCategoryDescription(selectedCategory.descripcion);
       }
-    }, [selectedCategoryId, categories]);
+    } else {
+      setSelectedCategoryDescription("");
+    }
+  }, [selectedCategoryId, categories]);
 
   return (
     <div className="createProductPage">
       <section className="createProductSection">
         <div className="createProduct-title">
-          <p>Agregar productos</p>
+          <p>Agregar producto</p>
         </div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Nombre del Producto</label>
@@ -135,7 +135,7 @@ export const CreateProduct = () => {
             <option value="">Seleccione una categoría</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
-                {category.descripcion}
+                {category.name}
               </option>
             ))}
           </select>

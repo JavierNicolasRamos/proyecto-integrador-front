@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCategory } from "../services/Category";
 
-export const useFetchCategoryListAdmin = () => {
+export const useFetchAdminCategoryList = () => {
     const [ category , setCategory ] = useState([]);
     const [ isFetching , setIsFetching ] = useState(true);
   

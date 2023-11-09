@@ -1,0 +1,48 @@
+.admin-categoryList-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 4vw;
+  background-color: var(--grey);
+}
+
+.addCategoryCard {
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  height: 20vh;
+  background-color: var(--light-grey);
+  text-decoration: none;
+  flex-direction: column;
+}
+
+.addCategoryCard h1, .addCategoryCard p {
+  font-family: var(--main-font);
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
+  color: var(--white);
+}
+
+.addCategoryCard p {
+    font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  .addCategoryCard {
+    width: 140px;
+    height: 140px;
+  }
+
+  .addCategoryCard h1 {
+    font-size: 0.8rem;
+  }
+
+  .addCategoryCard p {
+    font-size: 1.6rem;
+  }
+}

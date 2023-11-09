@@ -16,12 +16,12 @@ export const AdminPanel = () => {
     {
       name: "Productos",
       image: "/src/images/productIcon.svg",
-      linkTo: "/product/list",
+      linkTo: "/admin/product/list",
     },
     {
       name: "Categorías",
       image: "/src/images/categoryIcon.svg",
-      linkTo: "",
+      linkTo: "/admin/category/list",
     },
     {
       name: "Características",
