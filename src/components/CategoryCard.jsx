@@ -1,7 +1,6 @@
-
 import "../styles/CategoryCard.css";
 
-export const CategoryCard = ({name, image}) => {
+export const CategoryCard = (/*{name, image}*/) => {
   return (
     <div className="category-card">
 

@@ -1,10 +1,10 @@
-import { useFetchAdminCategoryList } from "../hooks/useFetchAdminCategoryList";
+import { useFetchAdminCategoryList } from "../hooks/index";
 import { CategoryCard } from "../components/CategoryCard";
 import "../styles/AdminCategoryList.css";
 import { Link } from "react-router-dom";
 
 export const AdminCategoryList = () => {
-  const { category, isFetching } = useFetchAdminCategoryList();
+  const { category/*, isFetching*/ } = useFetchAdminCategoryList();
 
   return (
     <div className="admin-categoryList-grid">
