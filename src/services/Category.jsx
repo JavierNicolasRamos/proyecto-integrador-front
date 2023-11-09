@@ -31,20 +31,17 @@ export const postCategory = async (name, detail, image) => {
     404: "No se encontraron productos",
   };
 
-  // FALTA que agreguen atributo detail
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('details', detail);
+  formData.append('imageDto.image', image);
 
-  const params = {
-    name: name,
-    image: {
-      image: image,
-    },
-  };
 
   let res;
 
   try {
-    const { data } = await axios.post(`http://localhost:8001/category`, params, {
-      headers: { 'Content-Type': "multipart/form-data" }
+    const { data } = await axios.post(`http://localhost:8001/category`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
     });
     res = data;
   } catch (e) {
@@ -52,5 +49,7 @@ export const postCategory = async (name, detail, image) => {
       throw new Error(errorMessages[e.status]);
     }
   }
+
   return res;
 };
+
