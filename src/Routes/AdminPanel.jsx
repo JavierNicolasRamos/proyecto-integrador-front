@@ -14,14 +14,24 @@ export const AdminPanel = () => {
       linkTo: "",
     },
     {
-      name: "Productos",
+      name: "Lista de Productos",
       image: "/src/images/productIcon.svg",
       linkTo: "/admin/product/list",
     },
     {
-      name: "Categorías",
+      name: "Agregar Producto",
+      image: "/src/images/productIcon.svg",
+      linkTo: "/admin/product/create",
+    },
+    {
+      name: "Lista de Categorías",
       image: "/src/images/categoryIcon.svg",
       linkTo: "/admin/category/list",
+    },
+    {
+      name: "Agregar Categoría",
+      image: "/src/images/categoryIcon.svg",
+      linkTo: "/admin/category/create",
     },
     {
       name: "Características",
