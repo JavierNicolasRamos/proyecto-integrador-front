@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/admin/product/list" element={<ProductList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound code="404" text="Not Found" />} />
         </Route>
       </Routes>
     </BrowserRouter>

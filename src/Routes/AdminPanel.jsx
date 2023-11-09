@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/AdminPanel.css";
+import { NotFound } from "./NotFound";
 
 export const AdminPanel = () => {
   const adminPanelRoutes = [
@@ -41,14 +42,18 @@ export const AdminPanel = () => {
   ];
 
   return (
-    <div className="adminCardGrid">
-      {adminPanelRoutes.map((route, index) => (
-        <Link key={index} className="adminCard" to={route.linkTo}>
-          <img src={route.image} alt={route.name} />
-          <h2>{route.name}</h2>
-        </Link>
-      ))}
+    <div>
+      <div className="adminCardGrid">
+        {adminPanelRoutes.map((route, index) => (
+          <Link key={index} className="adminCard" to={route.linkTo}>
+            <img src={route.image} alt={route.name} />
+            <h2>{route.name}</h2>
+          </Link>
+        ))}
+      </div>
+      <div className="adminPanelErrorMessage">
+        <NotFound code="501" text="Acceda desde un ordenador" />
+      </div>
     </div>
   );
 };
-
