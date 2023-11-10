@@ -1,9 +1,9 @@
-import { useFetchCategories } from "../hooks/useFetchCategories";
+import { useGetCategories } from "../hooks/useFetchCategories";
 import { CategoryCheckBox } from "./CategoryCheckBox";
 import "../styles/CategoryList.css";
 
 export const CategoryList = () => {
-  const {categories} = useFetchCategories();
+  const {categories} = useGetCategories();
 
   return (
     <aside className="category-aside">
