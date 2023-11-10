@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { validateForm } from "../helpers/validateForm";
-import { FormError } from "./FormError";
+import { FormError } from "../components/FormError";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const RegisterForm = () => {
   
   //Creamos el objeto del formulario vacio

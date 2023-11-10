@@ -1,16 +1,17 @@
-import { Link, useParams } from 'react-router-dom';
-import "../styles/Detail.css";
 import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { ProductCarousel } from '../components/ProductCarousel';
-import { Characteristics } from '../components/Characteristics';
+import { ProductCarousel } from '../containers/index';
+import { Characteristics } from '../components/index';
+import "../styles/Detail.css";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const Detail = () => {
   const [productExists, setProductExists] = useState(false);
   const [producto, setProducto] = useState({});
   const [fechaDesde, setFechaDesde] = useState("");
   const [fechaHasta, setFechaHasta] = useState("");
-  const [disponible, setDisponible] = useState(true); // Cambiar a false si no está disponible
+  const [/*disponible,*/ setDisponible] = useState(true); // Cambiar a false si no está disponible
 
   // Parameter URL
   const { id } = useParams();

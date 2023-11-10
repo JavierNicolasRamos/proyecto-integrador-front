@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import "../styles/DeleteConfirmationDialog.css"; 
 
-// eslint-disable-next-line react/prop-types
-const DeleteConfirmationDialog = ({ isOpen, onCancel, onConfirm, item }) => {
+export const DeleteConfirmationDialog = ({ isOpen, onCancel, onConfirm, item }) => {
   const modalClass = isOpen ? "confirmation-dialog open" : "confirmation-dialog";
 
   return (
@@ -18,4 +18,9 @@ const DeleteConfirmationDialog = ({ isOpen, onCancel, onConfirm, item }) => {
   );
 };
 
-export default DeleteConfirmationDialog;
+DeleteConfirmationDialog.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  item: PropTypes.string.isRequired,
+};

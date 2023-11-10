@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import { useState } from "react";
+import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog";
 import "../styles/ListCard.css";
-import DeleteConfirmationDialog from "./DeleteConfirmationDialog";
 
-// eslint-disable-next-line react/prop-types
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
@@ -23,7 +24,6 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }
     setIsConfirmationOpen(false);
     fetchProducts();
   };
-
 
   return (
     <div className="listcard">
@@ -47,4 +47,12 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }
       )}
     </div>
   );
+};
+
+ListCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  fetchProducts: PropTypes.func.isRequired,
 };

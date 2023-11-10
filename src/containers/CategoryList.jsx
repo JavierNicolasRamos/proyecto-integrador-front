@@ -1,5 +1,5 @@
 import { useGetAllCategories } from "../hooks/useGetAllCategories";
-import { CategoryCheckBox } from "./CategoryCheckBox";
+import { CategoryCheckBox } from "../components/CategoryCheckBox";
 import "../styles/CategoryList.css";
 import { useState } from "react";
 
@@ -34,7 +34,7 @@ export const CategoryList = () => {
   return (
     <aside className="category-aside">
       <div className="category-aside__content">
-        <div className="cateogry-aside__title">
+        <div className="category-aside__title">
           <p>Categorías</p>
         </div>
           {categories.map(category => {

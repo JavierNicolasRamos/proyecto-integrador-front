@@ -1,8 +1,5 @@
 export const validatePassword = (password) => {
-  
-  //*Expresion regular para el password
-  const passwordRegEx = /^(?=.*[!@#$%^&*()-_+=<>?])[A-Za-z0-9!@#$%^&*()-_+=<>?]{10,}$/
-
-  return !passwordRegEx.test(password.trim())  
-}
-
+  const trimmedPassword = password.trim();
+  const hasSpecialCharacter = /[!@#$%^&*()-_+=<>?]/.test(trimmedPassword);
+  return trimmedPassword.length < 10 || !hasSpecialCharacter;
+};

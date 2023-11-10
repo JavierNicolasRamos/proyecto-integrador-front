@@ -1,10 +1,8 @@
-import { ProductCarousel } from "../components/ProductCarousel";
-import { Hero } from "../components/Hero";
-import { RandomProds } from "../components/RandomProds";
+import { ProductCarousel, RandomProds } from "../containers/index";
+import { Hero } from "../components/index";
 import "../styles/Home.css"
 
 export const Home = () => {
-
   return (
     <>
       <Hero/>

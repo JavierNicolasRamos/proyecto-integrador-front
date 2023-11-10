@@ -1,10 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
 import "../styles/Header.css";
-import { Menu } from "./Menu";
-import { HeaderProfile } from "./HeaderProfile";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, HeaderProfile } from "../components/index";
 import { useUser } from "../context/UserContext";
 
-
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const Header = () => {
   const location = useLocation();
 

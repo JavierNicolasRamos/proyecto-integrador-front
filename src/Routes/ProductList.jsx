@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { ListCard } from "../components/ListCard";
+import { ListCard } from "../containers/index";
 import axios from "axios";
 import "../styles/ProductList.css";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const ProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);

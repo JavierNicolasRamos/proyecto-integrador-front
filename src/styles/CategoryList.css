@@ -1,4 +1,4 @@
-.category-aside{
+.category-aside {
   padding: 0vw 2vw;
   display: inline-block;
   background-color: var(--btn);
@@ -11,7 +11,7 @@
   margin-right: auto;
 }
 
-.cateogry-aside__title{
+.category-aside__title {
   padding: 3vh 0;
   font-size: 25px;
   font-family: var(--main-font);

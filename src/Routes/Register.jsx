@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { RegisterForm } from "../components/RegisterForm"
+import { RegisterForm } from "../containers/index"
 import "../styles/Register.css"
 
 export const Register = () => {

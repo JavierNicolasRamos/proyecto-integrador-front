@@ -1,5 +1,5 @@
-import "../styles/CategoryCheckBox.css";
 import PropTypes from 'prop-types';
+import "../styles/CategoryCheckBox.css";
 
 export const CategoryCheckBox = ({ name, id, checked, handleCheckboxChange, handleClick }) => {
 

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Card } from "./Card";
+import { Card } from "../components/Card";
 import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "../styles/ProductCarousel.css";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const ProductCarousel = () => {
   const [products, setProducts] = useState([]);
 

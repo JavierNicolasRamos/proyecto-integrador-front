@@ -1,3 +1,1 @@
-export const validateName = (name) => {
-  return name.trim() < 5 ? true : false
-}
+export const validateName = (name) => name.trim().length < 5;

@@ -1,8 +1,7 @@
 import { useGetRandomProds } from "../hooks/useGetRandomProds";
-import { Card }  from "./Card";
+import { Card }  from "../components/Card";
 
 export const RandomProds = () => {
-  
   const { randomProds } = useGetRandomProds()  
   const isHome = location.pathname === "/home"
 

@@ -3,7 +3,7 @@ import "../styles/CreateCategory.css";
 
 export const CreateCategory = () => {
 
-    const { /*isFetching, */name, setName, detail, setDetail, setImage, handleSubmit} = usePostCategory();
+  const { /*isFetching, */name, setName, detail, setDetail, setImage, handleSubmit} = usePostCategory();
 
   return (
     <div className="createCategoryPage">

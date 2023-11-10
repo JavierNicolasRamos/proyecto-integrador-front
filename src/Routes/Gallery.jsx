@@ -4,6 +4,7 @@ import { GalleryGridItem } from "../components/GalleryGridItem";
 import axios from "axios";
 import "../styles/Gallery.css";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const Gallery = () => {
   const { id } = useParams();
 

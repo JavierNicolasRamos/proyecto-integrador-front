@@ -3,13 +3,14 @@ import "../styles/CreateProduct.css";
 import { CreateProductError } from "../components/CreateProductError";
 import axios from "axios";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const CreateProduct = () => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
   const [images, setImages] = useState([]);
   const [, /*showCard*/ setShowCard] = useState(false);
-  const [formData, setFormData] = useState(new FormData());
+  const [formData/*, setFormData*/] = useState(new FormData());
 
   // Name validation
 

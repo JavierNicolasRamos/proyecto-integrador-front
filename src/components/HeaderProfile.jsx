@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import { Link } from "react-router-dom";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const HeaderProfile = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [avatar, setAvatar] = useState("");
