@@ -21,7 +21,7 @@ export const Header = () => {
         <section className="header__search-bar">
           
           <Link to={"/home"} className="header__search-bar__logo">
-            <img className="header__search-bar__img" src="src/images/header-logo.svg" alt="Imagen del logo de music rental" />
+            <img className="header__search-bar__img" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1699641383924-LogoMR_2logo.svg" alt="Imagen del logo de music rental" />
           </Link>
           
           <form method="GET" className="header__search-bar__form">
