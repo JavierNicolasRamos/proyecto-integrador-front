@@ -1,18 +1,24 @@
 import axios from "axios";
 
-export const fetchCategory = async () => {
-  const errorMessages = {
-    500: "Error del servidor",
-    400: "Error del cliente",
-    401: "No autorizado",
-    403: "Acceso prohibido",
-    404: "No se encontraron productos",
-  };
+const errorMessages = {
+  500: "Error del servidor",
+  400: "Error del cliente",
+  401: "No autorizado",
+  403: "Acceso prohibido",
+  404: "No se encontraron productos",
+};
+
+const URL = {
+  "list" : "http://localhost:8001/category/list",
+  "createCategorie" : "http://localhost:8001/category",
+}
+
+export const getAllCategories = async () => {
 
   let res;
 
   try {
-    const { data } = await axios.get(`http://localhost:8001/category/list`);
+    const { data } = await axios.get(URL.list);
     res = data;
   } catch (e) {
     if (errorMessages[e.status]) {
@@ -23,13 +29,6 @@ export const fetchCategory = async () => {
 };
 
 export const postCategory = async (name, detail, image) => {
-  const errorMessages = {
-    500: "Error del servidor",
-    400: "Error del cliente",
-    401: "No autorizado",
-    403: "Acceso prohibido",
-    404: "No se encontraron productos",
-  };
 
   // FALTA que agreguen atributo detail
 
@@ -46,7 +45,7 @@ export const postCategory = async (name, detail, image) => {
   let res;
 
   try {
-    const { data } = await axios.post(`http://localhost:8001/category`, params, {
+    const { data } = await axios.post(URL.createCategorie, params, {
       headers: { 'Content-Type': "multipart/form-data" }
     });
     res = data;
