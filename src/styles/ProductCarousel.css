@@ -1,18 +1,17 @@
 .slick-slider {
   position: relative;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .slick-slide{
   padding: 2vh 0;
-  display: flex;
+  text-align: center;
 }
 
 .carousel__content{
-  width: 95%;
+  width: 80%;
   margin: 0 auto;
-  text-align: center;
 }
 
 .carousel__content .card{
