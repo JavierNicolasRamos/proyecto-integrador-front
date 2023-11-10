@@ -39,7 +39,7 @@ export const postCategory = async (name, detail, image) => {
   let res;
 
   try {
-    const { data } = await axios.post(URL.createCategorie, params, {
+    const { data } = await axios.post(URL.createCategorie, formData, {
       headers: { 'Content-Type': "multipart/form-data" }
     });
     res = data;
