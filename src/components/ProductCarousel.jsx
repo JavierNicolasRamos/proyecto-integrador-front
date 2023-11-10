@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Card } from "../components/Card";
+import { Card } from "./Card";
 import axios from 'axios';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import "../styles/Carousel.css";
+import "../styles/ProductCarousel.css";
 
-export const ProductCarrusel = () => {
+export const ProductCarousel = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -31,14 +31,42 @@ export const ProductCarrusel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 6000,
-    slidesToShow: 5,
-    slidesToScroll: 2,
+    speed: 1000,
     draggable: false,
     autoplay: true,
     autoplaySpeed: 2000,
-    adaptiveHeight: true,
-    centerPadding: '200px',
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
     prevArrow: <button></button>,
     nextArrow: <button></button>,
   };

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { fetchRandomProds } from "../services/index";
+import { getRandomProds } from "../services/Products";
 
-export const useFetchRandomProds = () => {
+export const useGetRandomProds = () => {
     const [ randomProds , setRandomProds ] = useState([]);
     const [ isFetching , setIsFetching ] = useState(true);
   
     useEffect(() => {
-        fetchRandomProds()
+        getRandomProds()
         .then( randomProds => setRandomProds( randomProds ) )
         .finally(() => setIsFetching( false ));
     }, []);
