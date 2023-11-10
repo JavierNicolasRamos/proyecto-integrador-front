@@ -1,7 +1,7 @@
-import "../styles/Card.css";
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import "../styles/Card.css";
 
-// eslint-disable-next-line react/prop-types
 export const Card = ({id, name, image, score, category}) => {
 
   return (
@@ -17,3 +17,11 @@ export const Card = ({id, name, image, score, category}) => {
     </Link>
   )
 }
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  category: PropTypes.string.isRequired,
+};

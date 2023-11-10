@@ -1,23 +1,22 @@
 import axios from "axios";
 
-export const fetchRandomProds = async () => {
-    const errorMessages = {
-        500: "Error del servidor",
-        400: "Error del cliente",
-        401: "No autorizado",
-        403: "Acceso prohibido",
-        404: "No se encontraron instrumentos"
-    };
-  
-    let res
+const errorMessages = {
+    500: "Error del servidor",
+    400: "Error del cliente",
+    401: "No autorizado",
+    403: "Acceso prohibido",
+    404: "No se encontraron instrumentos",
+};
 
+const handleErrors = (e) => {
+    throw new Error(errorMessages[e.status] || e.message);
+};
+
+export const fetchRandomProds = async () => {
     try {
-        const {data} = await axios.get(`http://localhost:8001/instruments`);
-        res = data
+        const { data } = await axios.get(`http://localhost:8001/instruments`);
+        return data;
     } catch (e) {
-        if (errorMessages[e.status]) {
-            throw new Error(errorMessages[e.status]);
-        }
+        handleErrors(e);
     }
-    return res;
 };

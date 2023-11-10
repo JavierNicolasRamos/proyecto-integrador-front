@@ -1,10 +1,8 @@
-import { CategoryList } from "../components/CategoryList"
-import { PaginateButtons } from "../components/PaginateButtons"
-import { RandomProds } from "../components/RandomProds"
+import { CategoryList, RandomProds } from "../containers/index"
+import { PaginateButtons } from "../components/index"
 import "../styles/ProductPanel.css"
 
 export const ProductPanel = () => {
-  
   return (
     <>
       <div className="product__total">

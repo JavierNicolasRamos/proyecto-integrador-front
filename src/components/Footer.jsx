@@ -5,7 +5,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const Footer = () => {
 
   const location = useLocation(); // Obtén la ubicación actual
@@ -20,7 +20,7 @@ export const Footer = () => {
     } else {
       setShowBrands(true);
     }
-  }, [location.pathname]); // Observa cambios en la ubicación
+  }, [isLogin, isRegister, location.pathname]); // Observa cambios en la ubicación
   
   return (
     <footer className="footer">
@@ -58,7 +58,7 @@ export const Footer = () => {
           </div>
           <div className="footer-principal-contact-content">
             <div className="footer-principal-contact-content-text">
-              <p>Whatsapp: </p>
+              <p>WhatsApp: </p>
               <p className="colored-text">11-4576-8765</p>
             </div>
             <div className="footer-principal-contact-content-text">

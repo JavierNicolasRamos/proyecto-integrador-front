@@ -10,45 +10,34 @@ const errorMessages = {
 
 const URL = {
   "list" : "http://localhost:8001/category/list",
-  "createCategorie" : "http://localhost:8001/category",
+  "createCategory" : "http://localhost:8001/category",
 }
 
+const handleErrors = (e) => {
+  throw new Error(errorMessages[e.status] || e.message);
+};
+
 export const getAllCategories = async () => {
-
-  let res;
-
   try {
     const { data } = await axios.get(URL.list);
-    res = data;
+    return data;
   } catch (e) {
-    if (errorMessages[e.status]) {
-      throw new Error(errorMessages[e.status]);
-    }
+    handleErrors(e);
   }
-  return res;
 };
 
 export const postCategory = async (name, detail, image) => {
-
   const formData = new FormData();
   formData.append('name', name);
   formData.append('details', detail);
   formData.append('imageDto.image', image);
 
-
-  let res;
-
   try {
-    const { data } = await axios.post(URL.createCategorie, formData, {
+    const { data } = await axios.post(URL.createCategory, formData, {
       headers: { 'Content-Type': "multipart/form-data" }
     });
-    res = data;
+    return data;
   } catch (e) {
-    if (errorMessages[e.status]) {
-      throw new Error(errorMessages[e.status]);
-    }
+    handleErrors(e);
   }
-
-  return res;
 };
-

@@ -1,4 +1,5 @@
-// eslint-disable-next-line react/prop-types
+import PropTypes from 'prop-types';
+
 export const GalleryGridItem = ({ showAll, index, onClick, children }) => {
   const className = showAll ? `grid-item grid-item-${index + 2}.0` : `grid-item grid-item-${index + 2}`;
 
@@ -7,4 +8,11 @@ export const GalleryGridItem = ({ showAll, index, onClick, children }) => {
       {children}
     </div>
   );
+};
+
+GalleryGridItem.propTypes = {
+  showAll: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };

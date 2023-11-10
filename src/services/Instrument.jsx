@@ -1,38 +1,32 @@
 import axios from "axios";
 
+const errorMessages = {
+  500: "Error del servidor",
+  400: "Error del cliente",
+  401: "No autorizado",
+  403: "Acceso prohibido",
+  404: "No se encontraron productos",
+};
+
+const URL = {
+  "list" : "http://localhost:8001/instruments",
+  "createInstrument" : "http://localhost:8001/instruments",
+}
+
+const handleErrors = (e) => {
+  throw new Error(errorMessages[e.status] || e.message);
+};
+
 export const fetchInstrument = async () => {
-  const errorMessages = {
-    500: "Error del servidor",
-    400: "Error del cliente",
-    401: "No autorizado",
-    403: "Acceso prohibido",
-    404: "No se encontraron productos",
-  };
-
-  let res;
-
   try {
-    const { data } = await axios.get(`http://localhost:8001/instruments`);
-    res = data;
+    const { data } = await axios.get(URL.list);
+    return data;
   } catch (e) {
-    if (errorMessages[e.status]) {
-      throw new Error(errorMessages[e.status]);
-    }
+    handleErrors(e);
   }
-  return res;
 };
 
 export const postInstrument = async (name, detail, categoryName, images) => {
-  const errorMessages = {
-    500: "Error del servidor",
-    400: "Error del cliente",
-    401: "No autorizado",
-    403: "Acceso prohibido",
-    404: "No se encontraron productos",
-  };
-
-  // FALTA que modifiquen para que pida el id de la categoría
-
   const params = {
     name: name,
     detail: detail,
@@ -42,21 +36,10 @@ export const postInstrument = async (name, detail, categoryName, images) => {
     image: [{ image: images }],
   };
 
-  let res;
-
   try {
-    const { data } = await axios.post(
-      `http://localhost:8001/category`,
-      params,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
-    res = data;
+    const { data } = await axios.post(URL.createInstrument, params);
+    return data;
   } catch (e) {
-    if (errorMessages[e.status]) {
-      throw new Error(errorMessages[e.status]);
-    }
+    handleErrors(e);
   }
-  return res;
 };

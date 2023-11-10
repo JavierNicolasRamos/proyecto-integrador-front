@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import "../styles/Caracteristicas.css";
+import "../styles/Characteristics.css";
 
+//TODO: Falta refactorizar el componente en hooks y servicios
 export const Characteristics = () => {
   const { id } = useParams();
 
@@ -26,11 +27,11 @@ export const Characteristics = () => {
   }, [id]);
 
   return (
-    <div className="caracteristicas-container">
+    <div className="characteristics-container">
       {productExists ? (
         <div className="data-grid">
-          <div className="caracteristicas-card">
-            <h2>Caracteristicas</h2>
+          <div className="characteristics-card">
+            <h2>Characteristics</h2>
             <div className="box-detail">
             <div className="column">
                 <p>Nombre</p>

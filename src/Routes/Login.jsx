@@ -1,5 +1,5 @@
 import { faFacebookF, faXTwitter } from "@fortawesome/free-brands-svg-icons"
-import { LoginForm } from "../components/LoginForm"
+import { LoginForm } from "../components/index"
 import '../styles/Login.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
