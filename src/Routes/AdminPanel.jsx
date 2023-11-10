@@ -35,9 +35,14 @@ export const AdminPanel = () => {
       linkTo: "/admin/category/create",
     },
     {
-      name: "Características",
+      name: "Administrar Características",
       image: "/src/images/featureIcon.svg",
       linkTo: "",
+    },
+    {
+      name: "Agregar Características",
+      image: "/src/images/featureIcon.svg",
+      linkTo: "/admin/characteristic/create",
     },
   ];
 

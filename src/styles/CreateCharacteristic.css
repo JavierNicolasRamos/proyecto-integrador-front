@@ -1,0 +1,142 @@
+.createCharacteristicPage {
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey);
+  width: 100%;
+}
+
+.createCharacteristicSection {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: rgba(25, 29, 32, 1);
+  margin: 4vw;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.createCharacteristic-title {
+  background-color: rgba(237, 40, 57, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.createCharacteristic-title p {
+  font-family: Helvetica;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.createCharacteristicSection form {
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  font-family: Helvetica;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.createCharacteristicSection form label {
+  padding: 2vh 0 0.8vh 0;
+}
+
+.createCharacteristicSection form input, .createCharacteristicSection form textarea, .createCharacteristicSection form select  {
+  padding: 1vh 0 1vh 0;
+  border-radius: 45px;
+  padding-left: 1vw;
+  font-family: Helvetica;
+  font-size: 1rem;
+  font-weight: 400;
+
+}
+
+.createCharacteristicSection form input::placeholder {
+  vertical-align: top;
+  line-height: 1;
+}
+
+
+
+#detail {
+  height: 15vh;
+  border-radius: 20px;
+  display: flex;
+}
+
+.uploadImages {
+  position: relative;
+  display: inline-block;
+  border: 3px dashed rgba(217, 217, 217, 1);
+  border-radius: 20px;
+  margin: 1vh 0 1vh;
+  height: 10vh;
+}
+
+#images {
+  height: 100%;
+  width: 100%;
+}
+
+.uploadImages::before {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: "Adjuntar Imagen";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-family: Helvetica;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.uploadImages input[type="file"] {
+  opacity: 0;
+  height: 5vh;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lastAddedSection {
+  background-color: white;
+  width: 50%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#agregar {
+  background-color: rgba(237, 40, 57, 1);
+  width: 126px;
+  height: 36px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  font-family: Helvetica;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  align-self: center;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  .createCharacteristicSection {
+    width: 80%;
+  }
+
+
+}
