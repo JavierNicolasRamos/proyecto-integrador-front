@@ -14,6 +14,7 @@ import { AdminPanel } from "./Routes/AdminPanel";
 import { CreateCategory } from "./Routes/CreateCategory";
 import { AdminCategoryList } from "./Routes/AdminCategoryList";
 import { CreateCharacteristic } from "./Routes/CreateCharacteristic";
+import { ProductPanel } from "./Routes/ProductPanel";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/search/products" element={<ProductPanel />} />
           <Route path="/product/detail/:id" element={<Detail/>} />
           <Route path="/product/gallery/:id" element={<Gallery />} />
           <Route path="/admin/panel" element={<AdminPanel />} />
