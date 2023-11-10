@@ -23,8 +23,8 @@
   flex-wrap: wrap;
   min-height: 50vh;
   margin: 0 auto;
-  min-width: 95vw;
-  max-width: 95vw;
+  min-width: 80vw;
+  max-width: 80vw;
 }
 
 @media (max-width: 480px) {

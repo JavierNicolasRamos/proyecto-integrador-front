@@ -1,12 +1,11 @@
 .category-aside{
-  padding: 0 1vw;
+  padding: 0vw 2vw;
   display: inline-block;
   background-color: var(--btn);
   color: var(--white);
   min-width: fit-content;
-  width: 15vw;
-  max-width: 15vw;
-  min-width: 15vw;
+  max-width: 20vw;
+  min-width: min-content;
   border-radius: 10px;
   min-height: 50vh;
   margin-right: auto;
