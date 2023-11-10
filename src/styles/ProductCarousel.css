@@ -10,7 +10,7 @@
 }
 
 .carousel__content{
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   text-align: center;
 }
@@ -35,7 +35,7 @@ button.slick-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s;
+  transition: background-color 0.1s ease-in-out;
 }
 
 button.slick-arrow:hover {
