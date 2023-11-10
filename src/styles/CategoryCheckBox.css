@@ -1,0 +1,38 @@
+.checkbox{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkbox__filter{
+  font-family: var(--main-font);
+  font-size: 22px;
+  display: flex;
+  padding: 2vh 0;
+  align-items: center;
+}
+
+.checkbox__filter > :hover{
+  cursor: pointer;
+}
+
+.checkbox__filter label{
+  padding-left: 1vw;
+}
+
+/* Ocultamos el checkbox por defecto */
+.checkbox__filter input[type="checkbox"] {
+  display: none;
+}
+
+/* Le damos estilos al nuevo checkbox */
+.checkbox__filter input[type="checkbox"]{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+/* Modificamos el texto cuando esta checkeado */
+.checkbox__filter input[type="checkbox"]:checked + label{
+  color: var(--red);
+}
