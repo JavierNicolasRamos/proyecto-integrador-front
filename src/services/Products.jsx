@@ -15,8 +15,6 @@ const URL = {
 
 //Obtener todos los productos paginados
 export const getAllProducts = async() => {
-
-  let res
   
   const params = {
     "page": 1,
@@ -24,15 +22,17 @@ export const getAllProducts = async() => {
   }
   
   try {
-    const {data} = await axios.get(`http://localhost:8001/${URL.paginated}`, params);
-    res = data
+    let { data } = await axios.get(`http://localhost:8001/${URL.paginated}`, params) 
+    let products = data.content
+    let totalElements = data.totalElements
+
+    return {products, totalElements}
+
   } catch (e) {
     if (errorMessages[e.status]) {
         throw new Error(errorMessages[e.status]);
     }
   }
-
-  return res;
 
 }
 
