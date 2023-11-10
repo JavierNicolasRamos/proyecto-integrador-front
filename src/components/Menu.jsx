@@ -59,7 +59,7 @@ export const Menu = () => {
     return (
       <nav className="navigation-menu">
         <Link to={"/home"}>Inicio</Link>
-        <Link to={"/searchProducts"}>Productos</Link>
+        <Link to={"/search/products"}>Productos</Link>
         <Link to={"/categories"}>Categorías</Link>
         <Link to={"/contact"}>Contacto</Link>
       </nav>

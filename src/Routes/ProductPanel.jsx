@@ -12,8 +12,10 @@ export const ProductPanel = () => {
       </div>
       <div className="product__content">
         <CategoryList />
+      <div>
         <RandomProds />
         <PaginateButtons/>
+      </div>
       </div>
     </>
   )
