@@ -1,14 +1,7 @@
-import { useState } from "react";
 import "../styles/CategoryCheckBox.css";
 import PropTypes from 'prop-types';
 
-export const CategoryCheckBox = ({ name }) => {
-  const [isChecked, setChecked] = useState(false);
-
-  const handleCheckboxChange = () => {
-    console.log(isChecked)
-    setChecked(!isChecked);
-  };
+export const CategoryCheckBox = ({ name, id, checked, handleCheckboxChange, handleClick }) => {
 
   return (
     <div className="checkbox">
@@ -17,7 +10,9 @@ export const CategoryCheckBox = ({ name }) => {
           type="checkbox"
           name={name}
           id={name}
-          checked={isChecked}
+          value={id}
+          defaultChecked={checked}
+          onClick={handleClick}
           onChange={handleCheckboxChange}
         />
         <label htmlFor={name}>
@@ -30,4 +25,8 @@ export const CategoryCheckBox = ({ name }) => {
 
 CategoryCheckBox.propTypes = {
   name: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  checked: PropTypes.bool.isRequired,
+  handleCheckboxChange: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
