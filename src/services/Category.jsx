@@ -11,7 +11,26 @@ const errorMessages = {
 const URL = {
   "list" : "http://localhost:8001/category/list",
   "createCategorie" : "http://localhost:8001/category",
+  "filterProductsByCategorie" : "http://localhost:8001/category/instruments"
 }
+
+export const getProductsByCategorie = async (params) => {
+  
+  let res
+
+  try {
+    const {data} = await axios.get(`http://localhost:8001/${URL.filterProductsByCategorie}`, params);
+    res = data
+  } catch (e) {
+    if (errorMessages[e.status]) {
+        throw new Error(errorMessages[e.status]);
+    }
+  }
+  console.log(res)
+  return res;
+
+};
+
 
 export const getAllCategories = async () => {
 
@@ -25,6 +44,7 @@ export const getAllCategories = async () => {
       throw new Error(errorMessages[e.status]);
     }
   }
+
   return res;
 };
 
