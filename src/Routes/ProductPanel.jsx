@@ -6,12 +6,15 @@ import "../styles/ProductPanel.css"
 
 export const ProductPanel = () => {
 
-  const { products } = useGetAllProducts()
-  
+  const products = useGetAllProducts()
+  if (!products) {
+    return null;
+  }
+
   return (
     <>
       <div className="product__total">
-        <p>{products.length} productos</p>
+        <p>{products.totalElements} productos</p>
       </div>
       <div className="product__content">
         <CategoryList />
