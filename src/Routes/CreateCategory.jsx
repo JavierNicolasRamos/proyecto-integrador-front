@@ -1,9 +1,9 @@
-import { usePostCategory } from "../hooks/usePostCategory";
+import { usePostCategory } from "../hooks/index";
 import "../styles/CreateCategory.css";
 
 export const CreateCategory = () => {
 
-    const { isFetching, name, setName, detail, setDetail, setImage, handleSubmit} = usePostCategory();
+    const { /*isFetching, */name, setName, detail, setDetail, setImage, handleSubmit} = usePostCategory();
 
   return (
     <div className="createCategoryPage">

@@ -6,9 +6,9 @@
   padding: 2vw;
 }
 
-.adminCardGrid a{
-text-decoration: none;
-  }
+.adminCardGrid a {
+  text-decoration: none;
+}
 
 .adminCard {
   width: 250px;
@@ -32,6 +32,10 @@ text-decoration: none;
   font-size: 1.3rem;
 }
 
+.adminPanelErrorMessage {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .adminCard {
     width: 140px;
@@ -44,5 +48,16 @@ text-decoration: none;
 
   .adminCard h2 {
     font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .adminCardGrid {
+    display: none;
+  }
+
+  .adminPanelErrorMessage {
+    display: flex;
+    flex-direction: column;
   }
 }

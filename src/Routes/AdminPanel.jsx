@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/AdminPanel.css";
+import { NotFound } from "./NotFound";
 
 export const AdminPanel = () => {
   const adminPanelRoutes = [
@@ -14,31 +15,50 @@ export const AdminPanel = () => {
       linkTo: "",
     },
     {
-      name: "Productos",
+      name: "Lista de Productos",
       image: "/src/images/productIcon.svg",
-      linkTo: "/product/list",
+      linkTo: "/admin/product/list",
     },
     {
-      name: "Categorías",
+      name: "Agregar Producto",
+      image: "/src/images/productIcon.svg",
+      linkTo: "/admin/product/create",
+    },
+    {
+      name: "Lista de Categorías",
       image: "/src/images/categoryIcon.svg",
-      linkTo: "",
+      linkTo: "/admin/category/list",
     },
     {
-      name: "Características",
+      name: "Agregar Categoría",
+      image: "/src/images/categoryIcon.svg",
+      linkTo: "/admin/category/create",
+    },
+    {
+      name: "Administrar Características",
       image: "/src/images/featureIcon.svg",
       linkTo: "",
+    },
+    {
+      name: "Agregar Características",
+      image: "/src/images/featureIcon.svg",
+      linkTo: "/admin/characteristic/create",
     },
   ];
 
   return (
-    <div className="adminCardGrid">
-      {adminPanelRoutes.map((route, index) => (
-        <Link key={index} className="adminCard" to={route.linkTo}>
-          <img src={route.image} alt={route.name} />
-          <h2>{route.name}</h2>
-        </Link>
-      ))}
+    <div>
+      <div className="adminCardGrid">
+        {adminPanelRoutes.map((route, index) => (
+          <Link key={index} className="adminCard" to={route.linkTo}>
+            <img src={route.image} alt={route.name} />
+            <h2>{route.name}</h2>
+          </Link>
+        ))}
+      </div>
+      <div className="adminPanelErrorMessage">
+        <NotFound code="501" text="Acceda desde un ordenador" />
+      </div>
     </div>
   );
 };
-

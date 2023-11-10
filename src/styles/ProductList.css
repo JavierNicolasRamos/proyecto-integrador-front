@@ -4,18 +4,20 @@
   background-color: var(--black);
   padding: 2vw;
   height: 80vh;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
 .pageNumbersDiv {
-    display: flex;
-    gap: 1vw;
-    justify-content: center;
-    align-items: flex-end
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: var(--black);
 }
 
 .pageNumbersDiv img {
-height: 1.2vw;
+  height: 1.2vw;
+  color: var(--red);
 }
 
 .pageNumber {
@@ -29,5 +31,5 @@ height: 1.2vw;
 }
 
 .currentNumberPage {
-    color: var(--red);
+  color: var(--red);
 }

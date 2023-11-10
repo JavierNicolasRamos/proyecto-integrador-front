@@ -30,17 +30,11 @@ export const getAllCategories = async () => {
 
 export const postCategory = async (name, detail, image) => {
 
-  // FALTA que agreguen atributo detail
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('details', detail);
+  formData.append('imageDto.image', image);
 
-  const params = {
-    id: null,
-    name: name,
-    image: {
-      id: null,
-      image: image,
-      deleted: null,
-    },
-  };
 
   let res;
 
@@ -54,5 +48,7 @@ export const postCategory = async (name, detail, image) => {
       throw new Error(errorMessages[e.status]);
     }
   }
+
   return res;
 };
+
