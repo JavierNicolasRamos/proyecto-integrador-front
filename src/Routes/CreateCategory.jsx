@@ -1,4 +1,3 @@
-import React from "react";
 import { usePostCategory } from "../hooks/usePostCategory";
 import "../styles/CreateCategory.css";
 
