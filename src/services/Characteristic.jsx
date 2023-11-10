@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchCategory = async () => {
+export const fetchCharacteristic = async () => {
   const errorMessages = {
     500: "Error del servidor",
     400: "Error del cliente",
@@ -12,7 +12,7 @@ export const fetchCategory = async () => {
   let res;
 
   try {
-    const { data } = await axios.get(`http://localhost:8001/category/list`);
+    const { data } = await axios.get(`http://localhost:8001/characteristic/list`);
     res = data;
   } catch (e) {
     if (errorMessages[e.status]) {
@@ -22,7 +22,7 @@ export const fetchCategory = async () => {
   return res;
 };
 
-export const postCategory = async (name, detail, image) => {
+export const postCharacteristic = async (name, icon) => {
   const errorMessages = {
     500: "Error del servidor",
     400: "Error del cliente",
@@ -31,18 +31,19 @@ export const postCategory = async (name, detail, image) => {
     404: "No se encontraron productos",
   };
 
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('details', detail);
-  formData.append('imageDto.image', image);
-
+  const formData = {
+    name: name,
+    icon: icon,
+  }
 
   let res;
 
   try {
-    const { data } = await axios.post(`http://localhost:8001/category`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
+    const { data } = await axios.post(
+      `http://localhost:8001/characteristic`,
+      formData,
+
+    );
     res = data;
   } catch (e) {
     if (errorMessages[e.status]) {
@@ -52,4 +53,3 @@ export const postCategory = async (name, detail, image) => {
 
   return res;
 };
-

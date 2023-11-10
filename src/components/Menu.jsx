@@ -7,6 +7,7 @@ export const Menu = () => {
   const adminPanelPath = location.pathname === "/admin/panel";
   const createCategoryPath = location.pathname === "/admin/category/create";
   const categoryListPath = location.pathname === "/admin/category/list";
+  const createCharacteristicPath = location.pathname === "/admin/characteristic/create";
 
   if (createProductPath) {
     return (
@@ -39,7 +40,15 @@ export const Menu = () => {
       </nav>
     );
     
-  }else if (adminPanelPath) {
+  } else if (createCharacteristicPath) {
+    return (
+      <nav className="navigation-menu">
+        <Link to={"/admin/panel"}>Panel de administración</Link>
+        <Link to={"/admin/characteristic/list"}>Administrar características</Link>
+      </nav>
+    );
+    
+  } else if (adminPanelPath) {
     return (
       <nav className="navigation-menu">
         <Link to={"/home"}>Inicio</Link>

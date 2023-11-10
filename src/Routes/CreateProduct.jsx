@@ -8,7 +8,8 @@ export const CreateProduct = () => {
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
   const [images, setImages] = useState([]);
-  const [/*showCard*/, setShowCard] = useState(false);
+  const [, /*showCard*/ setShowCard] = useState(false);
+  const [formData, setFormData] = useState(new FormData());
 
   // Name validation
 
@@ -36,22 +37,21 @@ export const CreateProduct = () => {
       setShowError(false);
       setShowCard(true);
 
-      // Create Request Body
-      const productData = {
-        name: name,
-        detail: detail,
-        category: {
-          id: selectedCategoryId,
-          descripcion: selectedCategoryDescription,
-        },
-        image: images.map((image) => ({ image: image })),
-      };
+      // Add properties to FormData
+      formData.append("name", name);
+      formData.append("detail", detail);
+      formData.append("categoryDto[id]", selectedCategoryId);
+      images.forEach((image, index) => {
+        formData.append(`image[${index}]`, image);
+      });
 
       // To make a POST request to the API:
       axios
-        .post("http://localhost:8001/instruments", productData, {
-          headers: { "Content-Type": "multipart/form-data" }
-        })
+      .post("http://localhost:8001/instruments", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
         .then((response) => {
           console.log("Producto agregado exitosamente:", response.data);
           setName("");
@@ -88,24 +88,6 @@ export const CreateProduct = () => {
         console.error("Error al obtener categorías:", error);
       });
   }, []);
-
-  // Get category detail from category id
-
-  const [selectedCategoryDescription, setSelectedCategoryDescription] =
-    useState("");
-
-  useEffect(() => {
-    if (selectedCategoryId) {
-      const selectedCategory = categories.find(
-        (category) => category.id === selectedCategoryId
-      );
-      if (selectedCategory) {
-        setSelectedCategoryDescription(selectedCategory.descripcion);
-      }
-    } else {
-      setSelectedCategoryDescription("");
-    }
-  }, [selectedCategoryId, categories]);
 
   return (
     <div className="createProductPage">
