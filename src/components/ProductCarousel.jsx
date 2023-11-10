@@ -12,7 +12,7 @@ export const ProductCarousel = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await axios.get('http://localhost:8001/instruments/paginated', {
+        const response = await axios.get('http://localhost:8002/instruments/paginated', {
           params: {
             page: 0,
             size: 10,
