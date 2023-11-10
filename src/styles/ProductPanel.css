@@ -13,7 +13,7 @@
   display: block;
   width: 90%;
   padding: 4vh 0;
-  font-size: var(--main-font);
+  font-family: var(--main-font);
   color: var(--btn);
   font-size: 20px;
 }

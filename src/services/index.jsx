@@ -1,4 +1,3 @@
-export { fetchRandomProds } from "./RandomProds";
 export { getAllCategories, postCategory } from "./Category";
 export { fetchInstrument, postInstrument } from "./Instrument";
 export { fetchCharacteristic, postCharacteristic } from "./Characteristic";
