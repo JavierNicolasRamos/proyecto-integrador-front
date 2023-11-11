@@ -10,8 +10,8 @@ const errorMessages = {
 
 const URL = {
   "list" : "http://localhost:8001/category/list",
-  "createCategorie" : "http://localhost:8001/category",
-  "filterProductsByCategorie" : "http://localhost:8001/category/instruments"
+  "createCategory" : "http://localhost:8001/category",
+  "filterProductsByCategory" : "http://localhost:8001/category/instruments"
 }
 
 const handleErrors = (e) => {
@@ -23,7 +23,7 @@ export const getProductsByCategory = async (params) => {
   let res
 
   try {
-    const {data} = await axios.get(`http://localhost:8001/${URL.filterProductsByCategorie}`, params);
+    const {data} = await axios.get(`http://localhost:8001/${URL.filterProductsByCategory}`, params);
     res = data
   } catch (e) {
     if (errorMessages[e.status]) {
