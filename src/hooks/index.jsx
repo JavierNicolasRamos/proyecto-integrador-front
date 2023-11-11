@@ -5,3 +5,4 @@ export { useGetAllProductsByCategory } from "./useGetAllProductsByCategory";
 export { useGetRandomProds } from "./useGetRandomProds";
 export { usePostCategory } from "./usePostCategory";
 export { usePostCharacteristic } from "./usePostCharacteristic";
+export { useProduct } from "./useProduct";

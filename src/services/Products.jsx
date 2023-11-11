@@ -11,6 +11,7 @@ const errorMessages = {
 const URL = {
   "random" : "http://localhost:8001/instruments",
   "paginated" : "http://localhost:8001/instruments/paginated",
+  "byId" : "http://localhost:8001/instruments/id/",
 }
 
 const handleErrors = (e) => {
@@ -39,3 +40,12 @@ export const getRandomProds = async () => {
     handleErrors(e);
   }
 };
+
+export const getProductById = async (id) => {
+  try {
+    const { data } = await axios.get(URL.byId + id);
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
+}
