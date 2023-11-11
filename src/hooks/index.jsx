@@ -7,3 +7,5 @@ export { usePostCategory } from "./usePostCategory";
 export { usePostCharacteristic } from "./usePostCharacteristic";
 export { useProduct } from "./useProduct";
 export { useShowBrands } from "./useShowBrands";
+export { useAvatar } from "./useAvatar";
+export { useUserMenu } from "./useUserMenu";

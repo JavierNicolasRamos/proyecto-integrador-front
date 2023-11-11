@@ -1,32 +1,15 @@
-import { useEffect, useState } from "react";
-import { useUser } from "../context/UserContext";
 import { Link } from "react-router-dom";
+import { useUser } from "../context/UserContext";
+import { useAvatar, useMenu } from '../hooks/index';
 
-//TODO: Falta refactorizar el componente en hooks y servicios
 export const HeaderProfile = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [avatar, setAvatar] = useState("");
   const { user, setIsLogged } = useUser();
-
-  const handleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
-  // Esta función ocultará el menú cuando el mouse sale del área del menú
-  const handleMenuMouseLeave = () => {
-    setShowMenu(false);
-  };
+  const avatar = useAvatar(user);
+  const { showMenu, handleMenu, handleMenuMouseLeave } = useMenu();
 
   const handleCloseSession = () => {
     setIsLogged(false)
   }
-
-  useEffect(() => {
-    const nameFirstLetter = user.nombre.slice(0, 1);
-    const lastNameFirstLetter = user.apellido.slice(0, 1);
-    setAvatar(`${nameFirstLetter}${lastNameFirstLetter}`);
-  }, [avatar]);
-
   return (
     <section className="header__user-profile"
     onMouseLeave={handleMenuMouseLeave}
