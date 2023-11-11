@@ -1,5 +1,5 @@
-import { useGetAllProducts } from "../hooks/useGetAllProducts"
-import { CategoryList, RandomProds } from "../containers/index"
+import { useGetAllProducts } from "../hooks/index"
+import { CategoryList, RandomProds } from "./index"
 import { PaginateButtons } from "../components/index"
 import "../styles/ProductPanel.css"
 

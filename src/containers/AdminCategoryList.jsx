@@ -1,7 +1,7 @@
-import { useFetchAdminCategoryList } from "../hooks/index";
-import { CategoryCard } from "../components/CategoryCard";
-import "../styles/AdminCategoryList.css";
 import { Link } from "react-router-dom";
+import { useFetchAdminCategoryList } from "../hooks/index";
+import { CategoryCard } from "../components/index";
+import "../styles/AdminCategoryList.css";
 
 export const AdminCategoryList = () => {
   const { category/*, isFetching*/ } = useFetchAdminCategoryList();

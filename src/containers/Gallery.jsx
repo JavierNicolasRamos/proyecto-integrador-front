@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { GalleryGridItem } from "../components/GalleryGridItem";
+import { GalleryGridItem } from "../components/index";
 import axios from "axios";
 import "../styles/Gallery.css";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ListCard } from "../containers/index";
+import { ListCard } from "./index";
 import axios from "axios";
 import "../styles/ProductList.css";
 

@@ -1,4 +1,4 @@
-import { ProductCarousel, RandomProds } from "../containers/index";
+import { ProductCarousel, RandomProds } from "./index";
 import { Hero } from "../components/index";
 import "../styles/Home.css"
 

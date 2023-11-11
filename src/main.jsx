@@ -1,37 +1,32 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ReactDOM from "react-dom/client";
 import { App } from "./App";
-import { Home } from "./Routes/Home";
-import { Detail } from "./Routes/Detail";
-import { Gallery } from "./Routes/Gallery";
-import { CreateProduct } from "./Routes/CreateProduct";
-import { NotFound } from "./Routes/NotFound";
-import { Register } from "./Routes/Register";
-import { Login } from "./Routes/Login";
-import { ProductList } from "./Routes/ProductList";
-import { AdminPanel } from "./Routes/AdminPanel";
-import { CreateCategory } from "./Routes/CreateCategory";
-import { AdminCategoryList } from "./Routes/AdminCategoryList";
-import { CreateCharacteristic } from "./Routes/CreateCharacteristic";
-import { ProductPanel } from "./Routes/ProductPanel";
+import { NotFound, CreateCharacteristic, CreateCategory } from "./components/index";
+import { Register, Login, Home, ProductPanel, ProductList, Gallery, Detail, CreateProduct, AdminPanel, AdminCategoryList } from "./containers/index";
+
+const AdminRoutes = () => (
+  <Routes>
+    <Route path="/panel" element={<AdminPanel />} />
+    <Route path="/category/create" element={<CreateCategory />} />
+    <Route path="/category/list" element={<AdminCategoryList />} />
+    <Route path="/product/create" element={<CreateProduct />} />
+    <Route path="/product/list" element={<ProductList />} />
+    <Route path="/characteristic/create" element={<CreateCharacteristic />} />
+  </Routes>
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
+      <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/search/products" element={<ProductPanel />} />
           <Route path="/product/detail/:id" element={<Detail/>} />
           <Route path="/product/gallery/:id" element={<Gallery />} />
-          <Route path="/admin/panel" element={<AdminPanel />} />
-          <Route path="/admin/category/create" element={<CreateCategory />} />
-          <Route path="/admin/category/list" element={<AdminCategoryList />} />
-          <Route path="/admin/product/create" element={<CreateProduct />} />
-          <Route path="/admin/product/list" element={<ProductList />} />
-          <Route path="/admin/characteristic/create" element={<CreateCharacteristic />} />
+          <Route path="/admin" element={<AdminRoutes />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>} />
           <Route path="*" element={<NotFound code="404" text="Not Found" />} />
@@ -40,3 +35,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+

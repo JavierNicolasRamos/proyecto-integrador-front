@@ -1,13 +1,13 @@
 import { faFacebookF, faXTwitter } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { LoginForm } from "../components/index"
 import '../styles/Login.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const Login = () => {
   return (
     <>
       <div className="login"> 
-          <h3 className="login__title">Iniciar Sesion</h3>
+          <h3 className="login__title">Iniciar Sesión</h3>
         <div className="login__content">
           <LoginForm/>
           <span>OR</span>

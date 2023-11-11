@@ -1,6 +1,16 @@
+export { AdminCategoryList } from "./AdminCategoryList";
+export { AdminPanel } from "./AdminPanel";
 export { CategoryList } from "./CategoryList";
+export { CreateProduct } from "./CreateProduct";
+export { Detail } from "./Detail";
+export { Gallery } from "./Gallery";
 export { Header } from "./Header";
+export { Home } from "./Home";
 export { ListCard } from "./ListCard";
+export { Login } from "./Login";
 export { ProductCarousel } from "./ProductCarousel";
+export { ProductList } from "./ProductList";
+export { ProductPanel } from "./ProductPanel";
 export { RandomProds } from "./RandomProds";
+export { Register } from "./Register";
 export { RegisterForm } from "./RegisterForm";

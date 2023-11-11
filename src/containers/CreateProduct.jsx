@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import "../styles/CreateProduct.css";
 import { CreateProductError } from "../components/CreateProductError";
 import axios from "axios";
+import "../styles/CreateProduct.css";
 
 //TODO: Falta refactorizar el componente en hooks y servicios
 export const CreateProduct = () => {

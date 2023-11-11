@@ -1,4 +1,4 @@
-import { usePostCharacteristic } from "../hooks/usePostCharacteristic";
+import { usePostCharacteristic } from "../hooks/index";
 import "../styles/CreateCharacteristic.css";
 
 export const CreateCharacteristic = () => {
