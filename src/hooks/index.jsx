@@ -9,3 +9,6 @@ export { useProduct } from "./useProduct";
 export { useShowBrands } from "./useShowBrands";
 export { useAvatar } from "./useAvatar";
 export { useUserMenu } from "./useUserMenu";
+export { useFormCreateProduct } from "./useFormCreateProduct";
+export { useImageHandlerCreateProduct } from "./useImageHandlerCreateProduct";
+export { useFetchCategories } from "./useFetchCategories";

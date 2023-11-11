@@ -12,4 +12,4 @@ export const useGetRandomProds = () => {
     }, []);
   
     return { randomProds , isFetching };
-  }
+}

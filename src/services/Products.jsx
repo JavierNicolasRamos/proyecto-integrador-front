@@ -12,6 +12,7 @@ const URL = {
   "random" : "http://localhost:8001/instruments",
   "paginated" : "http://localhost:8001/instruments/paginated",
   "byId" : "http://localhost:8001/instruments/id/",
+  "create" : "http://localhost:8001/instruments",
 }
 
 const handleErrors = (e) => {
@@ -49,3 +50,17 @@ export const getProductById = async (id) => {
     handleErrors(e);
   }
 }
+
+export const createProduct = async (formData) => {
+  try {
+    const { data } = await axios.post(URL.create, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
+}
+
