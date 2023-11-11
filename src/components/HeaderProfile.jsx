@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import { useAvatar, useMenu } from '../hooks/index';
+import { useAvatar, useUserMenu } from '../hooks/index';
 
 export const HeaderProfile = () => {
   const { user, setIsLogged } = useUser();
   const avatar = useAvatar(user);
-  const { showMenu, handleMenu, handleMenuMouseLeave } = useMenu();
+  const { showMenu, handleMenu, handleMenuMouseLeave } = useUserMenu();
 
   const handleCloseSession = () => {
     setIsLogged(false)

@@ -3,17 +3,6 @@ import { NotFound, CreateCharacteristic, CreateCategory } from "../components/in
 import { Register, Login, Home, ProductPanel, ProductList, Gallery, Detail, CreateProduct, AdminPanel, AdminCategoryList } from "../containers/index";
 import { App } from "../App";
 
-export const AdminRoutes = () => (
-  <Routes>
-    <Route path="/panel" element={<AdminPanel />} />
-    <Route path="/category/create" element={<CreateCategory />} />
-    <Route path="/category/list" element={<AdminCategoryList />} />
-    <Route path="/product/create" element={<CreateProduct />} />
-    <Route path="/product/list" element={<ProductList />} />
-    <Route path="/characteristic/create" element={<CreateCharacteristic />} />
-  </Routes>
-);
-
 export const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<App />}>
@@ -22,7 +11,12 @@ export const AppRoutes = () => (
         <Route path="/search/products" element={<ProductPanel />} />
         <Route path="/product/detail/:id" element={<Detail/>} />
         <Route path="/product/gallery/:id" element={<Gallery />} />
-        <Route path="/admin" element={<AdminRoutes />} />
+        <Route path="admin" element={<AdminPanel />} />
+        <Route path="admin/category/create" element={<CreateCategory />} />
+        <Route path="admin/category/list" element={<AdminCategoryList />} />
+        <Route path="admin/product/create" element={<CreateProduct />} />
+        <Route path="admin/product/list" element={<ProductList />} />
+        <Route path="admin/characteristic/create" element={<CreateCharacteristic />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
         <Route path="*" element={<NotFound code="404" text="Not Found" />} />

@@ -1,68 +1,47 @@
 import { Link, useLocation } from "react-router-dom";
 
+const routes = {
+  "/admin/product/create": [
+    { to: "/admin/panel", text: "Panel de administración" },
+    { to: "/admin/product/list", text: "Lista de productos" },
+  ],
+  "/admin/product/list": [
+    { to: "/admin/panel", text: "Panel de administración" },
+    { to: "/admin/product/create", text: "Agregar producto" },
+  ],
+  "/admin/category/create": [
+    { to: "/admin/panel", text: "Panel de administración" },
+    { to: "/admin/category/list", text: "Lista de categorías" },
+  ],
+  "/admin/category/list": [
+    { to: "/admin/panel", text: "Panel de administración" },
+    { to: "/admin/category/create", text: "Agregar categoría" },
+  ],
+  "/admin/characteristic/create": [
+    { to: "/admin/panel", text: "Panel de administración" },
+    { to: "/admin/characteristic/list", text: "Administrar características" },
+  ],
+  "/admin": [
+    { to: "/home", text: "Inicio" },
+    { to: "/home", text: "Cuenta" },
+  ],
+  "default": [
+    { to: "/home", text: "Inicio" },
+    { to: "/search/products", text: "Productos" },
+    { to: "/categories", text: "Categorías" },
+    { to: "/contact", text: "Contacto" },
+  ],
+};
+
 export const Menu = () => {
   const location = useLocation();
-  const createProductPath = location.pathname === "/admin/product/create";
-  const productListPath = location.pathname === "/admin/product/list";
-  const adminPanelPath = location.pathname === "/admin/panel";
-  const createCategoryPath = location.pathname === "/admin/category/create";
-  const categoryListPath = location.pathname === "/admin/category/list";
-  const createCharacteristicPath = location.pathname === "/admin/characteristic/create";
+  const links = routes[location.pathname] || routes["default"];
 
-  if (createProductPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/admin/panel"}>Panel de administración</Link>
-        <Link to={"/admin/product/list"}>Lista de productos</Link>
-      </nav>
-    );
-  } else if (productListPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/admin/panel"}>Panel de administración</Link>
-        <Link to={"/admin/product/create"}>Agregar producto</Link>
-      </nav>
-    );
-    
-  }else if (createCategoryPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/admin/panel"}>Panel de administración</Link>
-        <Link to={"/admin/category/list"}>Lista de categorías</Link>
-      </nav>
-    );
-    
-  } else if (categoryListPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/admin/panel"}>Panel de administración</Link>
-        <Link to={"/admin/category/create"}>Agregar categoría</Link>
-      </nav>
-    );
-    
-  } else if (createCharacteristicPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/admin/panel"}>Panel de administración</Link>
-        <Link to={"/admin/characteristic/list"}>Administrar características</Link>
-      </nav>
-    );
-    
-  } else if (adminPanelPath) {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/home"}>Inicio</Link>
-        <Link to={"/home"}>Cuenta</Link>
-      </nav>
-    );
-  } else {
-    return (
-      <nav className="navigation-menu">
-        <Link to={"/home"}>Inicio</Link>
-        <Link to={"/search/products"}>Productos</Link>
-        <Link to={"/categories"}>Categorías</Link>
-        <Link to={"/contact"}>Contacto</Link>
-      </nav>
-    );
-  }
+  return (
+    <nav className="navigation-menu">
+      {links.map((link, index) => (
+        <Link key={index} to={link.to}>{link.text}</Link>
+      ))}
+    </nav>
+  );
 };
