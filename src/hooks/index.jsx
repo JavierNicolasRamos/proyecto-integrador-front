@@ -6,3 +6,4 @@ export { useGetRandomProds } from "./useGetRandomProds";
 export { usePostCategory } from "./usePostCategory";
 export { usePostCharacteristic } from "./usePostCharacteristic";
 export { useProduct } from "./useProduct";
+export { useShowBrands } from "./useShowBrands";

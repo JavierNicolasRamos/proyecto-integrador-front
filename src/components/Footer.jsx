@@ -1,26 +1,11 @@
-import "../styles/Footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faSquareThreads, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useShowBrands } from '../hooks/index';
+import "../styles/Footer.css";
 
-//TODO: Falta refactorizar el componente en hooks y servicios
 export const Footer = () => {
-
-  const location = useLocation(); // Obtén la ubicación actual
-  const isLogin = location.pathname === "/login";
-  const isRegister = location.pathname === "/register";
-
-  const [showBrands, setShowBrands] = useState(true);
-
-  useEffect(() => {
-    if (isLogin || isRegister) {
-      setShowBrands(false);
-    } else {
-      setShowBrands(true);
-    }
-  }, [isLogin, isRegister, location.pathname]); // Observa cambios en la ubicación
+  const showBrands = useShowBrands();// Observa cambios en la ubicación
   
   return (
     <footer className="footer">
