@@ -19,20 +19,14 @@ const handleErrors = (e) => {
 };
 
 export const getProductsByCategory = async (params) => {
-  
-  let res
-
   try {
     const {data} = await axios.get(`http://localhost:8001/${URL.filterProductsByCategory}`, params);
-    res = data
+    return data
   } catch (e) {
     if (errorMessages[e.status]) {
         throw new Error(errorMessages[e.status]);
     }
   }
-  console.log(res)
-  return res;
-
 };
 
 
