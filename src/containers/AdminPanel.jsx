@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { NotFound } from "./components/index";
+import { NotFound } from "../components/index";
 import "../styles/AdminPanel.css";
 
 export const AdminPanel = () => {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getProductsByCategorie } from "../services/Category";
+import { getProductsByCategory } from "../services/Category";
 
-export const useGetProductsByCategorie = (params) => {
+export const useGetAllProductsByCategory = (params) => {
     const [ filteredProds , setFilteredProds ] = useState();
   
     useEffect(() => {
-        getProductsByCategorie(params)
+        getProductsByCategory(params)
         .then( filteredPrdos => setFilteredProds( filteredPrdos ) )
     }, [params]);
   

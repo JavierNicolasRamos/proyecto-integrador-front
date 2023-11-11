@@ -12,6 +12,6 @@ export const NotFound = ({code, text}) => {
 };
 
 NotFound.propTypes = {
-  code: PropTypes.number,
-  text: PropTypes.string,
+  code: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
 };

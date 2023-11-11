@@ -18,7 +18,7 @@ const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getProductsByCategorie = async (params) => {
+export const getProductsByCategory = async (params) => {
   
   let res
 
