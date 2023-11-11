@@ -1,4 +1,3 @@
-// empiezo a modificar
 import { Outlet } from "react-router-dom";
 import { UserProvider } from './context/UserContext';
 import  { Footer } from "./components/index";
