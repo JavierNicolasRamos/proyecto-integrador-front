@@ -28,11 +28,20 @@ export const useFormCreateInstrument = () => {
   };
 
   const submitForm = async () => {
+    const jsonData = {
+      name: name,
+      detail: detail,
+      categoryDto: { id: selectedCategoryId },
+    };
+
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("detail", detail);
-    formData.append(`image[]`, images);
-    formData.append("categoryDto", JSON.stringify({ id: selectedCategoryId }));
+
+    images.forEach((image) => {
+      formData.append("image", image);
+    });
+
+    formData.append("jsonData", JSON.stringify(jsonData));
+
     await postInstrument(formData);
   };
 

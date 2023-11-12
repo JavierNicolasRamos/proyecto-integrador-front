@@ -9,13 +9,14 @@ const errorMessages = {
 };
 
 const URL = {
-  "createInstrument" : "http://localhost:8001/instruments",
-  "getInstrumentById" : "http://localhost:8001/instruments/id/",
-  "paginated" : "http://localhost:8001/instruments/paginated",
-  "random" : "http://localhost:8001/instruments",
-}
+  createInstrument: "http://localhost:8001/instruments",
+  getInstrumentById: "http://localhost:8001/instruments/id/",
+  paginated: "http://localhost:8001/instruments/paginated",
+  random: "http://localhost:8001/instruments",
+};
 
 const handleErrors = (e) => {
+  console.error('Error:', e);
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -39,10 +40,10 @@ export const getInstrumentById = async (id) => {
 
 export const getAllInstrumentsPaginated = async () => {
   const params = {
-    "page": 1,
-    "size": 10,
+    page: 1,
+    size: 10,
   };
-  
+
   try {
     const { data } = await axios.get(URL.paginated, { params });
     return data;
@@ -61,5 +62,6 @@ export const postInstrument = async (formData) => {
     return data;
   } catch (e) {
     handleErrors(e);
+    console.error('Error en la solicitud POST:', error)
   }
-}
+};

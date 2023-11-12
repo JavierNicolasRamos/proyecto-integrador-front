@@ -11,7 +11,7 @@ export const CreateInstrument = () => {
     <div className="createInstrumentPage">
       <section className="createInstrumentSection">
         <div className="createInstrument-title">
-          <p>Agregar instrumento</p>
+          <p>Agregar producto</p>
         </div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
