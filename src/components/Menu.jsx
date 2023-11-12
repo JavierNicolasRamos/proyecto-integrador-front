@@ -1,13 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 
 const routes = {
-  "/admin/product/create": [
+  "/admin/instrument/create": [
     { to: "/admin", text: "Panel de administración" },
-    { to: "/admin/product/list", text: "Lista de productos" },
+    { to: "/admin/instrument/list", text: "Lista de productos" },
   ],
-  "/admin/product/list": [
+  "/admin/instrument/list": [
     { to: "/admin", text: "Panel de administración" },
-    { to: "/admin/product/create", text: "Agregar producto" },
+    { to: "/admin/instrument/create", text: "Agregar producto" },
   ],
   "/admin/category/create": [
     { to: "/admin", text: "Panel de administración" },
