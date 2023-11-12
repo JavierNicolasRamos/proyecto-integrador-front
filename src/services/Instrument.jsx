@@ -10,14 +10,25 @@ const errorMessages = {
 
 const URL = {
   createInstrument: "http://localhost:8001/instruments",
+  getAllInstruments: "http://localhost:8001/instruments",
   getInstrumentById: "http://localhost:8001/instruments/id/",
   paginated: "http://localhost:8001/instruments/paginated",
   random: "http://localhost:8001/instruments",
+  deleteInstrument: "http://localhost:8001/instrument/",
 };
 
 const handleErrors = (e) => {
-  console.error('Error:', e);
+  console.error("Error:", e);
   throw new Error(errorMessages[e.status] || e.message);
+};
+
+export const getAllInstruments = async () => {
+  try {
+    const { data } = await axios.get(URL.getAllInstruments);
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
 };
 
 export const getRandomInstruments = async () => {
@@ -38,17 +49,21 @@ export const getInstrumentById = async (id) => {
   }
 };
 
-export const getAllInstrumentsPaginated = async () => {
-  const params = {
+export const getAllInstrumentsPaginated = async (customizedParams) => {
+  const standardParams = {
     page: 1,
     size: 10,
   };
 
+  const params = { ...standardParams, ...customizedParams };
+
   try {
-    const { data } = await axios.get(URL.paginated, { params });
+    const { data } = await axios.get(URL.paginated, {
+      params: customizedParams ? customizedParams : standardParams,
+    });
     return data;
-  } catch (e) {
-    handleErrors(e);
+  } catch (error) {
+    handleErrors(error);
   }
 };
 
@@ -62,6 +77,15 @@ export const postInstrument = async (formData) => {
     return data;
   } catch (e) {
     handleErrors(e);
-    console.error('Error en la solicitud POST:', error)
+    console.error("Error en la solicitud POST:", error);
+  }
+};
+
+export const deleteInstrument = async (id) => {
+  try {
+    const { data } = await axios.delete(`${URL.deleteInstrument}${id}`);
+    return data;
+  } catch (e) {
+    handleErrors(e);
   }
 };

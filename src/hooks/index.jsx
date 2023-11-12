@@ -1,4 +1,5 @@
 export { useFetchAdminCategoryList } from "./useFetchAdminCategoryList";
+export { useFetchAdminProductList } from "./useFetchAdminProductList";
 export { useGetAllCategories } from "./useGetAllCategories";
 export { useGetAllInstruments } from "./useGetAllInstruments";
 export { useGetAllInstrumentsByCategory } from "./useGetAllInstrumentsByCategory";
