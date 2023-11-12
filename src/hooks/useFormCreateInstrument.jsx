@@ -1,32 +1,57 @@
 import { useState } from "react";
+import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
+import { useFetchCategories } from "./useFetchCategories";
+import { postInstrument } from "../services";
 
-export const useFormCreateInstrument = (initialState, validate) => {
-  const [values, setValues] = useState(initialState);
-  const [errors, setErrors] = useState({});
+export const useFormCreateInstrument = () => {
+  const { images, handleImageChange } = useImageHandlerCreateInstrument();
+  const {
+    categories,
+    selectedCategoryId,
+    setSelectedCategoryId /*, isFetching */,
+  } = useFetchCategories();
+  const [name, setName] = useState("");
+  const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
-  const [showCard, setShowCard] = useState(false);
 
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
+  const validateForm = () => {
+    if (
+      !name ||
+      name.trim().length < 3 ||
+      !detail ||
+      detail.trim().length < 3 ||
+      !selectedCategoryId ||
+      images.length === 0
+    ) {
+      setShowError(true);
+    }
+  };
+
+  const submitForm = async () => {
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("detail", detail);
+    formData.append(`image[]`, images);
+    formData.append("categoryDto", JSON.stringify({ id: selectedCategoryId }));
+    await postInstrument(formData);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = validate(values);
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      setShowError(false);
-      setShowCard(true);
-      return values;
-    } else {
-      setShowError(true);
-      setShowCard(false);
-    }
+    validateForm();
+    !showError ? submitForm() : null;
   };
 
-  return { values, errors, showError, showCard, handleChange, handleSubmit };
+  return {
+    name,
+    setName,
+    detail,
+    setDetail,
+    handleImageChange,
+    showError,
+    handleSubmit,
+    categories,
+    selectedCategoryId,
+    setSelectedCategoryId,
+  };
 };

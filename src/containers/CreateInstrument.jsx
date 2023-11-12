@@ -1,50 +1,26 @@
-import { useFormCreateInstrument, useImageHandlerCreateInstrument, useFetchCategories } from "../hooks/index";
-import { postInstrument } from "../services/index";
+import { useFormCreateInstrument } from "../hooks/index";
 import { CreateInstrumentError } from "../components/index";
-import "../styles/CreateProduct.css";
+import "../styles/CreateInstrument.css";
 
 export const CreateInstrument = () => {
-  const validate = (values) => {
-    let errors = {};
-    if (!values.name || values.name.trim().length < 3) {
-      errors.name = "El nombre es requerido y debe tener al menos 3 caracteres.";
-    }
-    return errors;
-  };
-
-  const { values, /*errors,*/ showError, /*showCard,*/ handleChange/*, handleSubmit*/ } = useFormCreateInstrument(
-    { name: "", detail: "" },
-    validate
-  );
-
-  const { images, handleImageChange } = useImageHandlerCreateInstrument();
-  const { categories, selectedCategoryId, setSelectedCategoryId/*, isFetching */ } = useFetchCategories();
-
-  const submitForm = async () => {
-    const formData = new FormData();
-    formData.append("name", values.name);
-    formData.append("detail", values.detail);
-    images.forEach((image, index) => {
-      formData.append(`images[${index}]`, image);
-    });
-    formData.append("category", selectedCategoryId);
-    await postInstrument(formData);
-  };
   
+
+  const { name, setName, detail, setDetail, handleImageChange, showError , handleSubmit, categories, selectedCategoryId, setSelectedCategoryId } = useFormCreateInstrument();
+ 
   return (
-    <div className="createProductPage">
-      <section className="createProductSection">
-        <div className="CreateInstrument-title">
-          <p>Agregar producto</p>
+    <div className="createInstrumentPage">
+      <section className="createInstrumentSection">
+        <div className="createInstrument-title">
+          <p>Agregar instrumento</p>
         </div>
-        <form onSubmit={submitForm}>
-          <label htmlFor="name">Nombre del Producto</label>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Nombre del Instrumento</label>
           <input
             id="name"
             type="text"
             placeholder="Guitarra, Piano, Platillos"
             value={name}
-            onChange={handleChange}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <label htmlFor="category">Categoría</label>
@@ -69,8 +45,8 @@ export const CreateInstrument = () => {
             id="detail"
             type="text"
             placeholder="Guitarra eléctrica, marca, modelo"
-            value={values.detail}
-            onChange={handleChange}
+            value={detail}
+            onChange={(e) => setDetail(e.target.value)}
           />
 
           <div className="uploadImages">
