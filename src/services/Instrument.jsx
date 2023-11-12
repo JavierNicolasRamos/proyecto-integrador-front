@@ -11,6 +11,7 @@ const errorMessages = {
 const URL = {
   "list" : "http://localhost:8001/instruments",
   "createInstrument" : "http://localhost:8001/instruments",
+  "getInstrumentById" : "http://localhost:8001/instruments/id/",
 }
 
 const handleErrors = (e) => {
@@ -38,6 +39,15 @@ export const postInstrument = async (name, detail, categoryName, images) => {
 
   try {
     const { data } = await axios.post(URL.createInstrument, params);
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
+};
+
+export const getInstrumentById = async (id) => {
+  try {
+    const { data } = await axios.get(URL.getInstrumentById + id);
     return data;
   } catch (e) {
     handleErrors(e);

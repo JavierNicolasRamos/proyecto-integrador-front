@@ -12,3 +12,4 @@ export { useUserMenu } from "./useUserMenu";
 export { useFormCreateProduct } from "./useFormCreateProduct";
 export { useImageHandlerCreateProduct } from "./useImageHandlerCreateProduct";
 export { useFetchCategories } from "./useFetchCategories";
+export { useGallery } from "./useGallery";
