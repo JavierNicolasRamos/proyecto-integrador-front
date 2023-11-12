@@ -6,7 +6,9 @@
   justify-content: center;
   width: 45%;
   height: 20vh;
-  background-color: var(--red);
+  background-size: cover;
+  background-position: center center;
+  background-clip: padding-box;
 }
 
 .category-card h1 {
