@@ -16,12 +16,12 @@ const adminPanelRoutes = [
   {
     name: "Lista de Productos",
     image: "/src/images/productIcon.svg",
-    linkTo: "/admin/product/list",
+    linkTo: "/admin/instrument/list",
   },
   {
     name: "Agregar Producto",
     image: "/src/images/productIcon.svg",
-    linkTo: "/admin/product/create",
+    linkTo: "/admin/instrument/create",
   },
   {
     name: "Lista de Categorías",
