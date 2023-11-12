@@ -3,6 +3,7 @@ import "../styles/ProductList.css";
 import { useFetchAdminProductList } from "../hooks/index";
 
 export const ProductList = () => {
+  
   const {
     currentPage,
     setCurrentPage,
@@ -12,6 +13,8 @@ export const ProductList = () => {
     handlePageChange,
     handleDelete,
   } = useFetchAdminProductList();
+
+  console.log(products);
 
   return (
     <div>

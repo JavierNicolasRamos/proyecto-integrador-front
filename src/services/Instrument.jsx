@@ -14,7 +14,7 @@ const URL = {
   getInstrumentById: "http://localhost:8001/instruments/id/",
   paginated: "http://localhost:8001/instruments/paginated",
   random: "http://localhost:8001/instruments",
-  deleteInstrument: "http://localhost:8001/instrument/",
+  deleteInstrument: "http://localhost:8001/instruments/",
 };
 
 const handleErrors = (e) => {

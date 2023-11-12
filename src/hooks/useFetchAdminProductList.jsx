@@ -19,34 +19,22 @@ export const useFetchAdminProductList = () => {
 
   // Obtain paginated products
   useEffect(() => {
-    const fetchPaginatedProducts = async () => {
-      try {
-        const product = await getAllInstrumentsPaginated(params);
-        setProducts(product);
-      } catch (error) {
-        console.error("Error al obtener productos paginados:", error);
-      } finally {
-        setIsFetching(false);
-      }
-    };
-
-    fetchPaginatedProducts();
+    getAllInstrumentsPaginated(params)
+      .then((response) => {
+        const productsArray = response?.content || [];
+        setProducts(productsArray);
+      })
+      .finally(() => setIsFetching(false));
   }, [currentPage]);
 
   // Obtain Products Quantity
   useEffect(() => {
-    const fetchProductQuantity = async () => {
-      try {
-        const response = await getAllInstruments();
-        const total = response?.data?.length || 0;
-        const totalPages = Math.floor(total / 10) + 1;
-        setTotalPages(totalPages);
-      } catch (error) {
-        console.error("Error al obtener cantidad de productos:", error);
-      }
-    };
-
-    fetchProductQuantity();
+    getAllInstruments()
+    .then((data) => {
+      const total = data?.length;
+      const totalPages = Math.floor(total / 10) + 1;
+      setTotalPages(totalPages);
+    });
   }, []);
 
   // Change page handler
@@ -55,14 +43,9 @@ export const useFetchAdminProductList = () => {
   };
 
   // Delete Handler
-  const handleDelete = async (id) => {
-    deleteInstrument(id)
-      .then((response) => {
-        setCurrentPage(1);
-      })
-      .catch((error) => {
-        console.error("Error al eliminar el producto:", error);
-      });
+  const handleDelete = (id) => {
+    deleteInstrument(id);
+    setCurrentPage(1);
   };
 
   return {
