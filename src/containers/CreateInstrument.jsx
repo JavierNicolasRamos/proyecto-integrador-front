@@ -1,9 +1,9 @@
-import { useFormCreateProduct, useImageHandlerCreateProduct, useFetchCategories } from "../hooks/index";
-import { createProduct } from "../services/index";
-import { CreateProductError } from "../components/index";
+import { useFormCreateInstrument, useImageHandlerCreateInstrument, useFetchCategories } from "../hooks/index";
+import { postInstrument } from "../services/index";
+import { CreateInstrumentError } from "../components/index";
 import "../styles/CreateProduct.css";
 
-export const CreateProduct = () => {
+export const CreateInstrument = () => {
   const validate = (values) => {
     let errors = {};
     if (!values.name || values.name.trim().length < 3) {
@@ -12,12 +12,12 @@ export const CreateProduct = () => {
     return errors;
   };
 
-  const { values, /*errors,*/ showError, /*showCard,*/ handleChange/*, handleSubmit*/ } = useFormCreateProduct(
+  const { values, /*errors,*/ showError, /*showCard,*/ handleChange/*, handleSubmit*/ } = useFormCreateInstrument(
     { name: "", detail: "" },
     validate
   );
 
-  const { images, handleImageChange } = useImageHandlerCreateProduct();
+  const { images, handleImageChange } = useImageHandlerCreateInstrument();
   const { categories, selectedCategoryId, setSelectedCategoryId/*, isFetching */ } = useFetchCategories();
 
   const submitForm = async () => {
@@ -28,13 +28,13 @@ export const CreateProduct = () => {
       formData.append(`images[${index}]`, image);
     });
     formData.append("category", selectedCategoryId);
-    await createProduct(formData);
+    await postInstrument(formData);
   };
   
   return (
     <div className="createProductPage">
       <section className="createProductSection">
-        <div className="createProduct-title">
+        <div className="CreateInstrument-title">
           <p>Agregar producto</p>
         </div>
         <form onSubmit={submitForm}>
@@ -87,7 +87,7 @@ export const CreateProduct = () => {
           <input id="agregar" type="submit" value="Agregar" />
         </form>
 
-        {showError && <CreateProductError />}
+        {showError && <CreateInstrumentError />}
       </section>
     </div>
   );

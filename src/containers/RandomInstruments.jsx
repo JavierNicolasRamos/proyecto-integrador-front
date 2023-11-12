@@ -1,8 +1,8 @@
-import { useGetRandomProds } from "../hooks/useGetRandomProds";
+import { useGetRandomInstruments} from "../hooks/index";
 import { Card }  from "../components/Card";
 
-export const RandomProds = () => {
-  const { randomProds } = useGetRandomProds()  
+export const RandomInstruments = () => {
+  const { randomsInstruments } = useGetRandomInstruments()  
   const isHome = location.pathname === "/home"
 
   return (
@@ -10,7 +10,7 @@ export const RandomProds = () => {
       <div className="product-content">
         <h2 className={`home__title ${isHome ? '' : 'hide'}`}>Productos que pueden interesarte</h2>
         <div className="product__grid-randomprods">
-          {randomProds.map((randomProduct) => (
+          {randomsInstruments.map((randomProduct) => (
             <Card 
             key={randomProduct.id} 
             id={randomProduct.id} 

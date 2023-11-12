@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getAllProducts } from "../services/Products";
+import { getAllInstrumentsPaginated } from "../services/Instrument";
 
-export const useGetAllProducts = () => {
+export const useGetAllInstruments = () => {
     const [ products , setProducts ] = useState();
 
     useEffect(() => {
-        getAllProducts()
+        getAllInstrumentsPaginated()
         .then( products => setProducts( products ) )
     }, []);
 

@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { useProduct } from '../hooks/index';
+import { useInstrument } from '../hooks/index';
 import "../styles/Characteristics.css";
 
 export const Characteristics = () => {
   const { id } = useParams();
-  const { product, productExists } = useProduct(id);
+  const { product, productExists } = useInstrument(id);
 
   return (
     <div className="characteristics-container">

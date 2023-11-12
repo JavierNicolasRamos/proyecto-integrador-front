@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useImageHandlerCreateProduct = () => {
+export const useImageHandlerCreateInstrument = () => {
   const [images, setImages] = useState([]);
 
   const handleImageChange = (e) => {

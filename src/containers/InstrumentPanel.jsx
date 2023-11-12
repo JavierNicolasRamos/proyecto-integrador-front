@@ -1,11 +1,11 @@
-import { useGetAllProducts } from "../hooks/index"
-import { CategoryList, RandomProds } from "./index"
+import { useGetAllInstruments } from "../hooks/index"
+import { CategoryList, RandomInstruments } from "./index"
 import { PaginateButtons } from "../components/index"
 import "../styles/ProductPanel.css"
 
-export const ProductPanel = () => {
+export const InstrumentPanel = () => {
   
-  const products = useGetAllProducts()
+  const products = useGetAllInstruments()
     if (!products) {
       return null;
   }
@@ -18,7 +18,7 @@ export const ProductPanel = () => {
       <div className="product__content">
         <CategoryList />
       <div>
-        <RandomProds />
+        <RandomInstruments />
         <PaginateButtons/>
       </div>
       </div>

@@ -1,6 +1,6 @@
 import "../styles/CreateProductError.css";
 
-export const CreateProductError = () => {
+export const CreateInstrumentError = () => {
   return (
     <div className="CreateProductError">
       <p>Por favor chequea que la información sea correcta</p>

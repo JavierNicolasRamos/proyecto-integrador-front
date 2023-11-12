@@ -4,7 +4,7 @@ export { CategoryCheckBox } from "./CategoryCheckBox";
 export { Characteristics } from "./Characteristics";
 export { CreateCategory } from "./CreateCategory";
 export { CreateCharacteristic } from "./CreateCharacteristic";
-export { CreateProductError } from "./CreateProductError";
+export { CreateInstrumentError } from "./CreateInstrumentError";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 export { Footer } from "./Footer";
 export { FormError } from "./FormError";

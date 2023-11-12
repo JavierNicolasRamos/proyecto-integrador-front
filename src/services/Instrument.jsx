@@ -9,36 +9,19 @@ const errorMessages = {
 };
 
 const URL = {
-  "list" : "http://localhost:8001/instruments",
   "createInstrument" : "http://localhost:8001/instruments",
   "getInstrumentById" : "http://localhost:8001/instruments/id/",
+  "paginated" : "http://localhost:8001/instruments/paginated",
+  "random" : "http://localhost:8001/instruments",
 }
 
 const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const fetchInstrument = async () => {
+export const getRandomInstruments = async () => {
   try {
-    const { data } = await axios.get(URL.list);
-    return data;
-  } catch (e) {
-    handleErrors(e);
-  }
-};
-
-export const postInstrument = async (name, detail, categoryName, images) => {
-  const params = {
-    name: name,
-    detail: detail,
-    category: {
-      name: categoryName,
-    },
-    image: [{ image: images }],
-  };
-
-  try {
-    const { data } = await axios.post(URL.createInstrument, params);
+    const { data } = await axios.get(URL.random);
     return data;
   } catch (e) {
     handleErrors(e);
@@ -53,3 +36,30 @@ export const getInstrumentById = async (id) => {
     handleErrors(e);
   }
 };
+
+export const getAllInstrumentsPaginated = async () => {
+  const params = {
+    "page": 1,
+    "size": 10,
+  };
+  
+  try {
+    const { data } = await axios.get(URL.paginated, { params });
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
+};
+
+export const postInstrument = async (formData) => {
+  try {
+    const { data } = await axios.post(URL.createInstrument, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return data;
+  } catch (e) {
+    handleErrors(e);
+  }
+}

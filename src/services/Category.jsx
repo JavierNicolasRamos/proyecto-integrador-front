@@ -11,16 +11,16 @@ const errorMessages = {
 const URL = {
   "list" : "http://localhost:8001/category/list",
   "createCategory" : "http://localhost:8001/category",
-  "filterProductsByCategory" : "http://localhost:8001/category/instruments"
+  "filterInstrumentsByCategory" : "http://localhost:8001/category/instruments"
 }
 
 const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getProductsByCategory = async (params) => {
+export const getInstrumentsByCategory = async (params) => {
   try {
-    const {data} = await axios.get(`http://localhost:8001/${URL.filterProductsByCategory}`, params);
+    const {data} = await axios.get(`http://localhost:8001/${URL.filterInstrumentsByCategory}`, params);
     return data
   } catch (e) {
     if (errorMessages[e.status]) {
