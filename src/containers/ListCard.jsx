@@ -4,7 +4,7 @@ import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog
 import "../styles/ListCard.css";
 
 //TODO: Falta refactorizar el componente en hooks y servicios
-export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }) => {
+export const ListCard = ({ id, name, handleUpdate, handleDelete}) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
   const handleUpdateClick = () => {
@@ -22,7 +22,7 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete, fetchProducts }
   const handleConfirmDelete = () => {
     handleDelete(id);
     setIsConfirmationOpen(false);
-    fetchProducts();
+    //fetchProducts();
   };
 
   return (
