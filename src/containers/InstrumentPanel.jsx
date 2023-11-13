@@ -1,14 +1,23 @@
-import "../styles/ProductPanel.css"
 import { CategoryList, RandomInstruments } from "../containers/index"
 import { PaginateButtons } from "../components/index"
+import { useGetAllInstruments, useGetAllInstrumentsByCategory } from "../hooks"
+import { useEffect, useState } from "react"
+import { FilteredInstruments } from "./FilteredInstruments"
 import "../styles/ProductPanel.css"
-import { useGetAllInstruments } from "../hooks"
 
 export const InstrumentPanel = () => {
+
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const { instruments } = useGetAllInstrumentsByCategory(selectedCategories)
   
-  const products = useGetAllInstruments()
-    if (!products) {
-      return null;
+  const products = useGetAllInstruments();
+
+  useEffect(() => {
+    console.log(selectedCategories)
+  }, [selectedCategories])
+
+  if (!products ) {
+    return null;
   }
 
   return (
@@ -17,12 +26,21 @@ export const InstrumentPanel = () => {
         <p>{products.totalElements} productos</p>
       </div>
       <div className="product__content">
-        <CategoryList />
-      <div>
-        <RandomInstruments />
-        <PaginateButtons/>
-      </div>
+        <CategoryList
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+        />
+        <div>
+          {selectedCategories.length === 0 ? (
+              <RandomInstruments />
+            ) : (
+              ''
+              // <FilteredInstruments instruments={} />
+            )
+          }
+          <PaginateButtons />
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
