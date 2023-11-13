@@ -19,20 +19,15 @@ const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getInstrumentsByCategory = async (params) => {
-
-  console.log(params)
-
-  try { 
-    const { data } = await axios.get(URL.filterInstrumentsByCategory, params, {
-      headers:{
-        "Content-Type" : "application/json"
-      }
-    })
-    return data;
-  } catch (e) {
-    handleErrors(e)
-  }
+export const getInstrumentsByCategory = async (categoryIdList) => {
+  const url = `${URL.filterInstrumentsByCategory}?categoryIdList=${categoryIdList.join(',')}`;
+  const { data } = await axios.get(url, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(data);
+  return data;
 }
 
 export const getAllCategories = async () => {
