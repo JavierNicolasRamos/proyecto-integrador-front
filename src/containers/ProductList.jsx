@@ -14,8 +14,6 @@ export const ProductList = () => {
     handleDelete,
   } = useFetchAdminProductList();
 
-  console.log(products);
-
   return (
     <div>
       <div className="adminProductList">

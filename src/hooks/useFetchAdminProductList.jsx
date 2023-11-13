@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import {
-  getAllInstruments,
   getAllInstrumentsPaginated,
   deleteInstrument,
 } from "../services/Instrument";
@@ -18,34 +17,33 @@ export const useFetchAdminProductList = () => {
   };
 
   // Obtain paginated products
-  useEffect(() => {
+  const fetchPaginatedProducts = () => {
+    setIsFetching(true);
     getAllInstrumentsPaginated(params)
       .then((response) => {
-        const productsArray = response?.content || [];
-        setProducts(productsArray);
+        const instruments = response.content || [];
+        setProducts(instruments);
+        const pages = response?.totalPages || 1;
+        setTotalPages(pages);
       })
       .finally(() => setIsFetching(false));
+  };
+
+  useEffect(() => {
+    fetchPaginatedProducts();
   }, [currentPage]);
 
-  // Obtain Products Quantity
-  useEffect(() => {
-    getAllInstruments()
-    .then((data) => {
-      const total = data?.length;
-      const totalPages = Math.floor(total / 10) + 1;
-      setTotalPages(totalPages);
-    });
-  }, []);
-
-  // Change page handler
+    // Change page handler
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Delete Handler
   const handleDelete = (id) => {
-    deleteInstrument(id);
-    setCurrentPage(1);
+    deleteInstrument(id)
+      .then(() => {
+        fetchPaginatedProducts();
+      })
   };
 
   return {

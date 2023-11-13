@@ -9,10 +9,10 @@ const errorMessages = {
 };
 
 const URL = {
-  "list" : "http://localhost:8001/category/list",
-  "createCategory" : "http://localhost:8001/category",
-  "filterInstrumentsByCategory" : "http://localhost:8001/category/instruments"
-}
+  list: "http://localhost:8001/category/list",
+  createCategory: "http://localhost:8001/category",
+  filterInstrumentsByCategory: "http://localhost:8001/category/instruments",
+};
 
 const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
@@ -20,15 +20,17 @@ const handleErrors = (e) => {
 
 export const getInstrumentsByCategory = async (params) => {
   try {
-    const {data} = await axios.get(`http://localhost:8001/${URL.filterInstrumentsByCategory}`, params);
-    return data
+    const { data } = await axios.get(
+      `http://localhost:8001/${URL.filterInstrumentsByCategory}`,
+      params
+    );
+    return data;
   } catch (e) {
     if (errorMessages[e.status]) {
-        throw new Error(errorMessages[e.status]);
+      throw new Error(errorMessages[e.status]);
     }
   }
 };
-
 
 export const getAllCategories = async () => {
   try {
@@ -41,14 +43,26 @@ export const getAllCategories = async () => {
 
 export const postCategory = async (name, detail, image) => {
   const formData = new FormData();
-  formData.append('name', name);
-  formData.append('details', detail);
-  formData.append('imageDto.image', image);
+
+  const categoryDto = {
+    id: null,
+    name: name,
+    details: detail,
+  };
+
+  formData.append(
+    "categoryDto",
+    new Blob([JSON.stringify(categoryDto)], { type: "application/json" }),
+    "categoryDto.json"
+  );
+  formData.append(
+    "image",
+    new Blob([], { type: "multipart/form-data" }),
+    image
+  );
 
   try {
-    const { data } = await axios.post(URL.createCategory, formData, {
-      headers: { 'Content-Type': "multipart/form-data" }
-    });
+    const { data } = await axios.post(URL.createCategory, formData);
     return data;
   } catch (e) {
     handleErrors(e);
