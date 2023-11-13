@@ -21,9 +21,6 @@ export const CategoryList = () => {
 
   const handleClick = (e) => {
 
-    console.log(e.target.value)
-    console.log(e.target.checked)
-
     if (e.target.checked === true) {
       setCategoriesArray([...categoriesArray, e.target.value])
     }

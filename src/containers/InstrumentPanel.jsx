@@ -1,7 +1,8 @@
-import { useGetAllInstruments } from "../hooks/index"
-import { CategoryList, RandomInstruments } from "./index"
+import "../styles/ProductPanel.css"
+import { CategoryList, RandomInstruments } from "../containers/index"
 import { PaginateButtons } from "../components/index"
 import "../styles/ProductPanel.css"
+import { useGetAllInstruments } from "../hooks"
 
 export const InstrumentPanel = () => {
   
