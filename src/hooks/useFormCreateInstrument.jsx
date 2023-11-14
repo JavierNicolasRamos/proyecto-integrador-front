@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
-import { createLogger } from "vite";
+//import { createLogger } from "vite";
 
 export const useFormCreateInstrument = () => {
   const { images, handleImageChange } = useImageHandlerCreateInstrument();
@@ -69,15 +69,15 @@ export const useFormCreateInstrument = () => {
       );
     });
 
-    for (let pair of formData.entries()) {
-      console.log(
-        pair[0] +
-          ", " +
-          (pair[1] instanceof File
-            ? `File - ${pair[1].name}, ${pair[1].type}`
-            : pair[1])
-      );
-    }
+for (let pair of formData.entries()) {
+  console.log(
+    pair[0] +
+      ", " +
+      (pair[1] instanceof File
+        ? `File - ${pair[1].name}, ${pair[1].type}`
+        : pair[1])
+  );
+}
 
     await postInstrument(formData);
   };
