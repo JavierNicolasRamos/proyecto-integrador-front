@@ -26,7 +26,6 @@ export const getInstrumentsByCategory = async (categoryIdList) => {
       "Content-Type": "application/json",
     },
   });
-  console.log(data);
   return data;
 }
 
