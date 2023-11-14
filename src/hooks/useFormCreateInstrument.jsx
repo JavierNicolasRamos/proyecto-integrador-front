@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
+import { createLogger } from "vite";
 
 export const useFormCreateInstrument = () => {
   const { images, handleImageChange } = useImageHandlerCreateInstrument();
@@ -28,19 +29,55 @@ export const useFormCreateInstrument = () => {
   };
 
   const submitForm = async () => {
-    const jsonData = {
+    const instrument = {
+      id: null,
       name: name,
       detail: detail,
-      categoryDto: { id: selectedCategoryId },
+      characteristics: [
+        {
+          id: null,
+          name: null,
+          icon: null,
+          deleted: null,
+        },
+      ],
+      categoryDto: {
+        id: selectedCategoryId,
+        name: null,
+        details: null,
+      },
+      score: 0.0,
+      uploadDate: null,
+      updateDate: null,
+      available: null,
+      deleted: null,
     };
 
     const formData = new FormData();
 
+    formData.append(
+      "instrument",
+      new Blob([JSON.stringify(instrument)], { type: "application/json" }),
+      "instrument.json"
+    );
+
     images.forEach((image) => {
-      formData.append("image", image);
+      formData.append(
+        "images",
+        new Blob([], { type: "multipart/form-data" }),
+        image
+      );
     });
 
-    formData.append("jsonData", JSON.stringify(jsonData));
+    for (let pair of formData.entries()) {
+      console.log(
+        pair[0] +
+          ", " +
+          (pair[1] instanceof File
+            ? `File - ${pair[1].name}, ${pair[1].type}`
+            : pair[1])
+      );
+    }
 
     await postInstrument(formData);
   };
