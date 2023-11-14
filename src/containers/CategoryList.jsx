@@ -1,54 +1,53 @@
 import { useGetAllCategories } from "../hooks/useGetAllCategories";
 import { CategoryCheckBox } from "../components/CategoryCheckBox";
 import "../styles/CategoryList.css";
-import { useState } from "react";
+import PropTypes from 'prop-types';
 
-export const CategoryList = () => {
-
+export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
   const { categories } = useGetAllCategories();
-    
-  const [categoriesArray, setCategoriesArray] = useState(new Array);
-  const [isChecked, setChecked] = useState(false);
 
-  const handleCheckboxChange = () => {
-    
-    if (isChecked === true) {
-      setChecked(false);
+  const handleChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedCategories([...selectedCategories, Number(value)]);
     } else {
-      setChecked(true)
+      setSelectedCategories(selectedCategories.filter((id) => id !== Number(value)));
     }
   };
 
-  const handleClick = (e) => {
-
-    console.log(e.target.value)
-    console.log(e.target.checked)
-
-    if (e.target.checked === true) {
-      setCategoriesArray([...categoriesArray, e.target.value])
-    }
-
-    console.log(categoriesArray)
-  };
+  const handleEraseFilter = () => {
+    setSelectedCategories([])
+  }
 
   return (
     <aside className="category-aside">
       <div className="category-aside__content">
         <div className="category-aside__title">
           <p>Categorías</p>
+          {
+            selectedCategories.length === 0
+            ? <img src="../src/images/filter.svg" alt="" />
+            : <img 
+                src="../src/images/eraseFilter.svg" alt=""
+                onClick={handleEraseFilter} 
+              />
+          }
         </div>
-          {categories.map(category => {
-            return (
-              <CategoryCheckBox
-                key={category.id}
-                name={category.name}
-                id={category.id}
-                checked={isChecked}
-                handleCheckboxChange={handleCheckboxChange}
-                handleClick={handleClick} />
-            );
-          })}
+        {categories.map(category => (
+          <CategoryCheckBox
+            key={category.id}
+            name={category.name}
+            id={category.id}
+            checked={selectedCategories.includes(category.id)}
+            handleChange={handleChange}
+          />
+        ))}
       </div>
     </aside>
-  )
-}
+  );
+};
+
+CategoryList.propTypes = {
+  selectedCategories: PropTypes.array.isRequired,
+  setSelectedCategories: PropTypes.func.isRequired,
+};

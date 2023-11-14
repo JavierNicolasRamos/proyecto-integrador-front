@@ -77,7 +77,7 @@ export const postInstrument = async (formData) => {
     return data;
   } catch (e) {
     handleErrors(e);
-    console.error("Error en la solicitud POST:", error);
+    console.error("Error en la solicitud POST:", e);
   }
 };
 

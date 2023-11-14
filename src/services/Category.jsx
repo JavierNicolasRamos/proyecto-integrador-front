@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Header } from "../containers";
 
 const errorMessages = {
   500: "Error del servidor",
@@ -18,19 +19,15 @@ const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getInstrumentsByCategory = async (params) => {
-  try {
-    const { data } = await axios.get(
-      `http://localhost:8001/${URL.filterInstrumentsByCategory}`,
-      params
-    );
-    return data;
-  } catch (e) {
-    if (errorMessages[e.status]) {
-      throw new Error(errorMessages[e.status]);
-    }
-  }
-};
+export const getInstrumentsByCategory = async (categoryIdList) => {
+  const url = `${URL.filterInstrumentsByCategory}?categoryIdList=${categoryIdList.join(',')}`;
+  const { data } = await axios.get(url, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return data;
+}
 
 export const getAllCategories = async () => {
   try {

@@ -3,15 +3,16 @@ import { useInstrument } from '../hooks/index';
 import "../styles/Characteristics.css";
 
 export const Characteristics = () => {
+  
   const { id } = useParams();
-  const { product, productExists } = useInstrument(id);
+  const { instrument, instrumentsExists } = useInstrument(id);
 
   return (
     <div className="characteristics-container">
-      {productExists ? (
+      {instrumentsExists ? (
         <div className="data-grid">
           <div className="characteristics-card">
-            <h2>Characteristics</h2>
+            <h2>Caracteristicas</h2>
             <div className="box-detail">
             <div className="column">
                 <p>Nombre</p>
@@ -19,12 +20,12 @@ export const Characteristics = () => {
                 <p>Año de Lanzamiento</p>
               </div>
               <div className="column">
-                <p>{product.name}</p>
-                <p>{product.category.name}</p>
-                <p>{product.uploadDate}</p>
+                <p>{instrument.name}</p>
+                <p>{instrument.category.name}</p>
+                <p>{instrument.uploadDate}</p>
               </div>
               <ul>
-                {product.characteristics.map((characteristic, index) => (
+                {instrument.characteristics.map((characteristic, index) => (
                   <li key={index}>{characteristic.name}</li>
                 ))}
               </ul>
