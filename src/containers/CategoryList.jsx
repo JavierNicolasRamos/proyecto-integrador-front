@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
   const { categories } = useGetAllCategories();
 
-  const handleClick = (e) => {
+  const handleChange = (e) => {
     const { value, checked } = e.target;
-
     if (checked) {
       setSelectedCategories([...selectedCategories, Number(value)]);
     } else {
@@ -16,11 +15,23 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
     }
   };
 
+  const handleEraseFilter = () => {
+    setSelectedCategories([])
+  }
+
   return (
     <aside className="category-aside">
       <div className="category-aside__content">
         <div className="category-aside__title">
           <p>Categorías</p>
+          {
+            selectedCategories.length === 0
+            ? <img src="../src/images/filter.svg" alt="" />
+            : <img 
+                src="../src/images/eraseFilter.svg" alt=""
+                onClick={handleEraseFilter} 
+              />
+          }
         </div>
         {categories.map(category => (
           <CategoryCheckBox
@@ -28,7 +39,7 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
             name={category.name}
             id={category.id}
             checked={selectedCategories.includes(category.id)}
-            handleClick={handleClick}
+            handleChange={handleChange}
           />
         ))}
       </div>

@@ -2,16 +2,27 @@ import { useEffect, useState } from "react";
 import { getInstrumentsByCategory } from "../services/Category";
 
 export const useGetAllInstrumentsByCategory = (filter) => {
-
-  const [instruments, setInstruments] = useState([])
+  const [fetchingFilteredInstruments, setFetchingFilteredInstruments] = useState({
+    instruments: [],
+    loading: true,
+  });
 
   useEffect(() => {
     getInstrumentsByCategory(filter)
       .then((filteredInstruments) => {
-        setInstruments([...instruments, filteredInstruments]);
+        setFetchingFilteredInstruments({
+          instruments: filteredInstruments,
+          loading: false,
+        });
       })
-      console.log(filter)
+      .catch((error) => {
+        console.error("Error fetching instruments:", error);
+        setFetchingFilteredInstruments({
+          instruments: [],
+          loading: false,
+        });
+      });
   }, [filter]);
 
-  return instruments;
+  return fetchingFilteredInstruments;
 };
