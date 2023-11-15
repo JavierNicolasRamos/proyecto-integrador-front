@@ -70,9 +70,7 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
 export const postInstrument = async (formData) => {
   try {
     const { data } = await axios.post(URL.createInstrument, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      headers: { "Content-Type": "multipart/form-data" },
     });
     return data;
   } catch (e) {
