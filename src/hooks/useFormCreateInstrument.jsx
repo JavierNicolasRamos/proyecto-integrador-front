@@ -20,7 +20,7 @@ export const useFormCreateInstrument = () => {
       !name ||
       name.trim().length < 3 ||
       !detail ||
-      detail.trim().length < 3 ||
+      detail.trim().length < 10 ||
       !selectedCategoryId ||
       images.length === 0
     ) {
@@ -33,14 +33,7 @@ export const useFormCreateInstrument = () => {
       id: null,
       name: name,
       detail: detail,
-      characteristics: [
-        {
-          id: null,
-          name: null,
-          icon: null,
-          deleted: null,
-        },
-      ],
+      characteristics: [],
       categoryDto: {
         id: selectedCategoryId,
         name: null,
@@ -55,6 +48,7 @@ export const useFormCreateInstrument = () => {
 
     const formData = new FormData();
 
+
     formData.append(
       "instrument",
       new Blob([JSON.stringify(instrument)], { type: "application/json" }),
@@ -62,22 +56,8 @@ export const useFormCreateInstrument = () => {
     );
 
     images.forEach((image) => {
-      formData.append(
-        "images",
-        new Blob([], { type: "multipart/form-data" }),
-        image
-      );
+      formData.append("images", image);
     });
-
-for (let pair of formData.entries()) {
-  console.log(
-    pair[0] +
-      ", " +
-      (pair[1] instanceof File
-        ? `File - ${pair[1].name}, ${pair[1].type}`
-        : pair[1])
-  );
-}
 
     await postInstrument(formData);
   };

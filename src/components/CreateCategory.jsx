@@ -37,7 +37,7 @@ export const CreateCategory = () => {
               type="file"
               accept="image/*"
               multiple
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
 
