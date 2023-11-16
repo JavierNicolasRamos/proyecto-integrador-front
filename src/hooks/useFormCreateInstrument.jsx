@@ -15,7 +15,7 @@ export const useFormCreateInstrument = () => {
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
 
   const validateForm = () => {
@@ -27,7 +27,9 @@ export const useFormCreateInstrument = () => {
       !selectedCategoryId ||
       images.length === 0
     ) {
-      setShowError(true);
+      return false;
+    } else {
+      return true
     }
   };
 
@@ -51,7 +53,6 @@ export const useFormCreateInstrument = () => {
 
     const formData = new FormData();
 
-
     formData.append(
       "instrument",
       new Blob([JSON.stringify(instrument)], { type: "application/json" }),
@@ -63,22 +64,22 @@ export const useFormCreateInstrument = () => {
     });
 
     await postInstrument(formData);
-
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    validateForm();
-    
-    if (!showError) {
-      const response = await submitForm()
-      setShowResult(true)
-      setSuccess(true)
-      setResultContent(`El instrumento ${name} ha sido creado correctamente`)
+    const validated = validateForm()
+
+    if (validated === true) {
+      const result = submitForm();
+      console.log(result);
+      setSuccess(true);
+      setResultContent(`El instrumento ${name} ha sido creado correctamente`);
+      setShowResult(true);
+    } else {
+      setShowError(true)
     }
-
-
-  }
+  };
 
   return {
     name,

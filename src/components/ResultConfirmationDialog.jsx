@@ -1,16 +1,9 @@
 import PropTypes from "prop-types";
 import "../styles/ResultConfirmationDialog.css";
 
-export const ResultConfirmationDialog = ({
-  success,
-  resultContent,
-  showResult
-}) => {
-
-  const modalClass = showResult ? "result-modal open" : "result-modal";
-
+export const ResultConfirmationDialog = ({ success, resultContent }) => {
   return (
-    <div className={modalClass}>
+    <div className="result-modal">
       <div className="result-modal-content">
         {success ? (
           <img src="/src/images/success.svg" alt="success symbol" />

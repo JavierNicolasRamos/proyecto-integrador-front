@@ -4,6 +4,7 @@ import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog
 import "../styles/CreateInstrument.css";
 
 export const CreateInstrument = () => {
+  
   const {
     name,
     setName,
@@ -77,13 +78,12 @@ export const CreateInstrument = () => {
         </form>
 
         {showError && <CreateInstrumentError />}
-
-        
-          <ResultConfirmationDialog
+        {showResult && <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
-            showResult={showResult}
-          />
+          />}
+
+      
         
       </section>
     </div>
