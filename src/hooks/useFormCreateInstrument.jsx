@@ -14,13 +14,16 @@ export const useFormCreateInstrument = () => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [resultContent, setResultContent] = useState("");
 
   const validateForm = () => {
     if (
       !name ||
       name.trim().length < 3 ||
       !detail ||
-      detail.trim().length < 10 ||
+      detail.trim().length < 11 ||
       !selectedCategoryId ||
       images.length === 0
     ) {
@@ -60,13 +63,22 @@ export const useFormCreateInstrument = () => {
     });
 
     await postInstrument(formData);
+
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     validateForm();
-    !showError ? submitForm() : null;
-  };
+    
+    if (!showError) {
+      const response = await submitForm()
+      setShowResult(true)
+      setSuccess(true)
+      setResultContent(`El instrumento ${name} ha sido creado correctamente`)
+    }
+
+
+  }
 
   return {
     name,
@@ -79,5 +91,8 @@ export const useFormCreateInstrument = () => {
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
+    showResult,
+    success,
+    resultContent,
   };
 };

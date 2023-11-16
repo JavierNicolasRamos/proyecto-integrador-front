@@ -1,12 +1,25 @@
 import { useFormCreateInstrument } from "../hooks/index";
 import { CreateInstrumentError } from "../components/index";
+import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 import "../styles/CreateInstrument.css";
 
 export const CreateInstrument = () => {
-  
+  const {
+    name,
+    setName,
+    detail,
+    setDetail,
+    handleImageChange,
+    showError,
+    handleSubmit,
+    categories,
+    selectedCategoryId,
+    setSelectedCategoryId,
+    showResult,
+    resultContent,
+    success,
+  } = useFormCreateInstrument();
 
-  const { name, setName, detail, setDetail, handleImageChange, showError , handleSubmit, categories, selectedCategoryId, setSelectedCategoryId } = useFormCreateInstrument();
- 
   return (
     <div className="createInstrumentPage">
       <section className="createInstrumentSection">
@@ -64,6 +77,14 @@ export const CreateInstrument = () => {
         </form>
 
         {showError && <CreateInstrumentError />}
+
+        
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            showResult={showResult}
+          />
+        
       </section>
     </div>
   );

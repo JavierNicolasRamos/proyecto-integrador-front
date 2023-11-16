@@ -22,7 +22,7 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete}) => {
   const handleConfirmDelete = () => {
     handleDelete(id);
     setIsConfirmationOpen(false);
-    //fetchProducts();
+  
   };
 
   return (
