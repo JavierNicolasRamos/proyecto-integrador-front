@@ -7,19 +7,9 @@ const UserContext = createContext()
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   // Definimos estados
-  const [user, setUser] = useState({
-      id: "1",
-      nombre: "Federico",
-      apellido: "Galan",
-      administrador: false,
-      codigoArea: "+54",
-      prefijo: "11",
-      numero: "22525796",
-      movil: "22525796",
-      email: "fegv.2@hotmail.com.ar",
-  });
+  const [user, setUser] = useState({});
 
-  const [isLogged, setIsLogged] = useState(true)
+  const [isLogged, setIsLogged] = useState(false)
 
   // Definimos funciones para actualizar el estado
   const updateUser = (user) => {
