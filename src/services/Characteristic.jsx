@@ -26,16 +26,15 @@ export const fetchCharacteristic = async () => {
   }
 };
 
-export const postCharacteristic = async (name, icon) => {
-  const formData = {
-    name: name,
-    icon: icon,
-  }
+export const postCharacteristic = async (formData) => {
 
   try {
-    const { data } = await axios.post(URL.createCharacteristic, formData);
-    return data;
+    const { data, status } = await axios.post(URL.createCharacteristic, formData);
+    return { data, status };
   } catch (e) {
-    handleErrors(e);
+    const data = e.response.data;
+    const status = "";
+    console.log("Error en la solicitud POST:", e.response.data);
+    return { data, status };
   }
 };

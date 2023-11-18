@@ -1,9 +1,21 @@
 import { usePostCharacteristic } from "../hooks/index";
 import "../styles/CreateCharacteristic.css";
+import { CreateInstrumentError } from "./CreateInstrumentError";
+import { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 
 export const CreateCharacteristic = () => {
-  const { /*isFetching, */ name, setName, icon, setIcon, handleSubmit } =
-    usePostCharacteristic();
+  const {
+    isFetching,
+    name,
+    setName,
+    icon,
+    setIcon,
+    handleSubmit,
+    showError,
+    showResult,
+    success,
+    resultContent,
+  } = usePostCharacteristic();
 
   return (
     <div className="createCharacteristicPage">
@@ -32,6 +44,16 @@ export const CreateCharacteristic = () => {
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
+        {isFetching && <p>CARGANDOOOOOOOOOOOOOOOooooooooooooooooooooooooooooooooooooooooooooooooO</p>}
+        {showError && <CreateInstrumentError />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Agregar otra"}
+            presentRoute={"/admin/characteristic/create"}
+          />
+        )}
       </section>
     </div>
   );

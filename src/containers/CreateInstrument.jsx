@@ -81,6 +81,8 @@ export const CreateInstrument = () => {
         {showResult && <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
+            actionDetail={"Agregar otro"}
+            presentRoute={"/admin/instrument/create"}
           />}
 
       

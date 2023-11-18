@@ -30,27 +30,61 @@
 
 .result-modal-content img{
   width: 7vw;
+  padding-bottom: 2vw;
 }  
 
 .result-modal-content-buttons {
+  padding-top: 2vw;
   display: flex;
   gap: 1vw;
 }
 
-.result-modal-content-buttons button {
-  height: 2.2vw;
-  width: 7vw;
+.result-modal-content-buttons a {
+  height: 5vw;
+  width: 15vw;
   border-radius: 5px;
   font-size: 1.2vw;
   font-weight: 700;
   color: var(--white);
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cancelDeleteBtn {
-  background-color: var(--black);
+.presentRouteBtn {
+  background-color: var(--dark-grey);
 }
 
-.confirmDeleteBtn {
+.linkToAdminBton {
   background-color: var(--red);
 }
+
+@media (max-width: 768px) {
+ 
+  .result-modal-content {
+  
+    font-size: 2vw;
+  }
+
+  .result-modal-content-buttons a {
+    height: 7vw;
+    width: 20vw;
+    border-radius: 5px;
+    font-size: 1.6vw;
+    
+  }
+
+
+
+
+
+
+}
+
+  
+
+
+

@@ -9,7 +9,7 @@ export const useFormCreateInstrument = () => {
   const {
     categories,
     selectedCategoryId,
-    setSelectedCategoryId /*, isFetching */,
+    setSelectedCategoryId
   } = useFetchCategories();
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
@@ -68,9 +68,9 @@ export const useFormCreateInstrument = () => {
     return {data, status}
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const validated = true //validateForm()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validated = validateForm()
 
     if (validated === true) {
       const {data, status} = await submitForm();
