@@ -63,19 +63,26 @@ export const useFormCreateInstrument = () => {
       formData.append("images", image);
     });
 
-    await postInstrument(formData);
+    const {data, status} = await postInstrument(formData);
+
+    return {data, status}
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const validated = validateForm()
+    const validated = true //validateForm()
 
     if (validated === true) {
-      const result = submitForm();
-      console.log(result);
-      setSuccess(true);
-      setResultContent(`El instrumento ${name} ha sido creado correctamente`);
-      setShowResult(true);
+      const {data, status} = await submitForm();
+      if (status === 200) {
+        setSuccess(true);
+        setResultContent(`El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`);
+        setShowResult(true);
+      } else {
+        setSuccess(false);
+        setResultContent(`Ha ocurrido un error: ${data}`);
+        setShowResult(true);
+      }
     } else {
       setShowError(true)
     }
