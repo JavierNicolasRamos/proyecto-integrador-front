@@ -17,13 +17,14 @@ export const useFormCreateInstrument = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
 
   const validateForm = () => {
     if (
       !name ||
       name.trim().length < 3 ||
       !detail ||
-      detail.trim().length < 11 ||
+      detail.trim().length < 10 ||
       !selectedCategoryId ||
       images.length === 0
     ) {
@@ -73,12 +74,15 @@ export const useFormCreateInstrument = () => {
     const validated = validateForm()
 
     if (validated === true) {
+      setIsFetching(true)
       const {data, status} = await submitForm();
       if (status === 200) {
+        setIsFetching(false);
         setSuccess(true);
         setResultContent(`El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`);
         setShowResult(true);
       } else {
+        setIsFetching(false);
         setSuccess(false);
         setResultContent(`Ha ocurrido un error: ${data}`);
         setShowResult(true);
@@ -102,5 +106,6 @@ export const useFormCreateInstrument = () => {
     showResult,
     success,
     resultContent,
+    isFetching
   };
 };

@@ -1,7 +1,8 @@
 import { useFormCreateInstrument } from "../hooks/index";
-import { CreateInstrumentError } from "../components/index";
+import { ValidationError } from "../components/ValidationError";
 import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 import "../styles/CreateInstrument.css";
+import { Spinner } from "../components/Spinner";
 
 export const CreateInstrument = () => {
   
@@ -19,6 +20,7 @@ export const CreateInstrument = () => {
     showResult,
     resultContent,
     success,
+    isFetching
   } = useFormCreateInstrument();
 
   return (
@@ -77,7 +79,8 @@ export const CreateInstrument = () => {
           <input id="agregar" type="submit" value="Agregar" />
         </form>
 
-        {showError && <CreateInstrumentError />}
+        {isFetching && <Spinner/>}
+        {showError && <ValidationError />}
         {showResult && <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}

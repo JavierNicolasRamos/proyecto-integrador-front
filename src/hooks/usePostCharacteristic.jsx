@@ -10,11 +10,6 @@ export const usePostCharacteristic = () => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
 
-  const formData = {
-    name: name,
-    icon: icon,
-  }
-
   const validateForm = () => {
     if (
       !name ||
@@ -27,9 +22,16 @@ export const usePostCharacteristic = () => {
     }
   };
 
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validated = validateForm()
+
+    const formData = {
+      name: name,
+      icon: icon,
+    }
 
     if (validated === true) {
       setIsFetching(true);
@@ -37,7 +39,7 @@ export const usePostCharacteristic = () => {
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
-        setResultContent(`La característica ${data.name} ha sido creado correctamente con el ID ${data.id}`);
+        setResultContent(`La característica ${data.name} ha sido creada correctamente con el ID ${data.id}`);
         setShowResult(true);
       } else {
         setIsFetching(false);

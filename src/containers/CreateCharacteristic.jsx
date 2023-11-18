@@ -1,8 +1,8 @@
 import { usePostCharacteristic } from "../hooks/index";
 import "../styles/CreateCharacteristic.css";
-import { CreateInstrumentError } from "./CreateInstrumentError";
-import { ResultConfirmationDialog } from "./ResultConfirmationDialog";
-import { Spinner } from "./Spinner";
+import { ValidationError } from "../components/ValidationError";
+import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
+import { Spinner } from "../components/Spinner";
 
 export const CreateCharacteristic = () => {
   const {
@@ -45,9 +45,9 @@ export const CreateCharacteristic = () => {
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
-        <Spinner/>
-        {isFetching && <p>CARGANDOOOOOOOOOOOOOOOooooooooooooooooooooooooooooooooooooooooooooooooO</p>}
-        {showError && <CreateInstrumentError />}
+        
+        {isFetching && <Spinner/>}
+        {showError && <ValidationError />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}
