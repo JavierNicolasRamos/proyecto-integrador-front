@@ -2,6 +2,7 @@ import { usePostCharacteristic } from "../hooks/index";
 import "../styles/CreateCharacteristic.css";
 import { CreateInstrumentError } from "./CreateInstrumentError";
 import { ResultConfirmationDialog } from "./ResultConfirmationDialog";
+import { Spinner } from "./Spinner";
 
 export const CreateCharacteristic = () => {
   const {
@@ -44,6 +45,7 @@ export const CreateCharacteristic = () => {
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
+        <Spinner/>
         {isFetching && <p>CARGANDOOOOOOOOOOOOOOOooooooooooooooooooooooooooooooooooooooooooooooooO</p>}
         {showError && <CreateInstrumentError />}
         {showResult && (

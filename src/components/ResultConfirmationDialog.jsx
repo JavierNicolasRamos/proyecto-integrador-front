@@ -28,4 +28,6 @@ export const ResultConfirmationDialog = ({
 ResultConfirmationDialog.propTypes = {
   success: PropTypes.bool.isRequired,
   resultContent: PropTypes.string.isRequired,
+  actionDetail: PropTypes.string.isRequired ,
+  presentRoute: PropTypes.string.isRequired,
 };
