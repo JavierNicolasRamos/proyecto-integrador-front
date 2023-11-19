@@ -9,11 +9,15 @@ export const useFormCreateInstrument = () => {
   const {
     categories,
     selectedCategoryId,
-    setSelectedCategoryId /*, isFetching */,
+    setSelectedCategoryId
   } = useFetchCategories();
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [resultContent, setResultContent] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
 
   const validateForm = () => {
     if (
@@ -24,7 +28,9 @@ export const useFormCreateInstrument = () => {
       !selectedCategoryId ||
       images.length === 0
     ) {
-      setShowError(true);
+      return false;
+    } else {
+      return true
     }
   };
 
@@ -48,7 +54,6 @@ export const useFormCreateInstrument = () => {
 
     const formData = new FormData();
 
-
     formData.append(
       "instrument",
       new Blob([JSON.stringify(instrument)], { type: "application/json" }),
@@ -59,13 +64,32 @@ export const useFormCreateInstrument = () => {
       formData.append("images", image);
     });
 
-    await postInstrument(formData);
+    const {data, status} = await postInstrument(formData);
+
+    return {data, status}
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    validateForm();
-    !showError ? submitForm() : null;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validated = validateForm()
+
+    if (validated === true) {
+      setIsFetching(true)
+      const {data, status} = await submitForm();
+      if (status === 200) {
+        setIsFetching(false);
+        setSuccess(true);
+        setResultContent(`El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`);
+        setShowResult(true);
+      } else {
+        setIsFetching(false);
+        setSuccess(false);
+        setResultContent(`Ha ocurrido un error: ${data}`);
+        setShowResult(true);
+      }
+    } else {
+      setShowError(true)
+    }
   };
 
   return {
@@ -79,5 +103,9 @@ export const useFormCreateInstrument = () => {
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
+    showResult,
+    success,
+    resultContent,
+    isFetching
   };
 };

@@ -43,11 +43,14 @@ export const getAllCategories = async () => {
 export const postCategory = async (formData) => {
   
   try {
-    const { data } = await axios.post(URL.createCategory, formData, {
+    const { data, status } = await axios.post(URL.createCategory, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    return data;
+    return { data, status };
   } catch (e) {
-    handleErrors(e);
+    const data = e.response.data;
+    const status = "";
+    console.log("Error en la solicitud POST:", e.response.data);
+    return { data, status };
   }
 };

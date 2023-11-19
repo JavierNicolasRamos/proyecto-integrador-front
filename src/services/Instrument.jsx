@@ -69,13 +69,15 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
 
 export const postInstrument = async (formData) => {
   try {
-    const { data } = await axios.post(URL.createInstrument, formData, {
+    const { data, status } = await axios.post(URL.createInstrument, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
-    return data;
+    return { data, status };
   } catch (e) {
-    handleErrors(e);
-    console.error("Error en la solicitud POST:", e);
+    const data = e.response.data;
+    const status = "";
+    console.log("Error en la solicitud POST:", e.response.data);
+    return { data, status };
   }
 };
 

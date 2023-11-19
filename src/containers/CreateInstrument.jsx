@@ -1,12 +1,28 @@
 import { useFormCreateInstrument } from "../hooks/index";
-import { CreateInstrumentError } from "../components/index";
+import { ValidationError } from "../components/ValidationError";
+import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 import "../styles/CreateInstrument.css";
+import { Spinner } from "../components/Spinner";
 
 export const CreateInstrument = () => {
   
+  const {
+    name,
+    setName,
+    detail,
+    setDetail,
+    handleImageChange,
+    showError,
+    handleSubmit,
+    categories,
+    selectedCategoryId,
+    setSelectedCategoryId,
+    showResult,
+    resultContent,
+    success,
+    isFetching
+  } = useFormCreateInstrument();
 
-  const { name, setName, detail, setDetail, handleImageChange, showError , handleSubmit, categories, selectedCategoryId, setSelectedCategoryId } = useFormCreateInstrument();
- 
   return (
     <div className="createInstrumentPage">
       <section className="createInstrumentSection">
@@ -63,7 +79,17 @@ export const CreateInstrument = () => {
           <input id="agregar" type="submit" value="Agregar" />
         </form>
 
-        {showError && <CreateInstrumentError />}
+        {isFetching && <Spinner/>}
+        {showError && <ValidationError />}
+        {showResult && <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Agregar otro"}
+            presentRoute={"/admin/instrument/create"}
+          />}
+
+      
+        
       </section>
     </div>
   );
