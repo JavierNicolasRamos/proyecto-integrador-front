@@ -5,7 +5,7 @@ import "../styles/Card.css";
 export const Card = ({id, name, image, score, category}) => {
 
   return (
-    <Link to={`/instrument/detail/${id}`}>
+    <Link to={`/product/detail/${id}`}>
       <div className="card">
         <img className="card__image" src={image} alt={name} />
         <div className="card__details">

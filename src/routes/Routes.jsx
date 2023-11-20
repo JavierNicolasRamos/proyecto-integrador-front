@@ -9,8 +9,8 @@ export const AppRoutes = () => (
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/search/instruments" element={<InstrumentPanel />} />
-        <Route path="/instrument/detail/:id" element={<Detail/>} />
-        <Route path="/instrument/gallery/:id" element={<Gallery />} />
+        <Route path="/product/detail/:id" element={<Detail/>} />
+        <Route path="/product/gallery/:id" element={<Gallery />} />
         <Route path="admin" element={<AdminPanel />} />
         <Route path="admin/category/create" element={<CreateCategory />} />
         <Route path="admin/category/list" element={<AdminCategoryList />} />
