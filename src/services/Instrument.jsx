@@ -82,11 +82,9 @@ export const postInstrument = async (formData) => {
   }
 };
 
-export const putInstrument = async (id, formData) => {
+export const putInstrument = async (instrument) => {
   try {
-    const { data, status } = await axios.put(`${URL.putInstrument}${id}`, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+    const { data, status } = await axios.put(`${URL.putInstrument}${instrument.id}`,instrument);
     return { data, status };
   } catch (e) {
     const data = e.response.data;

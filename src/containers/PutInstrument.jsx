@@ -11,7 +11,6 @@ export const PutInstrument = (presentInstrument) => {
     setName,
     detail,
     setDetail,
-    handleImageChange,
     showError,
     handleSubmit,
     categories,
@@ -48,7 +47,7 @@ export const PutInstrument = (presentInstrument) => {
               setSelectedCategoryId(e.target.value);
             }}
           >
-            <option value="">Categoría actual: {presentInstrument.presentInstrument.category.name}. Seleccione para cambiar:</option>
+            <option value="">{presentInstrument.presentInstrument.category.name}. Seleccione para cambiar:</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -65,18 +64,8 @@ export const PutInstrument = (presentInstrument) => {
             onChange={(e) => setDetail(e.target.value)}
           />
 
-          <div className="uploadImages">
-            <label htmlFor="images"></label>
-            <input
-              id="images"
-              type="file"
-              accept="image/*"
-              multiple
-              onChange={handleImageChange}
-            />
-          </div>
-
-          <input id="agregar" type="submit" value="Agregar" />
+          
+          <input id="agregar" type="submit" value="Editar" />
         </form>
 
         {isFetching && <Spinner/>}
@@ -84,7 +73,7 @@ export const PutInstrument = (presentInstrument) => {
         {showResult && <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
-            actionDetail={"Editar otro"}
+            actionDetail={"Volver al listado"}
             presentRoute={"/admin/instrument/list"}
           />}
 

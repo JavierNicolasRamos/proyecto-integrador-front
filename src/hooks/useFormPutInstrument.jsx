@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { putInstrument } from "../services";
 //import { createLogger } from "vite";
 
 export const useFormPutInstrument = (presentInstrument) => {
-  const { images, handleImageChange } = useImageHandlerCreateInstrument();
   const {
     categories,
     selectedCategoryId,
@@ -24,9 +22,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       !name ||
       name.trim().length < 3 ||
       !detail ||
-      detail.trim().length < 10 ||
-      !selectedCategoryId ||
-      images.length === 0
+      detail.trim().length < 10
     ) {
       return false;
     } else {
@@ -35,13 +31,14 @@ export const useFormPutInstrument = (presentInstrument) => {
   };
 
   const submitForm = async () => {
+
     const instrument = {
-      id: presentInstrument.id,
+      id: presentInstrument.presentInstrument.id,
       name: name,
       detail: detail,
       characteristics: [],
       categoryDto: {
-        id: selectedCategoryId,
+        id: selectedCategoryId ? selectedCategoryId : presentInstrument.presentInstrument.category.id,
         name: null,
         details: null,
       },
@@ -52,19 +49,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       deleted: null,
     };
 
-    const formData = new FormData();
-
-    formData.append(
-      "instrument",
-      new Blob([JSON.stringify(instrument)], { type: "application/json" }),
-      "instrument.json"
-    );
-
-    images.forEach((image) => {
-      formData.append("images", image);
-    });
-
-    const {data, status} = await putInstrument(instrument.id, formData);
+    const {data, status} = await putInstrument(instrument);
 
     return {data, status}
   };
@@ -97,7 +82,6 @@ export const useFormPutInstrument = (presentInstrument) => {
     setName,
     detail,
     setDetail,
-    handleImageChange,
     showError,
     handleSubmit,
     categories,
