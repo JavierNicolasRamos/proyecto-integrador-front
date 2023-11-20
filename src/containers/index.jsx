@@ -14,3 +14,4 @@ export { InstrumentPanel } from "./InstrumentPanel";
 export { RandomInstruments } from "./RandomInstruments";
 export { Register } from "./Register";
 export { RegisterForm } from "./RegisterForm";
+export { HeaderButtons } from "./HeaderButtons";

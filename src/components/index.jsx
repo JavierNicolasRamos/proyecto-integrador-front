@@ -15,3 +15,4 @@ export { LoginForm } from "./LoginForm";
 export { Menu } from "./Menu";
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
+export { MobileSearchBar} from "./MobileSearchBar"
