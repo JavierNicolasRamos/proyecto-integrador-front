@@ -10,6 +10,7 @@ const errorMessages = {
 
 const URL = {
   createInstrument: "http://localhost:8001/instruments",
+  putInstrument: "http://localhost:8001/instruments/",
   getAllInstruments: "http://localhost:8001/instruments",
   getInstrumentById: "http://localhost:8001/instruments/id/",
   paginated: "http://localhost:8001/instruments/paginated",
@@ -77,6 +78,20 @@ export const postInstrument = async (formData) => {
     const data = e.response.data;
     const status = "";
     console.log("Error en la solicitud POST:", e.response.data);
+    return { data, status };
+  }
+};
+
+export const putInstrument = async (id, formData) => {
+  try {
+    const { data, status } = await axios.put(`${URL.putInstrument}${id}`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    console.log("Error en la solicitud PUT:", e.response.data);
     return { data, status };
   }
 };
