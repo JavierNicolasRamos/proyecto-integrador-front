@@ -8,7 +8,6 @@
 .createInstrumentSection {
   display: flex;
   flex-direction: column;
-  height: 80vh;
   width: 50%;
   background-color: rgba(25, 29, 32, 1);
   margin: 4vw;
