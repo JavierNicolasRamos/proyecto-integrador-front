@@ -1,0 +1,63 @@
+.adminCardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 2vw;
+}
+
+.adminCardGrid a {
+  text-decoration: none;
+}
+
+.adminCard {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  background-color: rgba(79, 79, 79, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.adminCard h2 {
+  text-decoration: none;
+  font-family: var(--main-font);
+  color: var(--white);
+  text-decoration-line: none;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.adminPanelErrorMessage {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .adminCard {
+    width: 140px;
+    height: 140px;
+  }
+
+  .adminCard img {
+    width: 35%;
+  }
+
+  .adminCard h2 {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .adminCardGrid {
+    display: none;
+  }
+
+  .adminPanelErrorMessage {
+    display: flex;
+    flex-direction: column;
+  }
+}

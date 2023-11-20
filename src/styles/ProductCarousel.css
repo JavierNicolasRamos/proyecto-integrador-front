@@ -1,0 +1,51 @@
+.slick-slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slick-slide{
+  padding: 2vh 0;
+  text-align: center;
+}
+
+.carousel__content{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel__content .card{
+  text-align: left;
+}
+
+button.slick-arrow {
+  background-color: var(--grey);
+  border: none; 
+  color: var(--white);
+  font-size: 24px; 
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+  width: 2vw; 
+  height: 2vw;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s ease-in-out;
+}
+
+button.slick-arrow:hover {
+  background-color: var(--dark-grey);
+}
+
+.carousel__title{
+  text-align: center;
+  font-family: var(--main-font);
+  color: var(--title);
+  font-weight: 700;
+  font-size: 30px;
+  padding: 8vh 0 1vh 0;
+}

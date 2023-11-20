@@ -1,36 +1,56 @@
 .card {
-  border-radius: 20px; 
-  background-color: var(--white);
+  border-radius: 20px;
   overflow: hidden;
-  height: 350px;
-  width: 200px;
-  display: inline-block;
-  margin: 60px 35px;
+  display: inline-flex;
+  flex-direction: column;
   font-family: var(--main-font);
   color: var(--title);
   background-color: var(--body);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  min-height: 40vh;
+  height: 43vh;
+  max-width: 230px;
+  min-width: 230px;
+  max-height: 45vh;
+  transition: all .2s ease-in-out;
 }
 
-.card img {
+.card:hover{
+  outline: 6px solid var(--red);
+}
+
+.card .card__image {
   width: 100%;
-  height: 235px;
-  background-color: var(--white);
+  min-height: 25vh;
+  max-height: 25vh;
+  object-position: center center;
   object-fit: cover;
 }
 
-.card__details{
-  width: 155px;
-  margin-left: 10px;
+.card__details {
+  padding: .5vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__details-name {
-  font-size: 10px;
-  margin-top: 17px;
+  font-size: 1.5em;
+  width: 100%;
+  padding: .5vw;
+  word-wrap: break-word;
 }
 
-.card__details-price{
-  font-size: 20px;
-  margin-top: 17px;
-  margin-bottom: 41px;
+.card__details-category {
+  font-size: 1.2em;
+  padding: .5vw;
+  word-wrap: break-word;
+}
+
+.card__details-score {
+  align-self: flex-end;
+  justify-self: end;
+  font-weight: 700;
+  font-size: 1.4em;
 }

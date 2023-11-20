@@ -1,0 +1,17 @@
+.paginate-buttons__content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  padding: 5vh;
+  text-align: center;
+}
+
+.paginate-buttons__btn{
+  background: none;
+  border: none;
+}
+
+.paginate-buttons__btn:hover{
+  cursor: pointer;
+}

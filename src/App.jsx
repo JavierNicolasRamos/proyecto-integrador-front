@@ -1,18 +1,18 @@
-// empiezo a modificar
-import './App.css'
-import Footer from "./components/Footer";
-import { Header } from './components/Header';
 import { Outlet } from "react-router-dom";
+import { UserProvider } from './context/UserContext';
+import  { Footer } from "./components/index";
+import { Header } from './containers/index';
+import './App.css'
 
-function App() {
+export const App = () => {
 
   return (
-      <div>
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
+      <>
+        <UserProvider>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserProvider>
+      </>
   )
 }
-
-export default App

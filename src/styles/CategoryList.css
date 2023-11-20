@@ -1,0 +1,22 @@
+.category-aside {
+  padding: 0vw 2vw;
+  display: inline-block;
+  background-color: var(--btn);
+  color: var(--white);
+  min-width: fit-content;
+  max-width: 20vw;
+  min-width: min-content;
+  border-radius: 10px;
+  min-height: 50vh;
+  margin-right: auto;
+}
+
+.category-aside__title {
+  padding: 3vh 0;
+  font-size: 25px;
+  font-family: var(--main-font);
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
