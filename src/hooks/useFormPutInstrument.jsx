@@ -1,18 +1,16 @@
 import { useState } from "react";
-import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
-import { postInstrument } from "../services";
+import { putInstrument } from "../services";
 //import { createLogger } from "vite";
 
-export const useFormCreateInstrument = () => {
-  const { images, handleImageChange } = useImageHandlerCreateInstrument();
+export const useFormPutInstrument = (presentInstrument) => {
   const {
     categories,
     selectedCategoryId,
     setSelectedCategoryId
   } = useFetchCategories();
-  const [name, setName] = useState("");
-  const [detail, setDetail] = useState("");
+  const [name, setName] = useState(presentInstrument.presentInstrument.name);
+  const [detail, setDetail] = useState(presentInstrument.presentInstrument.detail);
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -24,9 +22,7 @@ export const useFormCreateInstrument = () => {
       !name ||
       name.trim().length < 3 ||
       !detail ||
-      detail.trim().length < 10 ||
-      !selectedCategoryId ||
-      images.length === 0
+      detail.trim().length < 10
     ) {
       return false;
     } else {
@@ -35,13 +31,14 @@ export const useFormCreateInstrument = () => {
   };
 
   const submitForm = async () => {
+
     const instrument = {
-      id: null,
+      id: presentInstrument.presentInstrument.id,
       name: name,
       detail: detail,
       characteristics: [],
       categoryDto: {
-        id: selectedCategoryId,
+        id: selectedCategoryId ? selectedCategoryId : presentInstrument.presentInstrument.category.id,
         name: null,
         details: null,
       },
@@ -52,19 +49,7 @@ export const useFormCreateInstrument = () => {
       deleted: null,
     };
 
-    const formData = new FormData();
-
-    formData.append(
-      "instrument",
-      new Blob([JSON.stringify(instrument)], { type: "application/json" }),
-      "instrument.json"
-    );
-
-    images.forEach((image) => {
-      formData.append("images", image);
-    });
-
-    const {data, status} = await postInstrument(formData);
+    const {data, status} = await putInstrument(instrument);
 
     return {data, status}
   };
@@ -79,7 +64,7 @@ export const useFormCreateInstrument = () => {
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
-        setResultContent(`El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`);
+        setResultContent(`El instrumento ${data.name} ha sido editado correctamente`);
         setShowResult(true);
       } else {
         setIsFetching(false);
@@ -97,7 +82,6 @@ export const useFormCreateInstrument = () => {
     setName,
     detail,
     setDetail,
-    handleImageChange,
     showError,
     handleSubmit,
     categories,

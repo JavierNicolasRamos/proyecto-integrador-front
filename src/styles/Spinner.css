@@ -1,0 +1,60 @@
+/* Spinner.css */
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.spinner {
+  width: 70px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0%, 100% {
+    transform: rotate(30deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  26% {
+    transform: rotate(-10deg) translateY(-4px);
+  }
+  27% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  28% {
+    transform: rotate(-10deg) translateY(-4px);
+  }
+  29% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  30% {
+    transform: rotate(-10deg) translateY(-4px);
+  }
+  31% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  32% {
+    transform: rotate(-10deg) translateY(-4px);
+  }
+  33% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
+

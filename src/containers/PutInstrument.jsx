@@ -1,17 +1,16 @@
-import { useFormCreateInstrument } from "../hooks/index";
+import { useFormPutInstrument } from "../hooks/useFormPutInstrument";
 import { ValidationError } from "../components/ValidationError";
 import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 import "../styles/CreateInstrument.css";
 import { Spinner } from "../components/Spinner";
 
-export const CreateInstrument = () => {
+export const PutInstrument = (presentInstrument) => {
   
   const {
     name,
     setName,
     detail,
     setDetail,
-    handleImageChange,
     showError,
     handleSubmit,
     categories,
@@ -21,13 +20,13 @@ export const CreateInstrument = () => {
     resultContent,
     success,
     isFetching
-  } = useFormCreateInstrument();
+  } = useFormPutInstrument(presentInstrument);
 
   return (
     <div className="createInstrumentPage">
       <section className="createInstrumentSection">
         <div className="createInstrument-title">
-          <p>Agregar producto</p>
+          <p>Editar instrumento</p>
         </div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
@@ -48,7 +47,7 @@ export const CreateInstrument = () => {
               setSelectedCategoryId(e.target.value);
             }}
           >
-            <option value="">Seleccione una categoría</option>
+            <option value="">{presentInstrument.presentInstrument.category.name}. Seleccione para cambiar:</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -65,18 +64,8 @@ export const CreateInstrument = () => {
             onChange={(e) => setDetail(e.target.value)}
           />
 
-          <div className="uploadImages">
-            <label htmlFor="images"></label>
-            <input
-              id="images"
-              type="file"
-              accept="image/*"
-              multiple
-              onChange={handleImageChange}
-            />
-          </div>
-
-          <input id="agregar" type="submit" value="Agregar" />
+          
+          <input id="agregar" type="submit" value="Editar" />
         </form>
 
         {isFetching && <Spinner/>}
@@ -84,8 +73,8 @@ export const CreateInstrument = () => {
         {showResult && <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
-            actionDetail={"Agregar otro"}
-            presentRoute={"/admin/instrument/create"}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/instrument/list"}
           />}
 
       

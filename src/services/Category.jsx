@@ -20,14 +20,16 @@ const handleErrors = (e) => {
 };
 
 export const getInstrumentsByCategory = async (categoryIdList) => {
-  const url = `${URL.filterInstrumentsByCategory}?categoryIdList=${categoryIdList.join(',')}`;
+  const url = `${
+    URL.filterInstrumentsByCategory
+  }?categoryIdList=${categoryIdList.join(",")}`;
   const { data } = await axios.get(url, {
     headers: {
       "Content-Type": "application/json",
     },
   });
   return data;
-}
+};
 
 export const getAllCategories = async () => {
   try {
@@ -38,30 +40,17 @@ export const getAllCategories = async () => {
   }
 };
 
-export const postCategory = async (name, detail, image) => {
-  const formData = new FormData();
-
-  const categoryDto = {
-    id: null,
-    name: name,
-    details: detail,
-  };
-
-  formData.append(
-    "categoryDto",
-    new Blob([JSON.stringify(categoryDto)], { type: "application/json" }),
-    "categoryDto.json"
-  );
-  formData.append(
-    "image",
-    new Blob([], { type: "multipart/form-data" }),
-    image
-  );
-
+export const postCategory = async (formData) => {
+  
   try {
-    const { data } = await axios.post(URL.createCategory, formData);
-    return data;
+    const { data, status } = await axios.post(URL.createCategory, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return { data, status };
   } catch (e) {
-    handleErrors(e);
+    const data = e.response.data;
+    const status = "";
+    console.log("Error en la solicitud POST:", e.response.data);
+    return { data, status };
   }
 };

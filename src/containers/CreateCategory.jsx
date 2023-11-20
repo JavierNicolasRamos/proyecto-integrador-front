@@ -1,9 +1,12 @@
 import { usePostCategory } from "../hooks/index";
 import "../styles/CreateCategory.css";
+import { Spinner } from "../components/Spinner";
+import { ValidationError } from "../components";
+import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 
 export const CreateCategory = () => {
 
-  const { /*isFetching, */name, setName, detail, setDetail, setImage, handleSubmit} = usePostCategory();
+  const {isFetching, name, setName, detail, setDetail, setImage, handleSubmit, showError, showResult, success, resultContent} = usePostCategory();
 
   return (
     <div className="createCategoryPage">
@@ -37,12 +40,23 @@ export const CreateCategory = () => {
               type="file"
               accept="image/*"
               multiple
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
+
+        {isFetching && <Spinner/>}
+        {showError && <ValidationError />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Agregar otra"}
+            presentRoute={"/admin/category/create"}
+          />
+        )}
 
 
       </section>

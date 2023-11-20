@@ -18,12 +18,13 @@ export const ProductList = () => {
     <div>
       <div className="adminProductList">
         <div>
-          {products.map((product) => (
+          {products.map((instrument) => (
             <ListCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
+              key={instrument.id}
+              id={instrument.id}
+              name={instrument.name}
               handleDelete={handleDelete}
+              instrument={instrument}
             />
           ))}
         </div>
