@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog";
+import { PutInstrument } from './PutInstrument';
 import "../styles/ListCard.css";
 
 //TODO: Falta refactorizar el componente en hooks y servicios
-export const ListCard = ({ id, name, handleUpdate, handleDelete}) => {
+export const ListCard = ({ id, name, handleUpdate, handleDelete, instrument}) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [openPutForm, setOpenPutForm] = useState(false);
 
   const handleUpdateClick = () => {
-    handleUpdate(id);
+    setOpenPutForm(true);
   };
 
   const handleDeleteClick = () => {
@@ -26,6 +28,7 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete}) => {
   };
 
   return (
+    <div>
     <div className="listcard">
       <div className="productListId">ID - {id}</div>
       <div className="productListName">{name}</div>
@@ -46,13 +49,24 @@ export const ListCard = ({ id, name, handleUpdate, handleDelete}) => {
         />
       )}
     </div>
+    <div className="putForm">
+
+    {openPutForm && (
+        <PutInstrument
+          presentInstrument={instrument}
+        />
+      )}
+
+    </div>
+
+    </div>
   );
 };
 
-ListCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  handleUpdate: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired,
-  fetchProducts: PropTypes.func.isRequired,
-};
+// ListCard.propTypes = {
+//   id: PropTypes.number.isRequired,
+//   name: PropTypes.string.isRequired,
+//   handleUpdate: PropTypes.func.isRequired,
+//   handleDelete: PropTypes.func.isRequired,
+//   fetchProducts: PropTypes.func.isRequired,
+// };
