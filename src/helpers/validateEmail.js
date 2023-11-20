@@ -1,3 +1,8 @@
 export const validateEmail = (email) => {
-  return /@.+\.+/.test(email);
+  
+  if(/@.+\.+/.test(email)){
+    return false
+  }
+  
+  return true
 };

@@ -1,4 +1,6 @@
 export const validateName = (name) => {
-  name === undefined  || null || name.trim().length < 5
-  return true
+  if(name === undefined  || null || name.trim().length < 5){
+    return true
+  }
+  return false
 };
