@@ -1,7 +1,6 @@
 .error-messages{
   width: 80%;
   margin-right: auto;
-  min-height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,6 +32,6 @@
   background-color: black;
   width: 60%;
   min-width: min-content;
-  padding: 2vh 1vw;
+  padding: 3vh 1vw;
 }
 
