@@ -9,8 +9,8 @@ const errorMessages = {
 };
 
 const URL = {
-  "register" : "http://localhost:8002/users/register",
-  "login" : "http://localhost:8002/users/login",
+  "register" : "http://localhost:8001/users/register",
+  "login" : "http://localhost:8001/users/login",
 }
 
 const handleErrors = (e) => {
