@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const GalleryGridItem = ({ showAll, index, onClick, children }) => {
-  const className = showAll ? `grid-item grid-item-${index + 2}.0` : `grid-item grid-item-${index + 2}`;
+  const className = `grid-item grid-item-${index + 2}${showAll ? ".0" : ""}`;
 
   return (
     <div className={className} onClick={onClick}>

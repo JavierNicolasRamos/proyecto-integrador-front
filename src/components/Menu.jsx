@@ -38,8 +38,8 @@ export const Menu = () => {
 
   return (
     <nav className="navigation-menu">
-      {links.map((link, index) => (
-        <Link key={index} to={link.to}>{link.text}</Link>
+      {links.map(({ to, text }, index) => (
+        <Link key={index} to={to}>{text}</Link>
       ))}
     </nav>
   );

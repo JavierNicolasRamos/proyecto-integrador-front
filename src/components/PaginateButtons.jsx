@@ -1,17 +1,17 @@
 import "../styles/PaginateButtons.css"
 
-export const PaginateButtons = () => {
+const PREV_PAGE_IMAGE = "/src/images/PrevPage.svg";
+const NEXT_PAGE_IMAGE = "/src/images/NextPage.svg";
+const PREV_PAGE_ALT = "Botón para avanzar a la pagina siguiente";
+const NEXT_PAGE_ALT = "Botón para volver a la pagina anterior";
 
-  return (
-    <div className="paginate-buttons__content">
-
-        <button className="paginate-buttons__btn">
-          <img src="/src/images/PrevPage.svg" alt="Botón para avanzar a la pagina siguiente" />
-        </button>
-        
-        <button className="paginate-buttons__btn">
-          <img src="/src/images/NextPage.svg" alt="Botón para volver a la pagina anterior" />
-        </button>
-    </div>
-  )
-}
+export const PaginateButtons = () => (
+  <div className="paginate-buttons__content">
+    <button className="paginate-buttons__btn">
+      <img src={PREV_PAGE_IMAGE} alt={PREV_PAGE_ALT} />
+    </button>
+    <button className="paginate-buttons__btn">
+      <img src={NEXT_PAGE_IMAGE} alt={NEXT_PAGE_ALT} />
+    </button>
+  </div>
+);

@@ -1,11 +1,10 @@
-// Spinner.js
-import React from 'react';
 import "../styles/Spinner.css";
 
-export const Spinner = () => {
-  return (
-    <div className="spinner-container">
-      <img src="/src/images/404NotFound.svg" alt="Spinner" className="spinner" />
-    </div>
-  );
-};
+const SPINNER_IMAGE = "/src/images/Spinner.svg";
+const SPINNER_ALT = "Spinner";
+
+export const Spinner = () => (
+  <div className="spinner-container">
+    <img src={SPINNER_IMAGE} alt={SPINNER_ALT} className="spinner" />
+  </div>
+);

@@ -2,10 +2,8 @@ import PropTypes from "prop-types";
 import "../styles/CategoryCard.css";
 
 export const CategoryCard = ({ name, image }) => {
-  const imageUrl = image && image.image;
-
   const backgroundImageStyle = {
-    backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
+    backgroundImage: image ? `url(${image.image})` : "none",
   };
 
   return (
@@ -17,5 +15,7 @@ export const CategoryCard = ({ name, image }) => {
 
 CategoryCard.propTypes = {
   name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    image: PropTypes.string,
+  }),
 };

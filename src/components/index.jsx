@@ -16,3 +16,5 @@ export { Menu } from "./Menu";
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
 export { MobileSearchBar} from "./MobileSearchBar"
+export { Spinner } from "./Spinner";
+export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
