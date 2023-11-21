@@ -1,0 +1,6 @@
+.header__action-buttons {
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+  min-width: min-content;
+}
