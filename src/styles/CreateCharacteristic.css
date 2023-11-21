@@ -87,9 +87,9 @@
 }
 
 .selected-icon {
-  width: 3rem;
-  filter: invert(50%);
+  height: 2rem;
   align-self: center;
+  filter: invert(39%) sepia(100%) saturate(7414%) hue-rotate(358deg) brightness(95%) contrast(126%);
 }
 
 .icons-container img:hover {
@@ -97,9 +97,6 @@
   transition: all 0.5s;
 }
 
-.icons-container img:cli {
-  border: 2px white solid;
-}
 
 #agregar {
   background-color: rgba(237, 40, 57, 1);
