@@ -1,54 +1,36 @@
 import { useState } from "react";
-import { validateForm } from "../helpers/validateForm";
 import { FormError } from "../components/FormError";
+import { usePostUser } from "../hooks/usePostUser";
 
 //TODO: Falta refactorizar el componente en hooks y servicios
 export const RegisterForm = () => {
-  
+
   //Creamos el objeto del formulario vacio
   const [formData, setFormData] = useState({
     name: "",
-    lastName: "",
-    mail: "",
+    surname: "",
+    areaCode: 0,
+    prefix: 0,
+    phone: 0,
+    isMobile: true,
+    email: "",
     password: "",
-    bornDate: "",
-    dni: "",
+    role: "USER"
   });
 
-  const [hasErrors, setHasErrors] = useState(false)
-  const [errors, setErrors] = useState({})
+  const { handleSubmit, errors, hasErrors } = usePostUser(formData)
 
   //Recuperamos el valor del input para luego poder modificarlo en el objeto
-  const handleChange = (e) => {
-    
+  const handleChange = (e) => {    
     //Desestrucutramos el id y el valor
     const { id, value } = e.target;
-    
     //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
     setFormData({
-      //Utilizamos el operador spread para que ademas de guardar el dato no se borren los anteriores
       ...formData,
       [id]: value,
     });
   };
 
-  //Manejamos el envio del formulario
-  const handleSubmit = (e) => {
-  
-    //Detenemos el comportamiento por defecto del formulario
-    e.preventDefault();
-
-    //Verificamos si hay algun errror en los datos ingresados
-    let errors = validateForm(formData)
-
-    //En caso de que haya por lo menos 1 error en el objeto detenemos el envio de informacion
-    if(Object.keys(errors).length > 0) {
-      setHasErrors(true)
-      setErrors(errors)
-      return
-    }
-
-  };
 
   return (
     <>
@@ -68,9 +50,9 @@ export const RegisterForm = () => {
           <label htmlFor="lastName">Apellido</label>
           <input
             type="text"
-            id="lastName"
+            id="surname"
             placeholder="Ej: Perez"
-            value={formData.lastName}
+            value={formData.surname}
             onChange={handleChange}
           />
         </div>
@@ -78,9 +60,9 @@ export const RegisterForm = () => {
           <label htmlFor="mail">Mail</label>
           <input
             type="email"
-            id="mail"
+            id="email"
             placeholder="Ej: Usuario@gmail.com"
-            value={formData.mail}
+            value={formData.email}
             onChange={handleChange}
             />
         </div>
@@ -93,29 +75,13 @@ export const RegisterForm = () => {
             onChange={handleChange}
             />
         </div>
-        <div className="form-register__bornDate">
-          <label htmlFor="bornDate">Fecha de nacimiento</label>
-          <input
-            type="date"
-            id="bornDate"
-            value={formData.bornDate}
-            onChange={handleChange}
-            />
-        </div>
-        <div className="form-register__dni">
-          <label htmlFor="dni">DNI</label>
-          <input
-            type="number"
-            id="dni"
-            placeholder="Ej: 11.111.111"
-            value={formData.dni}
-            min={0}
-            onChange={handleChange}
-            />
-        </div>
         {hasErrors && <FormError errors={errors}/>}
         <div className="form-register__submit">
-          <button type="submit">Crear Cuenta</button>
+          <button 
+            type="submit"
+            >
+            Crear Cuenta
+          </button>
         </div>
       </div>
     </form>
