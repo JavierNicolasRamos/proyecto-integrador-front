@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { validateForm } from "../helpers/validateForm";
 import { FormError } from "../components/FormError";
 import { usePostUser } from "../hooks/usePostUser";
 
@@ -8,15 +7,15 @@ export const RegisterForm = () => {
 
   //Creamos el objeto del formulario vacio
   const [formData, setFormData] = useState({
-    isAdmin: false,
+    name: "",
+    surname: "",
     areaCode: 0,
     prefix: 0,
     phone: 0,
     isMobile: true,
-    name: "",
-    surname: "",
     email: "",
     password: "",
+    role: "USER"
   });
 
   const { handleSubmit, errors, hasErrors } = usePostUser(formData)
@@ -31,6 +30,7 @@ export const RegisterForm = () => {
       [id]: value,
     });
   };
+
 
   return (
     <>
@@ -79,7 +79,6 @@ export const RegisterForm = () => {
         <div className="form-register__submit">
           <button 
             type="submit"
-            // onClick={handleErrors}
             >
             Crear Cuenta
           </button>

@@ -9,8 +9,8 @@ const errorMessages = {
 };
 
 const URL = {
-  "register" : "http://localhost:8001/users/register",
-  "login" : "http://localhost:8001/users/login",
+  "register" : "http://localhost:8002/users/register",
+  "login" : "http://localhost:8002/users/login",
 }
 
 const handleErrors = (e) => {
@@ -19,15 +19,16 @@ const handleErrors = (e) => {
 
 export const postUser = async (formData) => {
   try {
-    const { data } = await axios.post(URL.register, formData, {
+    const { data, status: statusResponse } = await axios.post(URL.register, formData, {
       headers: {
         'Content-Type': 'application/json'
       },
     });
-    return data;
+    console.log(data, statusResponse)
+    return (data, statusResponse);
   } catch (e) {
-    // handleErrors(e);
-    const { data } = e.response
+    const { data, status } = e.response
+    console.log(data, status)
     return data
   }
 };
