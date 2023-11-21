@@ -4,7 +4,7 @@ import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
 //import { createLogger } from "vite";
 
-export const useFormCreateInstrument = () => {
+export const useFormCreateInstrument =  () => {
   const { images, handleImageChange } = useImageHandlerCreateInstrument();
   const {
     categories,
