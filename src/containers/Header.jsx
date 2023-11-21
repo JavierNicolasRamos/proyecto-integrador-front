@@ -37,7 +37,7 @@ export const Header = () => {
       <header className={`header ${!isHome ? 'hide' : ''}`}>
         <section className="header__search-bar">
 
-        {windowWidth < 768 ? 
+        { windowWidth < 768 ? 
           <img className="header__hamburger-menu" src="src/images/hamburger-menu.svg" alt="Menu"/> : ''
         }
 
@@ -45,12 +45,12 @@ export const Header = () => {
           <img className="header__search-bar__img" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1699641383924-LogoMR_2logo.svg" alt="Imagen del logo de music rental" />
         </Link>
 
-          {windowWidth > 768 ? 
+          { windowWidth > 768 ? 
             <SearchForm /> : ''
           }
 
           { isLogged 
-            ?  <HeaderProfile />                
+            ? <HeaderProfile />                
             : <HeaderButtons /> 
           }
 
