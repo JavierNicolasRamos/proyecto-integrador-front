@@ -1,33 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Card } from "../components/Card";
-import axios from 'axios';
 import Slider from 'react-slick';
+import { getAllInstrumentsPaginated } from '../services/index';
+import { Card } from "../components/Card";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "../styles/ProductCarousel.css";
 
-//TODO: Falta refactorizar el componente en hooks y servicios
 export const ProductCarousel = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await axios.get('http://localhost:8001/instruments/paginated', {
-          params: {
-            page: 0,
-            size: 10,
-            sort: 'score,detail', 
-          },
-        });
-        setProducts(response.data.content);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchProducts();
-  }, []);
+  const products = getAllInstrumentsPaginated({
+    page: 0,
+    size: 10,
+    sort: 'score,detail', 
+  });
 
   const settings = {
     dots: false,

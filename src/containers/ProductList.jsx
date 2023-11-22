@@ -1,6 +1,7 @@
 import { ListCard } from "./index";
-import "../styles/ProductList.css";
+import { Pagination } from "../components/index";
 import { useFetchAdminProductList } from "../hooks/index";
+import "../styles/ProductList.css";
 
 export const ProductList = () => {
   
@@ -9,7 +10,6 @@ export const ProductList = () => {
     setCurrentPage,
     products,
     totalPages,
-    /*isFetching,*/
     handlePageChange,
     handleDelete,
   } = useFetchAdminProductList();
@@ -18,47 +18,22 @@ export const ProductList = () => {
     <div>
       <div className="adminProductList">
         <div>
-          {products.map((instrument) => (
+          {products.map(({ id, name, ...instrument }) => (
             <ListCard
-              key={instrument.id}
-              id={instrument.id}
-              name={instrument.name}
+              key={id}
+              id={id}
+              name={name}
               handleDelete={handleDelete}
               instrument={instrument}
             />
           ))}
         </div>
-        <div className="pageNumbersDiv">
-          <button
-            className="pageNumber currentNumberPage"
-            onClick={() =>
-              setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1)
-            }
-          >
-            <img src="/src/images/PrevPage.svg" alt="PrevPage" />
-          </button>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              className={`pageNumber ${
-                index + 1 === currentPage ? "currentNumberPage" : ""
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
-          <button
-            className="pageNumber currentNumberPage"
-            onClick={() =>
-              setCurrentPage(
-                currentPage + 1 > totalPages ? currentPage : currentPage + 1
-              )
-            }
-          >
-            <img src="/src/images/NextPage.svg" alt="PrevPage" />
-          </button>
-        </div>
+        <Pagination 
+          currentPage={currentPage}
+          totalPages={totalPages}
+          handlePageChange={handlePageChange}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
-import { useFormPutInstrument } from "../hooks/useFormPutInstrument";
-import { ValidationError } from "../components/ValidationError";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
+import { useFormPutInstrument } from "../hooks/index";
+import { ValidationError, ResultConfirmationDialog , Spinner} from "../components/index";
 import "../styles/CreateInstrument.css";
-import { Spinner } from "../components/Spinner";
 
 export const PutInstrument = (presentInstrument) => {
   

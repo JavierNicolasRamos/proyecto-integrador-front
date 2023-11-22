@@ -1,16 +1,21 @@
-import { useGetAllCategories } from "../hooks/useGetAllCategories";
-import { CategoryCheckBox } from "../components/CategoryCheckBox";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { CategoryCheckBox } from "../components/index";
+import { useGetAllCategories } from "../hooks/index";
 import "../styles/CategoryList.css";
+
+const FILTER_IMAGE = "../src/images/filter.svg";
+const ERASE_FILTER_IMAGE = "../src/images/eraseFilter.svg";
+const FILTER_ALT = "Filter";
+const ERASE_FILTER_ALT = "Erase Filter";
 
 export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
   const { categories } = useGetAllCategories();
 
-  const handleCategoryChange = (categoryId, isChecked) => {
-    if (isChecked) {
-      setSelectedCategories(prevCategories => [...prevCategories, categoryId]);
+  const handleCategoryChange = (id, checked) => {
+    if (checked) {
+      setSelectedCategories(prev => [...prev, id]);
     } else {
-      setSelectedCategories(prevCategories => prevCategories.filter(id => id !== categoryId));
+      setSelectedCategories(prev => prev.filter(categoryId => categoryId !== id));
     }
   };
 
@@ -24,18 +29,18 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
         <div className="category-aside__title">
           <p>Categorías</p>
           <img 
-            src={selectedCategories.length === 0 ? "../src/images/filter.svg" : "../src/images/eraseFilter.svg"} 
-            alt="" 
+            src={selectedCategories.length === 0 ? FILTER_IMAGE : ERASE_FILTER_IMAGE} 
+            alt={selectedCategories.length === 0 ? FILTER_ALT : ERASE_FILTER_ALT} 
             onClick={selectedCategories.length !== 0 ? handleEraseFilter : undefined}
           />
         </div>
-        {categories.map(category => (
+        {categories.map(({ id, name }) => (
           <CategoryCheckBox
-            key={category.id}
-            name={category.name}
-            id={category.id}
-            checked={selectedCategories.includes(category.id)}
-            handleChange={(e) => handleCategoryChange(category.id, e.target.checked)}
+            key={id}
+            name={name}
+            id={id}
+            checked={selectedCategories.includes(id)}
+            handleChange={(e) => handleCategoryChange(id, e.target.checked)}
           />
         ))}
       </div>
