@@ -60,7 +60,7 @@ export const ProductCarousel = () => {
       <h2 className="carousel__title">Mejores puntuados</h2>
       <div className="carousel__content">
         <Slider {...settings}>
-          {products.map((product) => (
+        {Array.isArray(products) && products.map((product) => (
             <Card
               key={product.id}
               id={product.id}

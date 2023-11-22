@@ -1,3 +1,4 @@
+export { Button } from "./Button";
 export { Card } from "./Card";
 export { CategoryCard } from "./CategoryCard";
 export { CategoryCheckBox } from "./CategoryCheckBox";
@@ -15,6 +16,7 @@ export { Menu } from "./Menu";
 export { MobileSearchBar} from "./MobileSearchBar"
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
+export { Pagination } from "./Pagination";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
 export { Spinner } from "./Spinner";

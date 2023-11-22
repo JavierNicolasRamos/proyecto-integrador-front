@@ -15,3 +15,4 @@ export { ProductList } from "./ProductList";
 export { RandomInstruments } from "./RandomInstruments";
 export { Register } from "./Register";
 export { RegisterForm } from "./RegisterForm";
+export { FilteredInstruments } from "./FilteredInstruments";
