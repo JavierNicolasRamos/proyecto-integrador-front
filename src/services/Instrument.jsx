@@ -19,7 +19,6 @@ const URL = {
 };
 
 const handleErrors = (e) => {
-  console.error("Error:", e);
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -43,7 +42,7 @@ export const getRandomInstruments = async () => {
 
 export const getInstrumentById = async (id) => {
   try {
-    const { data } = await axios.get(URL.getInstrumentById + id);
+    const { data } = await axios.get(`${URL.getInstrumentById}${id}`);
     return data;
   } catch (e) {
     handleErrors(e);
