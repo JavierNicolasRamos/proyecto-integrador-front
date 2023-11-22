@@ -1,27 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginUser } from "../services/User";
 import { useUser } from "../context/UserContext";
 
 export const useLoginUser = (data) => {
   
   const [isFetching, setIsFetching] = useState(true)
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState({
+    "name": '', 
+    "surname": ''
+  })
   const [hasErrors, setHasErrors] = useState(false)
-  const { user, updateUser } = useUser()
-  
+  const { user, updateUser, setIsLogged } = useUser() 
+
+  useEffect(() => {
+    updateUser(userData)
+    setIsLogged(true)
+  }, [userData]); 
 
   const handleSubmit = (e) => {
+   
     e.preventDefault()
+    
     loginUser(data)
-    .then((data) => 
-        setUserData(data), 
-        updateUser(userData), 
-        setIsFetching(false),
-      )
+      .then(({name, surname}) => {
+        setUserData({
+          "name": name,
+          "surname": surname
+        })
+      })
       .catch(() => {
         setHasErrors(true)
       })
-    .finally(() => setIsFetching(false));
+    .finally(() => setIsFetching(false)); 
   }    
+    
   return { user, hasErrors, isFetching, handleSubmit };
 };
