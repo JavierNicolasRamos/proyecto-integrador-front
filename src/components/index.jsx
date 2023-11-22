@@ -16,3 +16,4 @@ export { Menu } from "./Menu";
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
 export { MobileSearchBar} from "./MobileSearchBar"
+export { DetailAside } from "./DetailAside"
