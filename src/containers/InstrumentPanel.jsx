@@ -1,8 +1,7 @@
-import { CategoryList, RandomInstruments } from "../containers/index"
-import { PaginateButtons } from "../components/index"
-import { useGetAllInstruments, useGetAllInstrumentsByCategory } from "../hooks"
 import { useState } from "react"
-import { FilteredInstruments } from "./FilteredInstruments"
+import { CategoryList, RandomInstruments, FilteredInstruments } from "../containers/index"
+import { PaginateButtons, Spinner } from "../components/index"
+import { useGetAllInstruments, useGetAllInstrumentsByCategory } from "../hooks/index"
 import "../styles/ProductPanel.css"
 
 export const InstrumentPanel = () => {
@@ -11,7 +10,11 @@ export const InstrumentPanel = () => {
   const products = useGetAllInstruments();
 
   if (!products || loading) {
-    return <p>Cargando...</p>; //TODO: spinner
+    return (
+      <div className="product__content">
+        <Spinner />
+      </div>
+    )
   }
 
   return (

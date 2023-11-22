@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ProductCarousel } from './index';
 import { Characteristics } from '../components/index';
-import axios from 'axios';
 import "../styles/Detail.css";
 
 //TODO: Falta refactorizar el componente en hooks y servicios

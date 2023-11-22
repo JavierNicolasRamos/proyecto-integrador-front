@@ -1,8 +1,6 @@
 import { usePostCharacteristic } from "../hooks/index";
+import { ValidationError, Spinner, ResultConfirmationDialog } from "../components/index";
 import "../styles/CreateCharacteristic.css";
-import { ValidationError } from "../components/ValidationError";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
-import { Spinner } from "../components/Spinner";
 
 export const CreateCharacteristic = () => {
   const {

@@ -1,8 +1,6 @@
 import { useFormCreateInstrument } from "../hooks/index";
-import { ValidationError } from "../components/ValidationError";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
+import { ValidationError, ResultConfirmationDialog, Spinner } from "../components/index";
 import "../styles/CreateInstrument.css";
-import { Spinner } from "../components/Spinner";
 
 export const CreateInstrument = () => {
   
@@ -88,8 +86,6 @@ export const CreateInstrument = () => {
             presentRoute={"/admin/instrument/create"}
           />}
 
-      
-        
       </section>
     </div>
   );
