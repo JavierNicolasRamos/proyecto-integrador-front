@@ -17,6 +17,7 @@ export { MobileSearchBar} from "./MobileSearchBar"
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
 export { Pagination } from "./Pagination";
+export { ProductCarousel } from "./ProductCarousel";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
 export { Spinner } from "./Spinner";
