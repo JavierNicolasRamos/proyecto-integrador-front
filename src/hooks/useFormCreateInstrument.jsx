@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
 //import { createLogger } from "vite";
 
-export const useFormCreateInstrument =  () => {
+export const useFormCreateInstrument = () => {
   const { images, handlerImageChange } = useImageHandlerCreateInstrument();
-  const {
-    categories,
-    selectedCategoryId,
-    setSelectedCategoryId
-  } = useFetchCategories();
+  const { categories, selectedCategoryId, setSelectedCategoryId } =
+    useFetchCategories();
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
   const [showError, setShowError] = useState(false);
@@ -18,6 +15,12 @@ export const useFormCreateInstrument =  () => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+  const [adminMail, setAdminEmail] = useState("");
+
+  useEffect(() => {
+    const emailFromSessionStorage = sessionStorage.getItem("email");
+    emailFromSessionStorage ? setAdminEmail(emailFromSessionStorage) : null
+    }, []);
 
   const validateForm = () => {
     if (
@@ -30,7 +33,7 @@ export const useFormCreateInstrument =  () => {
     ) {
       return false;
     } else {
-      return true
+      return true;
     }
   };
 
@@ -40,6 +43,9 @@ export const useFormCreateInstrument =  () => {
       name: name,
       detail: detail,
       characteristics: [],
+      sellerDto: {
+        email: adminMail,
+      },
       categoryDto: {
         id: selectedCategoryId,
         name: null,
@@ -64,22 +70,24 @@ export const useFormCreateInstrument =  () => {
       formData.append("images", image);
     });
 
-    const {data, status} = await postInstrument(formData);
+    const { data, status } = await postInstrument(formData);
 
-    return {data, status}
+    return { data, status };
   };
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    const validated = validateForm()
+    const validated = validateForm();
 
     if (validated === true) {
-      setIsFetching(true)
-      const {data, status} = await submitForm();
+      setIsFetching(true);
+      const { data, status } = await submitForm();
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
-        setResultContent(`El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`);
+        setResultContent(
+          `El instrumento ${data.name} ha sido creado correctamente con el ID ${data.id}`
+        );
         setShowResult(true);
       } else {
         setIsFetching(false);
@@ -88,7 +96,7 @@ export const useFormCreateInstrument =  () => {
         setShowResult(true);
       }
     } else {
-      setShowError(true)
+      setShowError(true);
     }
   };
 
@@ -106,6 +114,6 @@ export const useFormCreateInstrument =  () => {
     showResult,
     success,
     resultContent,
-    isFetching
+    isFetching,
   };
 };
