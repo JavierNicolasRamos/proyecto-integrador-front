@@ -17,8 +17,7 @@ export const useLoginUser = (data) => {
     setIsLogged(true)
   }, [userData]); 
 
-  const handleSubmit = (e) => {
-   
+  const handlerSubmit = (e) => {
     e.preventDefault()
     
     loginUser(data)
@@ -33,6 +32,5 @@ export const useLoginUser = (data) => {
       })
     .finally(() => setIsFetching(false)); 
   }    
-    
-  return { user, hasErrors, isFetching, handleSubmit };
+  return { user, hasErrors, isFetching, handlerSubmit };
 };

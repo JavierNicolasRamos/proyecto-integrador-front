@@ -11,7 +11,7 @@ export const usePostUser = (data) => {
   const [statusResponse, setStatusResponse] = useState({}); // Nuevo estado para el statusResponse
 
 
-  const handleSubmit = (e) => {
+  const handlerSubmit = (e) => {
     e.preventDefault()
     setErrors(validateForm(data))
 
@@ -22,13 +22,11 @@ export const usePostUser = (data) => {
       setHasErrors(false);
     })
       .catch((e) => {
-        console.log("error hook", e)
         setHasErrors(e)
         setErrors(e)
-        console.log(errors)
       })
     .finally(() => setIsFetching(false));
   }
 
-  return { userData, hasErrors, errors, isFetching, handleSubmit };
+  return { userData, hasErrors, errors, isFetching, handlerSubmit };
 };

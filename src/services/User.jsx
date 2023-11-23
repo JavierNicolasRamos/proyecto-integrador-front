@@ -13,7 +13,7 @@ const URL = {
   "login" : "http://localhost:8001/auth/login",
 }
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -26,7 +26,7 @@ export const postUser = async (formData) => {
     });
     return ({data, status});
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -55,7 +55,7 @@ export const loginUser = async(formData) => {
     });
   
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 
 }
@@ -68,7 +68,7 @@ export const getUserByEmail = async(formData) => {
     return data;
   } catch (e) {
     console.log(e)
-    handleErrors(e);
+    handlerErrors(e);
   }
 
 }

@@ -9,9 +9,9 @@ export const CreateInstrument = () => {
     setName,
     detail,
     setDetail,
-    handleImageChange,
+    handlerImageChange,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
@@ -27,7 +27,7 @@ export const CreateInstrument = () => {
         <div className="createInstrument-title">
           <p>Agregar producto</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
           <input
             id="name"
@@ -70,7 +70,7 @@ export const CreateInstrument = () => {
               type="file"
               accept="image/*"
               multiple
-              onChange={handleImageChange}
+              onChange={handlerImageChange}
             />
           </div>
 

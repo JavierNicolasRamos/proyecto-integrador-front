@@ -14,7 +14,7 @@ const URL = {
   filterInstrumentsByCategory: "http://localhost:8001/category/instruments",
 };
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -35,21 +35,22 @@ export const getAllCategories = async () => {
     const { data } = await axios.get(URL.list);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
 export const postCategory = async (formData) => {
   
+
   try {
     const { data, status } = await axios.post(URL.createCategory, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return { data, status };
+    
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log("Error en la solicitud POST:", e.response.data);
     return { data, status };
   }
 };

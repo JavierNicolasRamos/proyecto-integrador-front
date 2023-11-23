@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import "../styles/ProductList.css";
 
-export const Pagination = ({ currentPage, totalPages, handlePageChange, setCurrentPage }) => (
+export const Pagination = ({ currentPage, totalPages, handlerPageChange, setCurrentPage }) => (
     <div className="pageNumbersDiv">
         <button
             className="pageNumber currentNumberPage"
@@ -13,7 +14,7 @@ export const Pagination = ({ currentPage, totalPages, handlePageChange, setCurre
         {Array.from({ length: totalPages }, (_, index) => (
             <button
                 key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
+                onClick={() => handlerPageChange(index + 1)}
                 className={`pageNumber ${
                     index + 1 === currentPage ? "currentNumberPage" : ""
                 }`}
@@ -35,6 +36,6 @@ export const Pagination = ({ currentPage, totalPages, handlePageChange, setCurre
 Pagination.propTypes = {
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
-    handlePageChange: PropTypes.func.isRequired,
+    handlerPageChange: PropTypes.func.isRequired,
     setCurrentPage: PropTypes.func.isRequired,
 };

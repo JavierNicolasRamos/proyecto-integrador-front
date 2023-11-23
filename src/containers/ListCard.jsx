@@ -1,56 +1,60 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog";
-import { PutInstrument } from './PutInstrument';
+import { PutInstrument } from "./PutInstrument";
 import "../styles/ListCard.css";
 
 export const ListCard = ({ id, name, handlerDelete, instrument }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
-  const toggleConfirmation = () => {
-    setIsConfirmationOpen(!isConfirmationOpen);
-  };
-
-  const togglePutForm = () => {
-    setOpenPutForm(!openPutForm);
-  };
-
   return (
     <div>
-      <div className="list-card">
+      <div className="listCard">
         <div className="product-list-id">ID - {id}</div>
         <div className="product-list-name">{name}</div>
-        <div className="product-list-buttons">
-          <button className="product-list-update-btn" onClick={togglePutForm}>
+        <div className="productListButtons">
+          <button
+            className="productListUpdateBtn"
+            onClick={() => {
+              setOpenPutForm(true);
+            }}
+          >
             Editar
           </button>
-          <button className="product-list-delete-btn" onClick={toggleConfirmation}>
+          <button
+            className="productListDeleteBtn"
+            onClick={() => {
+              setIsConfirmationOpen(!isConfirmationOpen);
+            }}
+          >
             Eliminar
           </button>
         </div>
         {isConfirmationOpen && (
           <DeleteConfirmationDialog
             isOpen={isConfirmationOpen}
-            onCancel={toggleConfirmation}
+            onCancel={() => {
+              setIsConfirmationOpen(false);
+            }}
             onConfirm={() => {
               handlerDelete(id);
-              toggleConfirmation();
+              setIsConfirmationOpen(false);
             }}
             item={"este instrumento"}
           />
         )}
       </div>
-      <div className="put-form">
-        {openPutForm && <PutInstrument instrument={instrument} />}
+      <div className="putForm">
+        {openPutForm && <PutInstrument presentInstrument={instrument} />}
       </div>
     </div>
   );
 };
 
-ListCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  handlerDelete: PropTypes.func.isRequired,
-  instrument: PropTypes.object.isRequired,
-};
+// ListCard.propTypes = {
+//   id: PropTypes.number.isRequired,
+//   name: PropTypes.string.isRequired,
+//   instrument: PropTypes.object.isRequired,
+//   handlerDelete: PropTypes.function.isRequired,
+// };

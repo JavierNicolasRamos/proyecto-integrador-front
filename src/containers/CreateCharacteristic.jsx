@@ -9,11 +9,13 @@ export const CreateCharacteristic = () => {
     setName,
     icon,
     setIcon,
-    handleSubmit,
+    handlerSubmit,
     showError,
     showResult,
     success,
     resultContent,
+    icons,
+    handlerIconSelection,
   } = usePostCharacteristic();
 
   return (
@@ -22,7 +24,7 @@ export const CreateCharacteristic = () => {
         <div className="createCharacteristic-title">
           <p>Agregar característica</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre</label>
           <input
             id="name"
@@ -31,20 +33,27 @@ export const CreateCharacteristic = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <label htmlFor="iccon">Selecciona un icono:</label>
+          <div className="icons-container">
+                        {icons.map((icon, index) => (
+              <img
+                key={index}
+                src={icon}
+                alt="Icon"
+                className="Icon"
+                onClick={handlerIconSelection}
+              />
+            ))}
+          </div>
 
-          <label htmlFor="icon">Selecciona un ícono</label>
-          <textarea
-            id="icon"
-            type="text"
-            placeholder=""
-            value={icon}
-            onChange={(e) => setIcon(e.target.value)}
-          />
+          {icon ? <label className="selected-icon-label" htmlFor="iccon">Icono seleccionado:</label> : null }
+
+          <img className="selected-icon" src={icon} alt={icon ? "icon" : ""} />
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
-        
-        {isFetching && <Spinner/>}
+
+        {isFetching && <Spinner />}
         {showError && <ValidationError />}
         {showResult && (
           <ResultConfirmationDialog

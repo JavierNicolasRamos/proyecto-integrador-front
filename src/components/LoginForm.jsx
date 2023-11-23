@@ -10,11 +10,11 @@ export const LoginForm = () => {
     password: ""
   });
   
-  const {handleSubmit, isFetching} = useLoginUser(formData)
+  const {handlerSubmit, isFetching} = useLoginUser(formData)
   const {user} = useUser()
   
   //Recuperamos el valor del input para luego poder modificarlo en el objeto
-  const handleChange = (e) => {    
+  const handlerChange = (e) => {    
     //Desestrucutramos el id y el valor
     const { id, value } = e.target;
     //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
@@ -27,7 +27,7 @@ export const LoginForm = () => {
   return (
     <form 
       className="form-login"
-      onSubmit={handleSubmit}
+      onSubmit={handlerSubmit}
       >
       <div className="form-login__email">
         <label htmlFor="mail">Mail</label>
@@ -36,7 +36,7 @@ export const LoginForm = () => {
           id="email" 
           placeholder="Usuario@gmail.com"
           value={formData.email}
-          onChange={handleChange}
+          onChange={handlerChange}
         />
       </div>
       <div className="form-login__password">
@@ -46,7 +46,7 @@ export const LoginForm = () => {
           id="password" 
           placeholder="*********"
           value={formData.password}
-          onChange={handleChange}
+          onChange={handlerChange}
         />
       </div>
       <div className="form-login__buttons">

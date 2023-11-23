@@ -1,4 +1,8 @@
-import { ValidationError, Spinner, ResultConfirmationDialog } from "../components/index";
+import {
+  ValidationError,
+  Spinner,
+  ResultConfirmationDialog,
+} from "../components/index";
 import { usePostCategory } from "../hooks/index";
 import "../styles/CreateCategory.css";
 
@@ -10,14 +14,14 @@ export const CreateCategory = () => {
     detail,
     setDetail,
     setImage,
-    handleSubmit,
+    handlerSubmit,
     showError,
     showResult,
     success,
     resultContent,
   } = usePostCategory();
 
-  const handleChange = (setter) => (e) => {
+  const handlerChange = (setter) => (e) => {
     setter(e.target.value);
   };
 
@@ -27,14 +31,14 @@ export const CreateCategory = () => {
         <div className="createCategory-title">
           <p>Agregar categoría</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Título</label>
           <input
             id="name"
             type="text"
             placeholder="Ingresa el título de la categoría"
             value={name}
-            onChange={handleChange(setName)}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <label htmlFor="detail">Descripción</label>
@@ -43,7 +47,7 @@ export const CreateCategory = () => {
             type="text"
             placeholder="Ingresa una descripción"
             value={detail}
-            onChange={handleChange(setDetail)}
+            onChange={(e) => setDetail(e.target.value)}
           />
 
           <div className="uploadImages">
@@ -53,20 +57,27 @@ export const CreateCategory = () => {
               type="file"
               accept="image/*"
               multiple
-              onChange={(e) => setImage(e.target.files)}
+              onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
 
-          <button type="submit">Agregar categoría</button>
+          <button id="agregar" type="submit">
+            Agregar
+          </button>
         </form>
+
+        {isFetching && <Spinner />}
+        {showError && <ValidationError />}
+        {showResult && (
+          <ResultConfirmationDialog 
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Agregar otra"}
+            presentRoute={"/admin/category/create"}
+            />
+
+        )}
       </section>
-      {isFetching && <Spinner />}
-      {showError && <ValidationError />}
-      {showResult && (
-        <ResultConfirmationDialog success={success}>
-          {resultContent}
-        </ResultConfirmationDialog>
-      )}
     </div>
   );
 };
