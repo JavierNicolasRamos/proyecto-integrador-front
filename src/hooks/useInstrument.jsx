@@ -2,22 +2,24 @@ import { useState, useEffect } from 'react';
 import { getInstrumentById } from '../services/index';
 
 export const useInstrument = (id) => {
+  
+  const [isFetching, setIsFetching] = useState(true);
   const [instrument, setInstrument] = useState({});
-  const [instrumentsExists, setInstrumentExists] = useState(false);
+  const [instrumentExists, setInstrumentExists] = useState(false);
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const instrumentData = await getInstrumentById(id);
-        setInstrument(instrumentData);
+    getInstrumentById(id)
+      .then((instrument) => {
+        setInstrument(instrument);
         setInstrumentExists(true);
-      } catch (error) {
-        console.error(error);
+      })
+      .catch(() => {
         setInstrumentExists(false);
-      }
-    };
-    fetchProduct();
+      })
+      .finally(() => {
+        setIsFetching(false);
+      });
   }, [id]);
 
-  return { instrument, instrumentsExists };
+  return { instrument, instrumentExists, isFetching };
 };

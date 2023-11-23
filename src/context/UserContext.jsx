@@ -11,6 +11,12 @@ export const UserProvider = ({ children }) => {
 
   const [isLogged, setIsLogged] = useState(false)
 
+  const closeSession = () => {
+    setIsLogged(false)
+    sessionStorage.clear()
+    setUser({})
+  }
+
   // Definimos funciones para actualizar el estado
   const updateUser = (user) => {
     setUser(user);
@@ -22,6 +28,7 @@ export const UserProvider = ({ children }) => {
     isLogged,
     setIsLogged,
     updateUser,
+    closeSession
   };
 
   return <UserContext.Provider value={userValue}>{children}</UserContext.Provider>;
