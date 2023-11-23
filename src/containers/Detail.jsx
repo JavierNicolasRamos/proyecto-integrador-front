@@ -1,15 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { ProductCarousel } from './index';
 import { useInstrument } from '../hooks';
-import { DetailAside } from '../components/DetailAside';
-import { DetailImageWrapper } from './DetailImageWrapper';
-
+import { DetailImageWrapper, ProductCarousel } from './container/index';
+import { Characteristics, DetailAside } from '../components/index';
 import "../styles/Detail.css"
-import { Characteristics } from '../components';
 
 export const Detail = () => {
+
   const { id } = useParams();
-  const { instrument, instrumentsExists, isFetching } = useInstrument(id);
+  const { instrument, isFetching } = useInstrument(id);
   const { name, detail, image, category, uploadDate, characteristics} = instrument
 
   return (

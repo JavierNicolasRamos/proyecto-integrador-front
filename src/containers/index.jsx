@@ -16,3 +16,4 @@ export { Register } from "./Register"
 export { RegisterForm } from "./RegisterForm"
 export { HeaderButtons } from "./HeaderButtons"
 export { DetailImageWrapper } from "./DetailImageWrapper"
+export { FilteredInstruments } from "./FilteredInstruments";

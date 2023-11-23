@@ -55,8 +55,6 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
     size: 10,
   };
 
-  const params = { ...standardParams, ...customizedParams };
-
   try {
     const { data } = await axios.get(URL.paginated, {
       params: customizedParams ? customizedParams : standardParams,

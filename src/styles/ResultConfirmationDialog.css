@@ -13,7 +13,6 @@
 }
 
 .result-modal-content {
-  
   background-color: var(--body);
   color: var(--black);
   padding: 20px;
@@ -25,13 +24,13 @@
   align-items: center;
   font-family: var(--main-font);
   font-weight: 700;
-  gap: 1vw
+  gap: 1vw;
 }
 
-.result-modal-content img{
+.result-modal-content img {
   width: 7vw;
   padding-bottom: 2vw;
-}  
+}
 
 .result-modal-content-buttons {
   padding-top: 2vw;
@@ -58,14 +57,12 @@
   background-color: var(--dark-grey);
 }
 
-.linkToAdminBton {
+.linkToAdminBtn {
   background-color: var(--red);
 }
 
 @media (max-width: 768px) {
- 
   .result-modal-content {
-  
     font-size: 2vw;
   }
 
@@ -74,17 +71,5 @@
     width: 20vw;
     border-radius: 5px;
     font-size: 1.6vw;
-    
   }
-
-
-
-
-
-
 }
-
-  
-
-
-

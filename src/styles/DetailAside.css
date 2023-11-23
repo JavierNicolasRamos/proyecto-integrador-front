@@ -1,0 +1,23 @@
+.detail-container{
+  max-width: 22vw;
+  background-color: var(--btn);
+  font-family: var(--main-font);
+  font-weight: 700;
+  min-width: min-content;
+}
+
+.detail__instrument-name{
+  display: flex;
+  align-items: center;
+  padding-left: 2vw;
+  width: 100%;
+  background-color: var(--red);
+  height: 10vh;
+  font-size: 2em;
+}
+
+.detail__instrument-description{
+  padding: 5vh 2vw;
+  font-size: 1.4em;
+  line-height: 32px;
+}

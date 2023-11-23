@@ -7,25 +7,27 @@ export const Characteristics = () => {
   const { id } = useParams();
   const { instrument, instrumentsExists } = useInstrument(id);
 
+  const { name, category, uploadDate, characteristics } = instrument || {};
+
   return (
     <div className="characteristics-container">
       {instrumentsExists ? (
         <div className="data-grid">
           <div className="characteristics-card">
-            <h2>Caracteristicas</h2>
+            <h2>Características</h2>
             <div className="box-detail">
-            <div className="column">
+              <div className="column">
                 <p>Nombre</p>
                 <p>Categoría</p>
                 <p>Año de Lanzamiento</p>
               </div>
               <div className="column">
-                <p>{instrument.name}</p>
-                <p>{instrument.category.name}</p>
-                <p>{instrument.uploadDate}</p>
+                <p>{name}</p>
+                <p>{category?.name}</p>
+                <p>{uploadDate}</p>
               </div>
               <ul>
-                {instrument.characteristics.map((characteristic, index) => (
+                {characteristics?.map((characteristic, index) => (
                   <li key={index}>{characteristic.name}</li>
                 ))}
               </ul>

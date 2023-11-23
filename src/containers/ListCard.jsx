@@ -4,69 +4,53 @@ import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog
 import { PutInstrument } from './PutInstrument';
 import "../styles/ListCard.css";
 
-//TODO: Falta refactorizar el componente en hooks y servicios
-export const ListCard = ({ id, name, handleUpdate, handleDelete, instrument}) => {
+export const ListCard = ({ id, name, handlerDelete, instrument }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
-  const handleUpdateClick = () => {
-    setOpenPutForm(true);
+  const toggleConfirmation = () => {
+    setIsConfirmationOpen(!isConfirmationOpen);
   };
 
-  const handleDeleteClick = () => {
-    setIsConfirmationOpen(true);
-  };
-
-  const handleCancelDelete = () => {
-    setIsConfirmationOpen(false);
-  };
-
-  const handleConfirmDelete = () => {
-    handleDelete(id);
-    setIsConfirmationOpen(false);
-  
+  const togglePutForm = () => {
+    setOpenPutForm(!openPutForm);
   };
 
   return (
     <div>
-    <div className="listcard">
-      <div className="productListId">ID - {id}</div>
-      <div className="productListName">{name}</div>
-      <div className="productListButtons">
-        <button className="productListUpdateBtn" onClick={handleUpdateClick}>
-          Editar
-        </button>
-        <button className="productListDeleteBtn" onClick={handleDeleteClick}>
-          Eliminar
-        </button>
+      <div className="list-card">
+        <div className="product-list-id">ID - {id}</div>
+        <div className="product-list-name">{name}</div>
+        <div className="product-list-buttons">
+          <button className="product-list-update-btn" onClick={togglePutForm}>
+            Editar
+          </button>
+          <button className="product-list-delete-btn" onClick={toggleConfirmation}>
+            Eliminar
+          </button>
+        </div>
+        {isConfirmationOpen && (
+          <DeleteConfirmationDialog
+            isOpen={isConfirmationOpen}
+            onCancel={toggleConfirmation}
+            onConfirm={() => {
+              handlerDelete(id);
+              toggleConfirmation();
+            }}
+            item={"este instrumento"}
+          />
+        )}
       </div>
-      {isConfirmationOpen && (
-        <DeleteConfirmationDialog
-          isOpen={isConfirmationOpen}
-          onCancel={handleCancelDelete}
-          onConfirm={handleConfirmDelete}
-          item={"este instrumento"}
-        />
-      )}
-    </div>
-    <div className="putForm">
-
-    {openPutForm && (
-        <PutInstrument
-          presentInstrument={instrument}
-        />
-      )}
-
-    </div>
-
+      <div className="put-form">
+        {openPutForm && <PutInstrument instrument={instrument} />}
+      </div>
     </div>
   );
 };
 
-// ListCard.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   name: PropTypes.string.isRequired,
-//   handleUpdate: PropTypes.func.isRequired,
-//   handleDelete: PropTypes.func.isRequired,
-//   fetchProducts: PropTypes.func.isRequired,
-// };
+ListCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  handlerDelete: PropTypes.func.isRequired,
+  instrument: PropTypes.object.isRequired,
+};
