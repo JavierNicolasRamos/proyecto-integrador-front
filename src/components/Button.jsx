@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import PropTypes from 'prop-types';
 
-export const Button = ({text}) => {
+export const Button = ({text, route = ''}) => {
   return (
     <>
-      <Link>
+      <Link to={route}>
         <button className="header__action-button btn">
           {text}
         </button>
@@ -14,5 +14,6 @@ export const Button = ({text}) => {
 }
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired
 }

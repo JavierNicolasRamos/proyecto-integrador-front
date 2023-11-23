@@ -10,7 +10,7 @@ const errorMessages = {
 
 const URL = {
   "register" : "http://localhost:8001/users/register",
-  "login" : "http://localhost:8001/users/login",
+  "login" : "http://localhost:8001/auth/login",
 }
 
 const handlerErrors = (e) => {
@@ -19,24 +19,56 @@ const handlerErrors = (e) => {
 
 export const postUser = async (formData) => {
   try {
-    const { data, status: statusResponse } = await axios.post(URL.register, formData, {
+    const { data, status } = await axios.post(URL.register, formData, {
       headers: {
         'Content-Type': 'application/json'
       },
     });
-    return (data, statusResponse);
+    return ({data, status});
   } catch (e) {
-    const { data, status } = e.response
-    return data
+    handleErrors(e);
   }
 };
 
 export const loginUser = async(formData) => {
+
+
+  try {
+
+    const { data, status } = await axios.post(URL.login, formData);
+    const {jwt, name, surname, email, role} = data
+    if (status === 200) {
+          
+      sessionStorage.setItem('jwt', jwt);
+      sessionStorage.setItem('role', role);
+      sessionStorage.setItem('email', email);
+    
+    } 
+
+    return ({
+      jwt, 
+      role, 
+      email, 
+      name, 
+      surname, 
+      status
+    });
+  
+  } catch (e) {
+    handleErrors(e);
+  }
+
+}
+
+
+export const getUserByEmail = async(formData) => {
+  console.log(formData)
   try {
     const { data } = await axios.post(URL.login, formData);
     return data;
   } catch (e) {
-    handlerErrors(e);
+    console.log(e)
+    handleErrors(e);
   }
 
 }

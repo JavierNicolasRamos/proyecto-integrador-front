@@ -18,8 +18,7 @@ const URL = {
   deleteInstrument: "http://localhost:8001/instruments/",
 };
 
-const handlerErrors = (e) => {
-  console.error("Error:", e);
+const handleErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -43,7 +42,7 @@ export const getRandomInstruments = async () => {
 
 export const getInstrumentById = async (id) => {
   try {
-    const { data } = await axios.get(URL.getInstrumentById + id);
+    const { data } = await axios.get(`${URL.getInstrumentById}${id}`);
     return data;
   } catch (e) {
     handlerErrors(e);

@@ -4,7 +4,7 @@ import { useAvatar, useUserMenu } from '../hooks/index';
 import { useEffect, useState } from "react";
 
 export const HeaderProfile = () => {
-  const { user, setIsLogged } = useUser();
+  const { user, closeSession } = useUser();
   const avatar = useAvatar(user);
   const { showMenu, handlerMenu, handlerMenuMouseLeave } = useUserMenu();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -21,8 +21,8 @@ export const HeaderProfile = () => {
     };
   }, []);
 
-  const handlerCloseSession = () => {
-    setIsLogged(false);
+  const handleCloseSession = () => {
+    closeSession()
   };
 
   return (
