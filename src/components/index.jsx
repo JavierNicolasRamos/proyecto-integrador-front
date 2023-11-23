@@ -21,5 +21,6 @@ export { Pagination } from "./Pagination";
 export { ProductCarousel } from "../containers/ProductCarousel";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
+export { ShareSocial } from "./ShareSocial";
 export { Spinner } from "./Spinner";
 export { ValidationError } from "./ValidationError";

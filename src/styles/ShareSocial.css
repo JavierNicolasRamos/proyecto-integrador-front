@@ -1,0 +1,28 @@
+.Container {
+  display: grid;
+  grid-gap: 3vh;
+  grid-template-columns: repeat(auto-fill, 5vh);
+  max-width: 50vh;
+  margin: 0 auto;
+}
+
+.Network {
+  text-align: center;
+}
+
+.NetworkShareCount {
+  display: inline-flex;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: visible;
+  width: 0;
+  font-size: 2rem;
+}
+
+.NetworkShareButton {
+  cursor: pointer;
+}
+
+.NetworkShareButton:hover:not(:active) {
+  opacity: 0.75;
+}
