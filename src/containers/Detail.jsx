@@ -12,7 +12,7 @@ export const Detail = () => {
   const { name, detail, image, category, uploadDate, characteristics} = instrument
   let navigate = useNavigate();
 
-  const handleBackHome = () => {
+  const handlerBackHome = () => {
     navigate("/home")
   }
 
@@ -23,7 +23,7 @@ export const Detail = () => {
       ) : (
         <>
           <div className="home-button"
-            onClick={handleBackHome}>
+            onClick={handlerBackHome}>
             <img src="/src/images/backArrow.svg" alt="Flecha para volver hacia atras" />
             <p>Volver atrás</p>
           </div>

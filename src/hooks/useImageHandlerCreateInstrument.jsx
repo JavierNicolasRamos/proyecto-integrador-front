@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useImagehandleRCreateInstrument = () => {
+export const useImageHandlerCreateInstrument = () => {
   const [images, setImages] = useState([]);
 
   const handlerImageChange = (e) => {

@@ -18,7 +18,7 @@ const URL = {
   deleteInstrument: "http://localhost:8001/instruments/",
 };
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 

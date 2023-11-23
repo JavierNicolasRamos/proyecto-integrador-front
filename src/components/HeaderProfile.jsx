@@ -10,18 +10,18 @@ export const HeaderProfile = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = () => {
+    const handlerResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handlerResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handlerResize);
     };
   }, []);
 
-  const handleCloseSession = () => {
+  const handlerCloseSession = () => {
     closeSession()
   };
 

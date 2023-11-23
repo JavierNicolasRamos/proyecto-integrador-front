@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useImagehandleRCreateInstrument } from "./useImagehandleRCreateInstrument";
+import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
 //import { createLogger } from "vite";
 
 export const useFormCreateInstrument =  () => {
-  const { images, handlerImageChange } = useImagehandleRCreateInstrument();
+  const { images, handlerImageChange } = useImageHandlerCreateInstrument();
   const {
     categories,
     selectedCategoryId,
