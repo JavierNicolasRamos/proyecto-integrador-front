@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useInstrument } from '../hooks';
 import { DetailImageWrapper, ProductCarousel } from './container/index';
 import { Characteristics, DetailAside } from '../components/index';
+import { useNavigate } from "react-router-dom";
 import "../styles/Detail.css"
 
 export const Detail = () => {
@@ -9,6 +10,11 @@ export const Detail = () => {
   const { id } = useParams();
   const { instrument, isFetching } = useInstrument(id);
   const { name, detail, image, category, uploadDate, characteristics} = instrument
+  let navigate = useNavigate();
+
+  const handleBackHome = () => {
+    navigate("/home")
+  }
 
   return (
     <>
@@ -16,6 +22,11 @@ export const Detail = () => {
         <p>CARGANDO</p>
       ) : (
         <>
+          <div className="home-button"
+            onClick={handleBackHome}>
+            <img src="/src/images/backArrow.svg" alt="Flecha para volver hacia atras" />
+            <p>Volver atrás</p>
+          </div>
           <div className="detail-product__container">
             <DetailAside 
               name={name} 
