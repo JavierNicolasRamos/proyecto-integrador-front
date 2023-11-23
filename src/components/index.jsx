@@ -6,6 +6,7 @@ export { Characteristics } from "./Characteristics";
 export { CreateCategory } from "../containers/CreateCategory";
 export { CreateCharacteristic } from "../containers/CreateCharacteristic";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
+export { DetailAside } from "./DetailAside";
 export { Footer } from "./Footer";
 export { FormError } from "./FormError";
 export { GalleryGridItem } from "./GalleryGridItem";
@@ -17,7 +18,7 @@ export { MobileSearchBar} from "./MobileSearchBar"
 export { NotFound } from "./NotFound";
 export { PaginateButtons } from "./PaginateButtons";
 export { Pagination } from "./Pagination";
-export { ProductCarousel } from "./ProductCarousel";
+export { ProductCarousel } from "../containers/ProductCarousel";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
 export { Spinner } from "./Spinner";
