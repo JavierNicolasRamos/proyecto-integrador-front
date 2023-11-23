@@ -9,7 +9,7 @@ export { useGetAllCategories } from "./useGetAllCategories";
 export { useGetAllInstruments } from "./useGetAllInstruments";
 export { useGetAllInstrumentsByCategory } from "./useGetAllInstrumentsByCategory";
 export { useGetRandomInstruments } from "./useGetRandomInstruments";
-export { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
+export { useImagehandleRCreateInstrument } from "./useImagehandleRCreateInstrument";
 export { useInstrument } from "./useInstrument";
 export { usePostCategory } from "./usePostCategory";
 export { usePostCharacteristic } from "./usePostCharacteristic";

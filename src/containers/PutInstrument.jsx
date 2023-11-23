@@ -10,7 +10,7 @@ export const PutInstrument = (presentInstrument) => {
     detail,
     setDetail,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
@@ -19,6 +19,7 @@ export const PutInstrument = (presentInstrument) => {
     success,
     isFetching
   } = useFormPutInstrument(presentInstrument);
+  
 
   return (
     <div className="createInstrumentPage">
@@ -26,7 +27,7 @@ export const PutInstrument = (presentInstrument) => {
         <div className="createInstrument-title">
           <p>Editar instrumento</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
           <input
             id="name"

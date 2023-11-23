@@ -48,7 +48,7 @@ export const Detail = () => {
     }
   };
 
-  const handleAddToCartClick = () => {
+  const handlerAddToCartClick = () => {
     // Lógica para agregar al carrito
   };
 
@@ -78,7 +78,7 @@ export const Detail = () => {
                 <button className="button-rent" onClick={handleRentClick}>
                   Rentar
                 </button>
-                <button className="button-cart" onClick={handleAddToCartClick}>
+                <button className="button-cart" onClick={handlerAddToCartClick}>
                   Agregar al Carrito
                 </button>
               </div>

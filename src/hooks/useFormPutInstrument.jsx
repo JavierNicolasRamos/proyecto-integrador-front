@@ -54,7 +54,7 @@ export const useFormPutInstrument = (presentInstrument) => {
     return {data, status}
   };
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
     const validated = validateForm()
 
@@ -83,7 +83,7 @@ export const useFormPutInstrument = (presentInstrument) => {
     detail,
     setDetail,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,

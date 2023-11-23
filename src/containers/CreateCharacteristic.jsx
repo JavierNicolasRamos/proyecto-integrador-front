@@ -9,13 +9,13 @@ export const CreateCharacteristic = () => {
     setName,
     icon,
     setIcon,
-    handleSubmit,
+    handlerSubmit,
     showError,
     showResult,
     success,
     resultContent,
     icons,
-    handleIconSelection,
+    handlerIconSelection,
   } = usePostCharacteristic();
 
   return (
@@ -24,7 +24,7 @@ export const CreateCharacteristic = () => {
         <div className="createCharacteristic-title">
           <p>Agregar característica</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre</label>
           <input
             id="name"
@@ -41,7 +41,7 @@ export const CreateCharacteristic = () => {
                 src={icon}
                 alt="Icon"
                 className="Icon"
-                onClick={handleIconSelection}
+                onClick={handlerIconSelection}
               />
             ))}
           </div>

@@ -13,7 +13,7 @@ const URL = {
   "login" : "http://localhost:8001/users/login",
 }
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -24,22 +24,19 @@ export const postUser = async (formData) => {
         'Content-Type': 'application/json'
       },
     });
-    console.log(data, statusResponse)
     return (data, statusResponse);
   } catch (e) {
     const { data, status } = e.response
-    console.log(data, status)
     return data
   }
 };
 
 export const loginUser = async(formData) => {
-  console.log(formData)
   try {
     const { data } = await axios.post(URL.login, formData);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 
 }

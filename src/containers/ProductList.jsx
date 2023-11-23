@@ -10,20 +10,20 @@ export const ProductList = () => {
     setCurrentPage,
     products,
     totalPages,
-    handlePageChange,
-    handleDelete,
+    handlerPageChange,
+    handlerDelete,
   } = useFetchAdminProductList();
 
   return (
     <div>
       <div className="adminProductList">
         <div>
-          {products.map(({ id, name, ...instrument }) => (
+          {products.map(( instrument ) => (
             <ListCard
-              key={id}
-              id={id}
-              name={name}
-              handleDelete={handleDelete}
+              key={instrument.id}
+              id={instrument.id}
+              name={instrument.name}
+              handlerDelete={handlerDelete}
               instrument={instrument}
             />
           ))}
@@ -31,7 +31,7 @@ export const ProductList = () => {
         <Pagination 
           currentPage={currentPage}
           totalPages={totalPages}
-          handlePageChange={handlePageChange}
+          handlerPageChange={handlerPageChange}
           setCurrentPage={setCurrentPage}
         />
       </div>

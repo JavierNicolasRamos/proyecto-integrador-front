@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import "../styles/CategoryCheckBox.css";
 
-export const CategoryCheckBox = ({ name, id, checked, handleChange }) => {
+export const CategoryCheckBox = ({ name, id, checked, handlerChange }) => {
 
   return (
     <div className="checkbox">
@@ -12,7 +12,7 @@ export const CategoryCheckBox = ({ name, id, checked, handleChange }) => {
           id={name}
           value={id}
           checked={checked}
-          onChange={handleChange}
+          onChange={handlerChange}
         />
         <label htmlFor={name}>
           {name}
@@ -26,5 +26,5 @@ CategoryCheckBox.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   checked: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handlerChange: PropTypes.func.isRequired
 };

@@ -30,7 +30,7 @@ export const usePostCharacteristic = () => {
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366834-vol1_1.png"
 ]
 
-const handleIconSelection = (event) => {
+const handlerIconSelection = (event) => {
   const src = event.target.src;
   setIcon(src);
 };
@@ -49,7 +49,7 @@ const handleIconSelection = (event) => {
 
   
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
     const validated = validateForm()
 
@@ -79,5 +79,5 @@ const handleIconSelection = (event) => {
     
   };
 
-  return { isFetching, name, setName, icon, setIcon, handleSubmit, showError, showResult, success, resultContent, icons, handleIconSelection};
+  return { isFetching, name, setName, icon, setIcon, handlerSubmit, showError, showResult, success, resultContent, icons, handlerIconSelection};
 };

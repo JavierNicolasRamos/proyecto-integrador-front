@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
+import { useImagehandleRCreateInstrument } from "./useImagehandleRCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
 //import { createLogger } from "vite";
 
 export const useFormCreateInstrument =  () => {
-  const { images, handleImageChange } = useImageHandlerCreateInstrument();
+  const { images, handlerImageChange } = useImagehandleRCreateInstrument();
   const {
     categories,
     selectedCategoryId,
@@ -69,7 +69,7 @@ export const useFormCreateInstrument =  () => {
     return {data, status}
   };
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
     const validated = validateForm()
 
@@ -97,9 +97,9 @@ export const useFormCreateInstrument =  () => {
     setName,
     detail,
     setDetail,
-    handleImageChange,
+    handlerImageChange,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,

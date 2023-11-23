@@ -11,6 +11,8 @@ export const usePostCategory = () => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
 
+
+
   const validateForm = () => {
     if (
       !name ||
@@ -25,7 +27,7 @@ export const usePostCategory = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
 
     const validated = validateForm();
@@ -43,6 +45,7 @@ export const usePostCategory = () => {
       new Blob([JSON.stringify(categoryDto)], { type: "application/json" }),
       "categoryDto.json"
     );
+
     formData.append("image", image);
 
     if (validated === true) {
@@ -73,7 +76,7 @@ export const usePostCategory = () => {
     detail,
     setDetail,
     setImage,
-    handleSubmit,
+    handlerSubmit,
     showError,
     showResult,
     success,

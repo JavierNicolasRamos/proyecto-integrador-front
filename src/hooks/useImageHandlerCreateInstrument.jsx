@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export const useImageHandlerCreateInstrument = () => {
+export const useImagehandleRCreateInstrument = () => {
   const [images, setImages] = useState([]);
 
-  const handleImageChange = (e) => {
+  const handlerImageChange = (e) => {
     const newImages = Array.from(e.target.files);
     setImages((prevImages) => [...prevImages, ...newImages]);
   };
 
-  return { images, handleImageChange };
+  return { images, handlerImageChange };
 };

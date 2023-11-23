@@ -18,7 +18,7 @@ const URL = {
   deleteInstrument: "http://localhost:8001/instruments/",
 };
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   console.error("Error:", e);
   throw new Error(errorMessages[e.status] || e.message);
 };
@@ -28,7 +28,7 @@ export const getAllInstruments = async () => {
     const { data } = await axios.get(URL.getAllInstruments);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -37,7 +37,7 @@ export const getRandomInstruments = async () => {
     const { data } = await axios.get(URL.random);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -46,7 +46,7 @@ export const getInstrumentById = async (id) => {
     const { data } = await axios.get(URL.getInstrumentById + id);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -62,7 +62,7 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
     });
     return data;
   } catch (error) {
-    handleErrors(error);
+    handlerErrors(error);
   }
 };
 
@@ -75,7 +75,6 @@ export const postInstrument = async (formData) => {
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log("Error en la solicitud POST:", e.response.data);
     return { data, status };
   }
 };
@@ -87,7 +86,6 @@ export const putInstrument = async (instrument) => {
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log("Error en la solicitud PUT:", e.response.data);
     return { data, status };
   }
 };
@@ -97,6 +95,6 @@ export const deleteInstrument = async (id) => {
     const { data } = await axios.delete(`${URL.deleteInstrument}${id}`);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export const HeaderProfile = () => {
   const { user, setIsLogged } = useUser();
   const avatar = useAvatar(user);
-  const { showMenu, handleMenu, handleMenuMouseLeave } = useUserMenu();
+  const { showMenu, handlerMenu, handlerMenuMouseLeave } = useUserMenu();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const HeaderProfile = () => {
     };
   }, []);
 
-  const handleCloseSession = () => {
+  const handlerCloseSession = () => {
     setIsLogged(false);
   };
 
@@ -34,23 +34,23 @@ export const HeaderProfile = () => {
         />
       ):
       <section className={`header__user-profile`}
-        onMouseLeave={handleMenuMouseLeave}
+        onMouseLeave={handlerMenuMouseLeave}
         >
           <button
             className={`header__avatar-content ${showMenu ? 'expanded' : ''}`}
-            onClick={handleMenu}
+            onClick={handlerMenu}
             >
             {avatar}
           </button>
           <div
             className={`header__avatar-menu ${showMenu ? 'menu' : 'hide'}`}
-            onMouseLeave={handleMenuMouseLeave}
+            onMouseLeave={handlerMenuMouseLeave}
             >
             <div className="header__avatar-menu-options">
               <Link className="header__avatar-menu-option" to={""}>Perfil</Link>
               <button 
                 className="header__avatar-menu-option"
-                onClick={handleCloseSession}
+                onClick={handlerCloseSession}
                 >
                 Cerrar Sesión
               </button>

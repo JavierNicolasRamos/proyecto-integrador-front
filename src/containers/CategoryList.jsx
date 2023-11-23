@@ -11,7 +11,7 @@ const ERASE_FILTER_ALT = "Erase Filter";
 export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
   const { categories } = useGetAllCategories();
 
-  const handleCategoryChange = (id, checked) => {
+  const handlerCategoryChange = (id, checked) => {
     if (checked) {
       setSelectedCategories(prev => [...prev, id]);
     } else {
@@ -19,7 +19,7 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
     }
   };
 
-  const handleEraseFilter = () => {
+  const handlerEraseFilter = () => {
     setSelectedCategories([]);
   }
 
@@ -31,7 +31,7 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
           <img 
             src={selectedCategories.length === 0 ? FILTER_IMAGE : ERASE_FILTER_IMAGE} 
             alt={selectedCategories.length === 0 ? FILTER_ALT : ERASE_FILTER_ALT} 
-            onClick={selectedCategories.length !== 0 ? handleEraseFilter : undefined}
+            onClick={selectedCategories.length !== 0 ? handlerEraseFilter : undefined}
           />
         </div>
         {categories.map(({ id, name }) => (
@@ -40,7 +40,7 @@ export const CategoryList = ({ selectedCategories, setSelectedCategories }) => {
             name={name}
             id={id}
             checked={selectedCategories.includes(id)}
-            handleChange={(e) => handleCategoryChange(id, e.target.checked)}
+            handlerChange={(e) => handlerCategoryChange(id, e.target.checked)}
           />
         ))}
       </div>

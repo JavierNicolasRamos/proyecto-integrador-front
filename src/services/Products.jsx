@@ -13,7 +13,7 @@ const URL = {
   "paginated" : "http://localhost:8001/instruments/paginated",
 }
 
-const handleErrors = (e) => {
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -27,7 +27,7 @@ export const getAllProducts = async () => {
     const { data } = await axios.get(URL.paginated, { params });
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -36,6 +36,6 @@ export const getRandomProds = async () => {
     const { data } = await axios.get(URL.random);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };

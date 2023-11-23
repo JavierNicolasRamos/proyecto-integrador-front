@@ -18,10 +18,10 @@ export const RegisterForm = () => {
     role: "USER"
   });
 
-  const { handleSubmit, errors, hasErrors } = usePostUser(formData)
+  const { handlerSubmit, errors, hasErrors } = usePostUser(formData)
 
   //Recuperamos el valor del input para luego poder modificarlo en el objeto
-  const handleChange = (e) => {    
+  const handlerChange = (e) => {    
     //Desestrucutramos el id y el valor
     const { id, value } = e.target;
     //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
@@ -34,7 +34,7 @@ export const RegisterForm = () => {
 
   return (
     <>
-    <form className="form-register" onSubmit={handleSubmit} >
+    <form className="form-register" onSubmit={handlerSubmit} >
       <div className="form-register__content">
         <div className="form-register__name">
           <label htmlFor="name">Nombre</label>
@@ -43,7 +43,7 @@ export const RegisterForm = () => {
             id="name"
             placeholder="Ej: Juan Pablo"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handlerChange}
           />
         </div>
         <div className="form-register__last-name">
@@ -53,7 +53,7 @@ export const RegisterForm = () => {
             id="surname"
             placeholder="Ej: Perez"
             value={formData.surname}
-            onChange={handleChange}
+            onChange={handlerChange}
           />
         </div>
         <div className="form-register__email">
@@ -63,7 +63,7 @@ export const RegisterForm = () => {
             id="email"
             placeholder="Ej: Usuario@gmail.com"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handlerChange}
             />
         </div>
         <div className="form-register__password">
@@ -72,7 +72,7 @@ export const RegisterForm = () => {
             type="password"
             id="password"
             value={formData.password}
-            onChange={handleChange}
+            onChange={handlerChange}
             />
         </div>
         {hasErrors && <FormError errors={errors}/>}
