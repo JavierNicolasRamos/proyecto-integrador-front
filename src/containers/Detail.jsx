@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useInstrument } from '../hooks';
-import { DetailImageWrapper, ProductCarousel } from './index';
+import { DetailImageWrapper, ProductCarousel } from '../containers/index';
 import { Characteristics, DetailAside } from '../components/index';
 import { useNavigate } from "react-router-dom";
 import "../styles/Detail.css"

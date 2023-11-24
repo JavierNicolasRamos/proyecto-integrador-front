@@ -24,26 +24,26 @@ export const postUser = async (formData) => {
         'Content-Type': 'application/json'
       },
     });
+    console.log(data, status)
     return ({data, status});
   } catch (e) {
-    handlerErrors(e);
+    const data = e.response.data;
+    const status = "";
+    console.log(data, status)
+    return { data, status };
   }
 };
 
 export const loginUser = async(formData) => {
-
-
   try {
-
-    const { data, status } = await axios.post(URL.login, formData);
-    const {jwt, name, surname, email, role} = data
-    if (status === 200) {
-          
-      sessionStorage.setItem('jwt', jwt);
-      sessionStorage.setItem('role', role);
-      sessionStorage.setItem('email', email);
+    const { data, status } = await axios.post(URL.login, formData)
+    const { jwt, name, surname, email, role } = data
     
-    } 
+    if (status === 200) {
+      sessionStorage.setItem('jwt', jwt)
+      sessionStorage.setItem('role', role)
+      sessionStorage.setItem('email', email)
+    }
 
     return ({
       jwt, 
@@ -53,16 +53,12 @@ export const loginUser = async(formData) => {
       surname, 
       status
     });
-  
   } catch (e) {
     handlerErrors(e);
   }
-
 }
 
-
 export const getUserByEmail = async(formData) => {
-  console.log(formData)
   try {
     const { data } = await axios.post(URL.login, formData);
     return data;
@@ -70,5 +66,4 @@ export const getUserByEmail = async(formData) => {
     console.log(e)
     handlerErrors(e);
   }
-
 }

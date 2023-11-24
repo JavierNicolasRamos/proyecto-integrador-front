@@ -8,19 +8,19 @@ export const validateForm = (data) => {
   const validations = {
     name: [
       validateName, 
-      "El nombre debe tener por lo menos 6 caracteres"
+      "Por favor, ingresa solo letras y espacios en blanco para el nombre y apellido"
     ],
     surname: [
       validateName,
-      "El apellido debe tener por lo menos 6 caracteres",
+      "Por favor, ingresa solo letras y espacios en blanco para el nombre y apellido",
     ],
     password: [
       validatePassword,
-      `El password debe tener al menos 10 caracteres, 1 símbolo, 1 mayúscula`,
+      "La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula y un número",
     ],
     email: [
       validateEmail, 
-      "Debe ingresar un email valido"
+      "Ingresa una dirección de correo electrónico válida "
     ],
   };
 

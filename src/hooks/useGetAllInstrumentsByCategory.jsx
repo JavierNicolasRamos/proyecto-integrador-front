@@ -3,7 +3,7 @@ import { getInstrumentsByCategory } from "../services/Category";
 
 export const useGetAllInstrumentsByCategory = (filter) => {
   const [fetchingFilteredInstruments, setFetchingFilteredInstruments] = useState({
-    instruments: [],
+    instrumentsFiltered: [],
     loading: true,
   });
 
@@ -11,14 +11,13 @@ export const useGetAllInstrumentsByCategory = (filter) => {
     getInstrumentsByCategory(filter)
       .then((filteredInstruments) => {
         setFetchingFilteredInstruments({
-          instruments: filteredInstruments,
+          instrumentsFiltered: filteredInstruments,
           loading: false,
-        });
+        })
       })
-      .catch((error) => {
-        console.error("Error fetching instruments:", error);
+      .catch(() => {
         setFetchingFilteredInstruments({
-          instruments: [],
+          instrumentsFiltered: [],
           loading: false,
         });
       });

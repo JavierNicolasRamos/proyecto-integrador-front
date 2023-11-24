@@ -1,0 +1,61 @@
+.form-register__name,
+.form-register__last-name,
+.form-register__email,
+.form-register__password{
+  width: 45%;
+  display: inline-block;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  outline: 2px solid red;
+  min-height: 35vh;
+}
+
+.form-register label{
+  font-size: 1.4em;
+  padding-bottom: 1vh;
+}
+
+.form-register div input{
+  height: 6vh;
+  outline: none;
+  padding: 1vw;
+  background-color: var(--body);
+  border-radius: 45px;
+  font-size: 1em; 
+  border: none;
+}
+
+.form-register div input::placeholder{
+  color: var(--black);
+}
+
+.form-register div input:focus::placeholder{
+  color: var(--white);
+}
+
+.form-register .form-register__submit{
+  min-height: 6vh;
+}
+
+.form-register .form-register__submit button{
+  width: 100%;
+  background-color: var(--red);
+  border: none;
+  min-height: 6vh;
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 1.2em;
+  padding: 1vw;
+  min-width: min-content;
+  transition: all .2 ease-in-out;
+}
+
+.form-register .form-register__submit button:hover{
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--red);
+  outline: 2px solid var(--red);
+}

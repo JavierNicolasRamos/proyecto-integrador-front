@@ -15,6 +15,8 @@
   display: block;
   border-radius: 20px 20px 0 0;
   font-size: 2em;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .login__content{
@@ -23,6 +25,7 @@
   font-size: 2em;
   padding: 0 2vw;
   min-height: 45vh;
+  max-width: 80%;
   border-radius: 0 0 20px 20px;
   display: flex;
   align-items: center;
@@ -34,7 +37,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  height: 20vw;
+  height: 30vh;
   font-weight: 700;
 }
 
@@ -47,9 +50,9 @@
 }
 
 .form-login{
-  width: 35%;
+  width: 50%;
   font-size: .6em;
-  height: 17vw;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,8 +69,10 @@
 }
 
 .form-login input{
-  height: 3vw;
-  width: 100%;
+  max-height: 5vh;
+  height: 5vh;
+  min-height: 4vh;
+  width: 90%;
   border-radius: 45px;
   border: none;
   background-color: var(--body);
@@ -83,7 +88,7 @@
   display: flex;
   width: 35%;
   flex-direction: column;
-  height: 15vw;
+  height: 25vh;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -92,7 +97,7 @@
 .login__social-button-google,
 .login__social-button-twitter{
   width: 80%;
-  height: 3vw;
+  height: 6vh;
   border: none;
   border-radius: 10px;
 }
@@ -119,15 +124,17 @@
 .form-login__buttons{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  width: 100%;
 }
 
 .form-login__buttons button{
   background-color: var(--red);
   border: none;
   color: var(--white);
-  height: 3vw;
-  width: 5vw;
+  height: 5vh;
+  min-width: 10vw;
+  max-width: 10vw;
   font-size: .8em;
   font-weight: 700;
   border-radius: 10px;
@@ -140,4 +147,5 @@
 .form-login__buttons a{
   font-size: .7em;
   color: var(--white);
+  margin: 0 auto;
 }

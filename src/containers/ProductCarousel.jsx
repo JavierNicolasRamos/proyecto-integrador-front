@@ -1,16 +1,13 @@
 import Slider from 'react-slick';
-import { getAllInstrumentsPaginated } from '../services/index';
 import { Card } from "../components/Card";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "../styles/ProductCarousel.css";
+import { useGetAllInstruments } from '../hooks/index';
 
 export const ProductCarousel = () => {
-  const products = getAllInstrumentsPaginated({
-    page: 0,
-    size: 10,
-    sort: 'score,detail', 
-  });
+
+  const { products } = useGetAllInstruments() 
 
   const settings = {
     dots: false,
@@ -60,7 +57,7 @@ export const ProductCarousel = () => {
       <h2 className="carousel__title">Mejores puntuados</h2>
       <div className="carousel__content">
         <Slider {...settings}>
-        {Array.isArray(products) && products.map((product) => (
+        {Array.isArray(products.content) && products.content.map((product) => (
             <Card
               key={product.id}
               id={product.id}

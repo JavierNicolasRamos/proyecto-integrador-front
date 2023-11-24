@@ -24,7 +24,7 @@ export const Characteristics = ({name, category, uploadDate, characteristics}) =
 
 Characteristics.propTypes = {
   name: PropTypes.string.isRequired,
-  category: PropTypes.array.isRequired,
+  category: PropTypes.object.isRequired,
   characteristics: PropTypes.array.isRequired,
   uploadDate: PropTypes.string.isRequired
 }

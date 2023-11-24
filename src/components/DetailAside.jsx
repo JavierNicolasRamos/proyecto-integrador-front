@@ -20,9 +20,11 @@ export const DetailAside = ({name, detail}) => {
               <input type="date" id="hasta" className="input-date" />
             </div>
             <Button
+              route={""}
               text={"Rentar"}
             />
             <Button
+              route={""}
               text={"Agregar al carrito"}
             />
           </div>

@@ -35,13 +35,16 @@
   min-height: 10vw;
   max-height: 10vw;
   object-fit: cover;
-  outline: 4px solid var(--total-black);
+  outline: 3px solid var(--total-black);
 }
 
 .small-images-container a{
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.small-images-container a img{
   outline: 4px solid var(--red);
 }
 
@@ -49,16 +52,14 @@
   content: "VER MÁS";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 98%;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   color: var(--white);
   font-family: var(--main-font);
-  outline: 4px solid var(--red);
   font-size: 1.5em;
-  transition: all .2 ease-in-out;
-
+  overflow: hidden;
 }

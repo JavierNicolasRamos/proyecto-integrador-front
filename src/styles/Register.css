@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   border-radius: 15px 15px 0 0;
-  background-color: red;
+  background-color: var(--red);
   padding: 2vw;
   color: var(--white);
   gap: 2vw;
@@ -34,102 +34,4 @@
   font-size: 1.1em;
   margin-left: auto; /* Empuja el Link a la derecha del contenedor */
   min-width: min-content;
-}
-
-.form-register{
-  background-color: var(--dark-grey);
-  width: 100%;
-  border-radius: 0 0 15px 15px;
-}
-
-.form-register__content{
-  width: 95%;
-  margin: 0 auto;
-  min-height: 50vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4vw;
-  padding: 2vw;
-}
-
-.form-register__name,
-.form-register__last-name,
-.form-register__email,
-.form-register__password,
-.form-register__bornDate,
-.form-register__dni{
-  width: 45%;
-  display: inline-block;
-  display: flex;
-  min-height: 12vh;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.form-register label{
-  font-size: 1.4em;
-}
-
-.form-register div input{
-  height: 3.5vw;
-  outline: none;
-  padding: 1vw;
-  background-color: var(--body);
-  border-radius: 45px;
-  font-size: 1em;
-  min-height: 6vh; 
-  width: 100%;
-  border: none;
-  width: 100%;
-}
-
-.form-register div input:focus{
-  outline: 4px solid var(--white);
-  background-color: var(--red);
-  color: var(--white);
-}
-
-.form-register div input::placeholder{
-  color: var(--dark-grey);
-}
-
-.form-register div input:focus::placeholder{
-  color: var(--white);
-}
-
-.form-register .form-register__submit{
-  margin-right: auto;
-  width: 100%;
-  padding-left: 1vw;
-  min-height: 6vh;
-}
-
-.form-register .form-register__submit button{
-  width: 30%;
-  background-color: var(--red);
-  border: none;
-  min-height: 6vh;
-  color: var(--white);
-  font-weight: 700;
-  border-radius: 10px;
-  font-size: 1.2em;
-  padding: 1vw;
-  min-width: min-content;
-  transition: all .2 ease-in-out;
-  margin-right: auto;
-}
-
-.form-register .form-register__submit button:hover{
-  cursor: pointer;
-  background-color: var(--white);
-  color: var(--red);
-  outline: 2px solid var(--red);
-}
-
-.form-register__content input[type="number"] {
-  /* Ocultar los botones de aumento y disminución */
-  appearance: textfield;
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
 }
