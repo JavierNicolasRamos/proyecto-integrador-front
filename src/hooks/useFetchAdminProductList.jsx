@@ -33,12 +33,12 @@ export const useFetchAdminProductList = () => {
     fetchPaginatedProducts();
   }, [currentPage]);
 
-    // Change page handleR
+    // Change page handler
   const handlerPageChange = (page) => {
     setCurrentPage(page);
   };
 
-  // Delete handleR
+  // Delete handler
   const handlerDelete = (id) => {
     deleteInstrument(id)
       .then(() => {

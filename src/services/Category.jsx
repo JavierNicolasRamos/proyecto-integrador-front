@@ -12,6 +12,7 @@ const URL = {
   list: "http://localhost:8001/category/list",
   createCategory: "http://localhost:8001/category",
   filterInstrumentsByCategory: "http://localhost:8001/category/instruments",
+  deleteCategory: "http://localhost:8001/categoty/",
 };
 
 const handlerErrors = (e) => {
@@ -52,5 +53,14 @@ export const postCategory = async (formData) => {
     const data = e.response.data;
     const status = "";
     return { data, status };
+  }
+};
+
+export const deleteCategory = async (id) => {
+  try {
+    const { data } = await axios.delete(`${URL.deleteCategory}${id}`);
+    return data;
+  } catch (e) {
+    handlerErrors(e);
   }
 };
