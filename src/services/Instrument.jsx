@@ -67,11 +67,18 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
   }
 };
 
-export const postInstrument = async (formData) => {
+export const postInstrument = async (formData, jwt) => {
+
+
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data, status } = await axios.post(URL.createInstrument, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+    const { data, status } = await axios.post(URL.createInstrument, formData, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;
@@ -80,9 +87,16 @@ export const postInstrument = async (formData) => {
   }
 };
 
-export const putInstrument = async (instrument) => {
+export const putInstrument = async (instrument, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data, status } = await axios.put(`${URL.putInstrument}${instrument.id}`,instrument);
+    const { data, status } = await axios.put(`${URL.putInstrument}${instrument.id}`,instrument, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;
@@ -91,9 +105,16 @@ export const putInstrument = async (instrument) => {
   }
 };
 
-export const deleteInstrument = async (id) => {
+export const deleteInstrument = async (id, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data } = await axios.delete(`${URL.deleteInstrument}${id}`);
+    const { data } = await axios.delete(`${URL.deleteInstrument}${id}`, config);
     return data;
   } catch (e) {
     handlerErrors(e);

@@ -6,12 +6,12 @@ import "../styles/AdminCategoryList.css";
 const CREATE_CATEGORY_URL = "/admin/category/create";
 
 export const AdminCategoryList = () => {
-  const { category } = useFetchAdminCategoryList();
+  const { category, handlerDelete } = useFetchAdminCategoryList();
 
   return (
     <div className="admin-categoryList-grid">
       {category.map(({ id, name, image }) => (
-        <CategoryCard key={id} name={name} image={image} />
+        <CategoryCard key={id} id={id} name={name} image={image} handlerDelete={handlerDelete} />
       ))}
       <Link to={CREATE_CATEGORY_URL} className="addCategoryCard">
         <div>

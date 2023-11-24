@@ -5,6 +5,7 @@ export { CategoryCheckBox } from "./CategoryCheckBox";
 export { Characteristics } from "./Characteristics";
 export { CreateCategory } from "../containers/CreateCategory";
 export { CreateCharacteristic } from "../containers/CreateCharacteristic";
+export { CustomCalendar } from "./CustomCalendar";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 export { DetailAside } from "./DetailAside";
 export { Footer } from "./Footer";
@@ -19,6 +20,7 @@ export { Pagination } from "./Pagination";
 export { ProductCarousel } from "../containers/ProductCarousel";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
+export { ShareSocial } from "./ShareSocial";
 export { Spinner } from "./Spinner";
 export { ValidationError } from "./ValidationError";
 export { FormLabel } from "./FormLabel"

@@ -10,6 +10,13 @@ export const useFetchAdminProductList = () => {
   const [totalProducts, setTotalProducts] = useState(0)
   const [totalPages, setTotalPages] = useState(1);
   const [isFetching, setIsFetching] = useState(true);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+    }, []);
+
 
   const params = {
     page: currentPage - 1,
@@ -43,7 +50,7 @@ export const useFetchAdminProductList = () => {
 
   // Delete handler
   const handlerDelete = (id) => {
-    deleteInstrument(id)
+    deleteInstrument(id, jwt)
       .then(() => {
         fetchPaginatedProducts();
       })
