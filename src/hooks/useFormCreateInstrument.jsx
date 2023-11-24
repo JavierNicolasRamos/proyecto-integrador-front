@@ -86,7 +86,6 @@ export const useFormCreateInstrument = () => {
     if (validated === true) {
       setIsFetching(true);
       const { data, status } = await submitForm();
-      console.log("data", data, status);
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);

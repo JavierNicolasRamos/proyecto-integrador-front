@@ -1,6 +1,7 @@
 export { useAvatar } from "./useAvatar";
 export { useFetchAdminCategoryList } from "./useFetchAdminCategoryList";
 export { useFetchAdminProductList } from "./useFetchAdminProductList";
+export { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicList";
 export { useFetchCategories } from "./useFetchCategories";
 export { useFormCreateInstrument } from "./useFormCreateInstrument";
 export { useFormPutInstrument } from "./useFormPutInstrument";

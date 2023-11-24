@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NotFound, CreateCharacteristic, CreateCategory } from "../components/index";
-import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList } from "../containers/index";
+import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList } from "../containers/index";
 import { App } from "../App";
 
 export const AppRoutes = () => (
@@ -17,6 +17,7 @@ export const AppRoutes = () => (
         <Route path="admin/instrument/create" element={<CreateInstrument />} />
         <Route path="admin/instrument/list" element={<ProductList />} />
         <Route path="admin/characteristic/create" element={<CreateCharacteristic />} />
+        <Route path="admin/characteristic/list" element={<CharacteristicList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
         <Route path="*" element={<NotFound code="404" text="Not Found" />} />

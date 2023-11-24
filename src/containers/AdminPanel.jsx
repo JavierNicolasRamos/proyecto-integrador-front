@@ -42,7 +42,7 @@ const adminPanelRoutes = [
   {
     name: "Administrar Características",
     image: FEATURE_ICON_IMAGE,
-    linkTo: "",
+    linkTo: "/admin/characteristic/list",
   },
   {
     name: "Agregar Características",

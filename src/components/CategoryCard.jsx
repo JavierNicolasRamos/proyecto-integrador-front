@@ -33,7 +33,7 @@ export const CategoryCard = ({ id, name, image, handlerDelete }) => {
               handlerDelete(id);
               setIsConfirmationOpen(false);
             }}
-            item={"esta categoría"}
+            item={`la categoría ${name}? Si procedes, los productos pertenecientes a ella quedaran sin ninguna categoría asociada.`}
           />
         )}
     </div>
