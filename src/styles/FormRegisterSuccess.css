@@ -1,0 +1,11 @@
+.form-register__success{
+  background-color: var(--form-success);
+  border-radius: 15px;
+  min-width: min-content;
+  display: flex;
+  max-height: 8vh;
+  min-height: 8vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 1vw;
+}

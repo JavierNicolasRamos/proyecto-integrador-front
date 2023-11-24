@@ -50,18 +50,20 @@ export const getInstrumentById = async (id) => {
 };
 
 export const getAllInstrumentsPaginated = async (customizedParams) => {
+  
   const standardParams = {
-    page: 1,
+    page: 0,
     size: 10,
   };
 
   try {
     const { data } = await axios.get(URL.paginated, {
-      params: customizedParams ? customizedParams : standardParams,
+      params: !!customizedParams == true ? customizedParams : standardParams,
     });
-    return data;
+        return data;
   } catch (error) {
     handlerErrors(error);
+    console.log(error)
   }
 };
 

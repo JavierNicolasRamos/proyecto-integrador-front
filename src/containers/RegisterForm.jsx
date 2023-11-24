@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FormError } from "../components/FormError";
 import { usePostUser } from "../hooks/usePostUser";
+import { FormLabel } from "../components/index";
+import "../styles/RegisterForm.css"
 
-//TODO: Falta refactorizar el componente en hooks y servicios
 export const RegisterForm = () => {
 
   //Creamos el objeto del formulario vacio
@@ -18,7 +18,7 @@ export const RegisterForm = () => {
     role: "USER"
   });
 
-  const { handlerSubmit, errors, hasErrors } = usePostUser(formData)
+  const { handlerSubmit, errors } = usePostUser(formData)
 
   //Recuperamos el valor del input para luego poder modificarlo en el objeto
   const handlerChange = (e) => {    
@@ -31,51 +31,50 @@ export const RegisterForm = () => {
     });
   };
 
-
   return (
     <>
     <form className="form-register" onSubmit={handlerSubmit} >
       <div className="form-register__content">
-        <div className="form-register__name">
-          <label htmlFor="name">Nombre</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Ej: Juan Pablo"
+          <FormLabel
+            label={"Nombre"}
+            type={"text"}
+            classname={"form-register__name"}
+            id={"name"}
+            placeholder={"Ej: Juan Pablo"}
             value={formData.name}
-            onChange={handlerChange}
+            handlerChange={handlerChange}
+            error={errors.name}
           />
-        </div>
-        <div className="form-register__last-name">
-          <label htmlFor="lastName">Apellido</label>
-          <input
-            type="text"
-            id="surname"
-            placeholder="Ej: Perez"
+        <FormLabel
+            label={"Apellido"}
+            type={"text"}
+            classname={"form-register__last-name"}
+            id={"surname"}
+            placeholder={"Ej: Perez"}
             value={formData.surname}
-            onChange={handlerChange}
+            handlerChange={handlerChange}
+            error={errors.surname}
           />
-        </div>
-        <div className="form-register__email">
-          <label htmlFor="mail">Mail</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Ej: Usuario@gmail.com"
+          <FormLabel
+            label={"Email"}
+            type={"email"}
+            classname={"form-register__email"}
+            id={"email"}
+            placeholder={"Ej: Usuario@gmail.com"}
             value={formData.email}
-            onChange={handlerChange}
-            />
-        </div>
-        <div className="form-register__password">
-          <label htmlFor="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
+            handlerChange={handlerChange}
+            error={errors.email}
+          />
+          <FormLabel
+            label={"Password"}
+            type={"password"}
+            classname={"form-register__password"}
+            id={"password"}
+            placeholder={"*********"}
             value={formData.password}
-            onChange={handlerChange}
-            />
-        </div>
-        {hasErrors && <FormError errors={errors}/>}
+            handlerChange={handlerChange}
+            error={errors.password}
+          />
         <div className="form-register__submit">
           <button 
             type="submit"

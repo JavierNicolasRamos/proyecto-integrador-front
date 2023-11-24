@@ -9,7 +9,6 @@ export { CustomCalendar } from "./CustomCalendar";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 export { DetailAside } from "./DetailAside";
 export { Footer } from "./Footer";
-export { FormError } from "./FormError";
 export { GalleryGridItem } from "./GalleryGridItem";
 export { HeaderProfile } from "./HeaderProfile";
 export { Hero } from "./Hero";
@@ -17,7 +16,6 @@ export { LoginForm } from "./LoginForm";
 export { Menu } from "./Menu";
 export { MobileSearchBar} from "./MobileSearchBar"
 export { NotFound } from "./NotFound";
-export { PaginateButtons } from "./PaginateButtons";
 export { Pagination } from "./Pagination";
 export { ProductCarousel } from "../containers/ProductCarousel";
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
@@ -25,3 +23,6 @@ export { SearchForm } from "./SearchForm";
 export { ShareSocial } from "./ShareSocial";
 export { Spinner } from "./Spinner";
 export { ValidationError } from "./ValidationError";
+export { FormLabel } from "./FormLabel"
+export { FormRegisterError } from "./FormRegisterError"
+export { FormRegisterSuccess } from "./FormRegisterSuccess"

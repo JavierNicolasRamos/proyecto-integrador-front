@@ -18,6 +18,23 @@
 
 .detail__instrument-description{
   padding: 5vh 2vw;
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 32px;
+  max-height: 40vh;
+  overflow: scroll; /* Oculta el texto que desborda el contenedor */
+  text-overflow: ellipsis;
+}
+
+.detail__instruments-description__disponibility{
+  text-align: center;
+}
+
+.detail__instruments-description__disponibility__title{
+  font-size: 1.6em;
+  background-color: var(--red);
+  margin-bottom: 3vh;
+  padding: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

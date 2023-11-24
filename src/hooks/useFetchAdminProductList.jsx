@@ -7,6 +7,7 @@ import {
 export const useFetchAdminProductList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0)
   const [totalPages, setTotalPages] = useState(1);
   const [isFetching, setIsFetching] = useState(true);
   const [jwt, setJwt] = useState("");
@@ -25,11 +26,13 @@ export const useFetchAdminProductList = () => {
 
   // Obtain paginated products
   const fetchPaginatedProducts = () => {
-    setIsFetching(true);
     getAllInstrumentsPaginated(params)
       .then((response) => {
+        setTotalProducts(response.totalElements)
+        
         const instruments = response.content || [];
         setProducts(instruments);
+
         const pages = response?.totalPages || 1;
         setTotalPages(pages);
       })
@@ -54,8 +57,10 @@ export const useFetchAdminProductList = () => {
   };
 
   return {
+    totalProducts,
     currentPage,
     setCurrentPage,
+    setTotalPages,
     products,
     totalPages,
     isFetching,
