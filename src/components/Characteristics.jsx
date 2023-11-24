@@ -13,7 +13,7 @@ export const Characteristics = ({characteristics}) => {
         {/* <img src="/src/images/share.svg" alt="Icono para compartir el producto" /> */}
       </div>
           {characteristics.map((characteristic, index) => (
-            <div key={index}>
+            <div key={index} className="characteristic-container">
               <img src={characteristic.icon}/>
               <p>{characteristic.name}</p> 
             </div>

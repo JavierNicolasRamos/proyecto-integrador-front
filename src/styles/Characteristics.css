@@ -1,4 +1,4 @@
-.characteristics-container{
+.characteristics-container {
   width: 75vw;
   margin: 0 auto;
   background-color: var(--btn);
@@ -7,21 +7,24 @@
   font-family: var(--main-font);
 }
 
-.characteristics-container__title{
+.characteristics-container__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.5em;
 }
 
-.characteristics-container__title img{
-  width: 3vw;
+.characteristics-container__title img {
+  width: 2vw;
 }
 
-.characteristics-container__title img:hover{
+.characteristics-container__title img:hover {
   cursor: pointer;
 }
 
-.characteristics-container p{
-  background-color: red;
+.characteristic-container {
+  display: flex;
+  align-items: start;
+  margin: 1vw 0;
+  gap: 1vw;
 }
