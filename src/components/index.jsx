@@ -5,6 +5,7 @@ export { CategoryCheckBox } from "./CategoryCheckBox";
 export { Characteristics } from "./Characteristics";
 export { CreateCategory } from "../containers/CreateCategory";
 export { CreateCharacteristic } from "../containers/CreateCharacteristic";
+export { CustomCalendar } from "./CustomCalendar";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 export { DetailAside } from "./DetailAside";
 export { Footer } from "./Footer";
