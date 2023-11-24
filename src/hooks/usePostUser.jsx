@@ -14,6 +14,7 @@ export const usePostUser = (data) => {
     e.preventDefault()
 
     setErrors(validateForm(data))
+    
     if(errors.length === 0){
       postUser(data)
       .then((data, status ) => {

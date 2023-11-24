@@ -7,8 +7,8 @@
   padding: 1vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  outline: 2px solid red;
+  justify-content: center;
+  gap: 2vh;
   min-height: 35vh;
 }
 

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "../styles/FormLabel.css"
-import { FormRegisterError, FormRegisterSuccess } from "../components/index";
+import { FormRegisterError } from "../components/index";
 
 export const FormLabel = ({classname, label, id, type, placeholder, value, handlerChange, error}) => {
 
@@ -14,17 +14,10 @@ export const FormLabel = ({classname, label, id, type, placeholder, value, handl
         value={value}
         onChange={handlerChange}
       />
-      {
-        error
-        ? (
+      { error &&
           <FormRegisterError 
             message={error}
           />
-        ) : (
-          <FormRegisterSuccess
-            message={`¡El ${label} es válido!`}
-          />
-        )
       }
     </div>
   )

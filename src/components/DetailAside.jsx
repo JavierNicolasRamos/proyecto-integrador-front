@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button'
 import "../styles/DetailAside.css"
+import { CustomCalendar } from './CustomCalendar';
 
 export const DetailAside = ({name, detail}) => {
 
@@ -10,23 +11,17 @@ export const DetailAside = ({name, detail}) => {
           <h2 className="detail__instrument-name">{name}</h2>
           <p className="detail__instrument-description">{detail}</p>
           
-          <div className="product-actions">
-            <div className="date-input">
-              <label htmlFor="desde">Desde</label>
-              <input type="date" id="desde" className="input-date" />
-            </div>
-            <div className="date-input">
-              <label htmlFor="hasta">Hasta</label>
-              <input type="date" id="hasta" className="input-date" />
-            </div>
-            <Button
+          <div className="detail__instruments-description__disponibility">
+            <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
+            <CustomCalendar />
+            {/* <Button
               route={""}
               text={"Rentar"}
             />
             <Button
               route={""}
               text={"Agregar al carrito"}
-            />
+            /> */}
           </div>
       </div>
     </aside>
