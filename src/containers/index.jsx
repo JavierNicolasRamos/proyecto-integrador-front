@@ -1,3 +1,5 @@
+export { CharacteristicCard } from "../components/CharacteristicCard"
+export { CharacteristicList } from "./CharacteristicList"
 export { AdminCategoryList } from "./AdminCategoryList"
 export { AdminPanel } from "./AdminPanel"
 export { CategoryList } from "./CategoryList"
@@ -17,3 +19,5 @@ export { RegisterForm } from "./RegisterForm"
 export { HeaderButtons } from "./HeaderButtons"
 export { DetailImageWrapper } from "./DetailImageWrapper"
 export { FilteredInstruments } from "./FilteredInstruments";
+
+

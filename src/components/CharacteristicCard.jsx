@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
-import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog";
-import { PutInstrument } from "./PutInstrument";
+import { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
+import { putCharacteristic } from "../services";
 import "../styles/ListCard.css";
 
-export const ListCard = ({ id, name, handlerDelete, instrument }) => {
+export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
@@ -12,6 +11,7 @@ export const ListCard = ({ id, name, handlerDelete, instrument }) => {
     <div>
       <div className="listCard">
         <div className="product-list-id">ID - {id}</div>
+        <img className="CharacteristicIcon" src={characteristic.icon} alt="characteristicIcon" />
         <div className="product-list-name">{name}</div>
         <div className="productListButtons">
           <button
@@ -41,20 +41,14 @@ export const ListCard = ({ id, name, handlerDelete, instrument }) => {
               handlerDelete(id);
               setIsConfirmationOpen(false);
             }}
-            item={`el instrumento ${name}?`}
+            item={`la característica ${name}?`}
           />
         )}
       </div>
-      <div className="putForm">
-        {openPutForm && <PutInstrument presentInstrument={instrument} />}
-      </div>
+      {/* <div className="putForm">
+        {openPutForm && <PutInstrument presentInstrument={characteristic} />}
+      </div> */}
     </div>
   );
 };
 
-// ListCard.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   name: PropTypes.string.isRequired,
-//   instrument: PropTypes.object.isRequired,
-//   handlerDelete: PropTypes.function.isRequired,
-// };

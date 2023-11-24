@@ -9,6 +9,13 @@ export const useFetchAdminProductList = () => {
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [isFetching, setIsFetching] = useState(true);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+    }, []);
+
 
   const params = {
     page: currentPage - 1,
@@ -33,14 +40,14 @@ export const useFetchAdminProductList = () => {
     fetchPaginatedProducts();
   }, [currentPage]);
 
-    // Change page handleR
+    // Change page handler
   const handlerPageChange = (page) => {
     setCurrentPage(page);
   };
 
-  // Delete handleR
+  // Delete handler
   const handlerDelete = (id) => {
-    deleteInstrument(id)
+    deleteInstrument(id, jwt)
       .then(() => {
         fetchPaginatedProducts();
       })
