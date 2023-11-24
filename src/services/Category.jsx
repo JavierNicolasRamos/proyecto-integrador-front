@@ -12,7 +12,7 @@ const URL = {
   list: "http://localhost:8001/category/list",
   createCategory: "http://localhost:8001/category",
   filterInstrumentsByCategory: "http://localhost:8001/category/instruments",
-  deleteCategory: "http://localhost:8001/categoty/",
+  deleteCategory: "http://localhost:8001/category/",
 };
 
 const handlerErrors = (e) => {
@@ -40,13 +40,18 @@ export const getAllCategories = async () => {
   }
 };
 
-export const postCategory = async (formData) => {
+export const postCategory = async (formData, jwt) => {
+
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
   
 
   try {
-    const { data, status } = await axios.post(URL.createCategory, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+    const { data, status } = await axios.post(URL.createCategory, formData, config);
     return { data, status };
     
   } catch (e) {
@@ -56,9 +61,16 @@ export const postCategory = async (formData) => {
   }
 };
 
-export const deleteCategory = async (id) => {
+export const deleteCategory = async (id, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data } = await axios.delete(`${URL.deleteCategory}${id}`);
+    const { data } = await axios.delete(`${URL.deleteCategory}${id}`, config);
     return data;
   } catch (e) {
     handlerErrors(e);

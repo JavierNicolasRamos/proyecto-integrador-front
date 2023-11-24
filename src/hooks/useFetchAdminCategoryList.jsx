@@ -4,6 +4,12 @@ import { getAllCategories, deleteCategory } from "../services/index";
 export const useFetchAdminCategoryList = () => {
   const [category, setCategory] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+    }, []);
 
 
   const fetchCategories = () => {
@@ -18,7 +24,7 @@ export const useFetchAdminCategoryList = () => {
 
   // Delete handler
   const handlerDelete = (id) => {
-    deleteCategory(id).then(() => {
+    deleteCategory(id, jwt).then(() => {
       fetchCategories();
     });
   };

@@ -16,10 +16,14 @@ export const useFormCreateInstrument = () => {
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
   const [adminMail, setAdminEmail] = useState("");
+  const [jwt, setJwt] = useState("");
 
   useEffect(() => {
     const emailFromSessionStorage = sessionStorage.getItem("email");
     emailFromSessionStorage ? setAdminEmail(emailFromSessionStorage) : null
+    
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
     }, []);
 
   const validateForm = () => {
@@ -70,7 +74,7 @@ export const useFormCreateInstrument = () => {
       formData.append("images", image);
     });
 
-    const { data, status } = await postInstrument(formData);
+    const { data, status } = await postInstrument(formData, jwt);
 
     return { data, status };
   };
@@ -82,6 +86,7 @@ export const useFormCreateInstrument = () => {
     if (validated === true) {
       setIsFetching(true);
       const { data, status } = await submitForm();
+      console.log("data", data, status);
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
@@ -92,7 +97,7 @@ export const useFormCreateInstrument = () => {
       } else {
         setIsFetching(false);
         setSuccess(false);
-        setResultContent(`Ha ocurrido un error: ${data}`);
+        setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
         setShowResult(true);
       }
     } else {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetchCategories } from "./useFetchCategories";
 import { putInstrument } from "../services";
 //import { createLogger } from "vite";
@@ -16,6 +16,12 @@ export const useFormPutInstrument = (presentInstrument) => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+    }, []);
 
   const validateForm = () => {
     if (
@@ -49,7 +55,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       deleted: null,
     };
 
-    const {data, status} = await putInstrument(instrument);
+    const {data, status} = await putInstrument(instrument, jwt);
 
     return {data, status}
   };
@@ -69,7 +75,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       } else {
         setIsFetching(false);
         setSuccess(false);
-        setResultContent(`Ha ocurrido un error: ${data}`);
+        setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
         setShowResult(true);
       }
     } else {

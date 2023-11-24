@@ -26,10 +26,16 @@ export const fetchCharacteristic = async () => {
   }
 };
 
-export const postCharacteristic = async (formData) => {
+export const postCharacteristic = async (formData, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
 
   try {
-    const { data, status } = await axios.post(URL.createCharacteristic, formData);
+    const { data, status } = await axios.post(URL.createCharacteristic, formData, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;
