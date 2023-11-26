@@ -6,10 +6,9 @@ export const useShowBrands = () => {
   const [showBrands, setShowBrands] = useState(true);
 
   useEffect(() => {
-    const isLogin = location.pathname === "/login";
-    const isRegister = location.pathname === "/register";
+    const isHome = location.pathname === "/home";
 
-    if (isLogin || isRegister) {
+    if (!isHome) {
       setShowBrands(false);
     } else {
       setShowBrands(true);
