@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { getCharacteristic, deleteCharacteristic } from "../services/index";
 
 export const useFetchAdminCharacteristicList = () => {
-  const [characteristic, setCharacteristic] = useState([]);
+  const [characteristics, setCharacteristics] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
   const jwt = sessionStorage.getItem("jwt");
 
   const fetchCharacteristic = () => {
     getCharacteristic(jwt)
-      .then((characteristic) => setCharacteristic(characteristic))
+      .then((characteristics) => setCharacteristics(characteristics))
       .finally(() => setIsFetching(false));
   };
 
@@ -24,5 +24,5 @@ export const useFetchAdminCharacteristicList = () => {
     });
   };
 
-  return { characteristic, isFetching, handlerDelete };
+  return { characteristics, isFetching, handlerDelete };
 };

@@ -12,8 +12,6 @@ export const useFormPutCharacteristic = (presentCharacteristic) => {
   const [isFetching, setIsFetching] = useState(false);
   const [jwt, setJwt] = useState("");
 
-  console.log("Present caracteric desde UseFormPresentCharacteristic", presentCharacteristic);
-
   const icons = [
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269359389-1170628_1.png",
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269361412-acabdo_1.png",
@@ -73,7 +71,7 @@ export const useFormPutCharacteristic = (presentCharacteristic) => {
         if (status === 200) {
           setIsFetching(false);
           setSuccess(true);
-          setResultContent(`La característica ${data.name} ha sido editadad correctamente`);
+          setResultContent(`La característica ${data.name} ha sido editada correctamente`);
           setShowResult(true);
         } else {
           setIsFetching(false);

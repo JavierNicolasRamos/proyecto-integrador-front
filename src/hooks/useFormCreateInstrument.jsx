@@ -2,14 +2,18 @@ import { useState, useEffect } from "react";
 import { useImageHandlerCreateInstrument } from "./useImageHandlerCreateInstrument";
 import { useFetchCategories } from "./useFetchCategories";
 import { postInstrument } from "../services";
+import { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicList";
 //import { createLogger } from "vite";
 
 export const useFormCreateInstrument = () => {
   const { images, handlerImageChange } = useImageHandlerCreateInstrument();
   const { categories, selectedCategoryId, setSelectedCategoryId } =
     useFetchCategories();
+
+  const { characteristics } = useFetchAdminCharacteristicList();
   const [name, setName] = useState("");
   const [detail, setDetail] = useState("");
+  const [checkedCharacteristics, setCheckedCharacteristics] = useState([]);
   const [showError, setShowError] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -25,6 +29,18 @@ export const useFormCreateInstrument = () => {
     const jwtFromSessionStorage = sessionStorage.getItem("jwt");
     jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
     }, []);
+
+    const handleCheckboxChange = (event, option) => {
+      const { checked } = event.target;
+  
+      if (checked) {
+        setCheckedCharacteristics((prevCheckedCharacteristics) => [...prevCheckedCharacteristics, option]);
+      } else {
+        setCheckedCharacteristics((prevCheckedCharacteristics) =>
+        prevCheckedCharacteristics.filter((item) => item.id !== option.id)
+        );
+      }
+    };
 
   const validateForm = () => {
     if (
@@ -46,7 +62,7 @@ export const useFormCreateInstrument = () => {
       id: null,
       name: name,
       detail: detail,
-      characteristics: [],
+      characteristics: checkedCharacteristics,
       sellerDto: {
         email: adminMail,
       },
@@ -61,6 +77,8 @@ export const useFormCreateInstrument = () => {
       available: null,
       deleted: null,
     };
+
+    console.log(instrument);
 
     const formData = new FormData();
 
@@ -119,5 +137,8 @@ export const useFormCreateInstrument = () => {
     success,
     resultContent,
     isFetching,
+    characteristics,
+    checkedCharacteristics,
+    handleCheckboxChange
   };
 };

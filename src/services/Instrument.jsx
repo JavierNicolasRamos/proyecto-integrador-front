@@ -63,7 +63,6 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
         return data;
   } catch (error) {
     handlerErrors(error);
-    console.log(error)
   }
 };
 

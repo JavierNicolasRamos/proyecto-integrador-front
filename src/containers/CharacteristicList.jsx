@@ -4,13 +4,13 @@ import "../styles/ProductList.css";
 
 export const CharacteristicList = () => {
   
-  const { characteristic, isFetching, handlerDelete } = useFetchAdminCharacteristicList();
+  const { characteristics, isFetching, handlerDelete } = useFetchAdminCharacteristicList();
 
   return (
     <div>
       <div className="adminProductList">
         <div>
-          {characteristic.map(( characteristic ) => (
+          {characteristics.map(( characteristic ) => (
             <CharacteristicCard
               key={characteristic.id}
               id={characteristic.id}

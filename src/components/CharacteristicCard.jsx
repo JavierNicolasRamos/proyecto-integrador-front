@@ -7,8 +7,6 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
-  console.log("char desde la card", characteristic);
-
   return (
     <div>
       <div className="listCard">
