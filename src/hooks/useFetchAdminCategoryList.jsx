@@ -5,12 +5,14 @@ export const useFetchAdminCategoryList = () => {
   const [category, setCategory] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [jwt, setJwt] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [resultContent, setResultContent] = useState("");
 
   useEffect(() => {
     const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
-
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
+  }, []);
 
   const fetchCategories = () => {
     getAllCategories()
@@ -23,11 +25,36 @@ export const useFetchAdminCategoryList = () => {
   }, []);
 
   // Delete handler
-  const handlerDelete = (id) => {
-    deleteCategory(id, jwt).then(() => {
-      fetchCategories();
-    });
+  const handlerDelete = async (id) => {
+    const { data, status } = await deleteCategory(id, jwt);
+
+    if (status === 200) {
+      setIsFetching(false);
+      setSuccess(true);
+      setResultContent(`La categoría ha sido eliminada correctamente`);
+      setShowResult(true);
+    } else {
+      setIsFetching(false);
+      setSuccess(false);
+      setResultContent(
+        `Ha ocurrido un error. ${
+          data
+            ? data
+            : "Asegúrese de estar logueado como administrador para efectuar esta acción"
+        }`
+      );
+      setShowResult(true);
+    }
+
+    fetchCategories();
   };
 
-  return { category, isFetching, handlerDelete };
+  return {
+    category,
+    isFetching,
+    handlerDelete,
+    showResult,
+    success,
+    resultContent,
+  };
 };

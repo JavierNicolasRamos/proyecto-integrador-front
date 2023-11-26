@@ -22,7 +22,7 @@
   font-weight: 700;
 }
 
-.category-card img {
+.trash-can {
   filter: brightness(0) invert(1);
   height: 2.5vw;
   position: absolute;

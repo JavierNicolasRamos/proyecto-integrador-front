@@ -113,9 +113,11 @@ export const deleteInstrument = async (id, jwt) => {
   };
 
   try {
-    const { data } = await axios.delete(`${URL.deleteInstrument}${id}`, config);
-    return data;
+    const { data, status } = await axios.delete(`${URL.deleteInstrument}${id}`, config);
+    return { data, status };
   } catch (e) {
-    handlerErrors(e);
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
   }
 };

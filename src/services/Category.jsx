@@ -70,9 +70,11 @@ export const deleteCategory = async (id, jwt) => {
   };
 
   try {
-    const { data } = await axios.delete(`${URL.deleteCategory}${id}`, config);
-    return data;
+    const { data, status } = await axios.delete(`${URL.deleteCategory}${id}`, config);
+    return { data, status };
   } catch (e) {
-    handlerErrors(e);
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
   }
 };

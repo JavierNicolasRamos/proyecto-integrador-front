@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 import { PutCharacteristic } from "../containers/index";
+import { ResultConfirmationDialog } from "../components";
+import { Spinner } from "../components";
 import "../styles/ListCard.css";
 
-export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) => {
+export const CharacteristicCard = ({ id, name, handlerDelete, characteristic, isFetching, showResult, success, resultContent }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
@@ -42,6 +44,15 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
               setIsConfirmationOpen(false);
             }}
             item={`la característica ${name}?`}
+          />
+        )}
+        {isFetching && <Spinner />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/characteristic/list"}
           />
         )}
       </div>

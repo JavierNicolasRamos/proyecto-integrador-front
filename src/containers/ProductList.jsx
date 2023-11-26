@@ -6,10 +6,16 @@ import "../styles/ProductList.css";
 export const ProductList = () => {
   
   const {
+    totalProducts,
     currentPage,
     setCurrentPage,
+    setTotalPages,
     products,
     totalPages,
+    isFetching,
+    showResult,
+    success,
+    resultContent,
     handlerPageChange,
     handlerDelete,
   } = useFetchAdminProductList();
@@ -25,6 +31,11 @@ export const ProductList = () => {
               name={instrument.name}
               handlerDelete={handlerDelete}
               instrument={instrument}
+              isFetching={isFetching}
+              showResult={showResult}
+              success={success}
+              resultContent={resultContent}
+
             />
           ))}
         </div>
