@@ -3,9 +3,8 @@
   border-radius: 15px;
   min-width: min-content;
   display: flex;
-  max-height: 15vh;
-  min-height: 15vh;
+  max-height: 10vh;
+  min-height: 10vh;
   align-items: center;
-  justify-content: center;
-  padding: 2vh 1vw;
+  padding: 0 1vw;
 }

@@ -49,41 +49,6 @@
   content: url(src/images/Line.png);
 }
 
-.form-login{
-  width: 50%;
-  font-size: .6em;
-  height: 35vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.form-login label{
-  padding-bottom: 1vh;
-}
-
-.form-login__email,
-.form-login__password{
-  display: flex;
-  flex-direction: column;
-}
-
-.form-login input{
-  max-height: 5vh;
-  height: 5vh;
-  min-height: 4vh;
-  width: 90%;
-  border-radius: 45px;
-  border: none;
-  background-color: var(--body);
-  padding-left: 2vw;
-  font-size: .8em;
-}
-
-.form-login input:focus{
-  outline: 3px solid var(--red);
-}
-
 .login__social-buttons{
   display: flex;
   width: 35%;
@@ -119,33 +84,4 @@
 
 .login__social-button-twitter{
   background-color: var(--total-black);
-}
-
-.form-login__buttons{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.form-login__buttons button{
-  background-color: var(--red);
-  border: none;
-  color: var(--white);
-  height: 5vh;
-  min-width: 10vw;
-  max-width: 10vw;
-  font-size: .8em;
-  font-weight: 700;
-  border-radius: 10px;
-}
-
-.form-login__buttons button:hover{
-  cursor: pointer;
-}
-
-.form-login__buttons a{
-  font-size: .7em;
-  color: var(--white);
-  margin: 0 auto;
 }
