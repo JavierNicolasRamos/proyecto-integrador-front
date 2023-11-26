@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
-import { putCharacteristic } from "../services";
+import { PutCharacteristic } from "../containers/index";
 import "../styles/ListCard.css";
 
 export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
+  console.log("char desde la card", characteristic);
+
   return (
     <div>
       <div className="listCard">
         <div className="product-list-id">ID - {id}</div>
         <img className="CharacteristicIcon" src={characteristic.icon} alt="characteristicIcon" />
-        <div className="product-list-name">{name}</div>
+        <div className="product-list-name characteristic-name">{name}</div>
         <div className="productListButtons">
           <button
             className="productListUpdateBtn"
@@ -45,9 +47,9 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
           />
         )}
       </div>
-      {/* <div className="putForm">
-        {openPutForm && <PutInstrument presentInstrument={characteristic} />}
-      </div> */}
+      <div className="putForm">
+        {openPutForm && <PutCharacteristic presentCharacteristic={characteristic} />}
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ export { useFetchAdminProductList } from "./useFetchAdminProductList";
 export { useFetchCategories } from "./useFetchCategories";
 export { useFormCreateInstrument } from "./useFormCreateInstrument";
 export { useFormPutInstrument } from "./useFormPutInstrument";
+export { useFormPutCharacteristic } from "./useFormPutCharacteristic";
 export { useGallery } from "./useGallery";
 export { useGetAllCategories } from "./useGetAllCategories";
 export { useGetAllInstruments } from "./useGetAllInstruments";

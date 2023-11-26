@@ -62,6 +62,9 @@ export const putCharacteristic = async (characteristic, jwt) => {
     }
   };
 
+  console.log(characteristic);
+  console.log(jwt);
+
   try {
     const { data, status } = await axios.put(`${URL.putCharacteristic}${characteristic.id}`,characteristic, config);
     return { data, status };
