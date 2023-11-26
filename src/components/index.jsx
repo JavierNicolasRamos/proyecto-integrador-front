@@ -26,3 +26,4 @@ export { ValidationError } from "./ValidationError";
 export { FormLabel } from "./FormLabel"
 export { FormRegisterError } from "./FormRegisterError"
 export { FormRegisterSuccess } from "./FormRegisterSuccess"
+export { PolicyBlock } from "./PolicyBlock";

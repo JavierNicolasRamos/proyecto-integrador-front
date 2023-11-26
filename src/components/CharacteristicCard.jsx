@@ -33,6 +33,7 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic, is
             Eliminar
           </button>
         </div>
+        {isFetching && <Spinner />}
         {isConfirmationOpen && (
           <DeleteConfirmationDialog
             isOpen={isConfirmationOpen}
@@ -46,7 +47,6 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic, is
             item={`la característica ${name}?`}
           />
         )}
-        {isFetching && <Spinner />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}

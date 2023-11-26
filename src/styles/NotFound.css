@@ -6,11 +6,11 @@
 }
 
 .NotFound img {
-    height: 40vw;
+    height: 25vw;
 }
 
 .NotFound h1 {
     color: var(--red);
     font-family: var(--main-font);
-    font-size: 5vw;
+    font-size: 3vw;
 }

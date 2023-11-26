@@ -25,6 +25,7 @@ export const CategoryCard = ({ id, name, image, handlerDelete, isFetching, showR
         }}
       /> : null}
       <h1>{name}</h1>
+      {isFetching && <Spinner />}
       {isConfirmationOpen && (
           <DeleteConfirmationDialog
             isOpen={isConfirmationOpen}
@@ -38,7 +39,6 @@ export const CategoryCard = ({ id, name, image, handlerDelete, isFetching, showR
             item={`la categoría ${name}? Si procedes, los productos pertenecientes a ella quedaran sin ninguna categoría asociada.`}
           />
         )}
-        {isFetching && <Spinner />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}
