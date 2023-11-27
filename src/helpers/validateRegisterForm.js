@@ -4,7 +4,7 @@ import {
   validatePassword,
 } from "./index";
 
-export const validateForm = (data) => {
+export const validateRegisterForm = (data) => {
   const validations = {
     name: [
       validateName, 

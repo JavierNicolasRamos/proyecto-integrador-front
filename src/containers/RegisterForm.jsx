@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePostUser } from "../hooks/usePostUser";
-import { FormLabel } from "../components/index";
+import { FormRegisterInput } from "../components/index";
 import "../styles/RegisterForm.css"
 
 export const RegisterForm = () => {
@@ -35,7 +35,7 @@ export const RegisterForm = () => {
     <>
     <form className="form-register" onSubmit={handlerSubmit} >
       <div className="form-register__content">
-          <FormLabel
+          <FormRegisterInput
             label={"Nombre"}
             type={"text"}
             classname={"form-register__name"}
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
             handlerChange={handlerChange}
             error={errors.name}
           />
-        <FormLabel
+        <FormRegisterInput
             label={"Apellido"}
             type={"text"}
             classname={"form-register__last-name"}
@@ -55,17 +55,17 @@ export const RegisterForm = () => {
             handlerChange={handlerChange}
             error={errors.surname}
           />
-          <FormLabel
+          <FormRegisterInput
             label={"Email"}
             type={"email"}
             classname={"form-register__email"}
             id={"email"}
-            placeholder={"Ej: Usuario@gmail.com"}
+            placeholder={"Ej: usuario@gmail.com"}
             value={formData.email}
             handlerChange={handlerChange}
             error={errors.email}
           />
-          <FormLabel
+          <FormRegisterInput
             label={"Password"}
             type={"password"}
             classname={"form-register__password"}

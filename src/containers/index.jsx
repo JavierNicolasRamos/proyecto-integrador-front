@@ -1,4 +1,4 @@
-export { PutCharacteristic } from "./Putcharacteristic"
+export { PutCharacteristic } from "./PutCharacteristic"
 export { AdminCategoryList } from "./AdminCategoryList"
 export { AdminPanel } from "./AdminPanel"
 export { CategoryList } from "./CategoryList"

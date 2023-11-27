@@ -23,7 +23,8 @@ export { SearchForm } from "./SearchForm";
 export { ShareSocial } from "./ShareSocial";
 export { Spinner } from "./Spinner";
 export { ValidationError } from "./ValidationError";
-export { FormLabel } from "./FormLabel"
+export { FormRegisterInput } from "./FormRegisterInput"
 export { FormRegisterError } from "./FormRegisterError"
-export { FormRegisterSuccess } from "./FormRegisterSuccess"
+export { FormLoginInput } from "./FormLoginInput"
+export { FormLoginError } from "./FormLoginError"
 export { PolicyBlock } from "./PolicyBlock";

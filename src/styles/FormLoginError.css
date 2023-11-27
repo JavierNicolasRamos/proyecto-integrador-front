@@ -1,0 +1,5 @@
+.form-login__error{
+  color: var(--form-error);
+  font-size: .8em;
+  margin-top: auto;
+}

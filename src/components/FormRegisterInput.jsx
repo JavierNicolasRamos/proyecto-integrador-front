@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import "../styles/FormLabel.css"
-import { FormRegisterError } from "../components/index";
+import "../styles/FormRegisterInput.css"
+import { FormRegisterError } from "./index";
 
-export const FormLabel = ({classname, label, id, type, placeholder, value, handlerChange, error}) => {
+export const FormRegisterInput = ({classname, label, id, type, placeholder, value, handlerChange, error}) => {
 
   return (
     <div className={classname}>
@@ -14,16 +14,16 @@ export const FormLabel = ({classname, label, id, type, placeholder, value, handl
         value={value}
         onChange={handlerChange}
       />
-      { error &&
+        { error &&
           <FormRegisterError 
             message={error}
           />
-      }
+        }
     </div>
   )
 }
 
-FormLabel.propTypes = {
+FormRegisterInput.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

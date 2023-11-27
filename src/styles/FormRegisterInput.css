@@ -7,9 +7,8 @@
   padding: 1vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2vh;
-  min-height: 35vh;
+  gap: 1vh;
+  min-height: 30vh;
 }
 
 .form-register label{
