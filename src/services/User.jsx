@@ -24,17 +24,16 @@ export const postUser = async (formData) => {
         'Content-Type': 'application/json'
       },
     });
-    console.log(data, status)
     return ({data, status});
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log(data, status)
     return { data, status };
   }
 };
 
 export const loginUser = async(formData) => {
+
   try {
     const { data, status } = await axios.post(URL.login, formData)
     const { jwt, name, surname, email, role } = data
@@ -54,7 +53,9 @@ export const loginUser = async(formData) => {
       status
     });
   } catch (e) {
-    handlerErrors(e);
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
   }
 }
 
