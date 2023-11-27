@@ -1,36 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { loginUser } from "../services/User";
 import { useUser } from "../context/UserContext";
+import { validateLoginForm } from "../helpers/validateLoginForm";
 
 export const useLoginUser = (data) => {
-  
-  const [isFetching, setIsFetching] = useState(true)
-  const [userData, setUserData] = useState({
-    "name": '', 
-    "surname": ''
-  })
+  const [isFetching, setIsFetching] = useState(true);
   const [hasErrors, setHasErrors] = useState(false)
-  const { user, updateUser, setIsLogged } = useUser() 
+  const [userData, setUserData] = useState({
+    name: '',
+    surname: '',
+    role: ''
+  });
 
-  useEffect(() => {
-    updateUser(userData)
-    setIsLogged(true)
-  }, [userData]); 
+  const { updateUser, setIsLogged } = useUser();
 
-  const handlerSubmit = (e) => {
-    e.preventDefault()
+  const handlerSubmit = async(e) => {
+    e.preventDefault();
+
+    const errors = validateLoginForm(data)
+
+    if(Object.keys(errors).length !== 0){
+      setHasErrors(Object.keys(errors).length)
+    }
     
-    loginUser(data)
-      .then(({name, surname}) => {
-        setUserData({
-          "name": name,
-          "surname": surname
+    // Verificar si no hay errores antes de realizar la consulta
+    if (Object.keys(errors).length === 0) {
+      loginUser(data)
+      .then(({ name, surname, role }) => {
+          updateUser({ name, surname, role });
+          setUserData({ name, surname, role });
+          setIsLogged(true);
         })
-      })
-      .catch(() => {
-        setHasErrors(true)
-      })
-    .finally(() => setIsFetching(false)); 
-  }    
-  return { user, hasErrors, isFetching, handlerSubmit };
+        .finally(() => {
+          setIsFetching(false);
+        });
+      }
+
+      setHasErrors(true)
+      
+  };
+
+  return { userData, hasErrors, isFetching, handlerSubmit };
 };

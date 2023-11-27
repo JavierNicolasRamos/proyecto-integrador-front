@@ -1,25 +1,23 @@
 import { useState } from "react";
 import { postUser } from "../services/User";
-import { validateForm } from "../helpers/validateForm";
+import { validateRegisterForm } from "../helpers";
 
 export const usePostUser = (data) => {
   
   const [isFetching, setIsFetching] = useState(true)
   const [userData, setUserData] = useState({})
   const [errors, setErrors] = useState({})
-  const [statusResponse, setStatusResponse] = useState({}); // Nuevo estado para el statusResponse
   
 
   const handlerSubmit = async(e) => {
     e.preventDefault()
 
-    setErrors(validateForm(data))
+    setErrors(validateRegisterForm(data))
     
     if(errors.length === 0){
       postUser(data)
-      .then((data, status ) => {
+      .then((data) => {
         setUserData(data);
-        setStatusResponse(status);
       })
         .catch((e) => {
           setErrors(e)
