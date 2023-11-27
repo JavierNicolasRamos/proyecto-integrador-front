@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const HeaderProfile = () => {
   const { user, closeSession } = useUser();
-  const avatar = useAvatar(user);
+  const { avatar }  = useAvatar(user);
   const { showMenu, handlerMenu, handlerMenuMouseLeave } = useUserMenu();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

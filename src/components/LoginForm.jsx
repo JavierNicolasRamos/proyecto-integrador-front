@@ -1,7 +1,8 @@
 import { Link, Navigate } from "react-router-dom"
 import { useLoginUser } from "../hooks/useLoginUser"
-import { useEffect, useState } from "react";
-import { useUser } from "../context/UserContext";
+import { useState } from "react";
+import { FormLoginError, FormLoginInput } from "./index";
+import "../styles/LoginForm.css"
 
 export const LoginForm = () => {
 
@@ -10,14 +11,19 @@ export const LoginForm = () => {
     password: ""
   });
   
-  const {handlerSubmit, isFetching} = useLoginUser(formData)
-  const {user} = useUser()
-  
-  //Recuperamos el valor del input para luego poder modificarlo en el objeto
+  const {handlerSubmit, userData, hasErrors, isFetching} = useLoginUser(formData)
+
+  const handlerRedirect = (role) =>{
+    switch (role) {
+      case "ADMIN":
+        return <Navigate to={"/admin"}/>
+      default:
+        return <Navigate to={"/home"}/>
+    }
+  }
+
   const handlerChange = (e) => {    
-    //Desestrucutramos el id y el valor
     const { id, value } = e.target;
-    //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
     setFormData({
       ...formData,
       [id]: value,
@@ -27,32 +33,38 @@ export const LoginForm = () => {
   return (
     <form 
       className="form-login"
-      onSubmit={handlerSubmit}
+        onSubmit={handlerSubmit}
       >
-      <div className="form-login__email">
-        <label htmlFor="mail">Mail</label>
-        <input 
-          type="email" 
-          id="email" 
-          placeholder="Usuario@gmail.com"
-          value={formData.email}
-          onChange={handlerChange}
-        />
-      </div>
-      <div className="form-login__password">
-        <label htmlFor="password">Contraseña</label>
-        <input 
-          type="password" 
-          id="password" 
-          placeholder="*********"
-          value={formData.password}
-          onChange={handlerChange}
-        />
-      </div>
+      <FormLoginInput
+        label={"Email"}
+        type={"email"}
+        classname={"form-login__email"}
+        id={"email"}
+        placeholder={"Ej: usuario@gmail.com"}
+        value={formData.email}
+        handlerChange={handlerChange}
+      />
+      <FormLoginInput
+        label={"Password"}
+        type={"password"}
+        classname={"form-login__password"}
+        id={"password"}
+        placeholder={"*********"}
+        value={formData.password}
+        handlerChange={handlerChange}
+      />
+      {
+        hasErrors
+        ? <FormLoginError 
+            message={"Alguno de los datos ingresados es incorrecto"}
+          />
+        : ''
+      }
+
       <div className="form-login__buttons">
         { isFetching 
           ? <button type="submit">Entrar</button>
-          : <Navigate to={"/home"}/>
+          : handlerRedirect(userData.role)
         }
         <Link to={"/register"}>
           No tiene cuenta? crear una ahora
