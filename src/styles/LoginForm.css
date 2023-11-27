@@ -1,7 +1,7 @@
 .form-login{
   width: 40%;
   font-size: .6em;
-  height: 35vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
 }
