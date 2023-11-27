@@ -27,3 +27,4 @@ export { FormRegisterInput } from "./FormRegisterInput"
 export { FormRegisterError } from "./FormRegisterError"
 export { FormLoginInput } from "./FormLoginInput"
 export { FormLoginError } from "./FormLoginError"
+export { PolicyBlock } from "./PolicyBlock";

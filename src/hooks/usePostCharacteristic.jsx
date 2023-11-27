@@ -85,5 +85,5 @@ const handlerIconSelection = (event) => {
     
   };
 
-  return { isFetching, name, setName, icon, setIcon, handlerSubmit, showError, showResult, success, resultContent, icons, handlerIconSelection};
+  return { isFetching, name, setName, icon, handlerSubmit, showError, showResult, success, resultContent, icons, handlerIconSelection};
 };

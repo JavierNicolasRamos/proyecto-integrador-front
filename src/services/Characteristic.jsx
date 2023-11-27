@@ -62,6 +62,7 @@ export const putCharacteristic = async (characteristic, jwt) => {
     }
   };
 
+
   try {
     const { data, status } = await axios.put(`${URL.putCharacteristic}${characteristic.id}`,characteristic, config);
     return { data, status };
@@ -82,8 +83,10 @@ export const deleteCharacteristic = async (id, jwt) => {
 
   try {
     const { data, status } = await axios.delete(`${URL.deleteCharacteristic}${id}`, config);
-    return data;
+    return { data, status };
   } catch (e) {
-    handlerErrors(e);
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
   }
 };

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
-import { putCharacteristic } from "../services";
+import { PutCharacteristic } from "../containers/index";
+import { ResultConfirmationDialog } from "../components";
+import { Spinner } from "../components";
 import "../styles/ListCard.css";
 
-export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) => {
+export const CharacteristicCard = ({ id, name, handlerDelete, characteristic, isFetching, showResult, success, resultContent }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
@@ -12,7 +14,7 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
       <div className="listCard">
         <div className="product-list-id">ID - {id}</div>
         <img className="CharacteristicIcon" src={characteristic.icon} alt="characteristicIcon" />
-        <div className="product-list-name">{name}</div>
+        <div className="product-list-name characteristic-name">{name}</div>
         <div className="productListButtons">
           <button
             className="productListUpdateBtn"
@@ -31,6 +33,7 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
             Eliminar
           </button>
         </div>
+        {isFetching && <Spinner />}
         {isConfirmationOpen && (
           <DeleteConfirmationDialog
             isOpen={isConfirmationOpen}
@@ -44,10 +47,18 @@ export const CharacteristicCard = ({ id, name, handlerDelete, characteristic }) 
             item={`la característica ${name}?`}
           />
         )}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/characteristic/list"}
+          />
+        )}
       </div>
-      {/* <div className="putForm">
-        {openPutForm && <PutInstrument presentInstrument={characteristic} />}
-      </div> */}
+      <div className="putForm">
+        {openPutForm && <PutCharacteristic presentCharacteristic={characteristic} />}
+      </div>
     </div>
   );
 };

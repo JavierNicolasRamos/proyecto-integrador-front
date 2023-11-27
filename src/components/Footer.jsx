@@ -61,7 +61,7 @@ export const Footer = () => {
         </div>
           <div className="footer-principal-information-content">
             <p>Información</p>
-            <a href="">Políticas de uso</a>
+            <a href="/policyBlock">Políticas de uso</a>
             <a href="">Forma de pago</a>
             <a href="">Blog</a>
           </div>

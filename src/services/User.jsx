@@ -64,7 +64,6 @@ export const getUserByEmail = async(formData) => {
     const { data } = await axios.post(URL.login, formData);
     return data;
   } catch (e) {
-    console.log(e)
     handlerErrors(e);
   }
 }

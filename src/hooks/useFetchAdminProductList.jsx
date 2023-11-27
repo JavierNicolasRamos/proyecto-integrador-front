@@ -9,6 +9,9 @@ export const useFetchAdminProductList = () => {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(0)
   const [totalPages, setTotalPages] = useState(1);
+  const [showResult, setShowResult] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(true);
   const [jwt, setJwt] = useState("");
 
@@ -49,13 +52,26 @@ export const useFetchAdminProductList = () => {
   };
 
   // Delete handler
-  const handlerDelete = (id) => {
-    deleteInstrument(id, jwt)
-      .then(() => {
-        fetchPaginatedProducts();
-      })
-  };
+  const handlerDelete = async (id) => {
+    const { data, status } = await deleteInstrument(id, jwt)
 
+    if (status === 200) {
+      setIsFetching(false);
+      setSuccess(true);
+      setResultContent(
+        `El instrumento ha sido eliminado correctamente`
+      );
+      setShowResult(true);
+    } else {
+      setIsFetching(false);
+      setSuccess(false);
+      setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
+      setShowResult(true);
+    }
+
+        fetchPaginatedProducts();
+      }
+  
   return {
     totalProducts,
     currentPage,
@@ -64,6 +80,9 @@ export const useFetchAdminProductList = () => {
     products,
     totalPages,
     isFetching,
+    showResult,
+    success,
+    resultContent,
     handlerPageChange,
     handlerDelete,
   };

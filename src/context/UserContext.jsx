@@ -5,7 +5,6 @@ import { useAvatar } from "../hooks";
 const UserContext = createContext()
 
 //Definimos el proveedor del contexto
-// eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   // Definimos estados
   const [user, setUser] = useState({});
@@ -13,7 +12,6 @@ export const UserProvider = ({ children }) => {
   const {avatar, setAvatar} = useAvatar(user)
   
   useEffect(() => {
-    console.log(user)
     checkSession()
   }, [])
   

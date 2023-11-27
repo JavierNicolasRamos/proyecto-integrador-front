@@ -1,27 +1,29 @@
-import { usePostCharacteristic } from "../hooks/index";
-import { ValidationError, Spinner, ResultConfirmationDialog } from "../components/index";
+import { ValidationError, ResultConfirmationDialog , Spinner} from "../components/index";
 import "../styles/CreateCharacteristic.css";
+import { useFormPutCharacteristic } from "../hooks/index";
 
-export const CreateCharacteristic = () => {
+export const PutCharacteristic = (presentCharacteristic) => {
+  
   const {
-    isFetching,
     name,
     setName,
     icon,
-    handlerSubmit,
+    handlerIconSelection,
     showError,
+    handlerSubmit,
     showResult,
     success,
     resultContent,
     icons,
-    handlerIconSelection,
-  } = usePostCharacteristic();
+    isFetching
+  } = useFormPutCharacteristic(presentCharacteristic);
+  
 
   return (
     <div className="createCharacteristicPage">
       <section className="createCharacteristicSection">
         <div className="createCharacteristic-title">
-          <p>Agregar característica</p>
+          <p>Editar característica</p>
         </div>
         <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre</label>
@@ -49,7 +51,7 @@ export const CreateCharacteristic = () => {
 
           <img className="selected-icon" src={icon} alt={icon ? "icon" : ""} />
 
-          <input id="agregar" type="submit" value="Agregar" />
+          <input id="agregar" type="submit" value="Editar" />
         </form>
 
         {isFetching && <Spinner />}
@@ -58,8 +60,8 @@ export const CreateCharacteristic = () => {
           <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
-            actionDetail={"Agregar otra"}
-            presentRoute={"/admin/characteristic/create"}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/characteristic/list"}
           />
         )}
       </section>
