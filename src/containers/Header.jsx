@@ -7,9 +7,9 @@ import "../styles/Header.css";
 
 export const Header = () => {
 
-  const location = useLocation();
+  const location = useLocation()
   const { isLogged } = useUser()
-  const { width } = useWindowSize();
+  const { width } = useWindowSize()
   const isHome = location.pathname === "/home"
 
   return (
@@ -33,7 +33,8 @@ export const Header = () => {
             <SearchForm /> : ''
           }
 
-          { isLogged 
+
+          { isLogged
             ? <HeaderProfile />                
             : <HeaderButtons /> 
           }
