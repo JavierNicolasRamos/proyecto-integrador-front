@@ -17,6 +17,10 @@
   filter: brightness(0) saturate(100%);
 }
 
+.characteristic-name {
+  width: 40vw;
+}
+
 .productListButtons {
   display: flex;
   gap: 1vw;

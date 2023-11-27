@@ -2,9 +2,12 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { DeleteConfirmationDialog } from "../components/DeleteConfirmationDialog";
 import { PutInstrument } from "./PutInstrument";
+import { ResultConfirmationDialog } from "../components";
+import { Spinner } from "../components";
+
 import "../styles/ListCard.css";
 
-export const ListCard = ({ id, name, handlerDelete, instrument }) => {
+export const ListCard = ({ id, name, handlerDelete, instrument, isFetching, showResult, success, resultContent }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [openPutForm, setOpenPutForm] = useState(false);
 
@@ -42,6 +45,15 @@ export const ListCard = ({ id, name, handlerDelete, instrument }) => {
               setIsConfirmationOpen(false);
             }}
             item={`el instrumento ${name}?`}
+          />
+        )}
+        {isFetching && <Spinner />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/instrument/list"}
           />
         )}
       </div>

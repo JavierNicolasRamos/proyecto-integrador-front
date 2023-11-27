@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { NotFound, CreateCharacteristic, CreateCategory } from "../components/index";
+import { NotFound, CreateCharacteristic, CreateCategory, PolicyBlock } from "../components/index";
 import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList } from "../containers/index";
 import { App } from "../App";
 
@@ -8,6 +8,7 @@ export const AppRoutes = () => (
     <Route path="/" element={<App />}>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/policyBlock" element={<PolicyBlock />} />
         <Route path="/search/instruments" element={<InstrumentPanel />} />
         <Route path="/product/detail/:id" element={<Detail/>} />
         <Route path="/product/gallery/:id" element={<Gallery />} />
