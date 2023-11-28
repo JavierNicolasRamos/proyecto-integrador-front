@@ -1,7 +1,7 @@
 import { Link, Navigate } from "react-router-dom"
 import { useLoginUser } from "../hooks/useLoginUser"
 import { useState } from "react";
-import { FormLoginError, FormLoginInput } from "./index";
+import { FormLoginError, FormLoginInput, Spinner } from "./index";
 import "../styles/LoginForm.css"
 
 export const LoginForm = () => {
@@ -11,14 +11,16 @@ export const LoginForm = () => {
     password: ""
   });
   
-  const {handlerSubmit, userData, hasErrors, isFetching} = useLoginUser(formData)
+  const {handlerSubmit, userData, errors, hasErrors, isFetching} = useLoginUser(formData)
 
   const handlerRedirect = (role) =>{
     switch (role) {
       case "ADMIN":
         return <Navigate to={"/admin"}/>
+        case "USER":
+          return <Navigate to={"/home"}/>
       default:
-        return <Navigate to={"/home"}/>
+        break;
     }
   }
 
@@ -56,15 +58,19 @@ export const LoginForm = () => {
       {
         hasErrors
         ? <FormLoginError 
-            message={"Alguno de los datos ingresados es incorrecto"}
+            message={errors}
           />
         : ''
       }
 
       <div className="form-login__buttons">
-        { isFetching 
-          ? <button type="submit">Entrar</button>
-          : handlerRedirect(userData.role)
+        {
+          isFetching 
+          ? <Spinner/>
+          : <button type="submit">Entrar</button>  
+        }
+        {
+          !hasErrors && handlerRedirect(userData.role)
         }
         <Link to={"/register"}>
           No tiene cuenta? crear una ahora
