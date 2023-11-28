@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const errorMessages = {
-  500: "Error del servidor",
+  500: "Alguno de los datos ingresados es incorrecto",
   400: "Error del cliente",
   401: "No autorizado",
-  403: "Acceso prohibido",
+  403: "Alguno de los datos ingresados es incorrecto",
   404: "No se encontraron productos",
 };
 
@@ -14,7 +14,7 @@ const URL = {
 }
 
 const handlerErrors = (e) => {
-  throw new Error(errorMessages[e.status] || e.message);
+  throw new Error(errorMessages[e.response.status]);
 };
 
 export const postUser = async (formData) => {
@@ -52,12 +52,16 @@ export const loginUser = async(formData) => {
       surname, 
       status
     });
+
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    handlerErrors(e)
   }
 }
+
+
+
+
+
 
 export const getUserByEmail = async(formData) => {
   try {

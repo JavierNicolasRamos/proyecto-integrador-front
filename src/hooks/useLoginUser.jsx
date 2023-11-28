@@ -4,8 +4,9 @@ import { useUser } from "../context/UserContext";
 import { validateLoginForm } from "../helpers/validateLoginForm";
 
 export const useLoginUser = (data) => {
-  const [isFetching, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState(false);
   const [hasErrors, setHasErrors] = useState(false)
+  const [errors,  setErrors] = useState("")
   const [userData, setUserData] = useState({
     name: '',
     surname: '',
@@ -17,6 +18,7 @@ export const useLoginUser = (data) => {
   const handlerSubmit = async(e) => {
     e.preventDefault();
 
+    setIsFetching(true)
     const errors = validateLoginForm(data)
 
     if(Object.keys(errors).length !== 0){
@@ -26,19 +28,24 @@ export const useLoginUser = (data) => {
     // Verificar si no hay errores antes de realizar la consulta
     if (Object.keys(errors).length === 0) {
       loginUser(data)
-      .then(({ name, surname, role }) => {
-          updateUser({ name, surname, role });
-          setUserData({ name, surname, role });
-          setIsLogged(true);
+      .then(({ name, surname, role, status }) => { 
+          if(status === 200){ 
+            updateUser({ name, surname, role })
+            setUserData({ name, surname, role })
+            setIsLogged(true)
+            setHasErrors(false)
+          }
+        })
+        .catch( (status) => {
+          setErrors(status.message)
+          setHasErrors(true)
         })
         .finally(() => {
           setIsFetching(false);
         });
-      }
-
-      setHasErrors(true)
-      
+    }
+    
   };
-
-  return { userData, hasErrors, isFetching, handlerSubmit };
+  
+  return { userData, errors, hasErrors, isFetching, handlerSubmit };
 };
