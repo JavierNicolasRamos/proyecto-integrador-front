@@ -1,11 +1,12 @@
 export { useAvatar } from "./useAvatar";
+export { useCalendar } from "./useCalendar";
 export { useFetchAdminCategoryList } from "./useFetchAdminCategoryList";
 export { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicList";
 export { useFetchAdminProductList } from "./useFetchAdminProductList";
 export { useFetchCategories } from "./useFetchCategories";
 export { useFormCreateInstrument } from "./useFormCreateInstrument";
-export { useFormPutInstrument } from "./useFormPutInstrument";
 export { useFormPutCharacteristic } from "./useFormPutCharacteristic";
+export { useFormPutInstrument } from "./useFormPutInstrument";
 export { useGallery } from "./useGallery";
 export { useGetAllCategories } from "./useGetAllCategories";
 export { useGetAllInstruments } from "./useGetAllInstruments";

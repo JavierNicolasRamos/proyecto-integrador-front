@@ -9,7 +9,7 @@ export const Characteristics = ({characteristics}) => {
     <div className="characteristics-container">
       <div className="characteristics-container__title">
         <h2>Caracteristicas</h2>
-        <ShareSocial/>
+        <ShareSocial shareUrl="" name="" /*TODO: Agregar url y nombre */ /> 
         {/* <img src="/src/images/share.svg" alt="Icono para compartir el producto" /> */}
       </div>
           {characteristics.map((characteristic, index) => (

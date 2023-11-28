@@ -31,6 +31,7 @@ export const Detail = () => {
             <DetailAside 
               name={name} 
               detail={detail}
+              /* TODO: agregar fechas ocupadas */
             />
             <DetailImageWrapper
               id={instrument.id} 
