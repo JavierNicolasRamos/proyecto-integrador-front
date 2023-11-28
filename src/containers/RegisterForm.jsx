@@ -5,7 +5,6 @@ import "../styles/RegisterForm.css"
 
 export const RegisterForm = () => {
 
-  //Creamos el objeto del formulario vacio
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -20,15 +19,15 @@ export const RegisterForm = () => {
 
   const { handlerSubmit, errors } = usePostUser(formData)
 
-  //Recuperamos el valor del input para luego poder modificarlo en el objeto
   const handlerChange = (e) => {    
-    //Desestrucutramos el id y el valor
+
     const { id, value } = e.target;
-    //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
+
     setFormData({
       ...formData,
       [id]: value,
     });
+
   };
 
   return (
