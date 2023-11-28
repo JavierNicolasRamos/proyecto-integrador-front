@@ -42,7 +42,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Juan Pablo"}
             value={formData.name}
             handlerChange={handlerChange}
-            error={errors.name !== undefined ? errors.name : ''}
+            error={errors.name}
           />
         <FormRegisterInput
             label={"Apellido"}
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Perez"}
             value={formData.surname}
             handlerChange={handlerChange}
-            error={errors.surname !== undefined ? errors.surname : ''}
+            error={errors.surname}
           />
           <FormRegisterInput
             label={"Email"}
@@ -62,7 +62,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: usuario@gmail.com"}
             value={formData.email}
             handlerChange={handlerChange}
-            error={errors.email !== undefined ? errors.email : console.log(errors)}
+            error={errors.email}
           />
           <FormRegisterInput
             label={"Password"}
@@ -72,7 +72,7 @@ export const RegisterForm = () => {
             placeholder={"*********"}
             value={formData.password}
             handlerChange={handlerChange}
-            error={errors.password !== undefined ? errors.password : ''}
+            error={errors.password}
           />
         <div className="form-register__submit">
           <button 

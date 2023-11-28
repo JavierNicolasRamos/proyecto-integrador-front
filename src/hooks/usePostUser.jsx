@@ -23,13 +23,13 @@ export const usePostUser = (data) => {
         })
         .catch((e) => {
           setHasErrors(true)
-          setErrors(e.message)
-          console.log(e.message)
+          setErrors({
+            "email": e.message
+          })
         })
       .finally(() => setIsFetching(false));
     }
 
   }
-  console.log(errors)
   return { userData, errors, hasErrors, isFetching, handlerSubmit };
 };
