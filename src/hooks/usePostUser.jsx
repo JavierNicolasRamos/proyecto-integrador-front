@@ -7,25 +7,29 @@ export const usePostUser = (data) => {
   const [isFetching, setIsFetching] = useState(true)
   const [userData, setUserData] = useState({})
   const [errors, setErrors] = useState({})
-  
+  const [hasErrors, setHasErrors] = useState(false)
 
   const handlerSubmit = async(e) => {
     e.preventDefault()
 
-    setErrors(validateRegisterForm(data))
+    const errors = validateRegisterForm(data)
+  
+    setErrors(errors)
     
-    if(errors.length === 0){
+    if(Object.keys(errors).length === 0){
       postUser(data)
-      .then((data) => {
-        setUserData(data);
-      })
+        .then((data) => {
+          setUserData(data);
+        })
         .catch((e) => {
-          setErrors(e)
+          setHasErrors(true)
+          setErrors(e.message)
+          console.log(e.message)
         })
       .finally(() => setIsFetching(false));
     }
 
   }
-  
-  return { userData, errors, isFetching, handlerSubmit };
+  console.log(errors)
+  return { userData, errors, hasErrors, isFetching, handlerSubmit };
 };

@@ -5,7 +5,6 @@ import "../styles/RegisterForm.css"
 
 export const RegisterForm = () => {
 
-  //Creamos el objeto del formulario vacio
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -20,15 +19,15 @@ export const RegisterForm = () => {
 
   const { handlerSubmit, errors } = usePostUser(formData)
 
-  //Recuperamos el valor del input para luego poder modificarlo en el objeto
   const handlerChange = (e) => {    
-    //Desestrucutramos el id y el valor
+
     const { id, value } = e.target;
-    //Colocamos el valor obtenido y lo colocamos en la propiedad correspondiente
+
     setFormData({
       ...formData,
       [id]: value,
     });
+
   };
 
   return (
@@ -43,7 +42,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Juan Pablo"}
             value={formData.name}
             handlerChange={handlerChange}
-            error={errors.name}
+            error={errors.name !== undefined ? errors.name : ''}
           />
         <FormRegisterInput
             label={"Apellido"}
@@ -53,7 +52,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Perez"}
             value={formData.surname}
             handlerChange={handlerChange}
-            error={errors.surname}
+            error={errors.surname !== undefined ? errors.surname : ''}
           />
           <FormRegisterInput
             label={"Email"}
@@ -63,7 +62,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: usuario@gmail.com"}
             value={formData.email}
             handlerChange={handlerChange}
-            error={errors.email}
+            error={errors.email !== undefined ? errors.email : console.log(errors)}
           />
           <FormRegisterInput
             label={"Password"}
@@ -73,7 +72,7 @@ export const RegisterForm = () => {
             placeholder={"*********"}
             value={formData.password}
             handlerChange={handlerChange}
-            error={errors.password}
+            error={errors.password !== undefined ? errors.password : ''}
           />
         <div className="form-register__submit">
           <button 

@@ -13,8 +13,12 @@ const URL = {
   "login" : "http://localhost:8001/auth/login",
 }
 
-const handlerErrors = (e) => {
-  throw new Error(errorMessages[e.response.status]);
+const handlerErrors = (e, data) => {
+  if (data === undefined) {
+    throw new Error(errorMessages[e.response.status]);
+  } else {
+    throw new Error(data);
+  }
 };
 
 export const postUser = async (formData) => {
@@ -24,11 +28,14 @@ export const postUser = async (formData) => {
         'Content-Type': 'application/json'
       },
     });
-    return ({data, status});
+    return {data, status};
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    const { data } = e.response
+    if (data !== undefined) {
+      handlerErrors(e, data)
+    } else {
+      handlerErrors(e)
+    }
   }
 };
 
