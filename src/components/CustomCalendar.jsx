@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCalendar } from '../hooks';
 import { Calendar } from '@natscale/react-calendar';
 import '@natscale/react-calendar/dist/main.css';
 
@@ -32,21 +32,7 @@ const size = 240;
 const fontSize = 18;
 
 export const CustomCalendar = () => {
-    const [value, setValue] = useState([]);
-
-    const isDisabled = useCallback((date) => {
-      // es un ejemplo, hay que traer las fechas del Back
-      if (date.getDay() === 3 || date.getDate() % 5 === 0) {
-        return true;
-      }
-    }, []);
-
-    const onChange = useCallback(
-      (val) => {
-        setValue(val);
-      },
-      [setValue],
-    );
+  const { value, setValue, isDisabled, onChange } = useCalendar();
   
     return <Calendar startOfWeek={0} weekDaysLabel={weekDaysLabel} monthsLabel={monthsLabel} size={size} fontSize={fontSize} value={value} onChange={onChange} isDisabled={isDisabled} useDarkMode isRangeSelector noPadRangeCell />;
 };

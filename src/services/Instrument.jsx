@@ -121,3 +121,21 @@ export const deleteInstrument = async (id, jwt) => {
     return { data, status };
   }
 };
+
+export const getDisabledDates = async () => {
+  try {
+    const { data } = await axios.get('http://localhost:8001/calendar'); //TODO: cambiar la url
+    return data;
+  } catch (e) {
+    handlerErrors(e);
+  }
+};
+
+export const postSelectedDates = async (dates) => {
+  try {
+    const { data } = await axios.post('http://localhost:8001/calendar', { dates }); //TODO: cambiar la url
+    return data;
+  } catch (e) {
+    handlerErrors(e);
+  }
+};
