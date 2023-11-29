@@ -1,6 +1,7 @@
 .form-register{
   background-color: var(--dark-grey);
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   border-radius: 0 0 15px 15px;
 }
 
@@ -13,6 +14,11 @@
 }
 
 .form-register__spinner{
+  width: 100%;
+  min-height: 10vh;
+  bottom: 10px;
+  position: absolute;
+  margin: 0 auto;
   background-color: blue;
-  justify-self: baseline;
+  display: inline-block;
 }
