@@ -78,7 +78,7 @@ export const RegisterForm = () => {
         <div className="form-register__submit">
           {
             isFetching && statusResponse !== 201
-            ? <div className="form-register__spinner"><Spinner/></div>  
+            ? <button type="submit">Cargando ...</button> 
             : <button type="submit">Crear Cuenta</button>
           }
           {
