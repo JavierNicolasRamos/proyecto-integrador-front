@@ -16,10 +16,10 @@ import {
 
 import "../styles/ShareSocial.css";
 
-export const ShareSocial = ({ shareUrl = "http://google.com" , name = "Proyecto Integrador"}) => {
+export const ShareSocial = ({ shareUrl, name }) => {
     return (
         <div className="Container">
-          <div className="Network">
+          <div>
             <FacebookShareButton
               url={shareUrl}
               className="NetworkShareButton"
@@ -30,14 +30,14 @@ export const ShareSocial = ({ shareUrl = "http://google.com" , name = "Proyecto 
             <div>
               <FacebookShareCount
                 url={shareUrl}
-                className="NetworkShareCount"
+                className="NetworkShareButton"
               >
                 {(count) => count}
               </FacebookShareCount>
             </div>
           </div>
     
-          <div className="Network">
+          <div>
             <FacebookMessengerShareButton
               url={shareUrl}
               appId="521270401588372"
@@ -47,7 +47,7 @@ export const ShareSocial = ({ shareUrl = "http://google.com" , name = "Proyecto 
             </FacebookMessengerShareButton>
           </div>
     
-          <div className="Network">
+          <div>
             <TwitterShareButton
               url={shareUrl}
               title={name}
@@ -57,7 +57,7 @@ export const ShareSocial = ({ shareUrl = "http://google.com" , name = "Proyecto 
             </TwitterShareButton>
           </div>
     
-          <div className="Network">
+          <div>
             <WhatsappShareButton
               url={shareUrl}
               title={name}
@@ -68,7 +68,7 @@ export const ShareSocial = ({ shareUrl = "http://google.com" , name = "Proyecto 
             </WhatsappShareButton>
           </div>
 
-          <div className="Network">
+          <div>
             <EmailShareButton
               url={shareUrl}
               subject={name}
