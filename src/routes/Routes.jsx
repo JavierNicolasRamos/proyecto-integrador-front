@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { NotFound, CreateCharacteristic, CreateCategory, PolicyBlock } from "../components/index";
+import { NotFound, ChangeEmail, CreateCharacteristic, CreateCategory, PolicyBlock, RegisterSuccess } from "../components/index";
 import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList } from "../containers/index";
 import { App } from "../App";
 
@@ -21,6 +21,8 @@ export const AppRoutes = () => (
         <Route path="admin/characteristic/list" element={<CharacteristicList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/register/success" element={<RegisterSuccess />} />
+        <Route path="/register/success/changeEmail" element={<ChangeEmail />} />
         <Route path="*" element={<NotFound code="404" text="Not Found" />} />
     </Route>
   </Routes>
