@@ -13,11 +13,13 @@ export const HeaderButtons = () => {
         : <div className="header__action-buttons">
             <Button
               text={"Registrarse"}
-              route="/register"
+              route={"/register"}
+              color={""}
             />
             <Button
               text={"Iniciar sesión"}
-              route="/login"
+              route={"/login"}
+              color={""}
             />
           </div>
       } 
