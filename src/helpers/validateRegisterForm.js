@@ -8,11 +8,11 @@ export const validateRegisterForm = (data) => {
   const validations = {
     name: [
       validateName, 
-      "Por favor, ingresa solo letras y espacios en blanco para el nombre y apellido"
+      "Por favor, ingresa solo letras y espacios en blanco para el NOMBRE"
     ],
     surname: [
       validateName,
-      "Por favor, ingresa solo letras y espacios en blanco para el nombre y apellido",
+      "Por favor, ingresa solo letras y espacios en blanco para el APELLIDO",
     ],
     password: [
       validatePassword,
