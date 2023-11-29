@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import "../images/share.svg"
 import { ShareSocial } from "./ShareSocial";
 
-export const Characteristics = ({characteristics}) => {
+export const Characteristics = ({characteristics, id, name}) => {
 
+  const url = `http://localhost:4173/product/${id}` //TODO: cambiar por la url de producción
+  
   return (
     <div className="characteristics-container">
       <div className="characteristics-container__title">
-        <h2>Caracteristicas</h2>
-        <ShareSocial shareUrl="" name="" /*TODO: Agregar url y nombre */ /> 
+        <h2>Características</h2>
+        <ShareSocial shareUrl={url} name={name} /> 
         {/* <img src="/src/images/share.svg" alt="Icono para compartir el producto" /> */}
       </div>
           {characteristics.map((characteristic, index) => (
@@ -24,4 +26,6 @@ export const Characteristics = ({characteristics}) => {
 
 Characteristics.propTypes = {
   characteristics: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 }

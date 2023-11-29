@@ -3,7 +3,7 @@
   margin: 0 auto;
   background-color: var(--btn);
   color: var(--white);
-  padding: 4vw;
+  padding: 3vw;
   font-family: var(--main-font);
 }
 
@@ -11,7 +11,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   font-size: 1.5em;
+}
+
+.characteristics-container__title .share-social {
+  position: absolute;
+  right: 0;
 }
 
 .characteristics-container__title img {
