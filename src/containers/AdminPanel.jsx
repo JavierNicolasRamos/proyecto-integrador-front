@@ -17,7 +17,7 @@ const adminPanelRoutes = [
   {
     name: "Asignar administrador",
     image: ADD_ADMIN_IMAGE,
-    linkTo: "",
+    linkTo: "/admin/user/list",
   },
   {
     name: "Lista de Productos",

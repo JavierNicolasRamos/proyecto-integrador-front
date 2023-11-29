@@ -11,6 +11,8 @@ const errorMessages = {
 const URL = {
   "register" : "http://localhost:8001/users/register",
   "login" : "http://localhost:8001/auth/login",
+  "getAll" : "http://localhost:8001/users",
+  "putUser" : "http://localhost:8001/users/"
 }
 
 const handlerErrors = (e, data) => {
@@ -65,11 +67,6 @@ export const loginUser = async(formData) => {
   }
 }
 
-
-
-
-
-
 export const getUserByEmail = async(formData) => {
   try {
     const { data } = await axios.post(URL.login, formData);
@@ -78,3 +75,38 @@ export const getUserByEmail = async(formData) => {
     handlerErrors(e);
   }
 }
+
+export const getAllUsers = async (jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
+  try {
+    const { data } = await axios.get(URL.getAll, config);
+    return data;
+  } catch (e) {
+    handlerErrors(e);
+  }
+};
+
+export const putUser = async (user, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
+
+  try {
+    const { data, status } = await axios.put(`${URL.putUser}${user.id}`,user, config);
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
+  }
+};
