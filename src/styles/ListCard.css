@@ -21,6 +21,14 @@
   width: 40vw;
 }
 
+.user-name {
+  width: 15vw;
+}
+
+.user-email {
+  width: 20vw;
+}
+
 .productListButtons {
   display: flex;
   gap: 1vw;
@@ -42,6 +50,10 @@
 
 .productListDeleteBtn {
   background-color: var(--red);
+}
+
+.changeRolBtn {
+  width: 14vw !important;
 }
 
 @media screen and (max-width: 1024px) {

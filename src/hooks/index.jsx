@@ -19,3 +19,5 @@ export { usePostCharacteristic } from "./usePostCharacteristic";
 export { useShowBrands } from "./useShowBrands";
 export { useUserMenu } from "./useUserMenu";
 export { useWindowSize } from "./useWindowSize";
+export { useFetchAdminUserList } from "./useFetchAdminUserList";
+export { useFormPutUserRole } from "./useFormPutUserRole";

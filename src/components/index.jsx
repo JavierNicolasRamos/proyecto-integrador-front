@@ -28,3 +28,4 @@ export { FormRegisterError } from "./FormRegisterError"
 export { FormLoginInput } from "./FormLoginInput"
 export { FormLoginError } from "./FormLoginError"
 export { PolicyBlock } from "./PolicyBlock";
+export { UserCard } from "./UserCard";

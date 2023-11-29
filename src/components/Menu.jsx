@@ -25,6 +25,9 @@ const routes = {
     { to: "/admin", text: "Panel de administración" },
     { to: "/admin/characteristic/create", text: "Agregar característica" },
   ],
+  "/admin/user/list": [
+    { to: "/admin", text: "Panel de administración" },
+  ],
   "/admin": [
     { to: "/home", text: "Inicio" },
     { to: "/home", text: "Cuenta" }, //TODO: Change to user account when implemented
