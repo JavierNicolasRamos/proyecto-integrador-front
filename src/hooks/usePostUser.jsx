@@ -18,22 +18,29 @@ export const usePostUser = (data) => {
     
     setErrors(errors)
     setIsFetching(true)
-    
-    postUser(data)
-    .then(({data, status}) => {
-        setUserData(data)
-        setStatusResponse(status)
-      })
-      .catch((e) => {
-        setHasErrors(true)
-        setErrors({
-          ...errors,
-          "email": e.message
+
+    if (
+      errors.email === undefined &&
+      (errors.name === undefined || errors.surname === undefined)
+    ) {
+      postUser(data)
+      .then(({data, status}) => {
+          setUserData(data)
+          setStatusResponse(status)
         })
-      })
-    .finally(() => {
-      setIsFetching(false)
-    });
+        .catch((e) => {
+          setHasErrors(true)
+          setErrors({
+            ...errors,
+            "email": e.message
+          })
+        })
+      .finally(() => {
+        setIsFetching(false)
+      });
+    }
+
+    setIsFetching(false)
 
   }
   
