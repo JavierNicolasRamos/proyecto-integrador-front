@@ -1,24 +1,24 @@
 import PropTypes from "prop-types";
-import "../styles/FormRegisterInput.css"
 import { FormRegisterError } from "./index";
+import "../styles/FormRegisterInput.css"
 
 export const FormRegisterInput = ({classname, label, id, type, placeholder, value, handlerChange, error}) => {
-
   return (
     <div className={classname}>
       <label htmlFor={id}>{label}</label>
       <input
+        className={`${error ? "invalid" : ""}`}
         type={type}
         id={id}
         placeholder={placeholder}
         value={value}
         onChange={handlerChange}
       />
-        { error &&
-          <FormRegisterError 
-            message={error}
-          />
-        }
+      { error &&
+        <FormRegisterError 
+          message={error}
+        />
+      }
     </div>
   )
 }
