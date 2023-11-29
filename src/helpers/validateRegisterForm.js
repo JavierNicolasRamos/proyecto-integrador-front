@@ -20,18 +20,18 @@ export const validateRegisterForm = (data) => {
     ],
     email: [
       validateEmail, 
-      "Ingresa una dirección de correo electrónico válida "
+      "Ingresa una dirección de correo electrónico válida"
     ],
   };
 
   const errors = {};
-
+  
   for (const field in validations) {
     const [validate, message] = validations[field];
     if (validate(data[field])) {
       errors[field] = message;
     }
   }
-
+  
   return errors;
 };
