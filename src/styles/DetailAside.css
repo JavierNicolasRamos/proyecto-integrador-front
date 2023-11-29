@@ -1,4 +1,4 @@
-.detail-container{
+.detail-container {
   max-width: 22vw;
   background-color: var(--btn);
   font-family: var(--main-font);
@@ -6,7 +6,7 @@
   min-width: min-content;
 }
 
-.detail__instrument-name{
+.detail__instrument-name {
   display: flex;
   align-items: center;
   padding-left: 2vw;
@@ -16,20 +16,20 @@
   font-size: 2em;
 }
 
-.detail__instrument-description{
-  padding: 5vh 2vw;
+.detail__instrument-description {
+  padding: 3vh 2vw;
   font-size: 1.2em;
-  line-height: 32px;
-  max-height: 40vh;
-  overflow: scroll; /* Oculta el texto que desborda el contenedor */
-  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 30vh;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-.detail__instruments-description__disponibility{
+.detail__instruments-description__disponibility {
   text-align: center;
 }
 
-.detail__instruments-description__disponibility__title{
+.detail__instruments-description__disponibility__title {
   font-size: 1.6em;
   background-color: var(--red);
   margin-bottom: 3vh;
