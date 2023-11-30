@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom"
 import { usePostUser } from "../hooks/usePostUser";
-import { FormRegisterInput } from "../components/index";
+import { FormRegisterInput, Spinner } from "../components/index";
 import "../styles/RegisterForm.css"
 
 export const RegisterForm = () => {
@@ -17,7 +18,7 @@ export const RegisterForm = () => {
     role: "USER"
   });
 
-  const { handlerSubmit, errors } = usePostUser(formData)
+  const { handlerSubmit, statusResponse, isFetching, errors } = usePostUser(formData)
 
   const handlerChange = (e) => {    
 
@@ -42,7 +43,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Juan Pablo"}
             value={formData.name}
             handlerChange={handlerChange}
-            error={errors.name}
+            error={errors.name || ''}
           />
         <FormRegisterInput
             label={"Apellido"}
@@ -52,7 +53,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: Perez"}
             value={formData.surname}
             handlerChange={handlerChange}
-            error={errors.surname}
+            error={errors.surname || ''}
           />
           <FormRegisterInput
             label={"Email"}
@@ -62,7 +63,7 @@ export const RegisterForm = () => {
             placeholder={"Ej: usuario@gmail.com"}
             value={formData.email}
             handlerChange={handlerChange}
-            error={errors.email}
+            error={errors.email || ''}
           />
           <FormRegisterInput
             label={"Password"}
@@ -72,14 +73,17 @@ export const RegisterForm = () => {
             placeholder={"*********"}
             value={formData.password}
             handlerChange={handlerChange}
-            error={errors.password}
+            error={errors.password || ''}
           />
         <div className="form-register__submit">
-          <button 
-            type="submit"
-            >
-            Crear Cuenta
-          </button>
+          {
+            isFetching && statusResponse !== 201
+            ? <button type="submit">Cargando ...</button> 
+            : <button type="submit">Crear Cuenta</button>
+          }
+          {
+            statusResponse === 201 && <Navigate to={"/register/success"} />
+          }
         </div>
       </div>
     </form>

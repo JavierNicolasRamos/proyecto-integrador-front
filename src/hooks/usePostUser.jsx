@@ -4,32 +4,49 @@ import { validateRegisterForm } from "../helpers";
 
 export const usePostUser = (data) => {
   
-  const [isFetching, setIsFetching] = useState(true)
+  const [isFetching, setIsFetching] = useState(false)
   const [userData, setUserData] = useState({})
   const [errors, setErrors] = useState({})
   const [hasErrors, setHasErrors] = useState(false)
+  const [statusResponse, setStatusResponse ] = useState()
 
-  const handlerSubmit = async(e) => {
-    e.preventDefault()
-
-    const errors = validateRegisterForm(data)
-  
-    setErrors(errors)
+  const handlerSubmit = (e) => {
     
-    if(Object.keys(errors).length === 0){
+    e.preventDefault()
+    const errors = validateRegisterForm(data)
+    
+    setErrors(errors)
+    setIsFetching(true)
+
+    if (
+      !errors.name && !errors.surname && !errors.password
+    ) {
       postUser(data)
-        .then((data) => {
+        .then(({ data, status }) => {
           setUserData(data);
+          setStatusResponse(status);
         })
         .catch((e) => {
-          setHasErrors(true)
+          setHasErrors(true);
           setErrors({
-            "email": e.message
-          })
+            ...errors,
+            email: e.message,
+          });
         })
-      .finally(() => setIsFetching(false));
+        .finally(() => {
+          setIsFetching(false);
+        });
+    } else {
+      setIsFetching(false);
     }
-
   }
-  return { userData, errors, hasErrors, isFetching, handlerSubmit };
+
+  return { 
+    userData,
+    statusResponse,
+    errors, 
+    hasErrors,
+    isFetching, 
+    handlerSubmit 
+  };
 };

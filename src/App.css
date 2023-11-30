@@ -1,19 +1,20 @@
 :root {
-  --light-grey: #4f4f4f;
+  --black: #252525;
+  --body: #e5e5e5; 
+  --btn: #292f33;
   --dark-grey: #191D20;
-  --grey: #383836;
-  --red: #ed2839;
+  --facebook: #3B589A;
   --form-error: rgba(237, 40, 57, 0.50);
   --form-success: rgba(77, 189, 58, 0.56);
-  --title: #1E1E1E;
-  --white: #FFF;
-  --black: #252525;
-  --total-black: #000000;
-  --btn: #292f33;
-  --body: #e5e5e5; 
-  --facebook: #3B589A;
+  --grey: #383836;
+  --light-grey: #4f4f4f;
   --main-font: Helvetica, Arial, sans-serif;
+  --red: #ed2839;
   --secondary-font: "Calibri", Arial, sans-serif;
+  --title: #1E1E1E;
+  --total-black: #000000;
+  --white: #FFF;
+  --white-grey: #D9D9D9;
 }
 
 * {
@@ -36,7 +37,8 @@ body {
   color: var(--white);
   border-radius: 10px;
   border: none;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 .btn:hover {
@@ -65,4 +67,8 @@ body {
 
 .hide{
   display: none;
+}
+
+.red{
+  background-color: var(--red);
 }

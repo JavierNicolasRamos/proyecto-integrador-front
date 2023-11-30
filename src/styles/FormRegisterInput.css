@@ -12,17 +12,17 @@
 }
 
 .form-register label{
-  font-size: 1.4em;
+  font-size: 1.3em;
   padding-bottom: 1vh;
 }
 
 .form-register div input{
   height: 6vh;
-  outline: none;
   padding: 1vw;
   background-color: var(--body);
   border-radius: 45px;
-  font-size: 1em; 
+  outline: none;
+  font-size: 1.5rem; 
   border: none;
 }
 
@@ -57,4 +57,12 @@
   background-color: var(--white);
   color: var(--red);
   outline: 2px solid var(--red);
+}
+
+.form-register div input.invalid{
+  outline: 4px solid var(--red);
+}
+
+.form-register div input.valid{
+  outline: 4px solid green;
 }
