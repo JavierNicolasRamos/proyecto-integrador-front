@@ -8,14 +8,17 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
+const backUrl = import.meta.env.dev.BACKEND_URL;
+
 const URL = {
-  createInstrument: "http://localhost:8001/instruments",
-  putInstrument: "http://localhost:8001/instruments/",
-  getAllInstruments: "http://localhost:8001/instruments",
-  getInstrumentById: "http://localhost:8001/instruments/id/",
-  paginated: "http://localhost:8001/instruments/paginated",
-  random: "http://localhost:8001/instruments",
-  deleteInstrument: "http://localhost:8001/instruments/",
+  createInstrument: `${backUrl}/instruments`,
+  putInstrument: `${backUrl}/instruments/`,
+  getAllInstruments: `${backUrl}/instruments`,
+  getInstrumentById: `${backUrl}/instruments/id/`,
+  paginated: `${backUrl}/instruments/paginated`,
+  random: `${backUrl}/instruments`,
+  deleteInstrument: `${backUrl}/instruments/`,
+  calendar: `${backUrl}/calendar`,
 };
 
 const handlerErrors = (e) => {
@@ -122,18 +125,32 @@ export const deleteInstrument = async (id, jwt) => {
   }
 };
 
-export const getDisabledDates = async () => {
+export const getDisabledDates = async (id, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data } = await axios.get('http://localhost:8001/calendar'); //TODO: cambiar la url
+    const { data } = await axios.get(URL.calendar, config); //TODO: cambiar la url
     return data;
   } catch (e) {
     handlerErrors(e);
   }
 };
 
-export const postSelectedDates = async (dates) => {
+export const postSelectedDates = async (dates, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data } = await axios.post('http://localhost:8001/calendar', { dates }); //TODO: cambiar la url
+    const { data } = await axios.post(URL.calendar, config, { dates }); //TODO: cambiar la url
     return data;
   } catch (e) {
     handlerErrors(e);
