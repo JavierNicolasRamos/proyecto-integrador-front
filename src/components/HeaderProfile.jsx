@@ -47,7 +47,7 @@ export const HeaderProfile = () => {
             onMouseLeave={handlerMenuMouseLeave}
             >
             <div className="header__avatar-menu-options">
-              <Link className="header__avatar-menu-option" to={""}>Perfil</Link>
+              <Link className="header__avatar-menu-option" to="/account">Perfil</Link>
               <button 
                 className="header__avatar-menu-option"
                 onClick={handlerCloseSession}
