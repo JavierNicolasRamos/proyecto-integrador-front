@@ -1,26 +1,30 @@
 import { useFormCreateInstrument } from "../hooks/index";
-import { ValidationError } from "../components/ValidationError";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
+import {
+  ValidationError,
+  ResultConfirmationDialog,
+  Spinner,
+} from "../components/index";
 import "../styles/CreateInstrument.css";
-import { Spinner } from "../components/Spinner";
 
 export const CreateInstrument = () => {
-  
   const {
     name,
     setName,
     detail,
     setDetail,
-    handleImageChange,
+    handlerImageChange,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
     showResult,
-    resultContent,
     success,
-    isFetching
+    resultContent,
+    isFetching,
+    characteristics,
+    checkedCharacteristics,
+    handleCheckboxChange,
   } = useFormCreateInstrument();
 
   return (
@@ -29,7 +33,7 @@ export const CreateInstrument = () => {
         <div className="createInstrument-title">
           <p>Agregar producto</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
           <input
             id="name"
@@ -72,24 +76,43 @@ export const CreateInstrument = () => {
               type="file"
               accept="image/*"
               multiple
-              onChange={handleImageChange}
+              onChange={handlerImageChange}
             />
           </div>
+
+
+            <label htmlFor="characteristics">Caracteristicas (opcional):</label>
+            {characteristics.map((option) => (
+              <div key={option.id}>
+                <label className="characteristicOption">
+                  <input
+                    type="checkbox"
+                    name={option.name}
+                    checked={checkedCharacteristics.some(
+                      (item) => item.id === option.id
+                    )}
+                    onChange={(event) => handleCheckboxChange(event, option)}
+                  />
+                  <img src={option.icon} alt={option.name} />
+                  {option.name}
+                </label>
+              </div>
+            ))}
+
 
           <input id="agregar" type="submit" value="Agregar" />
         </form>
 
-        {isFetching && <Spinner/>}
+        {isFetching && <Spinner />}
         {showError && <ValidationError />}
-        {showResult && <ResultConfirmationDialog
+        {showResult && (
+          <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
             actionDetail={"Agregar otro"}
             presentRoute={"/admin/instrument/create"}
-          />}
-
-      
-        
+          />
+        )}
       </section>
     </div>
   );

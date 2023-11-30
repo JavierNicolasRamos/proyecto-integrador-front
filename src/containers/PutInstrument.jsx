@@ -1,25 +1,29 @@
-import { useFormPutInstrument } from "../hooks/useFormPutInstrument";
-import { ValidationError } from "../components/ValidationError";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
+import { useFormPutInstrument } from "../hooks/index";
+import {
+  ValidationError,
+  ResultConfirmationDialog,
+  Spinner,
+} from "../components/index";
 import "../styles/CreateInstrument.css";
-import { Spinner } from "../components/Spinner";
 
 export const PutInstrument = (presentInstrument) => {
-  
   const {
     name,
     setName,
     detail,
     setDetail,
     showError,
-    handleSubmit,
+    handlerSubmit,
     categories,
     selectedCategoryId,
     setSelectedCategoryId,
     showResult,
-    resultContent,
     success,
-    isFetching
+    resultContent,
+    isFetching,
+    characteristics,
+    checkedCharacteristics,
+    handleCheckboxChange,
   } = useFormPutInstrument(presentInstrument);
 
   return (
@@ -28,7 +32,7 @@ export const PutInstrument = (presentInstrument) => {
         <div className="createInstrument-title">
           <p>Editar instrumento</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Nombre del Instrumento</label>
           <input
             id="name"
@@ -47,7 +51,10 @@ export const PutInstrument = (presentInstrument) => {
               setSelectedCategoryId(e.target.value);
             }}
           >
-            <option value="">{presentInstrument.presentInstrument.category.name}. Seleccione para cambiar:</option>
+            <option value="">
+              {presentInstrument.presentInstrument.category.name}. Seleccione
+              para cambiar:
+            </option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
                 {category.name}
@@ -64,21 +71,35 @@ export const PutInstrument = (presentInstrument) => {
             onChange={(e) => setDetail(e.target.value)}
           />
 
-          
+<label htmlFor="characteristics">Caracteristicas (opcional):</label>
+          {characteristics.map((option) => (
+            <div key={option.id}>
+              <label className="characteristicOption">
+                <input
+                  type="checkbox"
+                  name={option.name}
+                  checked={checkedCharacteristics.some((item) => item.id === option.id)}
+                  onChange={(event) => handleCheckboxChange(event, option)}
+                />
+                <img src={option.icon} alt={option.name} />
+                {option.name}
+              </label>
+            </div>
+          ))}
+
           <input id="agregar" type="submit" value="Editar" />
         </form>
 
-        {isFetching && <Spinner/>}
+        {isFetching && <Spinner />}
         {showError && <ValidationError />}
-        {showResult && <ResultConfirmationDialog
+        {showResult && (
+          <ResultConfirmationDialog
             success={success}
             resultContent={resultContent}
             actionDetail={"Volver al listado"}
             presentRoute={"/admin/instrument/list"}
-          />}
-
-      
-        
+          />
+        )}
       </section>
     </div>
   );

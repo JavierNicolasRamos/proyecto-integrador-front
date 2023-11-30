@@ -1,0 +1,11 @@
+.form-register__error{
+  background-color: var(--form-error);
+  border-radius: 15px;
+  min-width: min-content;
+  display: flex;
+  min-width: min-content;
+  align-items: center;
+  padding: 2vh 1vw;
+  font-size: 1.2rem;
+  line-height: 24px;
+}

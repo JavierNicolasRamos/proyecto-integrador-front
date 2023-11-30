@@ -18,8 +18,7 @@ const URL = {
   deleteInstrument: "http://localhost:8001/instruments/",
 };
 
-const handleErrors = (e) => {
-  console.error("Error:", e);
+const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
@@ -28,7 +27,7 @@ export const getAllInstruments = async () => {
     const { data } = await axios.get(URL.getAllInstruments);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
@@ -37,68 +36,106 @@ export const getRandomInstruments = async () => {
     const { data } = await axios.get(URL.random);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
 export const getInstrumentById = async (id) => {
   try {
-    const { data } = await axios.get(URL.getInstrumentById + id);
+    const { data } = await axios.get(`${URL.getInstrumentById}${id}`);
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
   }
 };
 
 export const getAllInstrumentsPaginated = async (customizedParams) => {
+  
   const standardParams = {
-    page: 1,
+    page: 0,
     size: 10,
   };
 
-  const params = { ...standardParams, ...customizedParams };
-
   try {
     const { data } = await axios.get(URL.paginated, {
-      params: customizedParams ? customizedParams : standardParams,
+      params: !!customizedParams == true ? customizedParams : standardParams,
     });
-    return data;
+        return data;
   } catch (error) {
-    handleErrors(error);
+    handlerErrors(error);
   }
 };
 
-export const postInstrument = async (formData) => {
+export const postInstrument = async (formData, jwt) => {
+
+
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data, status } = await axios.post(URL.createInstrument, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+    const { data, status } = await axios.post(URL.createInstrument, formData, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log("Error en la solicitud POST:", e.response.data);
     return { data, status };
   }
 };
 
-export const putInstrument = async (instrument) => {
+export const putInstrument = async (instrument, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data, status } = await axios.put(`${URL.putInstrument}${instrument.id}`,instrument);
+    const { data, status } = await axios.put(`${URL.putInstrument}${instrument.id}`,instrument, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;
     const status = "";
-    console.log("Error en la solicitud PUT:", e.response.data);
     return { data, status };
   }
 };
 
-export const deleteInstrument = async (id) => {
+export const deleteInstrument = async (id, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
   try {
-    const { data } = await axios.delete(`${URL.deleteInstrument}${id}`);
+    const { data, status } = await axios.delete(`${URL.deleteInstrument}${id}`, config);
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
+  }
+};
+
+export const getDisabledDates = async () => {
+  try {
+    const { data } = await axios.get('http://localhost:8001/calendar'); //TODO: cambiar la url
     return data;
   } catch (e) {
-    handleErrors(e);
+    handlerErrors(e);
+  }
+};
+
+export const postSelectedDates = async (dates) => {
+  try {
+    const { data } = await axios.post('http://localhost:8001/calendar', { dates }); //TODO: cambiar la url
+    return data;
+  } catch (e) {
+    handlerErrors(e);
   }
 };

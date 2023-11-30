@@ -11,7 +11,7 @@
   display: flex;
   gap: 1vw;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   background-color: var(--black);
 }
 
@@ -30,6 +30,24 @@
   cursor: pointer;
 }
 
+.pageNumber__reset{
+  color: var(--red);
+  font-family: var(--main-font);
+  font-size: 1em;
+  font-weight: 700;
+  border: 0px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
 .currentNumberPage {
   color: var(--red);
+}
+
+.background-light{
+  background-color: var(--body);
+}
+
+.background-dark{
+  background-color: var(--black);
 }

@@ -1,30 +1,40 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useAvatar } from "../hooks";
 
 // Creamos el contexto
 const UserContext = createContext()
 
 //Definimos el proveedor del contexto
-// eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   // Definimos estados
-  const [user, setUser] = useState({
-      id: "1",
-      nombre: "Federico",
-      apellido: "Galan",
-      administrador: false,
-      codigoArea: "+54",
-      prefijo: "11",
-      numero: "22525796",
-      movil: "22525796",
-      email: "fegv.2@hotmail.com.ar",
-  });
+  const [user, setUser] = useState({});
+  const [isLogged, setIsLogged] = useState(false)
+  const {avatar, setAvatar} = useAvatar(user)
+  
+  useEffect(() => {
+    checkSession()
+  }, [])
+  
 
-  const [isLogged, setIsLogged] = useState(true)
+  const closeSession = () => {
+    setIsLogged(false)
+    sessionStorage.clear()
+    setUser({})
+  }
 
   // Definimos funciones para actualizar el estado
   const updateUser = (user) => {
     setUser(user);
+    setIsLogged(true)
   };
+
+  const checkSession = () => {
+    if(sessionStorage.getItem('jwt')){
+      console.log(user)
+      setIsLogged(true)
+      setAvatar(user)
+    }
+  }
 
   // Creamos el objeto con los datos y funciones proporcionados a los componentes hijos
   const userValue = {
@@ -32,6 +42,8 @@ export const UserProvider = ({ children }) => {
     isLogged,
     setIsLogged,
     updateUser,
+    closeSession,
+    checkSession
   };
 
   return <UserContext.Provider value={userValue}>{children}</UserContext.Provider>;

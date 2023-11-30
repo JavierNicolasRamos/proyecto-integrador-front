@@ -1,0 +1,54 @@
+.success{
+  background-color: var(--grey);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+  color: var(--white);
+  font-family: var(--main-font);
+}
+
+.success__container{
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 65vh;
+  min-width: min-content;
+  width: 40vw;
+  padding: 2vh 2vw;
+  background-color: var(--dark-grey);
+  text-align: center;
+}
+
+.success__title{
+  font-size: 2.5rem;
+  min-width: min-content;
+}
+
+.success__subtitle{
+  font-size: 1.5rem;
+  margin-bottom: auto;
+}
+
+.success__img{
+  width: 35%;
+  margin-bottom: auto;
+}
+
+.success__information{
+  font-size: 1.1rem;
+  margin-bottom: auto;
+  padding-top: 2vh;
+}
+
+.success__change-email a{
+  color: var(--white);
+}
+
+.success__change-email a:hover{
+  color: var(--red);
+}

@@ -1,0 +1,84 @@
+.change-email{
+  background-color: var(--grey);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80vh;
+  color: var(--white);
+  font-family: var(--main-font);
+}
+
+.change-email__container{
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+  min-width: min-content;
+  width: 50vw;
+  padding: 2vh 2vw;
+  background-color: var(--dark-grey);
+  text-align: center;
+}
+
+.change-email__title{
+  font-size: 3rem;
+  min-width: min-content;
+  margin-bottom: auto;
+}
+
+.change-email__form{
+  display: flex;
+  min-height: 30vh;
+  height: 30vh;
+  width: 75%;
+  margin-bottom: auto;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.change-email__form input{
+  min-height: 5vh;
+  height: 5vh;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--white-grey);
+  flex-direction: column;
+  padding: 1vh;
+  margin-bottom: auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.change-email input:focus{
+  outline: 3px solid var(--red);
+}
+
+.change-email__form button{
+  width: 25%;
+  margin: 0 auto;
+  height: 5vh;
+  background-color: var(--red);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: auto;
+}
+
+.change-email__form button:hover{
+  cursor: pointer;
+}
+
+.change-email .change-email__form-information{
+  font-size: 1.5rem;
+}
+
+.change-email__form input::placeholder{
+  text-align: center;
+  font-size: 1.5rem;
+}

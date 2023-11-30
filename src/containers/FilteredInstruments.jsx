@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import { Card } from '../components';
+import PropTypes from 'prop-types'
+import { Card } from '../components/index'
 
 export const FilteredInstruments = ({instruments}) => {
-
+  
   return (
     <>
       <div className="product-content">

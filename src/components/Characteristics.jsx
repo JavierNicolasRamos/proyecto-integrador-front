@@ -1,40 +1,31 @@
-import { useParams } from 'react-router-dom';
-import { useInstrument } from '../hooks/index';
 import "../styles/Characteristics.css";
+import PropTypes from 'prop-types';
+import "../images/share.svg"
+import { ShareSocial } from "./ShareSocial";
 
-export const Characteristics = () => {
+export const Characteristics = ({characteristics, id, name}) => {
+
+  const url = `http://localhost:4173/product/${id}` //TODO: cambiar por la url de producción
   
-  const { id } = useParams();
-  const { instrument, instrumentsExists } = useInstrument(id);
-
   return (
     <div className="characteristics-container">
-      {instrumentsExists ? (
-        <div className="data-grid">
-          <div className="characteristics-card">
-            <h2>Caracteristicas</h2>
-            <div className="box-detail">
-            <div className="column">
-                <p>Nombre</p>
-                <p>Categoría</p>
-                <p>Año de Lanzamiento</p>
-              </div>
-              <div className="column">
-                <p>{instrument.name}</p>
-                <p>{instrument.category.name}</p>
-                <p>{instrument.uploadDate}</p>
-              </div>
-              <ul>
-                {instrument.characteristics.map((characteristic, index) => (
-                  <li key={index}>{characteristic.name}</li>
-                ))}
-              </ul>
+      <div className="characteristics-container__title">
+        <h2>Características</h2>
+        <ShareSocial shareUrl={url} name={name} /> 
+        {/* <img src="/src/images/share.svg" alt="Icono para compartir el producto" /> */}
+      </div>
+          {characteristics.map((characteristic, index) => (
+            <div key={index} className="characteristic-container">
+              <img src={characteristic.icon}/>
+              <p>{characteristic.name}</p> 
             </div>
-          </div>
-        </div>
-      ) : (
-        <div>No se encontró el producto con ID: {id}</div>
-      )}
+          ))}
     </div>
   );
 };
+
+Characteristics.propTypes = {
+  characteristics: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+}

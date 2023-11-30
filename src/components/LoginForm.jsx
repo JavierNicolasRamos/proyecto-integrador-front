@@ -1,18 +1,77 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
+import { useLoginUser } from "../hooks/useLoginUser"
+import { useState } from "react";
+import { FormLoginError, FormLoginInput, Spinner } from "./index";
+import "../styles/LoginForm.css"
 
 export const LoginForm = () => {
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+  
+  const {handlerSubmit, userData, errors, hasErrors, isFetching} = useLoginUser(formData)
+
+  const handlerRedirect = (role) =>{
+    switch (role) {
+      case "ADMIN":
+        return <Navigate to={"/admin"}/>
+        case "USER":
+          return <Navigate to={"/home"}/>
+      default:
+        break;
+    }
+  }
+
+  const handlerChange = (e) => {    
+    const { id, value } = e.target;
+    setFormData({
+      ...formData,
+      [id]: value,
+    });
+  };
+
   return (
-    <form className="form-login">
-      <div className="form-login__email">
-        <label htmlFor="mail">Mail</label>
-        <input type="email" id="mail" placeholder="Usuario@gmail.com"/>
-      </div>
-      <div className="form-login__password">
-        <label htmlFor="password">Contraseña</label>
-        <input type="password" id="password" placeholder="*********"/>
-      </div>
+    <form 
+      className="form-login"
+        onSubmit={handlerSubmit}
+      >
+      <FormLoginInput
+        label={"Email"}
+        type={"email"}
+        classname={"form-login__email"}
+        id={"email"}
+        placeholder={"Ej: usuario@gmail.com"}
+        value={formData.email}
+        handlerChange={handlerChange}
+      />
+      <FormLoginInput
+        label={"Password"}
+        type={"password"}
+        classname={"form-login__password"}
+        id={"password"}
+        placeholder={"*********"}
+        value={formData.password}
+        handlerChange={handlerChange}
+      />
+      {
+        hasErrors
+        ? <FormLoginError 
+            message={errors}
+          />
+        : ''
+      }
+
       <div className="form-login__buttons">
-        <button type="submit">Entrar</button>
+        {
+          isFetching 
+          ? <Spinner/>
+          : <button type="submit">Entrar</button>  
+        }
+        {
+          !hasErrors && handlerRedirect(userData.role)
+        }
         <Link to={"/register"}>
           No tiene cuenta? crear una ahora
         </Link>

@@ -1,19 +1,28 @@
-import { Link } from 'react-router-dom'
+import { Button } from '../components/index';
+import { useWindowSize } from '../hooks/index';
 import "../styles/HeaderButtons.css"
 
 export const HeaderButtons = () => {
+
+  const { width } = useWindowSize();
+
   return (
-    <div className="header__action-buttons">
-      <Link to={"/register"}>
-        <button className="header__action-button-register btn">
-          Registrarse
-        </button>
-      </Link>
-      <Link to={"/login"}>
-        <button className="header__action-button-login btn">
-          Iniciar sesión
-        </button>
-      </Link>
-    </div>
+    <>
+      { width < 768
+        ? <img className="header__user-menu" src="src/images/user.svg" alt="Menu"/> 
+        : <div className="header__action-buttons">
+            <Button
+              text={"Registrarse"}
+              route={"/register"}
+              color={""}
+            />
+            <Button
+              text={"Iniciar sesión"}
+              route={"/login"}
+              color={""}
+            />
+          </div>
+      } 
+    </>
   )
 }

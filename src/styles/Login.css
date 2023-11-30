@@ -15,6 +15,8 @@
   display: block;
   border-radius: 20px 20px 0 0;
   font-size: 2em;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .login__content{
@@ -23,6 +25,7 @@
   font-size: 2em;
   padding: 0 2vw;
   min-height: 45vh;
+  max-width: 80%;
   border-radius: 0 0 20px 20px;
   display: flex;
   align-items: center;
@@ -34,7 +37,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  height: 20vw;
+  height: 30vh;
   font-weight: 700;
 }
 
@@ -46,45 +49,12 @@
   content: url(src/images/Line.png);
 }
 
-.form-login{
-  width: 35%;
-  font-size: .6em;
-  height: 17vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.form-login label{
-  padding-bottom: 1vh;
-}
-
-.form-login__email,
-.form-login__password{
-  display: flex;
-  flex-direction: column;
-}
-
-.form-login input{
-  height: 3vw;
-  width: 100%;
-  border-radius: 45px;
-  border: none;
-  background-color: var(--body);
-  padding-left: 2vw;
-  font-size: .8em;
-}
-
-.form-login input:focus{
-  outline: 3px solid var(--red);
-}
-
 .login__social-buttons{
   display: flex;
   width: 35%;
   flex-direction: column;
-  height: 15vw;
-  justify-content: space-evenly;
+  height: 35vh;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -92,7 +62,7 @@
 .login__social-button-google,
 .login__social-button-twitter{
   width: 80%;
-  height: 3vw;
+  height: 6vh;
   border: none;
   border-radius: 10px;
 }
@@ -114,30 +84,4 @@
 
 .login__social-button-twitter{
   background-color: var(--total-black);
-}
-
-.form-login__buttons{
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.form-login__buttons button{
-  background-color: var(--red);
-  border: none;
-  color: var(--white);
-  height: 3vw;
-  width: 5vw;
-  font-size: .8em;
-  font-weight: 700;
-  border-radius: 10px;
-}
-
-.form-login__buttons button:hover{
-  cursor: pointer;
-}
-
-.form-login__buttons a{
-  font-size: .7em;
-  color: var(--white);
 }

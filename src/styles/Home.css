@@ -1,3 +1,8 @@
+.home__spiner{
+  width: 50vw;
+  margin: 0 auto;  
+}
+
 .home__title{
   text-align: center;
   font-family: var(--main-font);
@@ -19,7 +24,7 @@
   justify-content: center;
   align-items: center;
   gap: 3vw;
-  padding: 0 4vw;
+  padding: 5vh 2vw;
   flex-wrap: wrap;
   min-height: 50vh;
   margin: 0 auto;

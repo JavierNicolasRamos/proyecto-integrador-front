@@ -1,51 +1,36 @@
-characteristics-container {
-  background-color: black;
-  color: white;
+.characteristics-container {
+  width: 75vw;
+  margin: 0 auto;
+  background-color: var(--btn);
+  color: var(--white);
+  padding: 3vw;
+  font-family: var(--main-font);
+}
+
+.characteristics-container__title {
   display: flex;
-
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
+  position: relative;
+  font-size: 1.5em;
 }
 
-.data-grid {
+.characteristics-container__title .share-social {
+  position: absolute;
+  right: 0;
+}
+
+.characteristics-container__title img {
+  width: 2vw;
+}
+
+.characteristics-container__title img:hover {
+  cursor: pointer;
+}
+
+.characteristic-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px; /* Espacio entre los productos */
-}
-
-.characteristics-card {
-  background-color: #333;
-  padding: 20px;
-  text-align: left;
-  width: 80%;
-  color: white;
-}
-.characteristics-card h2 {
-  font-size: 26px;
-  margin-bottom: 40px;
-}
-
-.characteristics-card li {
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.box-detail {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 10px;
-}
-
-.box-detail .column p {
-  margin: 0;
-  font-size: 16px;
-  margin-bottom: 30px;
-}
-
-.box-detail .column p + p {
-  margin-top: 10px; /* Agrega espacio entre los elementos de la columna */
-  gap: 35px;
+  align-items: start;
+  margin: 1vw 0;
+  gap: 1vw;
 }

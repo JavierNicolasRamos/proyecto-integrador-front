@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { postCategory } from "../services";
 
 export const usePostCategory = () => {
@@ -10,6 +10,12 @@ export const usePostCategory = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+    }, []);
 
   const validateForm = () => {
     if (
@@ -25,7 +31,7 @@ export const usePostCategory = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handlerSubmit = async (e) => {
     e.preventDefault();
 
     const validated = validateForm();
@@ -43,11 +49,12 @@ export const usePostCategory = () => {
       new Blob([JSON.stringify(categoryDto)], { type: "application/json" }),
       "categoryDto.json"
     );
+
     formData.append("image", image);
 
     if (validated === true) {
       setIsFetching(true);
-      const { data, status } = await postCategory(formData);
+      const { data, status } = await postCategory(formData, jwt);
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
@@ -58,7 +65,7 @@ export const usePostCategory = () => {
       } else {
         setIsFetching(false);
         setSuccess(false);
-        setResultContent(`Ha ocurrido un error: ${data}`);
+        setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
         setShowResult(true);
       }
     } else {
@@ -73,7 +80,7 @@ export const usePostCategory = () => {
     detail,
     setDetail,
     setImage,
-    handleSubmit,
+    handlerSubmit,
     showError,
     showResult,
     success,

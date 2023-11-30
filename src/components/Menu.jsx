@@ -21,6 +21,13 @@ const routes = {
     { to: "/admin", text: "Panel de administración" },
     { to: "/admin/characteristic/list", text: "Administrar características" },
   ],
+  "/admin/characteristic/list": [
+    { to: "/admin", text: "Panel de administración" },
+    { to: "/admin/characteristic/create", text: "Agregar característica" },
+  ],
+  "/admin/user/list": [
+    { to: "/admin", text: "Panel de administración" },
+  ],
   "/admin": [
     { to: "/home", text: "Inicio" },
     { to: "/home", text: "Cuenta" }, //TODO: Change to user account when implemented
@@ -38,8 +45,8 @@ export const Menu = () => {
 
   return (
     <nav className="navigation-menu">
-      {links.map((link, index) => (
-        <Link key={index} to={link.to}>{link.text}</Link>
+      {links.map(({ to, text }, index) => (
+        <Link key={index} to={to}>{text}</Link>
       ))}
     </nav>
   );

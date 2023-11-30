@@ -1,12 +1,29 @@
+import {
+  ValidationError,
+  Spinner,
+  ResultConfirmationDialog,
+} from "../components/index";
 import { usePostCategory } from "../hooks/index";
 import "../styles/CreateCategory.css";
-import { Spinner } from "../components/Spinner";
-import { ValidationError } from "../components";
-import { ResultConfirmationDialog } from "../components/ResultConfirmationDialog";
 
 export const CreateCategory = () => {
+  const {
+    isFetching,
+    name,
+    setName,
+    detail,
+    setDetail,
+    setImage,
+    handlerSubmit,
+    showError,
+    showResult,
+    success,
+    resultContent,
+  } = usePostCategory();
 
-  const {isFetching, name, setName, detail, setDetail, setImage, handleSubmit, showError, showResult, success, resultContent} = usePostCategory();
+  const handlerChange = (setter) => (e) => {
+    setter(e.target.value);
+  };
 
   return (
     <div className="createCategoryPage">
@@ -14,7 +31,7 @@ export const CreateCategory = () => {
         <div className="createCategory-title">
           <p>Agregar categoría</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handlerSubmit}>
           <label htmlFor="name">Título</label>
           <input
             id="name"
@@ -44,21 +61,22 @@ export const CreateCategory = () => {
             />
           </div>
 
-          <input id="agregar" type="submit" value="Agregar" />
+          <button id="agregar" type="submit">
+            Agregar
+          </button>
         </form>
 
-        {isFetching && <Spinner/>}
+        {isFetching && <Spinner />}
         {showError && <ValidationError />}
         {showResult && (
-          <ResultConfirmationDialog
+          <ResultConfirmationDialog 
             success={success}
             resultContent={resultContent}
             actionDetail={"Agregar otra"}
             presentRoute={"/admin/category/create"}
-          />
+            />
+
         )}
-
-
       </section>
     </div>
   );

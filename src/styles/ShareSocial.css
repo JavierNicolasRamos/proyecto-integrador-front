@@ -1,0 +1,12 @@
+.Container {
+  display: flex;
+  gap: 1vw;
+}
+
+.NetworkShareButton {
+  cursor: pointer;
+}
+
+.NetworkShareButton:hover:not(:active) {
+  opacity: 0.75;
+}

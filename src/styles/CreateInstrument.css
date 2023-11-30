@@ -107,6 +107,11 @@
   cursor: pointer;
 }
 
+.characteristicOption {
+  display: flex;
+  gap: 15px;
+}
+
 #agregar {
   background-color: rgba(237, 40, 57, 1);
   width: 126px;

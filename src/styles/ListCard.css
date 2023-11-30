@@ -1,4 +1,4 @@
-.listcard {
+.listCard {
   height: 6vh;
   border-radius: 0px 0px 10px 10px;
   margin-bottom: 0.7vh;
@@ -13,54 +13,69 @@
   font-size: 1.2vw;
 }
 
+.CharacteristicIcon {
+  filter: brightness(0) saturate(100%);
+}
+
+.characteristic-name {
+  width: 40vw;
+}
+
+.user-name {
+  width: 15vw;
+}
+
+.user-email {
+  width: 20vw;
+}
+
 .productListButtons {
   display: flex;
   gap: 1vw;
 }
 
 .productListButtons button {
-    height: 2.2vw;
-    width: 7vw;
-    border-radius: 5px;
-    font-size: 1.2vw;
-    font-weight: 700;
-    color: var(--white);
-    cursor: pointer;
+  height: 2.2vw;
+  width: 7vw;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  font-weight: 700;
+  color: var(--white);
+  cursor: pointer;
 }
 
 .productListUpdateBtn {
-    background-color: var(--black);
+  background-color: var(--black);
 }
 
 .productListDeleteBtn {
-    background-color: var(--red);
+  background-color: var(--red);
 }
 
+.changeRolBtn {
+  width: 14vw !important;
+}
 
 @media screen and (max-width: 1024px) {
-    .listcard {
-      font-size: 1.5vw;
-    }
-
-    .productListButtons button {
-        height: 3vw;
-        width: 9vw;
-        font-size: 1.5vw;
-
-    }
+  .listcard {
+    font-size: 1.5vw;
   }
 
+  .productListButtons button {
+    height: 3vw;
+    width: 9vw;
+    font-size: 1.5vw;
+  }
+}
 
 @media screen and (max-width: 768px) {
-    .listcard {
-      font-size: 2.1vw;
-    }
-
-    .productListButtons button {
-        font-size: 2vw;
-        height: 4vw;
-        width: 12vw;
-
-    }
+  .listcard {
+    font-size: 2.1vw;
   }
 
+  .productListButtons button {
+    font-size: 2vw;
+    height: 4vw;
+    width: 12vw;
+  }
+}
