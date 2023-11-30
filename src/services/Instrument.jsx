@@ -8,7 +8,9 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
+console.log(import.meta.env.VITE_API_BACKEND);
 const backUrl = import.meta.env.VITE_API_BACKEND;
+console.log(backUrl);
 
 const URL = {
   createInstrument: `${backUrl}/instruments`,
@@ -53,6 +55,7 @@ export const getInstrumentById = async (id) => {
 };
 
 export const getAllInstrumentsPaginated = async (customizedParams) => {
+  console.log(`${backUrl}/instruments/paginated`)
   
   const standardParams = {
     page: 0,
