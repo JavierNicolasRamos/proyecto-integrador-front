@@ -8,7 +8,7 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
-const backUrl = import.meta.env.dev.BACKEND_URL;
+const backUrl = import.meta.env.BACKEND_URL;
 
 const URL = {
   list: `${backUrl}/category/list`,
