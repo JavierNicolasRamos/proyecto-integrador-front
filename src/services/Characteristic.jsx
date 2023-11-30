@@ -8,11 +8,13 @@ const errorMessages = {
   404: "No se encontraron categorías",
 };
 
+const backUrl = import.meta.env.BACKEND_URL;
+
 const URL = {
-  list : "http://localhost:8001/characteristic/list",
-  createCharacteristic : "http://localhost:8001/characteristic",
-  putCharacteristic: "http://localhost:8001/characteristic/",
-  deleteCharacteristic: "http://localhost:8001/characteristic/",
+  list : `${backUrl}/characteristic/list`,
+  createCharacteristic : `${backUrl}/characteristic`,
+  putCharacteristic: `${backUrl}/characteristic/`,
+  deleteCharacteristic: `${backUrl}/characteristic/`,
   }
 
 const handlerErrors = (e) => {

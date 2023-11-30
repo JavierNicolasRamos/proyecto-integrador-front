@@ -8,11 +8,13 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
+const backUrl = import.meta.env.BACKEND_URL;
+
 const URL = {
-  list: "http://localhost:8001/category/list",
-  createCategory: "http://localhost:8001/category",
-  filterInstrumentsByCategory: "http://localhost:8001/category/instruments",
-  deleteCategory: "http://localhost:8001/category/",
+  list: `${backUrl}/category/list`,
+  createCategory: `${backUrl}/category`,
+  filterInstrumentsByCategory: `${backUrl}/category/instruments`,
+  deleteCategory: `${backUrl}/category/`,
 };
 
 const handlerErrors = (e) => {

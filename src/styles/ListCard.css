@@ -22,13 +22,16 @@
 }
 
 .user-name {
-  width: 15vw;
+  width: 12vw;
 }
 
 .user-email {
-  width: 20vw;
+  width: 25vw;
 }
 
+.user-role {
+  width: 5vw;
+}
 .productListButtons {
   display: flex;
   gap: 1vw;

@@ -11,7 +11,7 @@ export const UserCard = ({ user }) => {
         <div className="product-list-id">ID - {user.id}</div>
         <div className="product-list-name user-name">{`${user.name}, ${user.surname}`}</div>
         <div className="product-list-name user-email">{user.email}</div>
-        <div className="product-list-name">{user.userRole}</div>
+        <div className="product-list-name user-role">{user.userRole}</div>
         <div className="productListButtons">
           <button
             className="productListUpdateBtn changeRolBtn"

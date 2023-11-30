@@ -5,8 +5,10 @@ import { ShareSocial } from "./ShareSocial";
 
 export const Characteristics = ({characteristics, id, name}) => {
 
-  const url = `http://localhost:4173/product/${id}` //TODO: cambiar por la url de producción
+  const apiUrl  = import.meta.env.dev.REACT_APP_URL;
 
+  const url = `${apiUrl}/product/${id}` //TODO: cambiar por la url de producción
+  
   return (
     <div className="characteristics-container">
       <div className="characteristics-container__title">

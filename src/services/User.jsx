@@ -8,11 +8,13 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
+const backUrl = import.meta.env.BACKEND_URL;
+
 const URL = {
-  "register" : "http://localhost:8001/users/register",
-  "login" : "http://localhost:8001/auth/login",
-  "getAll" : "http://localhost:8001/users",
-  "putUser" : "http://localhost:8001/users/"
+  register: `${backUrl} /users/register`,
+  login: `${backUrl}/auth/login`,
+  getAll: `${backUrl}/users`,
+  putUser: `${backUrl}/users/`,
 }
 
 const handlerErrors = (e, data) => {
