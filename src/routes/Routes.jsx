@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NotFound, ChangeEmail, CreateCharacteristic, CreateCategory, PolicyBlock, RegisterSuccess } from "../components/index";
-import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList } from "../containers/index";
+import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel } from "../containers/index";
 import { App } from "../App";
 
 export const AppRoutes = () => (
@@ -17,6 +17,7 @@ export const AppRoutes = () => (
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/register/success/changeEmail" element={<ChangeEmail />} />
         <Route path="/search/instruments" element={<InstrumentPanel />} />
+        <Route path="account" element={<UserAccountPanel />} />
         <Route path="admin" element={<AdminPanel />} />
         <Route path="admin/category/create" element={<CreateCategory />} />
         <Route path="admin/category/list" element={<AdminCategoryList />} />
