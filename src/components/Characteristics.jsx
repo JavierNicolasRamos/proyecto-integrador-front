@@ -6,20 +6,19 @@ import { ShareSocial } from "./ShareSocial";
 export const Characteristics = ({characteristics, id, name}) => {
 
   const url = `http://localhost:4173/product/${id}` //TODO: cambiar por la url de producción
-  
+
   return (
     <div className="characteristics-container">
       <div className="characteristics-container__title">
         <h2>Características</h2>
         <ShareSocial shareUrl={url} name={name} /> 
-        {/* <img src="/src/images/share.svg" alt="Icono para compartir el producto" /> */}
       </div>
-          {characteristics.map((characteristic, index) => (
-            <div key={index} className="characteristic-container">
-              <img src={characteristic.icon}/>
-              <p>{characteristic.name}</p> 
-            </div>
-          ))}
+      {characteristics.map((characteristic, index) => (
+        <div key={index} className="characteristic-container">
+          <img className="characteristic__image" src={characteristic.icon}/>
+          <p className="characteristic__name">{characteristic.name}</p> 
+        </div>
+      ))}
     </div>
   );
 };
