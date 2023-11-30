@@ -2,9 +2,16 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import dotenv from "dotenv";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = dotenv.config({ path: `./.env.${mode}` }).parsed;
+
+  let envWithStrings = {};
+
+  if (env) {
+    envWithStrings = Object.fromEntries(
+      Object.entries(env).map(([key, value]) => [key, JSON.stringify(value)])
+    );
+  }
 
   return {
     plugins: [react()],
@@ -17,7 +24,7 @@ export default defineConfig(({ mode }) => {
       port: 4173,
     },
     define: {
-      "import.meta.env": JSON.stringify(env),
+      "import.meta.env": envWithStrings,
     },
   };
 });

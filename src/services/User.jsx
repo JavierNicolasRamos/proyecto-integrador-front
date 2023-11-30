@@ -8,7 +8,7 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
-const backUrl = import.meta.env.VITE_API_BACKEND;
+const backUrl = import.meta.env.VITE_APIBACKEND
 
 const URL = {
   register: `${backUrl} /users/register`,

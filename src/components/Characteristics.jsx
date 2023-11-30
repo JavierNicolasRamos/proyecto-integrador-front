@@ -5,7 +5,7 @@ import { ShareSocial } from "./ShareSocial";
 
 export const Characteristics = ({characteristics, id, name}) => {
 
-  const apiUrl  = import.meta.env.dev.VITE_API_URL;
+  const apiUrl  = import.meta.env.VITE_APIURL;
 
   const url = `${apiUrl}/product/${id}` //TODO: cambiar por la url de producción
   
