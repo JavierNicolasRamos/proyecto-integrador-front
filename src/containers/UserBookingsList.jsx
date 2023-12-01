@@ -1,4 +1,4 @@
-export const BookingsList = () => {
+export const UserBookingsList = () => {
   return (
     <div>BookingsList</div>
   )

@@ -1,6 +1,6 @@
 import "../styles/UserAccountPanel.css";
 import { useUserAccountPanel } from "../hooks/index";
-import { AccountData, BookingsList, Favorites } from "./index";
+import { UserAccountData, UserBookingsList, UserFavorites } from "./index";
 
 export const UserAccountPanel = () => {
   const {
@@ -21,9 +21,9 @@ export const UserAccountPanel = () => {
       </section>
 
       <section className="accountContent">
-        {showAccountData && <AccountData />}
-        {showBookings && <BookingsList />}
-        {showFavs && <Favorites />}
+        {showAccountData && <UserAccountData />}
+        {showBookings && <UserBookingsList />}
+        {showFavs && <UserFavorites />}
       </section>
     </div>
   );

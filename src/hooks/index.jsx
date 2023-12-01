@@ -21,3 +21,4 @@ export { useWindowSize } from "./useWindowSize";
 export { useFetchAdminUserList } from "./useFetchAdminUserList";
 export { useFormPutUserRole } from "./useFormPutUserRole";
 export { useUserAccountPanel } from "./useUserAccountPanel";
+export { useUserAccountData } from "./useUserAccountData";
