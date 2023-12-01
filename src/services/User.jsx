@@ -11,7 +11,7 @@ const errorMessages = {
 const backUrl = import.meta.env.VITE_APIBACKEND
 
 const URL = {
-  register: `${backUrl} /users/register`,
+  register: `${backUrl}/users/register`,
   login: `${backUrl}/auth/login`,
   getAll: `${backUrl}/users`,
   putUser: `${backUrl}/users/`,
@@ -26,6 +26,7 @@ const handlerErrors = (e, data) => {
 };
 
 export const postUser = async (formData) => {
+
   try {
     const { data, status } = await axios.post(URL.register, formData, {
       headers: {
@@ -41,6 +42,7 @@ export const postUser = async (formData) => {
       handlerErrors(e)
     }
   }
+
 };
 
 export const loginUser = async(formData) => {
@@ -49,10 +51,14 @@ export const loginUser = async(formData) => {
     const { data, status } = await axios.post(URL.login, formData)
     const { jwt, name, surname, email, role } = data
     
+    const avatar =  `${name.slice(0, 1)}${surname.slice(0, 1)}`;
+
     if (status === 200) {
       sessionStorage.setItem('jwt', jwt)
       sessionStorage.setItem('role', role)
       sessionStorage.setItem('email', email)
+      sessionStorage.setItem('avatar', avatar)
+
     }
 
     return ({
@@ -65,6 +71,7 @@ export const loginUser = async(formData) => {
     });
 
   } catch (e) {
+    console.log(e)
     handlerErrors(e)
   }
 }

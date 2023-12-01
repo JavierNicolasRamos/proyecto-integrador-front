@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import { useAvatar, useUserMenu } from '../hooks/index';
+import { useUserMenu } from '../hooks/index';
 import { useEffect, useState } from "react";
 
 export const HeaderProfile = () => {
-  const { user, closeSession } = useUser();
-  const { avatar }  = useAvatar(user);
+  const { avatar, closeSession } = useUser();
   const { showMenu, handlerMenu, handlerMenuMouseLeave } = useUserMenu();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

@@ -1,4 +1,3 @@
-export { useAvatar } from "./useAvatar";
 export { useCalendar } from "./useCalendar";
 export { useFetchAdminCategoryList } from "./useFetchAdminCategoryList";
 export { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicList";
