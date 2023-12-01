@@ -9,11 +9,15 @@ export const UserList = () => {
     <div>
       <div className="adminProductList">
         <div>
-          {users.map((user) => (
-            <UserCard key={user.id} user={user} />
-          ))}
+          {users
+            .slice() 
+            .sort((a, b) => a.surname.localeCompare(b.surname)) 
+            .map((user) => (
+              <UserCard key={user.id} user={user} />
+            ))}
         </div>
       </div>
     </div>
   );
+  
 };

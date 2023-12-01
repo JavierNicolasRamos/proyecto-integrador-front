@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
-import { putUser } from "../services";
+import { updateUserRole } from "../services";
 //import { createLogger } from "vite";
 
-export const useFormPutUserRole = (presentUser) => {
-  const [userRole, setUserRole] = useState(presentUser.presentUser.userRole);
+export const useFormPutUserRole = (user) => {
+  const [userRole, setUserRole] = useState(user.userRole);
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
   const [jwt, setJwt] = useState("");
-
-  const roles = ["USER", "ADMIN"];
 
   useEffect(() => {
     const jwtFromSessionStorage = sessionStorage.getItem("jwt");
@@ -18,26 +16,13 @@ export const useFormPutUserRole = (presentUser) => {
   }, []);
 
   const submitForm = async () => {
-    const user = {
-      id: presentUser.presentUser.id,
-      // name: presentUser.presentUser.name,
-      // surname: presentUser.presentUser.surname,
-      // areaCode: presentUser.presentUser.areaCode,
-      // prefix: presentUser.presentUser.prefix,
-      // phone: presentUser.presentUser.phone,
-      // isMobile: presentUser.presentUser.isMobile,
-      // email: presentUser.presentUser.email,
-      // password: presentUser.presentUser.password,
-      role: userRole,
-    };
 
-    const { data, status } = await putUser(user, jwt);
+    const { data, status } = await updateUserRole(user.id, jwt);
 
     return { data, status };
   };
 
-  const handlerSubmit = async (e) => {
-    e.preventDefault();
+  const handlerSubmit = async ( ) => {
 
     setIsFetching(true);
     const { data, status } = await submitForm();
@@ -45,7 +30,7 @@ export const useFormPutUserRole = (presentUser) => {
       setIsFetching(false);
       setSuccess(true);
       setResultContent(
-        `El usuario ${data.name} ha sido editado correctamente con el rol ${userRole}`
+        `El usuario ${user.name} ha cambiado de rol a ${user.userRole === "ADMIN" ? "USER" : "ADMIN"}`
       );
       setShowResult(true);
     } else {
@@ -66,7 +51,6 @@ export const useFormPutUserRole = (presentUser) => {
     userRole,
     setUserRole,
     handlerSubmit,
-    roles,
     showResult,
     success,
     resultContent,
