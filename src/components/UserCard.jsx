@@ -1,31 +1,47 @@
-import { useState } from "react";
-import { PutUserRole } from "../containers/index";
+import { useFormPutUserRole } from "../hooks/index";
+import {
+  ResultConfirmationDialog,
+  Spinner,
+} from "../components/index";
 import "../styles/ListCard.css";
 
 export const UserCard = ({ user }) => {
-  const [openPutForm, setOpenPutForm] = useState(false);
+  const {
+    userRole,
+    handlerSubmit,
+    showResult,
+    success,
+    resultContent,
+    isFetching
+    } = useFormPutUserRole(user);
+
 
   return (
     <div>
       <div className="listCard">
-        <div className="product-list-id">ID - {user.id}</div>
-        <div className="product-list-name user-name">{`${user.name}, ${user.surname}`}</div>
+        <div className="product-list-name user-name">{`${user.surname}, ${user.name}`}</div>
         <div className="product-list-name user-email">{user.email}</div>
         <div className="product-list-name user-role">{user.userRole}</div>
         <div className="productListButtons">
           <button
             className="productListUpdateBtn changeRolBtn"
             onClick={() => {
-              setOpenPutForm(true); 
+              handlerSubmit(); 
             }}
           >
-            Cambiar Rol
+            Convertir en {userRole === "ADMIN" ? "USER" : "ADMIN"}
           </button>
         </div>
       </div>
       <div className="putForm">
-        {openPutForm && (
-          <PutUserRole presentUser={user} />
+      {isFetching && <Spinner />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Volver al listado"}
+            presentRoute={"/admin/user/list"}
+          />
         )}
       </div>
     </div>

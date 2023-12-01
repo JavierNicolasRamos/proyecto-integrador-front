@@ -15,6 +15,7 @@ const URL = {
   login: `${backUrl}/auth/login`,
   getAll: `${backUrl}/users`,
   putUser: `${backUrl}/users/`,
+  updateRole: `${backUrl}/users/updateRole/`,
 }
 
 const handlerErrors = (e, data) => {
@@ -112,6 +113,25 @@ export const putUser = async (user, jwt) => {
 
   try {
     const { data, status } = await axios.put(`${URL.putUser}${user.id}`,user, config);
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
+  }
+};
+
+export const updateUserRole = async (id, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
+
+  try {
+    const { data, status } = await axios.put(`${URL.updateRole}${id}`, null, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;

@@ -56,7 +56,7 @@
 }
 
 .changeRolBtn {
-  width: 14vw !important;
+  width: 20vw !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -69,6 +69,7 @@
     width: 9vw;
     font-size: 1.5vw;
   }
+
 }
 
 @media screen and (max-width: 768px) {
