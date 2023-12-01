@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useAvatar } from "../hooks";
+// import { useAvatar } from "../hooks";
 
 // Creamos el contexto
 const UserContext = createContext()
@@ -9,11 +9,11 @@ export const UserProvider = ({ children }) => {
   // Definimos estados
   const [user, setUser] = useState({});
   const [isLogged, setIsLogged] = useState(false)
-  const {avatar, setAvatar} = useAvatar(user)
+  const [avatar, setAvatar] = useState()
   
   useEffect(() => {
     checkSession()
-  }, [])
+  }, [avatar])
   
 
   const closeSession = () => {
@@ -29,10 +29,9 @@ export const UserProvider = ({ children }) => {
   };
 
   const checkSession = () => {
-    if(sessionStorage.getItem('jwt')){
-      console.log(user)
+    if(sessionStorage.getItem('avatar')){
+      setAvatar(sessionStorage.getItem('avatar'))
       setIsLogged(true)
-      setAvatar(user)
     }
   }
 
@@ -40,6 +39,7 @@ export const UserProvider = ({ children }) => {
   const userValue = {
     user,
     isLogged,
+    avatar,
     setIsLogged,
     updateUser,
     closeSession,
