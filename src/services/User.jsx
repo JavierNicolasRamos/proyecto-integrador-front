@@ -72,7 +72,6 @@ export const loginUser = async(formData) => {
     });
 
   } catch (e) {
-    console.log(e)
     handlerErrors(e)
   }
 }
