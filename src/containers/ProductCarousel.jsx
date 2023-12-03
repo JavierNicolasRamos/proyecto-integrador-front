@@ -1,9 +1,9 @@
 import Slider from 'react-slick';
 import { Card } from "../components/Card";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import "../styles/ProductCarousel.css";
 import { useGetAllInstruments } from '../hooks/index';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import "../styles/ProductCarousel.css";
 
 export const ProductCarousel = () => {
 

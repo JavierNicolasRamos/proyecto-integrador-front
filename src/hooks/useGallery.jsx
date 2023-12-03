@@ -15,7 +15,7 @@ export const useGallery = (id) => {
 
         setImageUrls(filteredImages);
       } catch (error) {
-        console.error("Error al obtener datos de la API:", error);
+        console.error("Error al obtener datos de la API:", error); //TODO: Implementar un logger y enviar el error a la API
       }
     };
 

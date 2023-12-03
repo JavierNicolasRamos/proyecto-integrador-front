@@ -19,7 +19,7 @@ const URL = {
   paginated: `${backUrl}/instruments/paginated`,
   random: `${backUrl}/instruments`,
   deleteInstrument: `${backUrl}/instruments/`,
-  calendar: `${backUrl}/calendar`,
+  calendar: `${backUrl}/booking/occupied-dates/`,
 };
 
 const handlerErrors = (e) => {
@@ -54,7 +54,6 @@ export const getInstrumentById = async (id) => {
 };
 
 export const getAllInstrumentsPaginated = async (customizedParams) => {
-  console.log(`${backUrl}/instruments/paginated`)
   
   const standardParams = {
     page: 0,
@@ -127,16 +126,10 @@ export const deleteInstrument = async (id, jwt) => {
   }
 };
 
-export const getDisabledDates = async (id, jwt) => {
-
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${jwt}`
-    }
-  };
+export const getDisabledDates = async (id) => {
 
   try {
-    const { data } = await axios.get(URL.calendar, config); //TODO: cambiar la url
+    const { data } = await axios.get(`${URL.calendar}${id}`);
     return data;
   } catch (e) {
     handlerErrors(e);
