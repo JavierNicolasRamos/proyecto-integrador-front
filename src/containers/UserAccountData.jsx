@@ -1,4 +1,5 @@
 import { useUserAccountData } from "../hooks/index";
+import "../styles/UserAccountData.css";
 
 export const UserAccountData = () => {
 
@@ -16,7 +17,7 @@ export const UserAccountData = () => {
         <div className="accountDataContent">{user.surname}</div>
         <div className="accountDataContent">{user.email}</div>
       </div>
-      <div className="AccountInitials">{avatar}</div>
+      <div className="accountInitials">{avatar}</div>
     </section>
   );
 };

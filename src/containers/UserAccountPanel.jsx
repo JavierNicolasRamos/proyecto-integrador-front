@@ -15,9 +15,9 @@ export const UserAccountPanel = () => {
   return (
     <div className="accountPanel">
       <section className="accountButtons">
-        <button onClick={() => {handleAccountBtn()}}>Cuenta</button>
-        <button onClick={() => {handleBookingsBtn()}}>Mis Reservas</button>
-        <button onClick={() => {handlefavoritesBtn()}}>Favoritos</button>
+        <button className={showAccountData ? "selectedAccountButton" : ""} onClick={() => {handleAccountBtn()}}>Cuenta</button>
+        <button className={showBookings ? "selectedAccountButton" : ""} onClick={() => {handleBookingsBtn()}}>Mis Reservas</button>
+        <button className={showFavs ? "selectedAccountButton" : ""} onClick={() => {handlefavoritesBtn()}}>Favoritos</button>
       </section>
 
       <section className="accountContent">
