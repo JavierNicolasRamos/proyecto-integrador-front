@@ -17,8 +17,8 @@
 
 .accountButtons button {
   background-color: var(--red);
-  width: 15vw;
-  height: 5vh;
+  width: 18vw;
+  height: 6vh;
   color: var(--white);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -31,6 +31,25 @@
     background-color: var(--light-grey);
     width: 60vw;
     min-height: 60vh;
-    border-radius: 0px 20px 20px 0px;;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.selectedAccountButton {
+  width: 21vw !important;
+  position: relative;
+  left: 1.5vw;
 
 }
+
+@media (max-width: 1024px) {
+  .accountPanel {
+    margin: 2% 5% 2% 5%;
+  }
+
+  .accountButtons button {
+    font-size: 1rem
+
+  }
+  
+}
+

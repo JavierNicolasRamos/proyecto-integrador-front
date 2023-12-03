@@ -1,0 +1,11 @@
+.AccountPanelUserFavs {
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2vw;
+    max-width: 80vw;
+    margin: 0 auto;
+    justify-content: center;
+
+}

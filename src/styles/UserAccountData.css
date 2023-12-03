@@ -1,0 +1,66 @@
+.accountData {
+  display: flex;
+  color: var(--white);
+  font-family: var(--main-font);
+  gap: 7vw;
+  width: 100%;
+  position: relative;
+  padding: 5vw;
+}
+
+.accountDataTitleContainer {
+  padding-top: 5vw;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.accountDataContentContainer {
+  padding-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.accountInitials {
+  border-radius: 100%;
+  background-color: var(--dark-grey);
+  align-self: flex-start;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .accountData {
+    font-size: 0.9rem;
+    gap: 2vw;
+  }
+
+  .accountInitials {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .accountData {
+    font-size: 0.7rem;
+    gap: 2vw;
+  }
+
+  .accountInitials {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+}

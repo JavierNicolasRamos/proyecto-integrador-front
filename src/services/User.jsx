@@ -16,6 +16,7 @@ const URL = {
   getAll: `${backUrl}/users`,
   putUser: `${backUrl}/users/`,
   updateRole: `${backUrl}/users/updateRole/`,
+  getByEmail:`${backUrl}/users/email/`
 }
 
 const handlerErrors = (e, data) => {
@@ -76,15 +77,6 @@ export const loginUser = async(formData) => {
   }
 }
 
-export const getUserByEmail = async(formData) => {
-  try {
-    const { data } = await axios.post(URL.login, formData);
-    return data;
-  } catch (e) {
-    handlerErrors(e);
-  }
-}
-
 export const getAllUsers = async (jwt) => {
 
   const config = {
@@ -138,3 +130,26 @@ export const updateUserRole = async (id, jwt) => {
     return { data, status };
   }
 };
+
+export const getUserByEmail = async (email, jwt) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
+
+  try {
+    const { data, status } = await axios.get(`${URL.getByEmail}${email}`, config);
+    return { data, status };
+
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
+  }
+};
+
+
+

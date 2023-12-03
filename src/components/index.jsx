@@ -31,3 +31,5 @@ export { ShareSocial } from "./ShareSocial";
 export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
+export { BookingCard } from "./BookingCard";
+export { Heart } from "./Heart";

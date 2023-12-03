@@ -1,0 +1,46 @@
+.bookingCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 1vw 3vw;
+  font-family: var(--main-font);
+}
+
+.bookingCardData {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.bookingCardImage {
+  height: 60px;
+  width: 60px;
+}
+
+.bookingCardImage img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.bookingInProressText {
+    font-weight: 700;
+}
+
+.bookingFinishedText {
+    font-weight: 700;
+    color: rgba(15, 159, 2, 1);
+
+}
+
+.bookingCard button {
+    align-self: center;
+    color: var(--white);
+    background-color: var(--light-grey);
+    padding: 0.1rem 1rem;
+    border-radius: 5px;
+}
+
+

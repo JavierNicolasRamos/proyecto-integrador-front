@@ -1,6 +1,6 @@
 import "../styles/UserAccountPanel.css";
 import { useUserAccountPanel } from "../hooks/index";
-import { AccountData, BookingsList, Favorites } from "./index";
+import { UserAccountData, UserBookingsList, UserFavs } from "./index";
 
 export const UserAccountPanel = () => {
   const {
@@ -15,15 +15,15 @@ export const UserAccountPanel = () => {
   return (
     <div className="accountPanel">
       <section className="accountButtons">
-        <button onClick={() => {handleAccountBtn()}}>Cuenta</button>
-        <button onClick={() => {handleBookingsBtn()}}>Mis Reservas</button>
-        <button onClick={() => {handlefavoritesBtn()}}>Favoritos</button>
+        <button className={showAccountData ? "selectedAccountButton" : ""} onClick={() => {handleAccountBtn()}}>Cuenta</button>
+        <button className={showBookings ? "selectedAccountButton" : ""} onClick={() => {handleBookingsBtn()}}>Mis Reservas</button>
+        <button className={showFavs ? "selectedAccountButton" : ""} onClick={() => {handlefavoritesBtn()}}>Favoritos</button>
       </section>
 
       <section className="accountContent">
-        {showAccountData && <AccountData />}
-        {showBookings && <BookingsList />}
-        {showFavs && <Favorites />}
+        {showAccountData && <UserAccountData />}
+        {showBookings && <UserBookingsList />}
+        {showFavs && <UserFavs />}
       </section>
     </div>
   );
