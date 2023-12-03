@@ -2,3 +2,4 @@ export { getCharacteristic, postCharacteristic, putCharacteristic, deleteCharact
 export { getAllInstrumentsPaginated, postInstrument, getInstrumentById, getRandomInstruments, putInstrument, getDisabledDates, postSelectedDates  } from "./Instrument";
 export { getAllCategories, postCategory, deleteCategory } from "./Category";
 export { getAllUsers, putUser, updateUserRole, getUserByEmail } from "./User";
+export { getBookings } from "./Booking";
