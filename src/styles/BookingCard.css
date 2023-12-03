@@ -4,6 +4,7 @@
   background-color: var(--white);
   border-radius: 20px;
   padding: 1vw 3vw;
+  font-family: var(--main-font);
 }
 
 .bookingCardData {
@@ -24,6 +25,16 @@
   height: 100%;
 }
 
+.bookingInProressText {
+    font-weight: 700;
+}
+
+.bookingFinishedText {
+    font-weight: 700;
+    color: rgba(15, 159, 2, 1);
+
+}
+
 .bookingCard button {
     align-self: center;
     color: var(--white);
@@ -31,3 +42,5 @@
     padding: 0.1rem 1rem;
     border-radius: 5px;
 }
+
+

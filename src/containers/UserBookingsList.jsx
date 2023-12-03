@@ -8,10 +8,16 @@ export const UserBookingsList = () => {
   return (
     <div>
       <div className="userBookingList">
-          {isFetching && <Spinner />}
-          {bookings.map((booking) => (
-            <BookingCard key={booking.id} booking={booking} />
-          ))}
+        <div className="bookingCardTitles">
+          <span>Instrumento</span>
+          <span>Desde</span>
+          <span>Hasta</span>
+          <span>Estado</span>
+        </div>
+        {isFetching && <Spinner />}
+        {bookings.map((booking) => (
+          <BookingCard key={booking.id} booking={booking} />
+        ))}
       </div>
     </div>
   );
