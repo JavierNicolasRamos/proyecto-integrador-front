@@ -78,8 +78,6 @@ export const useFormCreateInstrument = () => {
       deleted: null,
     };
 
-    console.log(instrument);
-
     const formData = new FormData();
 
     formData.append(

@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
 import { useGetAllLikes } from "../hooks/index";
-import { Card, Spinner } from '../components'
+import { Card, Spinner } from "../components";
 import "../styles/UserFavs.css";
 
 export const UserFavs = () => {
-
-
-  const { allLikes, isFetching } = useGetAllLikes()
+  const { allLikes, isFetching } = useGetAllLikes();
 
   return (
-    <div className='AccountPanelUserFavs'>
+    <div className="AccountPanelUserFavs">
       {isFetching && <Spinner />}
-      {allLikes.map(instrument => (
+      {allLikes.map((instrument) => (
         <Card
           key={instrument.id}
           id={instrument.id}
@@ -22,5 +20,5 @@ export const UserFavs = () => {
         />
       ))}
     </div>
-  )
-}
+  );
+};

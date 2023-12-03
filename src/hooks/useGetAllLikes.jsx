@@ -7,7 +7,6 @@ export const useGetAllLikes = () => {
   const [allLikes, setAllLikes] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
-
   const getAllLikes = async () => {
     const { data } = await getAllFavs(email, jwt);
     setAllLikes(data)

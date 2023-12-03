@@ -77,7 +77,6 @@ export const useFormPutInstrument = (presentInstrument) => {
       deleted: null,
     };
 
-    console.log(instrument);
 
     const { data, status } = await putInstrument(instrument, jwt);
 
