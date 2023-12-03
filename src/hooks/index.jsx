@@ -1,3 +1,6 @@
+import { useGetAllLikes } from "./useGetAllLikes";
+import { useLike } from "./useLike";
+
 export { useCalendar } from "./useCalendar";
 export { useFetchAdminCategoryList } from "./useFetchAdminCategoryList";
 export { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicList";
@@ -23,3 +26,5 @@ export { useFormPutUserRole } from "./useFormPutUserRole";
 export { useUserAccountPanel } from "./useUserAccountPanel";
 export { useUserAccountData } from "./useUserAccountData";
 export { useFetchUserBookings } from "./useFetchUserBookings";
+export { useGetAllLikes } from "./useGetAllLikes";
+export { useLike } from "./useLike";

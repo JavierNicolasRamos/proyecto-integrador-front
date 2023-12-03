@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 export const useUserAccountData = () => {
   const [user, setUser] = useState({});
   const [isFetching, setIsFetching] = useState(true);
-  const [favs, SetFavs] = useState([]);
 
   const email = sessionStorage.getItem("email");
   const jwt = sessionStorage.getItem("jwt");
@@ -13,7 +12,6 @@ export const useUserAccountData = () => {
   const getUserData = async () => {
     const { data } = await getUserByEmail(email, jwt);
     setUser(data);
-    SetFavs(data.favourites)
     setIsFetching(false);
   };
 
@@ -21,7 +19,5 @@ export const useUserAccountData = () => {
     getUserData();
   }, []);
 
-  console.log("user desde el hook", user)
-  
-  return { user, avatar, isFetching, favs};
+  return { user, avatar, isFetching };
 };

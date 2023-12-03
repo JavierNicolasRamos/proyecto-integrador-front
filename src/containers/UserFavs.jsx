@@ -1,17 +1,17 @@
 import React from 'react'
-import { useUserAccountData } from "../hooks/index";
+import { useGetAllLikes } from "../hooks/index";
 import { Card, Spinner } from '../components'
 import "../styles/UserFavs.css";
 
 export const UserFavs = () => {
 
 
-  const { user, avatar, isFetching, favs} = useUserAccountData()
+  const { allLikes, isFetching } = useGetAllLikes()
 
   return (
     <div className='AccountPanelUserFavs'>
       {isFetching && <Spinner />}
-      {favs.map(instrument => (
+      {allLikes.map(instrument => (
         <Card
           key={instrument.id}
           id={instrument.id}

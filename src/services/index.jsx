@@ -3,3 +3,4 @@ export { getAllInstrumentsPaginated, postInstrument, getInstrumentById, getRando
 export { getAllCategories, postCategory, deleteCategory } from "./Category";
 export { getAllUsers, putUser, updateUserRole, getUserByEmail } from "./User";
 export { getBookings } from "./Booking";
+export { getAllFavs, postFav, deleteFav } from "./Favourite";
