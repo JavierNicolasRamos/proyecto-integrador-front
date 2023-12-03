@@ -10,8 +10,13 @@ export const useFetchUserBookings = () => {
 
   const fetchBookings = async () => {
     const { data } = await getBookings(jwt);
-    const filteredBookings = data.filter((booking) => booking.user.email === email);
-    setBookings(filteredBookings);
+    const filteredBookings = data.filter(
+      (booking) => booking.user.email === email
+    );
+    const sortedBookings = filteredBookings.sort(
+      (a, b) => new Date(b.bookingEnd) - new Date(a.bookingEnd)
+    );
+    setBookings(sortedBookings);
     setIsFetching(false);
   };
 
