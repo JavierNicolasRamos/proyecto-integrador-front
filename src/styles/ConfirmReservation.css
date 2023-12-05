@@ -1,0 +1,81 @@
+.reservation{
+  padding: 5vw;
+  font-family: var(--main-font);
+  color: var(--grey);
+}
+
+.reservation__container{
+  background-color: var(--white);
+  min-height: 40vh;
+  width: 60vw;
+  margin: 0 auto;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.reservation__title{
+  background-color: var(--red);
+  color: var(--white);
+  height: 8vh;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2vw;
+  border-radius: 15px 15px 0 0;
+}
+
+.reservation__user-info{
+  display: flex;
+  padding: 2vw;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 2px solid var(--light-grey);
+}
+
+.reservation__user-name,
+.reservation__user-email{
+  display: inline-flex;
+  width: 40%;
+  justify-content: center;
+}
+
+.reservation__instrument-info{
+  display: flex;
+  align-items: baseline;
+  width: 90%;
+}
+
+.reservation__instrument-info__container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 35%;
+  justify-content: center;
+  padding: 1vw;
+  gap: 5vh;
+}
+
+.reservation__instrument-name{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.reservation__instrument-name img{
+  width: 8vw;
+}
+
+.reservation__instrument-detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  padding: 2vw;
+  gap: 5vh;
+}
+
+.reservation__instrument-detail-text{
+  font-size: 1rem;
+  overflow: scroll;
+  min-height: 12vh;
+  max-height: 12vh;
+}
