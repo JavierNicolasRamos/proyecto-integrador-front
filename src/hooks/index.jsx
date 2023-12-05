@@ -28,3 +28,4 @@ export { useUserAccountData } from "./useUserAccountData";
 export { useFetchUserBookings } from "./useFetchUserBookings";
 export { useGetAllLikes } from "./useGetAllLikes";
 export { useLike } from "./useLike";
+export { useRedirectLogin } from "./useRedirectLogin"

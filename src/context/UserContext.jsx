@@ -40,6 +40,7 @@ export const UserProvider = ({ children }) => {
     user,
     isLogged,
     avatar,
+    setAvatar,
     setIsLogged,
     updateUser,
     closeSession,
