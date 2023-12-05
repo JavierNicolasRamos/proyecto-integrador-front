@@ -1,7 +1,7 @@
 .adminCardGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  gap: 3vw;
   padding: 2vw;
   max-width: 80vw;
   margin: 0 auto;
@@ -21,6 +21,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  justify-self: center;
 }
 
 .adminCard h2 {
@@ -52,7 +53,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1023px) {
   .adminCardGrid {
     display: none;
   }
