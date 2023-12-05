@@ -18,11 +18,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "src"),
-      },
-    },
+    // resolve: {
+    //   alias: {
+    //     "@": path.resolve(__dirname, "src"),
+    //   },
+    // },
     server: {
       watch: {
         usePolling: true,

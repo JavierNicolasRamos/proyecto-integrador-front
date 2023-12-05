@@ -53,14 +53,13 @@ export const loginUser = async(formData) => {
     const { data, status } = await axios.post(URL.login, formData)
     const { jwt, name, surname, email, role } = data
     
-    const avatar =  `${name.slice(0, 1)}${surname.slice(0, 1)}`;
+    const avatar = `${name.slice(0, 1)}${surname.slice(0, 1)}`;
 
     if (status === 200) {
       sessionStorage.setItem('jwt', jwt)
       sessionStorage.setItem('role', role)
       sessionStorage.setItem('email', email)
       sessionStorage.setItem('avatar', avatar)
-
     }
 
     return ({

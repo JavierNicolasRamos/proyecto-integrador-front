@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NotFound, ChangeEmail, CreateCharacteristic, CreateCategory, PolicyBlock, RegisterSuccess } from "../components/index";
-import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel } from "../containers/index";
+import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel, ConfirmReservation } from "../containers/index";
 import { App } from "../App";
 
 export const AppRoutes = () => (
@@ -26,6 +26,7 @@ export const AppRoutes = () => (
         <Route path="admin/instrument/create" element={<CreateInstrument />} />
         <Route path="admin/instrument/list" element={<ProductList />} />
         <Route path="admin/user/list" element={<UserList />} />
+        <Route path="product/confirmReservation/:id" element={<ConfirmReservation />} />
     </Route>
   </Routes>
 );
