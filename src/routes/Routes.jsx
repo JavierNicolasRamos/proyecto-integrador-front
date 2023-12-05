@@ -1,12 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NotFound, ChangeEmail, CreateCharacteristic, CreateCategory, PolicyBlock, RegisterSuccess } from "../components/index";
-import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel } from "../containers/index";
+import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel, NotAllowed } from "../containers/index";
 import { App } from "../App";
 
 export const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<App />}>
         <Route path="*" element={<NotFound code="404" text="Not Found" />} />
+        <Route path="/accessDenied" element={<NotAllowed />} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
