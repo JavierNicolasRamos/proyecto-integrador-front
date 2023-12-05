@@ -7,6 +7,7 @@ import { CustomCalendar } from './CustomCalendar';
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
 
   const { id } = useParams();
+  console.log(id)
 
   return (
     <aside className="detail-container">

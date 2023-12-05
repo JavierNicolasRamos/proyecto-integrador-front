@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const routes = {
   "/admin/instrument/create": [
@@ -39,15 +40,19 @@ const routes = {
   ],
 };
 
-export const Menu = () => {
+export const Menu = ({showMenu}) => {
   const location = useLocation();
   const links = routes[location.pathname] || routes["default"];
 
   return (
-    <nav className="navigation-menu">
+    <nav className={`navigation-menu ${ showMenu ? '' : 'hide'}`} >
       {links.map(({ to, text }, index) => (
         <Link key={index} to={to}>{text}</Link>
       ))}
     </nav>
   );
+};
+
+Menu.propTypes = {
+  showMenu: PropTypes.boolean.isRequired,
 };

@@ -40,7 +40,8 @@
 
 .reservation__instrument-info{
   display: flex;
-  align-items: baseline;
+  background-color: blue;
+  margin: 0 auto;
   width: 90%;
 }
 
@@ -52,6 +53,7 @@
   justify-content: center;
   padding: 1vw;
   gap: 5vh;
+  background-color: red;
 }
 
 .reservation__instrument-name{
@@ -65,6 +67,7 @@
 }
 
 .reservation__instrument-detail{
+  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,6 +79,6 @@
 .reservation__instrument-detail-text{
   font-size: 1rem;
   overflow: scroll;
-  min-height: 12vh;
-  max-height: 12vh;
+  min-height: 10vh;
+  max-height: 10vh;
 }
