@@ -3,6 +3,7 @@ import { useLoginUser } from "../hooks/useLoginUser"
 import { useState } from "react";
 import { FormLoginError, FormLoginInput, Spinner } from "./index";
 import "../styles/LoginForm.css"
+import { useRedirectLogin } from "../hooks/useRedirectLogin";
 
 export const LoginForm = () => {
 
@@ -12,17 +13,7 @@ export const LoginForm = () => {
   });
   
   const {handlerSubmit, userData, errors, hasErrors, isFetching} = useLoginUser(formData)
-
-  const handlerRedirect = (role) =>{
-    switch (role) {
-      case "ADMIN":
-        return <Navigate to={"/admin"}/>
-        case "USER":
-          return <Navigate to={"/home"}/>
-      default:
-        break;
-    }
-  }
+  const { handlerRedirect } = useRedirectLogin()
 
   const handlerChange = (e) => {    
     const { id, value } = e.target;
