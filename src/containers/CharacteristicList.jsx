@@ -1,5 +1,5 @@
 import { CharacteristicCard } from "./index";
-import { useFetchAdminCharacteristicList } from "../hooks/index";
+import { useFetchAdminCharacteristicList, useRedirectLogin } from "../hooks/index";
 import "../styles/ProductList.css";
 
 export const CharacteristicList = () => {
@@ -12,8 +12,11 @@ export const CharacteristicList = () => {
     resultContent,
   } = useFetchAdminCharacteristicList();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div>
+      { handlerUserNotAllowed() }
       <div className="adminProductList">
         <div>
           {characteristics.map((characteristic) => (

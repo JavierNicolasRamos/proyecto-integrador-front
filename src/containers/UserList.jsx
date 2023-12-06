@@ -1,12 +1,15 @@
 import { UserCard } from "./index";
-import { useFetchAdminUserList } from "../hooks/index";
+import { useFetchAdminUserList, useRedirectLogin } from "../hooks/index";
 import "../styles/ProductList.css";
 
 export const UserList = () => {
+
   const { users } = useFetchAdminUserList();
+  const { handlerUserNotAllowed } = useRedirectLogin()
 
   return (
     <div>
+      { handlerUserNotAllowed() }
       <div className="adminProductList">
         <div>
           {users

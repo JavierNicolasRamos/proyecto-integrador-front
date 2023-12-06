@@ -1,4 +1,4 @@
-import { useFormCreateInstrument } from "../hooks/index";
+import { useFormCreateInstrument, useRedirectLogin } from "../hooks/index";
 import {
   ValidationError,
   ResultConfirmationDialog,
@@ -27,8 +27,11 @@ export const CreateInstrument = () => {
     handleCheckboxChange,
   } = useFormCreateInstrument();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div className="createInstrumentPage">
+      { handlerUserNotAllowed() }
       <section className="createInstrumentSection">
         <div className="createInstrument-title">
           <p>Agregar producto</p>

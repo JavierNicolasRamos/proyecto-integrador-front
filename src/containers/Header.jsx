@@ -4,6 +4,7 @@ import { useWindowSize } from "../hooks/index";
 import { HeaderButtons } from "./index";
 import { useUser } from "../context/UserContext";
 import "../styles/Header.css";
+import { useState } from "react";
 
 export const Header = () => {
 
@@ -11,6 +12,8 @@ export const Header = () => {
   const { isLogged } = useUser()
   const { width } = useWindowSize()
   const isHome = location.pathname === "/home"
+  const [showMenu, setShowMenu] = useState(false)
+
 
   return (
     <>
@@ -42,13 +45,14 @@ export const Header = () => {
         </section>
       </header>
 
-      {width < 768 ? 
-        <MobileSearchBar /> : ''
+      {
+        width < 768 
+          ? <MobileSearchBar /> 
+          : ''
       }
 
-      {width > 768 ? 
-        <Menu/> : ''
-      }
+
+        <Menu showMenu={showMenu}/> 
   
     </>
   );

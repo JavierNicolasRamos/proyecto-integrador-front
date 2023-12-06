@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useFetchAdminCategoryList } from "../hooks/index";
+import { useFetchAdminCategoryList, useRedirectLogin } from "../hooks/index";
 import { CategoryCard } from "../components/index";
 import "../styles/AdminCategoryList.css";
 
@@ -15,8 +15,11 @@ export const AdminCategoryList = () => {
     resultContent,
   } = useFetchAdminCategoryList();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div className="admin-categoryList-grid">
+      { handlerUserNotAllowed() }
       {category.map(({ id, name, image }) => (
         <CategoryCard
           key={id}

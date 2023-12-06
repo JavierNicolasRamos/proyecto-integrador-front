@@ -1,4 +1,4 @@
-import { usePostCharacteristic } from "../hooks/index";
+import { usePostCharacteristic, useRedirectLogin } from "../hooks/index";
 import { ValidationError, Spinner, ResultConfirmationDialog } from "../components/index";
 import "../styles/CreateCharacteristic.css";
 
@@ -17,8 +17,11 @@ export const CreateCharacteristic = () => {
     handlerIconSelection,
   } = usePostCharacteristic();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div className="createCharacteristicPage">
+      { handlerUserNotAllowed() }
       <section className="createCharacteristicSection">
         <div className="createCharacteristic-title">
           <p>Agregar característica</p>

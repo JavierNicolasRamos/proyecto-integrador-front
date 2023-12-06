@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
-import { NotFound } from "../components/index";
-import "../styles/AdminPanel.css";
+import { Link } from "react-router-dom"
+import { NotFound } from "../components/index"
+import { useRedirectLogin } from "../hooks"
+import "../styles/AdminPanel.css"
 
-const ACCOUNT_IMAGE = "/src/images/account.svg";
-const ADD_ADMIN_IMAGE = "/src/images/addAdmin.svg";
-const PRODUCT_ICON_IMAGE = "/src/images/productIcon.svg";
-const CATEGORY_ICON_IMAGE = "/src/images/categoryIcon.svg";
-const FEATURE_ICON_IMAGE = "/src/images/featureIcon.svg";
+const ACCOUNT_IMAGE = "/src/images/account.svg"
+const ADD_ADMIN_IMAGE = "/src/images/addAdmin.svg"
+const PRODUCT_ICON_IMAGE = "/src/images/productIcon.svg"
+const CATEGORY_ICON_IMAGE = "/src/images/categoryIcon.svg"
+const FEATURE_ICON_IMAGE = "/src/images/featureIcon.svg"
+
 
 const adminPanelRoutes = [
   {
@@ -51,18 +53,24 @@ const adminPanelRoutes = [
   },
 ];
 
-export const AdminPanel = () => (
-  <div>
-    <div className="adminCardGrid">
-      {adminPanelRoutes.map(({ image, name, linkTo }, index) => (
-        <Link key={index} className="adminCard" to={linkTo}>
-          <img src={image} alt={name} />
-          <h2>{name}</h2>
-        </Link>
-      ))}
+export const AdminPanel = () => {
+
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
+  return (
+    <div>
+      { handlerUserNotAllowed() }
+      <div className="adminCardGrid">
+        {adminPanelRoutes.map(({ image, name, linkTo }, index) => (
+          <Link key={index} className="adminCard" to={linkTo}>
+            <img src={image} alt={name} />
+            <h2>{name}</h2>
+          </Link>
+        ))}
+      </div>
+      <div className="adminPanelErrorMessage">
+        <NotFound code="501" text="Acceda desde un ordenador" />
+      </div>
     </div>
-    <div className="adminPanelErrorMessage">
-      <NotFound code="501" text="Acceda desde un ordenador" />
-    </div>
-  </div>
-);
+  )
+}

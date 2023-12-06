@@ -1,6 +1,13 @@
 import { Navigate } from "react-router-dom"
+import { useUser } from "../context/UserContext"
+import { useLocation } from 'react-router-dom';
 
 export const useRedirectLogin = () => {
+
+  const { isLogged } = useUser()
+  const location = useLocation()
+
+
   const handlerRedirect = (role) =>{
     switch (role) {
       case "USER":
@@ -14,5 +21,18 @@ export const useRedirectLogin = () => {
     }
   }
 
-  return { handlerRedirect }
+  const handlerUserNotAllowed = () => {
+    
+    if (
+      isLogged === false && 
+      (sessionStorage.getItem('role') === "USER" || sessionStorage.getItem('role') === null) && 
+      location.pathname.includes("admin")
+    ) {
+      return <Navigate to={"/accessDenied"} />;
+    } else {
+      return null;
+    }
+  }
+
+  return { handlerRedirect, handlerUserNotAllowed }
 }
