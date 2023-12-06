@@ -16,7 +16,7 @@ export const RegisterSuccess = () => {
             route={"/login"}
             color={"red"}
           />
-          <p className="success__information">No recibiste mail de confirmación? <span className="success__change-email"><Link to={"/register/success/changeEmail"}>Editar/cambiar correo</Link></span></p>
+          <p className="success__information">No recibiste mail de confirmación? <span className="success__change-email"><Link to={"/register/success/changeEmail"}>Reenviar correo de confirmacion</Link></span></p>
         </div>
       </div>
   </>
