@@ -15,7 +15,7 @@ const URL = {
   createCharacteristic : `${backUrl}/characteristic`,
   putCharacteristic: `${backUrl}/characteristic/`,
   deleteCharacteristic: `${backUrl}/characteristic/`,
-  }
+}
 
 const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
