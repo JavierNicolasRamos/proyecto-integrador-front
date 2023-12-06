@@ -3,7 +3,7 @@ import {
   Spinner,
   ResultConfirmationDialog,
 } from "../components/index";
-import { usePostCategory } from "../hooks/index";
+import { usePostCategory, useRedirectLogin } from "../hooks/index";
 import "../styles/CreateCategory.css";
 
 export const CreateCategory = () => {
@@ -21,12 +21,15 @@ export const CreateCategory = () => {
     resultContent,
   } = usePostCategory();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   const handlerChange = (setter) => (e) => {
     setter(e.target.value);
   };
 
   return (
     <div className="createCategoryPage">
+      { handlerUserNotAllowed() }
       <section className="createCategorySection">
         <div className="createCategory-title">
           <p>Agregar categoría</p>

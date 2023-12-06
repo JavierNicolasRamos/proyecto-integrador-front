@@ -54,6 +54,7 @@ const adminPanelRoutes = [
 ];
 
 export const AdminPanel = () => {
+
   const { handlerUserNotAllowed } = useRedirectLogin()
 
   return (

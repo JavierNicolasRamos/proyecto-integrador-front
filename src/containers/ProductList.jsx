@@ -1,6 +1,6 @@
 import { ListCard } from "./index";
 import { Pagination } from "../components/index";
-import { useFetchAdminProductList } from "../hooks/index";
+import { useFetchAdminProductList, useRedirectLogin } from "../hooks/index";
 import "../styles/ProductList.css";
 
 export const ProductList = () => {
@@ -20,8 +20,11 @@ export const ProductList = () => {
     handlerDelete,
   } = useFetchAdminProductList();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div>
+      { handlerUserNotAllowed() }
       <div className="adminProductList">
         <div>
           {products.map(( instrument ) => (
