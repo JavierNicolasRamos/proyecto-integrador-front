@@ -17,9 +17,13 @@ export const Header = () => {
 
   return (
     <>
-      <section className="phone">
-        <p className="phone-text">🔥 3, 6, 12 y 18 Cuotas fijas EN TODOS LOS PRODUCTOS - 📞 11 3984 9613</p>
-      </section>
+      {
+        isHome
+        ? <section className="phone">
+            <p className="phone-text">🔥 3, 6, 12 y 18 Cuotas fijas EN TODOS LOS PRODUCTOS - 📞 11 3984 9613</p>
+          </section>
+        : ''
+      }
       
       <header className={`header ${!isHome ? 'hide' : ''}`}>
         <section className="header__search-bar">
