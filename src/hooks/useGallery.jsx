@@ -4,6 +4,7 @@ import { getInstrumentById } from "../services/index";
 export const useGallery = (id) => {
   const [imageUrls, setImageUrls] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -15,7 +16,7 @@ export const useGallery = (id) => {
 
         setImageUrls(filteredImages);
       } catch (error) {
-        console.error("Error al obtener datos de la API:", error); //TODO: Implementar un logger y enviar el error a la API
+        setError(error);
       }
     };
 
@@ -26,5 +27,5 @@ export const useGallery = (id) => {
     setShowAll(true);
   };
 
-  return { imageUrls, showAll, showAllImages };
+  return { imageUrls, showAll, showAllImages, error };
 };

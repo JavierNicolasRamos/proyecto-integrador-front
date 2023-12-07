@@ -1,26 +1,15 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button'
 import { useParams, useNavigate } from 'react-router-dom';
-import "../styles/DetailAside.css"
-import { CustomCalendar } from './CustomCalendar';
 import { useUser } from '../context/UserContext';
-import { useEffect } from 'react';
+import { RangeCalendar } from '../components/index';
+import "../styles/DetailAside.css"
 
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
-
   const { id } = useParams();
   const {isLogged} = useUser()
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   console.log(navigate)
-  //   console.log(history.state)
-  //   history.pushState({ name: "Example" }, "pushState example", "page3.html");
-  //   console.log(history.state)
-
-  // }, [])
   
-
   return (
     <aside className="detail-container">
         <div className="detail__instrument-info">
@@ -29,7 +18,7 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
           
           <div className="detail__instruments-description__disponibility">
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
-            <CustomCalendar /* TODO: Pasarle las fechas ocupadas*/ />
+            <RangeCalendar id={id}/>
             <div className="detail__instruments-description__actions">
               <Button
                 route={""}
