@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useCalendar } from '../hooks';
 import { Calendar } from '@natscale/react-calendar';
 import '@natscale/react-calendar/dist/main.css';
@@ -27,12 +28,20 @@ const weekDaysLabel = {
   6: 'Sa',
 };
 
-const size = 240;
-
-const fontSize = 18;
-
-export const CustomRangeCalendar = () => {
+export const RangeCalendar = ({size, fontSize}) => {
+  const sizeData = size;
+  const fontSizeData = fontSize;
   const { value, setValue, isDisabled, onChange } = useCalendar();
   
-  return <Calendar startOfWeek={0} weekDaysLabel={weekDaysLabel} monthsLabel={monthsLabel} size={size} fontSize={fontSize} value={value} onChange={onChange} isDisabled={isDisabled} useDarkMode isRangeSelector noPadRangeCell />;
+  return <Calendar useDarkMode isRangeSelector noPadRangeCell startOfWeek={0} weekDaysLabel={weekDaysLabel} monthsLabel={monthsLabel} size={sizeData} fontSize={fontSizeData} value={value} onChange={onChange} isDisabled={isDisabled}/>;
+};
+
+RangeCalendar.defaultProps = {
+  size: 240,
+  fontSize: 18
+};
+
+RangeCalendar.propTypes = {
+  size: PropTypes.number,
+  fontSize: PropTypes.number
 };

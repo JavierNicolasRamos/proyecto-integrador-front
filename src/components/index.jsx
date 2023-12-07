@@ -7,8 +7,6 @@ export { ChangeEmail } from "../components/ChangeEmail"
 export { Characteristics } from "./Characteristics";
 export { CreateCategory } from "../containers/CreateCategory";
 export { CreateCharacteristic } from "../containers/CreateCharacteristic";
-export { CustomRangeCalendar } from "./CustomRangeCalendar";
-export { CustomSingleCalendar } from "./CustomSingleCalendar";
 export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";
 export { DetailAside } from "./DetailAside";
 export { Footer } from "./Footer";
@@ -27,10 +25,12 @@ export { NotFound } from "./NotFound";
 export { Pagination } from "./Pagination";
 export { PolicyBlock } from "./PolicyBlock";
 export { ProductCarousel } from "../containers/ProductCarousel";
+export { RangeCalendar } from "./RangeCalendar";
 export { RegisterSuccess } from "../containers/RegisterSuccess"
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
 export { SearchForm } from "./SearchForm";
 export { ShareSocial } from "./ShareSocial";
+export { SingleCalendar } from "./SingleCalendar";
 export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
