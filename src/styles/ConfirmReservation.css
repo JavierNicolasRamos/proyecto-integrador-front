@@ -40,7 +40,6 @@
 
 .reservation__instrument-info{
   display: flex;
-  background-color: blue;
   margin: 0 auto;
   width: 90%;
 }
@@ -48,12 +47,9 @@
 .reservation__instrument-info__container{
   display: flex;
   flex-direction: column;
-  text-align: center;
   min-width: 35%;
-  justify-content: center;
   padding: 1vw;
   gap: 5vh;
-  background-color: red;
 }
 
 .reservation__instrument-name{
@@ -67,13 +63,12 @@
 }
 
 .reservation__instrument-detail{
-  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 35%;
-  padding: 2vw;
   gap: 5vh;
+  padding: 1vw;
 }
 
 .reservation__instrument-detail-text{
@@ -81,4 +76,13 @@
   overflow: scroll;
   min-height: 10vh;
   max-height: 10vh;
+}
+
+.reservation__instrument-date{
+  display: flex;
+  margin: 0 auto;
+  gap: 2vw;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
