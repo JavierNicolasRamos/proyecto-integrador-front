@@ -32,8 +32,6 @@ export const useLoginUser = (data) => {
           if(status === 200){ 
             updateUser({ name, surname, role })
             setUserData({ name, surname, role })
-            setName(name)
-            setSurname(surname)
             setIsLogged(true)
             setAvatar(sessionStorage.getItem('avatar'))
             setHasErrors(false)
