@@ -24,6 +24,6 @@
 
 @media (max-width: 768px) {
   .detail-product__container{
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 }

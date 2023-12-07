@@ -9,7 +9,7 @@ export const Detail = () => {
 
   const { id } = useParams();
   const { instrument, isFetching } = useInstrument(id);
-  const { name, detail, image, category, uploadDate, characteristics} = instrument
+  const { name, detail, image, category, uploadDate, characteristics } = instrument
   let navigate = useNavigate();
 
   const handlerBackHome = () => {
