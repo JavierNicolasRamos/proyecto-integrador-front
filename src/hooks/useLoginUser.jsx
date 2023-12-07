@@ -13,7 +13,7 @@ export const useLoginUser = (data) => {
     role: ''
   });
 
-  const { updateUser, setAvatar, setIsLogged, avatar } = useUser();
+  const { updateUser, setAvatar, setIsLogged, avatar, setName, setSurname } = useUser();
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +32,8 @@ export const useLoginUser = (data) => {
           if(status === 200){ 
             updateUser({ name, surname, role })
             setUserData({ name, surname, role })
+            setName(name)
+            setSurname(surname)
             setIsLogged(true)
             setAvatar(sessionStorage.getItem('avatar'))
             setHasErrors(false)
