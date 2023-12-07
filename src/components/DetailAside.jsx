@@ -1,13 +1,25 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import "../styles/DetailAside.css"
 import { CustomCalendar } from './CustomCalendar';
+import { useUser } from '../context/UserContext';
+import { useEffect } from 'react';
 
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
 
   const { id } = useParams();
-  console.log(id)
+  const {isLogged} = useUser()
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   console.log(navigate)
+  //   console.log(history.state)
+  //   history.pushState({ name: "Example" }, "pushState example", "page3.html");
+  //   console.log(history.state)
+
+  // }, [])
+  
 
   return (
     <aside className="detail-container">
@@ -25,7 +37,7 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
                 color={"grey"}
               />
               <Button
-                route={`/product/confirmReservation/${id}`}
+                route={ isLogged ? `/product/confirmReservation/${id}` : '/login'}
                 text={"Reservar"}
                 color={"red"}
               />

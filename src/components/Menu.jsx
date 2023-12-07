@@ -45,7 +45,7 @@ export const Menu = ({showMenu}) => {
   const links = routes[location.pathname] || routes["default"];
 
   return (
-    <nav className={`navigation-menu ${ showMenu ? '' : 'hide'}`} >
+    <nav className={`navigation-menu ${ showMenu ? 'hide' : 'block'}`} >
       {links.map(({ to, text }, index) => (
         <Link key={index} to={to}>{text}</Link>
       ))}
@@ -54,5 +54,5 @@ export const Menu = ({showMenu}) => {
 };
 
 Menu.propTypes = {
-  showMenu: PropTypes.boolean.isRequired,
+  showMenu: PropTypes.bool.isRequired,
 };
