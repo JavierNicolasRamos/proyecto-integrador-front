@@ -37,12 +37,21 @@
   z-index: 200;
 }
 
-.characteristic-container {
+.characteristic__container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin: 10px;
-  gap: 1vw;
-  padding: 1vh 0;
+  gap: 5vw;
+  width: 80%;
+  padding: 2vw;
+}
+
+.characteristic__info{
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4vw;
+  padding-left: 1vw;
 }
 
 .characteristic__image {

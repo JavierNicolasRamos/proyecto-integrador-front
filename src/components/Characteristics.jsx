@@ -31,12 +31,14 @@ export const Characteristics = ({characteristics, id, name}) => {
             )
           }
       </div>
+      <div className="characteristic__container">
         {characteristics.map((characteristic, index) => (
-          <div key={index} className="characteristic-container">
+          <div key={index} className="characteristic__info">
             <img className="characteristic__image" src={characteristic.icon}/>
             <p className="characteristic__name">{characteristic.name}</p> 
           </div>
         ))}
+      </div>
     </div>
   );
 };

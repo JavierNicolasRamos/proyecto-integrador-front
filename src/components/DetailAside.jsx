@@ -15,7 +15,6 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
         <div className="detail__instrument-info">
           <h2 className="detail__instrument-name">{name}</h2>
           <p className="detail__instrument-description">{detail}</p>
-          
           <div className="detail__instruments-description__disponibility">
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
             <RangeCalendar id={id}/>
