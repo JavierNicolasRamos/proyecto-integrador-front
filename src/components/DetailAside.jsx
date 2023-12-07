@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Button } from './Button'
 import { useParams } from 'react-router-dom';
 import "../styles/DetailAside.css"
-import { CustomCalendar } from './CustomCalendar';
+import { RangeCalendar } from '../components/index';
 
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
 
@@ -17,7 +17,7 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
           
           <div className="detail__instruments-description__disponibility">
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
-            <CustomCalendar /* TODO: Pasarle las fechas ocupadas*/ />
+            <RangeCalendar /* TODO: Pasarle las fechas ocupadas*/ />
             <div className="detail__instruments-description__actions">
               <Button
                 route={""}

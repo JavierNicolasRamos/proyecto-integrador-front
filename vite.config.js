@@ -21,15 +21,6 @@ export default defineConfig(({ mode }) => {
       watch: {
         usePolling: true,
       },
-      proxy: {
-        "/api": {
-          target: "http://localhost:4173",
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-        },
-      },
-      cors: true,
-      fs: { strict: false },
       hmr: { overlay: false },
       strictSSL: false,
       strictPort: true,

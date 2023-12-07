@@ -54,5 +54,5 @@ export const Menu = ({showMenu}) => {
 };
 
 Menu.propTypes = {
-  showMenu: PropTypes.boolean.isRequired,
+  showMenu: PropTypes.bool.isRequired,
 };
