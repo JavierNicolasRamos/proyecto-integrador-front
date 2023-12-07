@@ -15,17 +15,26 @@
   font-size: 1.5em;
 }
 
-.characteristics-container__title .share-social {
-  position: absolute;
-  right: 0;
+.characteristics-container__share-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.characteristics-container__title img {
-  width: 2vw;
-}
-
-.characteristics-container__title img:hover {
+.characteristics-container__share-div:hover {
   cursor: pointer;
+}
+
+.characteristics-container__title .characteristics-container__share-div {
+  width: 8vw;
+  border-radius: 20px;
+  padding: 2vw;
+  background-color: var(--grey);
+}
+
+.characteristics-container__share-img{
+  z-index: 200;
 }
 
 .characteristic-container {
