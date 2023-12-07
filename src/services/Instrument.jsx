@@ -71,8 +71,6 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
 };
 
 export const postInstrument = async (formData, jwt) => {
-
-
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -91,7 +89,6 @@ export const postInstrument = async (formData, jwt) => {
 };
 
 export const putInstrument = async (instrument, jwt) => {
-
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -109,7 +106,6 @@ export const putInstrument = async (instrument, jwt) => {
 };
 
 export const deleteInstrument = async (id, jwt) => {
-
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -127,7 +123,6 @@ export const deleteInstrument = async (id, jwt) => {
 };
 
 export const getDisabledDates = async (id) => {
-
   try {
     const { data } = await axios.get(`${URL.calendar}${id}`);
     return data;

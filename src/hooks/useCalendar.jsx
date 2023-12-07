@@ -1,19 +1,23 @@
 import { useState, useCallback, useEffect } from 'react';
 import { getDisabledDates, postSelectedDates } from '../services/index';
 
-export const useCalendar = () => {
+export const useCalendar = (id) => {
   const [value, setValue] = useState([]);
   const [disabledDates, setDisabledDates] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+  const [getError, setGetError] = useState(null);
+  const [postError, setPostError] = useState(null);
 
   useEffect(() => {
-    getDisabledDates()
+    getDisabledDates(id)
       .then(dates => {
         setDisabledDates(dates);
       })
       .catch(error => {
-        console.error('Hubo un error al obtener los días deshabilitados', error);
-      });
-  }, []);
+        setGetError(error);
+      })
+      .finally(() => setIsFetching(false));
+  }, [id]);
 
   const isDisabled = useCallback((date) => {
     const dateString = date.toISOString().split('T')[0];
@@ -24,12 +28,13 @@ export const useCalendar = () => {
     setValue(val);
     postSelectedDates(val)
       .then(response => {
-        console.log('Las fechas seleccionadas se enviaron correctamente', response);
+        setValue(response);
       })
       .catch(error => {
-        console.error('Hubo un error al enviar las fechas seleccionadas', error);
-      });
+        setPostError(error);        
+      })
+      .finally(() => setIsFetching(false));
   }, []);
 
-  return { value, setValue, isDisabled, onChange };
+  return { value, setValue, isDisabled, onChange, isFetching, getError, postError };
 };
