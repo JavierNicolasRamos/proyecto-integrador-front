@@ -5,9 +5,7 @@ import "../styles/DetailAside.css"
 import { RangeCalendar } from '../components/index';
 
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
-
   const { id } = useParams();
-  console.log(id)
 
   return (
     <aside className="detail-container">
@@ -17,7 +15,7 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
           
           <div className="detail__instruments-description__disponibility">
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
-            <RangeCalendar /* TODO: Pasarle las fechas ocupadas*/ />
+            <RangeCalendar id={id}/>
             <div className="detail__instruments-description__actions">
               <Button
                 route={""}

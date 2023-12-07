@@ -5,6 +5,7 @@ export const useFetchCategories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState("");
   const [ isFetching , setIsFetching ] = useState(true);
+  const [ error , setError ] = useState(null);
 
   useEffect(() => {    
     getAllCategories()
@@ -13,10 +14,10 @@ export const useFetchCategories = () => {
        setCategories(categories)
     })
     .catch((error) => {
-        console.error("Error al obtener categorías:", error);
+      setError(error);
     })
     .finally(() => setIsFetching( false ));
   }, []);
 
-  return { categories, selectedCategoryId, setSelectedCategoryId, isFetching };
+  return { categories, selectedCategoryId, setSelectedCategoryId, isFetching, error};
 };
