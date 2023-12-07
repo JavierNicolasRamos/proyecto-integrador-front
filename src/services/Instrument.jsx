@@ -45,10 +45,8 @@ export const getRandomInstruments = async () => {
 };
 
 export const getInstrumentById = async (id) => {
-  console.log(id)
   try {
     const { data } = await axios.get(`${URL.getInstrumentById}${id}`);
-    console.log(data)
     return data;
   } catch (e) {
     handlerErrors(e);
