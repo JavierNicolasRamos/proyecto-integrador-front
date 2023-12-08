@@ -26,7 +26,8 @@ export const useLike = (id) => {
     }
   };
 
-  const handlerClickLike = () => {
+  const handlerClickLike = (e) => {
+    e.preventDefault()
     if (!like) {
       likeInstrument();
     }
