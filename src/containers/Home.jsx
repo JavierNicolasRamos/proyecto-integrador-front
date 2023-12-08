@@ -16,7 +16,7 @@ export const Home = () => {
           <>
           <Hero/>
           <MainSearchBar/>
-          <RandomInstruments instruments={randomsInstruments}/>
+          <RandomInstruments instruments={randomsInstruments} title="Productos que pueden interesarte"/>
           <ProductCarousel/>
           </>
         )
