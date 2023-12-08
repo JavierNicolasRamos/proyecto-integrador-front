@@ -48,7 +48,6 @@ export const MainSearchBar = () => {
   return (
     <div>
       <div className="mainSearchBar">
-        <h1>Selecciona fechas para ver productos disponibles</h1>
         <form className="mainSearchBarForm" onSubmit={handlerSubmit}>
           <label htmlFor="name"></label>
           <input

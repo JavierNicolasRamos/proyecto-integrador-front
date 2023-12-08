@@ -3,18 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0.9em;
-  background-color: var(--black);
-  color: var(--white);
-  height: 12vh;
-  margin-bottom: 4vh;
-  padding-top: 2vh;
-}
-
-.mainSearchBar h1 {
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 1vh 0 3vh 0;
+  margin-top: -4vh;
 }
 
 .mainSearchBarForm {
@@ -22,8 +11,8 @@
   border: 3px rgba(188, 188, 188, 1) solid;
   background-color: var(--black);
   display: flex;
-  top: 3vh;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  bottom: 4vh;
 }
 
 .mainSearchBarForm input {
@@ -31,6 +20,7 @@
   border-radius: 10px;
   height: 6vh;
   padding-left: 10px;
+  width: 180px;
 }
 
 .mainSearchBarForm #buscar {
@@ -47,20 +37,13 @@
 }
 
 @media (max-width: 768px) {
-  .mainSearchBar {
-    padding-bottom: 2vh;
-    height: auto;
-    min-height: 12vh;
-  }
 
-  .mainSearchBar h1 {
-    font-size: 0.8rem;
-    padding-bottom: 2vh;
+  .mainSearchBar {
+    margin-top: -13vh;
   }
 
   .mainSearchBarForm {
     display: flex;
-    top: 3vh;
     flex-direction: column;
   }
 }

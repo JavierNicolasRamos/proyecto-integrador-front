@@ -88,8 +88,8 @@ export const SingleCalendar = ({ size, fontSize, onSelect, position }) => {
 };
 
 SingleCalendar.defaultProps = {
-  size: 240,
-  fontSize: 18,
+  size: 180,
+  fontSize: 16,
 };
 
 SingleCalendar.propTypes = {

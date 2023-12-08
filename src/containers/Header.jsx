@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, HeaderProfile, MobileSearchBar, SearchForm } from "../components/index";
+import { Menu, HeaderProfile } from "../components/index";
 import { useWindowSize } from "../hooks/index";
 import { HeaderButtons } from "./index";
 import { useUser } from "../context/UserContext";
@@ -31,10 +31,6 @@ export const Header = () => {
         <Link to={"/home"} className="header__search-bar__logo">
           <img className="header__search-bar__img" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1699641383924-LogoMR_2logo.svg" alt="Imagen del logo de music rental" />
         </Link>
-          { windowSize.width > 768 
-            ? <SearchForm /> 
-            : ''
-          }
           { isLogged
             ? <HeaderProfile />                
             : <HeaderButtons /> 
@@ -42,11 +38,6 @@ export const Header = () => {
 
         </section>
       </header>
-      {
-        windowSize.width < 768 
-          ? <MobileSearchBar /> 
-          : ''
-      }
       <Menu showMenu={showMenu}/> 
     </>
   );
