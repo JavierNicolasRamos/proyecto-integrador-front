@@ -14,41 +14,30 @@ export const HeaderProfile = () => {
 
   return (
     <>
-      {
-        windowSize.width < 768 
-          ? (
-            <img
-              src="src/images/user.svg"
-              alt="imagen"
-            />
-          ):(
-
-            <section className={`header__user-profile`}
-            onMouseLeave={handlerMenuMouseLeave}
-            >
-              <button
-                className={`header__avatar-content ${showMenu ? 'expanded' : ''}`}
-                onClick={handlerMenu}
-                >
-                {avatar}
-              </button>
-              <div
-                className={`header__avatar-menu ${showMenu ? 'menu' : 'hide'}`}
-                onMouseLeave={handlerMenuMouseLeave}
-                >
-                <div className="header__avatar-menu-options">
-                  <Link className="header__avatar-menu-option" to="/account">Perfil</Link>
-                  <button 
-                    className="header__avatar-menu-option"
-                    onClick={handlerCloseSession}
-                    >
-                    Cerrar Sesión
-                  </button>
-                </div>
-              </div>
-            </section>
-          )
-      }
+      <section className={`header__user-profile`}
+      onMouseLeave={handlerMenuMouseLeave}
+      >
+        <button
+          className={`header__avatar-content ${showMenu ? 'expanded' : ''}`}
+          onClick={handlerMenu}
+          >
+          {avatar}
+        </button>
+        <div
+          className={`header__avatar-menu ${showMenu ? 'menu' : 'hide'}`}
+          onMouseLeave={handlerMenuMouseLeave}
+          >
+          <div className="header__avatar-menu-options">
+            <Link className="header__avatar-menu-option" to="/account">Perfil</Link>
+            <button 
+              className="header__avatar-menu-option"
+              onClick={handlerCloseSession}
+              >
+              Cerrar Sesión
+            </button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
