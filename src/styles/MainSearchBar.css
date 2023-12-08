@@ -30,6 +30,7 @@
   border: 5px var(--black) solid;
   border-radius: 10px;
   height: 6vh;
+  padding-left: 10px;
 }
 
 .mainSearchBarForm #buscar {
@@ -48,6 +49,7 @@
 @media (max-width: 768px) {
   .mainSearchBar {
     padding-bottom: 2vh;
+    height: auto;
     min-height: 12vh;
   }
 
@@ -58,7 +60,6 @@
 
   .mainSearchBarForm {
     display: flex;
-    position: static;
     top: 3vh;
     flex-direction: column;
   }
