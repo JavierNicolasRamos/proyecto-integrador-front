@@ -28,28 +28,29 @@ const weekDaysLabel = {
   6: 'Sa',
 };
 
-export const SingleCalendar = ({ size, fontSize, onSelect, onClickOutside, position }) => {
+export const SingleCalendar = ({ size, fontSize, onSelect, position }) => {
   const sizeData = size;
   const fontSizeData = fontSize;
   const [value, setValue] = useState();
   const calendarRef = useRef();
 
-  const handleClickOutside = useCallback(
+  const handleClick = useCallback(
     (e) => {
-      if (calendarRef.current && !calendarRef.current.contains(e.target)) {
-        onClickOutside && onClickOutside();
+      if (calendarRef.current.contains(e.target)) {
+        return;
       }
+      onSelect && onSelect(value);
     },
-    [onClickOutside],
+    [onSelect, value],
   );
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('click', handleClick);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('click', handleClick);
     };
-  }, [handleClickOutside]);
+  }, [handleClick]);
 
   const onChange = useCallback(
     (val) => {
@@ -59,15 +60,19 @@ export const SingleCalendar = ({ size, fontSize, onSelect, onClickOutside, posit
     [onSelect, setValue],
   );
 
+  const handleCalendarClick = (e) => {
+    e.stopPropagation();
+  };
+
   const calendarStyle = {
     position: 'absolute',
     zIndex: 999,
-    top: position.top + window.scrollY, 
-    left: position.left + window.scrollX, 
+    top: position.top + window.scrollY,
+    left: position.left + window.scrollX,
   };
 
   return (
-    <div ref={calendarRef} style={calendarStyle}>
+    <div ref={calendarRef} style={calendarStyle} onClick={handleCalendarClick}>
       <Calendar
         useDarkMode
         startOfWeek={0}
@@ -91,7 +96,6 @@ SingleCalendar.propTypes = {
   size: PropTypes.number,
   fontSize: PropTypes.number,
   onSelect: PropTypes.func,
-  onClickOutside: PropTypes.func,
   position: PropTypes.shape({
     top: PropTypes.number,
     left: PropTypes.number,
