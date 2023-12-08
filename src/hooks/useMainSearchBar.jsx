@@ -3,8 +3,8 @@ import { searchInstruments } from "../services/index";
 
 export const useMainSearchBar = () => {
   const [name, setName] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [isFetching, setIsFetching] = useState("");
   const [searchedInstruments, setSearchedInstruments] = useState("");
   const [focusedDateField, setFocusedDateField] = useState(null);
@@ -15,15 +15,17 @@ export const useMainSearchBar = () => {
 
   const buildQuery = () => {
     let query = "";
-
+  
     if (name) {
       query += `name=${name}&`;
     }
-
+  
     if (startDate && endDate) {
-      query += `startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}`;
+      const formattedStartDate = startDate.toISOString().split('T')[0];
+      const formattedEndDate = endDate.toISOString().split('T')[0];
+      query += `startDate=${encodeURIComponent(formattedStartDate)}&endDate=${encodeURIComponent(formattedEndDate)}`;
     }
-
+  
     return query;
   };
 
@@ -48,9 +50,9 @@ export const useMainSearchBar = () => {
 
   const handleCalendarSelect = (selectedDate) => {
     if (focusedDateField === "startDate") {
-      setStartDate(selectedDate);
+      setStartDate(new Date (selectedDate));
     } else if (focusedDateField === "endDate") {
-      setEndDate(selectedDate);
+      setEndDate(new Date (selectedDate));
     }
     setShowCalendar(false);
   };

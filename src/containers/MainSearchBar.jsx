@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { useMainSearchBar } from "../hooks/index";
 import { SingleCalendar } from "../components";
 import "../styles/MainSearchBar.css";
@@ -22,6 +22,8 @@ export const MainSearchBar = () => {
     inputRefEndDate,    
     calendarPosition,
   } = useMainSearchBar();
+
+  console.log("searched Instruments", searchedInstruments);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
