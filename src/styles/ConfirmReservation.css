@@ -86,3 +86,10 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.reservatioon__actions-buttons{
+  display: flex;
+  justify-content: right;
+  gap: 2vw;
+  padding: 2vw;
+}
