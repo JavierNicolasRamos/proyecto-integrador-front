@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { useMainSearchBar } from "../hooks/index";
 import { SingleCalendar } from "../components";
 import "../styles/MainSearchBar.css";
@@ -17,7 +18,29 @@ export const MainSearchBar = () => {
     showCalendar,
     setShowCalendar,
     handleCalendarClickOutside,
+    inputRefStartDate,  
+    inputRefEndDate,    
+    calendarPosition,
   } = useMainSearchBar();
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        (inputRefStartDate.current && inputRefStartDate.current.contains(e.target)) ||
+        (inputRefEndDate.current && inputRefEndDate.current.contains(e.target))
+      ) {
+        return;
+      }
+      setShowCalendar(false);
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [setShowCalendar, inputRefStartDate, inputRefEndDate]);
+
 
   return (
     <div className="mainSearchBar">
@@ -37,12 +60,17 @@ export const MainSearchBar = () => {
           id="startDate"
           type="text"
           placeholder="Desde"
-          value={startDate}
+          value={startDate ? startDate.toLocaleDateString('es-AR') : ""}
           onFocus={() => handleDateFieldFocus('startDate')}
           readOnly
+          ref={inputRefStartDate}
         />
-        {showCalendar && focusedDateField === 'startDate' && (
-          <SingleCalendar onSelect={handleCalendarSelect} onClickOutside={handleCalendarClickOutside} />
+        {focusedDateField === 'startDate' && showCalendar && (
+          <SingleCalendar
+            onSelect={handleCalendarSelect}
+            onClickOutside={handleCalendarClickOutside}
+            position={{ top: calendarPosition.top, left: calendarPosition.left }}
+          />
         )}
 
         <label htmlFor="endDate"></label>
@@ -50,12 +78,17 @@ export const MainSearchBar = () => {
           id="endDate"
           type="text"
           placeholder="Hasta"
-          value={endDate}
+          value={endDate ? endDate.toLocaleDateString('es-AR') : ""}
           onFocus={() => handleDateFieldFocus('endDate')}
           readOnly
+          ref={inputRefEndDate}
         />
-        {showCalendar && focusedDateField === 'endDate' && (
-          <SingleCalendar onSelect={handleCalendarSelect} onClickOutside={handleCalendarClickOutside} />
+        {focusedDateField === 'endDate' && showCalendar && (
+          <SingleCalendar
+            onSelect={handleCalendarSelect}
+            onClickOutside={handleCalendarClickOutside}
+            position={{ top: calendarPosition.top, left: calendarPosition.left }}
+          />
         )}
 
         <input id="buscar" type="submit" value="Buscar" />

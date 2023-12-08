@@ -28,7 +28,7 @@ const weekDaysLabel = {
   6: 'Sa',
 };
 
-export const SingleCalendar = ({ size, fontSize, onSelect, onClickOutside }) => {
+export const SingleCalendar = ({ size, fontSize, onSelect, onClickOutside, position }) => {
   const sizeData = size;
   const fontSizeData = fontSize;
   const [value, setValue] = useState();
@@ -59,8 +59,15 @@ export const SingleCalendar = ({ size, fontSize, onSelect, onClickOutside }) => 
     [onSelect, setValue],
   );
 
+  const calendarStyle = {
+    position: 'absolute',
+    zIndex: 999,
+    top: position.top + window.scrollY, 
+    left: position.left + window.scrollX, 
+  };
+
   return (
-    <div ref={calendarRef}>
+    <div ref={calendarRef} style={calendarStyle}>
       <Calendar
         useDarkMode
         startOfWeek={0}
@@ -85,4 +92,8 @@ SingleCalendar.propTypes = {
   fontSize: PropTypes.number,
   onSelect: PropTypes.func,
   onClickOutside: PropTypes.func,
+  position: PropTypes.shape({
+    top: PropTypes.number,
+    left: PropTypes.number,
+  }),
 };

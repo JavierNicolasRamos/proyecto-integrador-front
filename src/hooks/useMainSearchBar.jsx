@@ -1,5 +1,5 @@
+import { useRef, useState } from "react";
 import { searchInstruments } from "../services/index";
-import { useState } from "react";
 
 export const useMainSearchBar = () => {
   const [name, setName] = useState("");
@@ -9,7 +9,9 @@ export const useMainSearchBar = () => {
   const [searchedInstruments, setSearchedInstruments] = useState("");
   const [focusedDateField, setFocusedDateField] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
-
+  const inputRefStartDate = useRef(null); 
+  const inputRefEndDate = useRef(null);   
+  const [calendarPosition, setCalendarPosition] = useState({ top: 0, left: 0 });
 
   const buildQuery = () => {
     let query = "";
@@ -19,9 +21,7 @@ export const useMainSearchBar = () => {
     }
 
     if (startDate && endDate) {
-      query += `startDate=${encodeURIComponent(
-        startDate
-      )}&endDate=${encodeURIComponent(endDate)}`;
+      query += `startDate=${encodeURIComponent(startDate)}&endDate=${encodeURIComponent(endDate)}`;
     }
 
     return query;
@@ -38,15 +38,18 @@ export const useMainSearchBar = () => {
 
   const handleDateFieldFocus = (fieldName) => {
     setTimeout(() => {
-      setFocusedDateField(fieldName);
-      setShowCalendar(true);
-    }, 100);
+    setFocusedDateField(fieldName);
+    const inputRef = fieldName === "startDate" ? inputRefStartDate : inputRefEndDate;
+    const rect = inputRef.current.getBoundingClientRect();
+    setCalendarPosition({ top: rect.bottom, left: rect.left });
+    setShowCalendar(true);
+}, 100);
   };
 
   const handleCalendarSelect = (selectedDate) => {
-    if (focusedDateField === 'startDate') {
+    if (focusedDateField === "startDate") {
       setStartDate(selectedDate);
-    } else if (focusedDateField === 'endDate') {
+    } else if (focusedDateField === "endDate") {
       setEndDate(selectedDate);
     }
     setShowCalendar(false);
@@ -70,5 +73,8 @@ export const useMainSearchBar = () => {
     showCalendar,
     setShowCalendar,
     handleCalendarClickOutside,
+    inputRefStartDate,  
+    inputRefEndDate,    
+    calendarPosition,
   };
 };
