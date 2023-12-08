@@ -1,12 +1,30 @@
-.Container {
+.container {
   display: flex;
   gap: 1vw;
 }
 
-.NetworkShareButton {
+.networkShareButton {
   cursor: pointer;
 }
 
-.NetworkShareButton:hover:not(:active) {
+.networkShareButton:hover:not(:active) {
   opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+    position: absolute;
+    top: 20px;
+    border-radius: 20px;
+    background-color: var(--grey);
+    width: 100%;
+    z-index: 0;
+  }
+
+  .container div:first-child{
+    padding-top: 3vh;
+  }
 }

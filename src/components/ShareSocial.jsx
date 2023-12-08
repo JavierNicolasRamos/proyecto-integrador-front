@@ -18,11 +18,11 @@ import "../styles/ShareSocial.css";
 
 export const ShareSocial = ({ shareUrl, name }) => {
     return (
-        <div className="Container">
+        <div className="container">
           <div>
             <FacebookShareButton
               url={shareUrl}
-              className="NetworkShareButton"
+              className="networkShareButton"
             >
               <FacebookIcon size={32} round />
             </FacebookShareButton>
@@ -30,7 +30,7 @@ export const ShareSocial = ({ shareUrl, name }) => {
             <div>
               <FacebookShareCount
                 url={shareUrl}
-                className="NetworkShareButton"
+                className="networkShareButton"
               >
                 {(count) => count}
               </FacebookShareCount>
@@ -41,7 +41,7 @@ export const ShareSocial = ({ shareUrl, name }) => {
             <FacebookMessengerShareButton
               url={shareUrl}
               appId="521270401588372"
-              className="NetworkShareButton"
+              className="networkShareButton"
             >
               <FacebookMessengerIcon size={32} round />
             </FacebookMessengerShareButton>
@@ -51,7 +51,7 @@ export const ShareSocial = ({ shareUrl, name }) => {
             <TwitterShareButton
               url={shareUrl}
               title={name}
-              className="NetworkShareButton"
+              className="networkShareButton"
             >
               <XIcon size={32} round />
             </TwitterShareButton>
@@ -62,7 +62,7 @@ export const ShareSocial = ({ shareUrl, name }) => {
               url={shareUrl}
               title={name}
               separator=":: "
-              className="NetworkShareButton"
+              className="networkShareButton"
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
@@ -73,7 +73,7 @@ export const ShareSocial = ({ shareUrl, name }) => {
               url={shareUrl}
               subject={name}
               body="body"
-              className="NetworkShareButton"
+              className="networkShareButton"
             >
               <EmailIcon size={32} round />
             </EmailShareButton>
