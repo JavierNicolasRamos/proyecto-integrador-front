@@ -1,18 +1,20 @@
 import PropTypes from 'prop-types';
 import { Button } from './Button'
-import { useParams } from 'react-router-dom';
-import "../styles/DetailAside.css"
+import { useParams, useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 import { RangeCalendar } from '../components/index';
+import "../styles/DetailAside.css"
 
 export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
   const { id } = useParams();
-
+  const {isLogged} = useUser()
+  const navigate = useNavigate();
+  
   return (
     <aside className="detail-container">
         <div className="detail__instrument-info">
           <h2 className="detail__instrument-name">{name}</h2>
           <p className="detail__instrument-description">{detail}</p>
-          
           <div className="detail__instruments-description__disponibility">
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
             <RangeCalendar id={id}/>
@@ -23,7 +25,7 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
                 color={"grey"}
               />
               <Button
-                route={`/product/confirmReservation/${id}`}
+                route={ isLogged ? `/product/confirmReservation/${id}` : '/login'}
                 text={"Reservar"}
                 color={"red"}
               />

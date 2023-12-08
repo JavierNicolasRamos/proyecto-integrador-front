@@ -6,11 +6,12 @@
   flex-direction: column;
   align-items: center;
   padding: 2vw 2vw;
+  justify-content: space-around;
 }
 
 .image-wrapper__first-image__container{
-  max-height: 20vw;
-  min-height: 20vw;
+  max-height: 40vw;
+  min-height: 40vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,9 +54,8 @@
 
 .small-images-container a:hover:last-child::after{
   content: "VER MÁS";
-  max-height: 20vh;
   width: 100%;
-  height: 95%;
+  height: 98%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,6 +66,7 @@
   font-family: var(--main-font);
   font-size: 1.5rem;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 @media (max-width: 768px) {

@@ -13,7 +13,7 @@ export const useLoginUser = (data) => {
     role: ''
   });
 
-  const { updateUser, setAvatar, setIsLogged, avatar } = useUser();
+  const { updateUser, setAvatar, setIsLogged, avatar, setName, setSurname } = useUser();
 
   const handlerSubmit = (e) => {
     e.preventDefault();
