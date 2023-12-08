@@ -1,4 +1,4 @@
-import { RandomInstruments, ProductCarousel } from "../containers/index";
+import { RandomInstruments, ProductCarousel, MainSearchBar } from "../containers/index";
 import { Hero, Spinner } from "../components/index";
 import "../styles/Home.css"
 import { useGetRandomInstruments } from "../hooks/index";
@@ -15,6 +15,7 @@ export const Home = () => {
         : (
           <>
           <Hero/>
+          <MainSearchBar/>
           <RandomInstruments instruments={randomsInstruments}/>
           <ProductCarousel/>
           </>
