@@ -30,8 +30,6 @@ export const MainSearchBar = () => {
     calendarPosition,
   } = useMainSearchBar();
 
-  console.log("searched Instruments", searchedInstruments);
-
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
