@@ -1,5 +1,5 @@
 export { getCharacteristic, postCharacteristic, putCharacteristic, deleteCharacteristic } from "./Characteristic";
-export { getAllInstrumentsPaginated, postInstrument, getInstrumentById, getRandomInstruments, putInstrument, getDisabledDates, postSelectedDates  } from "./Instrument";
+export { getAllInstrumentsPaginated, postInstrument, getInstrumentById, getRandomInstruments, putInstrument, getDisabledDates, postSelectedDates, searchInstruments  } from "./Instrument";
 export { getAllCategories, postCategory, deleteCategory } from "./Category";
 export { getAllUsers, putUser, updateUserRole, getUserByEmail } from "./User";
 export { getBookings } from "./Booking";

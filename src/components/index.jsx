@@ -20,7 +20,6 @@ export { Heart } from "./Heart";
 export { Hero } from "./Hero";
 export { LoginForm } from "./LoginForm";
 export { Menu } from "./Menu";
-export { MobileSearchBar} from "./MobileSearchBar"
 export { NotFound } from "./NotFound";
 export { Pagination } from "./Pagination";
 export { PolicyBlock } from "./PolicyBlock";
@@ -28,9 +27,9 @@ export { ProductCarousel } from "../containers/ProductCarousel";
 export { RangeCalendar } from "./RangeCalendar";
 export { RegisterSuccess } from "../containers/RegisterSuccess"
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
-export { SearchForm } from "./SearchForm";
 export { ShareSocial } from "./ShareSocial";
 export { SingleCalendar } from "./SingleCalendar";
 export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
+export { SearchResultCard } from "./searchResultCard";
