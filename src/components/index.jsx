@@ -33,3 +33,4 @@ export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
 export { SearchResultCard } from "./searchResultCard";
+export { RateInstrument } from "./RateInstrument";
