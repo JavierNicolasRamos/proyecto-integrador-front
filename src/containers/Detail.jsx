@@ -24,7 +24,7 @@ export const Detail = () => {
         <>
           <div className="home-button"
             onClick={handlerBackHome}>
-            <img src="/src/images/backArrow.svg" alt="Flecha para volver hacia atras" />
+            <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464015183-backArrow.svg" alt="Flecha para volver hacia atras" />
             <p>Volver atrás</p>
           </div>
           <div className="detail-product__container">

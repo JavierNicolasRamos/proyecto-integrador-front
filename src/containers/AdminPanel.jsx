@@ -3,12 +3,16 @@ import { NotFound } from "../components/index"
 import { useRedirectLogin } from "../hooks"
 import "../styles/AdminPanel.css"
 
-const ACCOUNT_IMAGE = "/src/images/account.svg"
-const ADD_ADMIN_IMAGE = "/src/images/addAdmin.svg"
-const PRODUCT_ICON_IMAGE = "/src/images/productIcon.svg"
-const CATEGORY_ICON_IMAGE = "/src/images/categoryIcon.svg"
-const FEATURE_ICON_IMAGE = "/src/images/featureIcon.svg"
 
+
+const ACCOUNT_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464014417-account.svg"
+const ADD_ADMIN_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464014815-addAdmin.svg"
+const PRODUCT_ICON_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464023081-productIcon.svg"
+const PRODUCTPLUS_ICON_IMAGE = "/src/images/instrumentosPlus.svg"
+const CATEGORY_ICON_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464016147-categoryIcon.svg"
+const CATEGORYPLUS_ICON_IMAGE = "/src/images/categoriasPlus.svg"
+const FEATURE_ICON_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464017742-featureIcon.svg"
+const FEATUREPLUS_ICON_IMAGE = "/src/images/caracteristicasPlus.svg"
 
 const adminPanelRoutes = [
   {
@@ -28,7 +32,7 @@ const adminPanelRoutes = [
   },
   {
     name: "Agregar Producto",
-    image: PRODUCT_ICON_IMAGE,
+    image: PRODUCTPLUS_ICON_IMAGE,
     linkTo: "/admin/instrument/create",
   },
   {
@@ -38,7 +42,7 @@ const adminPanelRoutes = [
   },
   {
     name: "Agregar Categoría",
-    image: CATEGORY_ICON_IMAGE,
+    image: CATEGORYPLUS_ICON_IMAGE,
     linkTo: "/admin/category/create",
   },
   {
@@ -48,7 +52,7 @@ const adminPanelRoutes = [
   },
   {
     name: "Agregar Características",
-    image: FEATURE_ICON_IMAGE,
+    image: FEATUREPLUS_ICON_IMAGE,
     linkTo: "/admin/characteristic/create",
   },
 ];

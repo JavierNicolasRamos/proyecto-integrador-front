@@ -22,7 +22,7 @@ export const Pagination = ({ currentPage, totalPages, handlerPageChange, setCurr
                     setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1)
                 }
             >
-                <img src="/src/images/PrevPage.svg" alt="PrevPage" />
+                <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464022714-PrevPage.svg" alt="PrevPage" />
             </button>
             {Array.from({ length: totalPages }, (_, index) => (
                 <button
@@ -41,7 +41,7 @@ export const Pagination = ({ currentPage, totalPages, handlerPageChange, setCurr
                     setCurrentPage(currentPage === totalPages ? currentPage : currentPage + 1)
                 }
             >
-                <img src="/src/images/NextPage.svg" alt="NextPage" />
+                <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464022357-NextPage.svg" alt="NextPage" />
             </button>
         </div>
     </>

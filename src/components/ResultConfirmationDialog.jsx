@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import "../styles/ResultConfirmationDialog.css";
 
-const SUCCESS_IMAGE = "/src/images/success.svg";
-const EXCLAMATION_IMAGE = "/src/images/exclamation.svg";
+const SUCCESS_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464024222-success.svg";
+const EXCLAMATION_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464017280-exclamation.svg";
 const SUCCESS_ALT = "success symbol";
 const EXCLAMATION_ALT = "exclamation symbol";
 

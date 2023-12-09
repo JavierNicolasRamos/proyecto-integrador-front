@@ -25,7 +25,7 @@ export const Characteristics = ({characteristics, id, name}) => {
             ? <ShareSocial shareUrl={url} name={name} />
             : (
               <div className="characteristics-container__share-div" onClick={handlerClick}>
-                <img className="characteristics-container__share-img" src="/src/images/share.svg" alt=""/>
+                <img className="characteristics-container__share-img" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464023848-share.svg" alt=""/>
                 {showShare && <ShareSocial shareUrl={url} name={name} />}
               </div>
             )

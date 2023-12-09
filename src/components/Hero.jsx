@@ -1,4 +1,4 @@
-const IMAGE_URL = "src/images/banner.svg";
+const IMAGE_URL = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464015606-banner.svg";
 const ALT_TEXT = "imágenes de guitarras Yamaha";
 
 export const Hero = () => (

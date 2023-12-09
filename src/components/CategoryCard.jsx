@@ -18,7 +18,7 @@ export const CategoryCard = ({ id, name, image, handlerDelete, isFetching, showR
   return (
     <div className="category-card" style={backgroundImageStyle}>
       ´{location === "/admin/category/list" ? <img className="trash-can"
-        src="/src/images/trash-can-regular.svg"
+        src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464025331-trash-can-regular.svg"
         alt="trash-can"
         onClick={() => {
           setIsConfirmationOpen(!isConfirmationOpen);

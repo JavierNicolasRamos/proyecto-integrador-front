@@ -3,8 +3,8 @@ import { CategoryCheckBox } from "../components/index";
 import { useGetAllCategories } from "../hooks/index";
 import "../styles/CategoryList.css";
 
-const FILTER_IMAGE = "../src/images/filter.svg";
-const ERASE_FILTER_IMAGE = "../src/images/eraseFilter.svg";
+const FILTER_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464018116-filter.svg";
+const ERASE_FILTER_IMAGE = "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464016895-eraseFilter.svg";
 const FILTER_ALT = "Filter";
 const ERASE_FILTER_ALT = "Erase Filter";
 
