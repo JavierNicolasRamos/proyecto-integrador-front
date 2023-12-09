@@ -151,9 +151,6 @@ export const postSelectedDates = async (dates, jwt) => {
 
 export const searchInstruments = async (query) => {
   
-  console.log("query", query);
-
-
 
   try {
     const { data, status } = await axios.get(`${URL.search}?${query}`);

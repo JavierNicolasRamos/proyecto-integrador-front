@@ -41,7 +41,7 @@ export const useMainSearchBar = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       getPreviewSearchResults();
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timer);
   }, [name, startDate, endDate]);
 

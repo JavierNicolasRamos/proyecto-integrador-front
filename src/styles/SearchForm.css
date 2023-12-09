@@ -17,7 +17,7 @@
 }
 
 .header__search-bar__form__input::placeholder {
-  background-image: url("../images/search.svg"); /*//TODO: fontawesome*/
+  background-image: url("https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464023455-search.svg"); 
   background-repeat: no-repeat;
   background-position: 100% 50%;
   background-size: 2vh;

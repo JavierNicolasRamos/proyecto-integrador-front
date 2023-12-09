@@ -42,15 +42,15 @@ export const PolicyBlock = () => {
           <h2>Métodos de pago</h2>
 
           <div className="payMethod">
-            <img src="/src/images/efectivo.svg" alt="efectivo" />
+            <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464016523-efectivo.svg" alt="efectivo" />
             <p>Efectivo</p>
           </div>
           <div className="payMethod">
-            <img src="/src/images/transfBancaria.svg" alt="transfBancaria" />
+            <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464024967-transfBancaria.svg" alt="transfBancaria" />
             <p>Transferencia</p>
           </div>
           <div className="payMethod">
-            <img src="/src/images/mercadoPago.svg" alt="mercadoPago" />
+            <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464021979-mercadoPago.svg" alt="mercadoPago" />
           </div>
         </section>
       </div>

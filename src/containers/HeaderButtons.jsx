@@ -9,7 +9,7 @@ export const HeaderButtons = () => {
   return (
     <>
       { width < 768
-        ? <img className="header__user-menu" src="src/images/user.svg" alt="Menu"/> 
+        ? <img className="header__user-menu" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464025713-user.svg" alt="Menu"/> 
         : <div className="header__action-buttons">
             <Button
               text={"Registrarse"}

@@ -17,6 +17,7 @@ export const UserFavs = () => {
           image={instrument.image[0].image}
           score={instrument.score}
           category={instrument.category.name}
+          reviewCount={instrument.reviewCount}
         />
       ))}
     </div>

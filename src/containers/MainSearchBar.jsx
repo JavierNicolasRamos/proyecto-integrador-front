@@ -30,8 +30,6 @@ export const MainSearchBar = () => {
     calendarPosition,
   } = useMainSearchBar();
 
-  console.log("searched Instruments", searchedInstruments);
-
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -124,11 +122,14 @@ export const MainSearchBar = () => {
               image={image && image[0] && image[0].image}
             />
           ))}
-      {searchedInstruments && (
+      {Array.isArray(searchedInstruments) && searchedInstruments.length > 0 && (
         <RandomInstruments
           instruments={searchedInstruments}
           title="Resultados de tu búsqueda"
         />
+      )}
+      {Array.isArray(searchedInstruments) && searchedInstruments.length === 0 && (
+        <h3 className="mainSearcBar-NoResults">No hubo resultados para tu búsqueda</h3>
       )}
     </div>
   );

@@ -65,6 +65,7 @@ export const ProductCarousel = () => {
               image={product.image[0].image}
               score={product.score}
               category={product.category.name}
+              reviewCount={product.reviewCount}
             />
           ))}
         </Slider>

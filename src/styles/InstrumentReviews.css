@@ -1,0 +1,42 @@
+.instrumentReviews {
+  width: 75vw;
+  margin: 0 auto;
+  background-color: var(--btn);
+  color: var(--white);
+  padding: 3vw;
+  font-family: var(--main-font);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.instrumentReviewsTitle {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewCard hr {
+  margin-top: 10px;
+  border-top: 1px;
+}
+
+.scoreStar img{
+    height: 20px;
+}
+
+.scoreStarsContainer {
+  display: flex;
+  gap: 15px;
+}
+
+.scoreStarUnfilled {
+  filter: invert(97%) sepia(2%) saturate(130%) hue-rotate(183deg)
+    brightness(113%) contrast(0%);
+}

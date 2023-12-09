@@ -13,7 +13,7 @@ export const Login = () => {
           <span>OR</span>
           <div className="login__social-buttons">
             <button className="login__social-button-facebook"><FontAwesomeIcon icon={faFacebookF} size="xl" style={{color: "#ffffff",}} /></button>
-            <button className="login__social-button-google"><img src="src/images/gmail.svg" alt="" /></button>
+            <button className="login__social-button-google"><img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464018481-gmail.svg" alt="" /></button>
             <button className="login__social-button-twitter"><FontAwesomeIcon icon={faXTwitter} size="xl" style={{color: "#ffffff",}}/></button>
           </div>
         </div>
