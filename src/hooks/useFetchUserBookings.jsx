@@ -5,6 +5,7 @@ export const useFetchUserBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
+
   const jwt = sessionStorage.getItem("jwt");
   const email = sessionStorage.getItem("email");
 
@@ -24,8 +25,9 @@ export const useFetchUserBookings = () => {
     fetchBookings();
   }, []);
 
+
   return {
     bookings,
     isFetching,
-  };
+    };
 };
