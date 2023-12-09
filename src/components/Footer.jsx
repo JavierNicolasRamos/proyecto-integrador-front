@@ -3,6 +3,7 @@ import { faFacebookSquare, faSquareThreads, faWhatsapp, faXTwitter } from '@fort
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { useShowBrands } from '../hooks/index';
 import "../styles/Footer.css";
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   const showBrands = useShowBrands();// Observa cambios en la ubicación
@@ -61,9 +62,9 @@ export const Footer = () => {
         </div>
           <div className="footer-principal-information-content">
             <p>Información</p>
-            <a href="/policyBlock">Políticas de uso</a>
-            <a href="">Forma de pago</a>
-            <a href="">Blog</a>
+            <Link to={"/aboutUs"}>Sobre nosotros</Link>
+            <Link to={"/policyBlock"}>Políticas de uso</Link>
+            <Link to={""}>Forma de pago</Link>
           </div>
           <div className="footer-principal-information-logo">
             <img src="/src/images/header-logo.svg" alt="logo" />

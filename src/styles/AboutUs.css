@@ -1,0 +1,26 @@
+.about-us{
+  min-height: 56vh;
+  font-family: var(--main-font);
+  padding: 2vw;
+  text-align: center;
+}
+
+.about-us__title{
+  font-size: 2rem;
+  padding: 2vh;
+}
+
+.about-us__container{
+  width: 80%;
+  margin: 0 auto;
+  gap: 2vw;
+  display: grid;
+  min-width: min-content;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      300px,
+      1fr
+    )
+  );
+}
