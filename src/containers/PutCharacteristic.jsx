@@ -55,7 +55,7 @@ export const PutCharacteristic = (presentCharacteristic) => {
         </form>
 
         {isFetching && <Spinner />}
-        {showError && <ValidationError />}
+        {showError && <ValidationError message="Asegúrate que el Nombre tenga al menos 3 caracteres." />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}

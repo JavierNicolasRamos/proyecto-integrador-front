@@ -107,7 +107,7 @@ export const CreateInstrument = () => {
         </form>
 
         {isFetching && <Spinner />}
-        {showError && <ValidationError />}
+        {showError && <ValidationError message="Asegúrate de adjuntar una Imagen, seleccionar una Categoría, y que el Nombre y la Descripción tengan al menos 3 y 10 caracteres respectivamente." />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}

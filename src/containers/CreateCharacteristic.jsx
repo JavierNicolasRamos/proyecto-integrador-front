@@ -56,7 +56,7 @@ export const CreateCharacteristic = () => {
         </form>
 
         {isFetching && <Spinner />}
-        {showError && <ValidationError />}
+        {showError && <ValidationError message="Asegúrate de seleccionar un Icono, y que el Nombre tenga al menos 3 caracteres." />}
         {showResult && (
           <ResultConfirmationDialog
             success={success}
