@@ -1,12 +1,11 @@
 import { useState, useCallback, useEffect } from 'react';
-import { getDisabledDates, postSelectedDates } from '../services/index';
+import { getDisabledDates } from '../services/index';
 
 export const useCalendar = (id) => {
   const [value, setValue] = useState([]);
   const [disabledDates, setDisabledDates] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [getError, setGetError] = useState(null);
-  const [postError, setPostError] = useState(null);
 
   useEffect(() => {
     getDisabledDates(id)
@@ -24,17 +23,13 @@ export const useCalendar = (id) => {
     return disabledDates.includes(dateString);
   }, [disabledDates]);
 
-  const onChange = useCallback((val) => {
-    setValue(val);
-    postSelectedDates(val)
-      .then(response => {
-        setValue(response);
-      })
-      .catch(error => {
-        setPostError(error);        
-      })
-      .finally(() => setIsFetching(false));
-  }, []);
+  const onChange = useCallback(
+    (val) => {
+      val = val.map(date => date.toISOString().split('T')[0]);
+      setValue(val);
+    },
+    [setValue],
+  );
 
-  return { value, setValue, isDisabled, onChange, isFetching, getError, postError };
+  return { value, setValue, isDisabled, onChange, isFetching, getError };
 };
