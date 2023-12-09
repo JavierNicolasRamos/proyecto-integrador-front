@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { searchInstruments } from "../services/index";
 
 export const useMainSearchBar = () => {
@@ -6,7 +6,8 @@ export const useMainSearchBar = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isFetching, setIsFetching] = useState("");
-  const [searchedInstruments, setSearchedInstruments] = useState("");
+  const [searchedInstruments, setSearchedInstruments] = useState(null);
+  const [previewSearchResults, setPreviewSearchResults] = useState(null);
   const [focusedDateField, setFocusedDateField] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const inputRefStartDate = useRef(null); 
@@ -29,6 +30,23 @@ export const useMainSearchBar = () => {
     return query;
   };
 
+  const getPreviewSearchResults = async () => {
+    setIsFetching(true);
+    const query = buildQuery();
+    const { data, status } = await searchInstruments(query);
+    setIsFetching(false);
+    setPreviewSearchResults(data);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      getPreviewSearchResults();
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [name, startDate, endDate]);
+
+  
+
   const handlerSubmit = async (e) => {
     e.preventDefault();
     setIsFetching(true);
@@ -36,6 +54,7 @@ export const useMainSearchBar = () => {
     const { data, status } = await searchInstruments(query);
     setIsFetching(false);
     setSearchedInstruments(data);
+    setPreviewSearchResults(null)
   };
 
   const handleDateFieldFocus = (fieldName) => {
@@ -68,6 +87,7 @@ export const useMainSearchBar = () => {
     endDate,
     handlerSubmit,
     isFetching,
+    previewSearchResults,
     searchedInstruments,
     handleCalendarSelect,
     handleDateFieldFocus,

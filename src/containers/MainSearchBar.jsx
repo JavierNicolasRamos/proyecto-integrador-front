@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useMainSearchBar } from "../hooks/index";
-import { SingleCalendar, Spinner } from "../components/index";
+import { SingleCalendar, Spinner, SearchResultCard } from "../components/index";
 import { RandomInstruments } from "./index";
 import "../styles/MainSearchBar.css";
 
@@ -12,6 +12,7 @@ export const MainSearchBar = () => {
     endDate,
     handlerSubmit,
     isFetching,
+    previewSearchResults,
     searchedInstruments,
     handleCalendarSelect,
     handleDateFieldFocus,
@@ -103,6 +104,17 @@ export const MainSearchBar = () => {
         </form>
       </div>
       {isFetching && <Spinner />}
+      {Array.isArray(previewSearchResults) &&
+        previewSearchResults
+          .slice(0, 4)
+          .map(({ id, name, image }) => (
+            <SearchResultCard
+              key={id}
+              id={id}
+              name={name}
+              image={image && image[0] && image[0].image}
+            />
+          ))}
       {searchedInstruments && (
         <RandomInstruments
           instruments={searchedInstruments}

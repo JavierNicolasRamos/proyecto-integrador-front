@@ -32,3 +32,4 @@ export { SingleCalendar } from "./SingleCalendar";
 export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
+export { SearchResultCard } from "./searchResultCard";
