@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Calendar } from '@natscale/react-calendar';
 import '@natscale/react-calendar/dist/main.css';
 
@@ -18,7 +18,6 @@ const monthsLabel = {
   11: 'Diciembre',
 };
 
-
 const weekDaysLabel = {
   0: 'Do',
   1: 'Lu',
@@ -29,30 +28,76 @@ const weekDaysLabel = {
   6: 'Sa',
 };
 
-export const SingleCalendar = ({size, fontSize}) => {
-
+export const SingleCalendar = ({ size, fontSize, onSelect, position }) => {
   const sizeData = size;
-
   const fontSizeData = fontSize;
-
   const [value, setValue] = useState();
+  const calendarRef = useRef();
+
+  const handleClick = useCallback(
+    (e) => {
+      if (calendarRef.current.contains(e.target)) {
+        return;
+      }
+      onSelect && onSelect(value);
+    },
+    [onSelect, value],
+  );
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [handleClick]);
 
   const onChange = useCallback(
     (val) => {
       setValue(val);
+      onSelect && onSelect(val);
     },
-    [setValue],
+    [onSelect, setValue],
   );
-  
-    return <Calendar useDarkMode startOfWeek={0} weekDaysLabel={weekDaysLabel} monthsLabel={monthsLabel} size={sizeData} fontSize={fontSizeData} value={value} onChange={onChange}/>;
+
+  const handleCalendarClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const calendarStyle = {
+    position: 'absolute',
+    zIndex: 999,
+    top: position.top + window.scrollY,
+    left: position.left + window.scrollX,
+  };
+
+  return (
+    <div ref={calendarRef} style={calendarStyle} onClick={handleCalendarClick}>
+      <Calendar
+        useDarkMode
+        startOfWeek={0}
+        weekDaysLabel={weekDaysLabel}
+        monthsLabel={monthsLabel}
+        size={sizeData}
+        fontSize={fontSizeData}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
 };
 
 SingleCalendar.defaultProps = {
-  size: 240,
-  fontSize: 18
+  size: 180,
+  fontSize: 16,
 };
 
 SingleCalendar.propTypes = {
   size: PropTypes.number,
-  fontSize: PropTypes.number
+  fontSize: PropTypes.number,
+  onSelect: PropTypes.func,
+  position: PropTypes.shape({
+    top: PropTypes.number,
+    left: PropTypes.number,
+  }),
 };
