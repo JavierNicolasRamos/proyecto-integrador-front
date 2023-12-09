@@ -2,8 +2,8 @@ import "../styles/ValidationError.css";
 
 const ERROR_MESSAGE = "Por favor chequea que la información sea correcta";
 
-export const ValidationError = () => (
+export const ValidationError = ({message}) => (
   <div className="ValidationError">
-    <p>{ERROR_MESSAGE}</p>
+    <p>{message? message : ERROR_MESSAGE}</p>
   </div>
 );

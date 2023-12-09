@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useMainSearchBar } from "../hooks/index";
-import { SingleCalendar, Spinner, SearchResultCard } from "../components/index";
+import {
+  SingleCalendar,
+  Spinner,
+  SearchResultCard,
+  ValidationError,
+} from "../components/index";
 import { RandomInstruments } from "./index";
 import "../styles/MainSearchBar.css";
 
@@ -68,6 +73,7 @@ export const MainSearchBar = () => {
             readOnly
             ref={inputRefStartDate}
           />
+
           {focusedDateField === "startDate" && showCalendar && (
             <SingleCalendar
               onSelect={handleCalendarSelect}
@@ -103,6 +109,9 @@ export const MainSearchBar = () => {
           <input id="buscar" type="submit" value="Buscar" />
         </form>
       </div>
+      {((!startDate && endDate) || (!endDate && startDate)) && (
+        <ValidationError message={"Completa ambas fechas"} />
+      )}
       {isFetching && <Spinner />}
       {Array.isArray(previewSearchResults) &&
         previewSearchResults
