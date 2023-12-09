@@ -1,5 +1,5 @@
 import "../styles/BookingCard.css";
-import { RateInstrument } from "./index";
+import { RateInstrument, Spinner, ResultConfirmationDialog } from "./index";
 import { usePostReview } from "../hooks/index";
 
 export const BookingCard = ({ booking }) => {
@@ -12,7 +12,11 @@ const {
   setReviewDescription,
   score,
   setScore,
-} = usePostReview();
+  showResult,
+  success,
+  resultContent,
+  isFetching,
+} = usePostReview(booking.instrument.id);
 
   return (
     <div className="bookingCard">
@@ -48,6 +52,17 @@ const {
       <button className="rateBtn" onClick={rankBtnHandler}>
         Puntuar
       </button>
+
+      {isFetching && <Spinner />}
+        {showResult && (
+          <ResultConfirmationDialog
+            success={success}
+            resultContent={resultContent}
+            actionDetail={"Volver a mi cuenta"}
+            presentRoute={"/account"}
+          />
+        )}
+
     </div>
   );
 };

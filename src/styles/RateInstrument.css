@@ -1,4 +1,25 @@
-.scoreStar {
-    color: red !important;
-    background-color: red !important;
+.rateInstrumentContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.scoreStarsContainer{
+display: flex;
+gap: 20px;
+}
+
+.scoreStarUnfilled {
+    filter: invert(97%) sepia(2%) saturate(130%) hue-rotate(183deg) brightness(113%) contrast(0%)
+}
+
+.rateInstrumentContainer textarea {
+    font-family: var(--main-font);
+    padding: 6px;
+    border: 1px solid var(--white-grey);
+    border-radius: 15px;
+    width: 320px;
+    height: 90px;
 }

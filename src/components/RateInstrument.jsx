@@ -9,10 +9,18 @@ export const RateInstrument = ({
   setScore,
 }) => { 
     return (
-    <div>
-        <div className="scoreStarsContainer">
-        <div className="scoreStar">⭐</div>
-        </div>
+    <div className="rateInstrumentContainer">
+         <div className="scoreStarsContainer">
+        {[1, 2, 3, 4, 5].map((starValue) => (
+            <div
+                key={starValue}
+                className={score >= starValue ? "" : "scoreStarUnfilled"}
+                onClick={() => setScore(starValue)}
+            >
+                <img src="/src/images/Star.svg" alt={`scoreStar${starValue}`} />
+            </div>
+        ))}
+    </div>
 
     <label htmlFor="reviewDescription"></label>
           <textarea
@@ -22,10 +30,6 @@ export const RateInstrument = ({
             value={reviewDescription}
             onChange={(e) => setReviewDescription(e.target.value)}
           />
-
-
-
-
 
   </div>
     )

@@ -5,3 +5,4 @@ export { getAllUsers, putUser, updateUserRole, getUserByEmail } from "./User";
 export { getBookings } from "./Booking";
 export { getAllFavs, postFav, deleteFav } from "./Favourite";
 export { resendEmail } from "./Email"
+export { getReviewsByInstrument, postReview } from "./Review";
