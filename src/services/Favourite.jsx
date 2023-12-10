@@ -10,6 +10,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   deleteFav: `${backUrl}/favourite/remove`,
@@ -17,7 +18,7 @@ const URL = {
   getAllFavs: `${backUrl}/favourite`,
 };
 
-export const getAllFavs = async (email, jwt) => {
+export const getAllFavs = async (email) => {
 
   const config = {
     headers: {
@@ -36,7 +37,7 @@ export const getAllFavs = async (email, jwt) => {
 
 };
 
-export const postFav = async (id, email, jwt) => {
+export const postFav = async (id, email) => {
 
   const config = {
     headers: {
@@ -59,7 +60,7 @@ export const postFav = async (id, email, jwt) => {
   }
 };
 
-export const deleteFav = async (id, email, jwt) => {
+export const deleteFav = async (id, email) => {
 
     const config = {
       headers: {

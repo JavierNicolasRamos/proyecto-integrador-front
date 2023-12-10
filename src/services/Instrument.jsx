@@ -10,6 +10,7 @@ const errorMessages = {
 
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   createInstrument: `${backUrl}/instruments`,
@@ -71,7 +72,7 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
   }
 };
 
-export const postInstrument = async (formData, jwt) => {
+export const postInstrument = async (formData) => {
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -89,7 +90,7 @@ export const postInstrument = async (formData, jwt) => {
   }
 };
 
-export const putInstrument = async (instrument, jwt) => {
+export const putInstrument = async (instrument) => {
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -106,7 +107,7 @@ export const putInstrument = async (instrument, jwt) => {
   }
 };
 
-export const deleteInstrument = async (id, jwt) => {
+export const deleteInstrument = async (id) => {
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -132,7 +133,7 @@ export const getDisabledDates = async (id) => {
   }
 };
 
-export const postSelectedDates = async (dates, jwt) => {
+export const postSelectedDates = async (dates) => {
 
   const config = {
     headers: {
@@ -150,7 +151,6 @@ export const postSelectedDates = async (dates, jwt) => {
 
 
 export const searchInstruments = async (query) => {
-  
 
   try {
     const { data, status } = await axios.get(`${URL.search}?${query}`);

@@ -9,6 +9,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   list: `${backUrl}/booking`,
@@ -18,7 +19,7 @@ const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getBookings = async (jwt) => {
+export const getBookings = async () => {
 
   const config = {
     headers: {
@@ -28,6 +29,24 @@ export const getBookings = async (jwt) => {
 
   try {
     const { data, status } = await axios.get(`${URL.list}`, config);
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
+  }
+};
+
+export const postBooking = async (data) => {
+
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${jwt}`
+    }
+  };
+
+  try {
+    const { data, status } = await axios.post(`${URL.list}`, config);
     return { data, status };
   } catch (e) {
     const data = e.response.data;

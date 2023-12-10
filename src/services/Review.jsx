@@ -8,8 +8,8 @@ const errorMessages = {
   404: "No se encontraron productos",
 };
 
-
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   getReviewsUser: `${backUrl}/reviews/user`,
@@ -21,7 +21,7 @@ const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getReviewsByInstrument = async (id, jwt) => {
+export const getReviewsByInstrument = async (id) => {
 
   const config = {
     headers: {
@@ -40,7 +40,7 @@ export const getReviewsByInstrument = async (id, jwt) => {
   }
 };
 
-export const postReview = async (formData, jwt) => {
+export const postReview = async (formData) => {
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
