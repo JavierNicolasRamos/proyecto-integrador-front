@@ -9,12 +9,6 @@ export const usePostCharacteristic = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
-  const [jwt, setJwt] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
 
   const icons = [
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269359389-1170628_1.png",
@@ -34,12 +28,12 @@ export const usePostCharacteristic = () => {
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366113-peso1_1.png",
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366474-VERI_1.png",
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366834-vol1_1.png"
-]
+  ]
 
-const handlerIconSelection = (event) => {
-  const src = event.target.src;
-  setIcon(src);
-};
+  const handlerIconSelection = (event) => {
+    const src = event.target.src;
+    setIcon(src);
+  };
 
   const validateForm = () => {
     if (
@@ -51,9 +45,7 @@ const handlerIconSelection = (event) => {
     } else {
       return true
     }
-  };
-
-  
+  }
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
@@ -66,7 +58,7 @@ const handlerIconSelection = (event) => {
 
     if (validated === true) {
       setIsFetching(true);
-      const {data, status} = await postCharacteristic(formData, jwt)
+      const {data, status} = await postCharacteristic(formData)
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);
@@ -81,8 +73,6 @@ const handlerIconSelection = (event) => {
     } else {
       setShowError(true)
     }
-    
-    
   };
 
   return { isFetching, name, setName, icon, handlerSubmit, showError, showResult, success, resultContent, icons, handlerIconSelection};

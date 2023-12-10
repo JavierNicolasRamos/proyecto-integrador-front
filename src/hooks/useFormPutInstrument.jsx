@@ -5,8 +5,8 @@ import { useFetchAdminCharacteristicList } from "./useFetchAdminCharacteristicLi
 //import { createLogger } from "vite";
 
 export const useFormPutInstrument = (presentInstrument) => {
-  const { categories, selectedCategoryId, setSelectedCategoryId } =
-    useFetchCategories();
+
+  const { categories, selectedCategoryId, setSelectedCategoryId } = useFetchCategories();
   const { characteristics } = useFetchAdminCharacteristicList();
   const [name, setName] = useState(presentInstrument.presentInstrument.name);
   const [detail, setDetail] = useState(
@@ -20,12 +20,6 @@ export const useFormPutInstrument = (presentInstrument) => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
-  const [jwt, setJwt] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
-  }, []);
 
   const handleCheckboxChange = (event, option) => {
     const { checked } = event.target;
@@ -77,7 +71,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       deleted: null,
     };
 
-    const { data, status } = await putInstrument(instrument, jwt);
+    const { data, status } = await putInstrument(instrument);
 
     return { data, status };
   };

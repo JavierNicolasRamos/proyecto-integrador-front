@@ -20,15 +20,11 @@ export const useFormCreateInstrument = () => {
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
   const [adminMail, setAdminEmail] = useState("");
-  const [jwt, setJwt] = useState("");
 
   useEffect(() => {
     const emailFromSessionStorage = sessionStorage.getItem("email");
     emailFromSessionStorage ? setAdminEmail(emailFromSessionStorage) : null
-    
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
+  }, []);
 
     const handleCheckboxChange = (event, option) => {
       const { checked } = event.target;
@@ -90,7 +86,7 @@ export const useFormCreateInstrument = () => {
       formData.append("images", image);
     });
 
-    const { data, status } = await postInstrument(formData, jwt);
+    const { data, status } = await postInstrument(formData);
 
     return { data, status };
   };

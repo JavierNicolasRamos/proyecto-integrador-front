@@ -29,4 +29,5 @@ export { useRedirectLogin } from "./useRedirectLogin"
 export { useResendRegisterEmail } from "./useResendRegisterEmail"
 export { useMainSearchBar } from "./useMainSearchBar";
 export { usePostReview } from "./usePostReview";
+export { useHandlerResize } from "./useHandlerResize"
 export { useGetInstrumentReviews } from "./useGetInstrumentReviews";
