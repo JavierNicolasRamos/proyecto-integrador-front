@@ -31,6 +31,5 @@ export const useCalendar = (id) => {
     [setValue],
     );
     
-    console.log(value)
   return { value, setValue, isDisabled, onChange, isFetching, getError };
 };

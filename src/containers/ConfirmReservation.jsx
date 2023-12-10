@@ -1,4 +1,5 @@
-import { useCalendar, useInstrument, useMainSearchBar, useUserAccountData } from "../hooks"
+import { useState } from 'react';
+import { useInstrument, useUserAccountData } from "../hooks"
 import { useParams } from 'react-router-dom';
 import { Button } from "../components/Button";
 import { RangeCalendar } from "../components";
@@ -9,8 +10,12 @@ export const ConfirmReservation = () => {
   const { id } = useParams()
   const { instrument, image } = useInstrument(id)
   const { user } = useUserAccountData()
-  const { onChange, value} = useCalendar(id)
-  console.log(value)
+  const [rangeValue, setRangeValue] = useState();
+
+  const handlerRangeChange = (value) => {
+    const data = value.map(date => date.toISOString().split('T')[0])
+    setRangeValue(data);
+  };
 
   return (
     <div className="reservation">
@@ -44,20 +49,30 @@ export const ConfirmReservation = () => {
               id="startDate"
               type="text"
               placeholder="Desde"
-              onChange={onChange}
+              value={
+                rangeValue === undefined
+                  ? ""
+                  : rangeValue[0]
+                }
               className="reservation__instrument-date__start"
+              readOnly
             />
             <input
               id="startDate"
               type="text"
               placeholder="Hasta"
-              onChange={onChange}
+              value={
+                rangeValue === undefined
+                  ? ""
+                  : rangeValue[1]
+                }
               className="reservation__instrument-date__end"
+              readOnly
             />
             <RangeCalendar 
               id={id}
+              onChange={handlerRangeChange}
             />
-
 
           </div>
         </div>

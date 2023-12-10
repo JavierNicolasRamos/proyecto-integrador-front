@@ -28,11 +28,10 @@ const weekDaysLabel = {
   6: 'Sa',
 };
 
-export const RangeCalendar = ({size, fontSize, id}) => {
+export const RangeCalendar = ({size, fontSize, id, onChange }) => {
   const sizeData = size;
   const fontSizeData = fontSize;
-  const { value, isDisabled, onChange } = useCalendar(id);
-  console.log(value)
+  const { value, isDisabled } = useCalendar(id, onChange);
   
   return <Calendar useDarkMode isRangeSelector noPadRangeCell startOfWeek={0} weekDaysLabel={weekDaysLabel} monthsLabel={monthsLabel} size={sizeData} fontSize={fontSizeData} value={value} onChange={onChange} isDisabled={isDisabled}/>;
 };
@@ -46,4 +45,5 @@ RangeCalendar.propTypes = {
   size: PropTypes.number,
   fontSize: PropTypes.number,
   id: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
