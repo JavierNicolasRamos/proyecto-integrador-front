@@ -29,7 +29,8 @@ export const useCalendar = (id) => {
       setValue(val);
     },
     [setValue],
-  );
-
+    );
+    
+    console.log(value)
   return { value, setValue, isDisabled, onChange, isFetching, getError };
 };

@@ -33,6 +33,6 @@ export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
 export { ValidationError } from "./ValidationError";
 export { AboutUsCard } from "./AboutUsCard";
-export { SearchResultCard } from "./searchResultCard";
+export { SearchResultCard } from "./SearchResultCard";
 export { RateInstrument } from "./RateInstrument";
 export { InstrumentReviews } from "./InstrumentReviews";

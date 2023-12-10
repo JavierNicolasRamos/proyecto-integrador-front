@@ -81,10 +81,19 @@
 .reservation__instrument-date{
   display: flex;
   margin: 0 auto;
-  gap: 2vw;
+  gap: 1vw;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
+}
+
+.reservation__instrument-date__start,
+.reservation__instrument-date__end{
+  border-radius: 10px;
+  border: none;
+  outline: 3px solid var(--total-black);
+  min-height: 4vh;
+  padding-left: 1vw;
+  width: 10vw;
 }
 
 .reservatioon__actions-buttons{

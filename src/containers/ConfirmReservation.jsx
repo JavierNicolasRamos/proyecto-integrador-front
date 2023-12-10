@@ -1,14 +1,16 @@
-import { useInstrument } from "../hooks"
+import { useCalendar, useInstrument, useMainSearchBar, useUserAccountData } from "../hooks"
 import { useParams } from 'react-router-dom';
-import { useUser } from "../context/UserContext";
 import { Button } from "../components/Button";
+import { RangeCalendar } from "../components";
 import "../styles/ConfirmReservation.css"
 
 export const ConfirmReservation = () => {
 
   const { id } = useParams()
-  const { user } = useUser()
   const { instrument, image } = useInstrument(id)
+  const { user } = useUserAccountData()
+  const { onChange, value} = useCalendar(id)
+  console.log(value)
 
   return (
     <div className="reservation">
@@ -37,10 +39,26 @@ export const ConfirmReservation = () => {
             <p className="reservation__instrument-detail-text">{instrument.detail}</p>
           </div>
           <div className="reservation__instrument-date">
-            <h4>Desde</h4>
-            <p>20/11/2011</p>
-            <h4>Hasta</h4>
-            <p>20/11/2011</p>
+
+            <input
+              id="startDate"
+              type="text"
+              placeholder="Desde"
+              onChange={onChange}
+              className="reservation__instrument-date__start"
+            />
+            <input
+              id="startDate"
+              type="text"
+              placeholder="Hasta"
+              onChange={onChange}
+              className="reservation__instrument-date__end"
+            />
+            <RangeCalendar 
+              id={id}
+            />
+
+
           </div>
         </div>
         <div className="reservatioon__actions-buttons">

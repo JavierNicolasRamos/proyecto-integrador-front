@@ -64,7 +64,6 @@ export const Footer = () => {
             <p>Información</p>
             <Link to={"/aboutUs"}>Sobre nosotros</Link>
             <Link to={"/policyBlock"}>Políticas de uso</Link>
-            <Link to={""}>Forma de pago</Link>
           </div>
           <div className="footer-principal-information-logo">
             <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464019253-header-logo.svg" alt="logo" />
