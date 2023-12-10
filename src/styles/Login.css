@@ -42,11 +42,11 @@
 }
 
 .login__content span::before{
-  content: url(src/images/Line.png);
+  content: url("https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464020131-Line.png");
 }
 
 .login__content span::after{
-  content: url(src/images/Line.png);
+  content: url("https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464020131-Line.png");
 }
 
 .login__social-buttons{

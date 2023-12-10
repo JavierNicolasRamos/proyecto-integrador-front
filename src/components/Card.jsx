@@ -4,7 +4,7 @@ import { Heart } from './index';
 import { useUser } from '../context/UserContext';
 import "../styles/Card.css";
 
-export const Card = ({ id, name, image, score, category }) => {
+export const Card = ({ id, name, image, score, category, reviewCount }) => {
   
   const navigate = useNavigate();
   const { isLogged } = useUser()
@@ -20,6 +20,7 @@ export const Card = ({ id, name, image, score, category }) => {
         <h3 className="card__details-name">{name}</h3>
         <p className="card__details-category">{category}</p>
         <p className="card__details-score">⭐ {score}</p>
+        <p className="card__details-reviewCount">{reviewCount} {reviewCount === 1 ? "Valoración" : "Valoraciones"}</p>
       </div>
     </div>
     </Link>

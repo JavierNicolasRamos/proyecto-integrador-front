@@ -70,7 +70,7 @@ export const CreateCategory = () => {
         </form>
 
         {isFetching && <Spinner />}
-        {showError && <ValidationError />}
+        {showError && <ValidationError message="Asegúrate de adjuntar una imagen, y que el Título y Descripción tengan al menos 3 caracteres." />}
         {showResult && (
           <ResultConfirmationDialog 
             success={success}

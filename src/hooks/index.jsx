@@ -27,3 +27,6 @@ export { useGetAllLikes } from "./useGetAllLikes";
 export { useLike } from "./useLike";
 export { useRedirectLogin } from "./useRedirectLogin"
 export { useResendRegisterEmail } from "./useResendRegisterEmail"
+export { useMainSearchBar } from "./useMainSearchBar";
+export { usePostReview } from "./usePostReview";
+export { useGetInstrumentReviews } from "./useGetInstrumentReviews";

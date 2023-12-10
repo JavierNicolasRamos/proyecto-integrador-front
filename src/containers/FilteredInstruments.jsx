@@ -7,14 +7,15 @@ export const FilteredInstruments = ({instruments}) => {
     <>
       <div className="product-content">
         <div className="product__grid-randomprods">
-          {instruments.map(({ id, name, image, score, category }) => (
+          {instruments.map(({ id, name, image, score, category, reviewCount }) => (
               <Card 
               key={id} 
               id={id} 
               name={name} 
               image={image[0].image}
               score={score}
-              category={category.name} 
+              category={category.name}
+              reviewCount={reviewCount}
             /> 
           ))}
         </div>

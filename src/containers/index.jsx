@@ -28,5 +28,9 @@ export { UserFavs } from "./UserFavs"
 export { UserAccountData } from "./UserAccountData"
 export { ConfirmReservation } from "./ConfirmReservation"
 export { NotAllowed } from "./NotAllowed"
+<<<<<<< HEAD
 export { ReservationSuccess } from "./ReservationSuccess"
 export { AboutUs } from "./AboutUs"
+=======
+export { MainSearchBar } from "./MainSearchBar"
+>>>>>>> main

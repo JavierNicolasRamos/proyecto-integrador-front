@@ -20,6 +20,7 @@ const URL = {
   random: `${backUrl}/instruments`,
   deleteInstrument: `${backUrl}/instruments/`,
   calendar: `${backUrl}/booking/occupied-dates/`,
+  search: `${backUrl}/instruments/search`
 };
 
 const handlerErrors = (e) => {
@@ -144,5 +145,20 @@ export const postSelectedDates = async (dates, jwt) => {
     return data;
   } catch (e) {
     handlerErrors(e);
+  }
+};
+
+
+export const searchInstruments = async (query) => {
+  
+
+  try {
+    const { data, status } = await axios.get(`${URL.search}?${query}`);
+    console.log(data, status);
+    return { data, status };
+  } catch (e) {
+    const data = e.response.data;
+    const status = "";
+    return { data, status };
   }
 };

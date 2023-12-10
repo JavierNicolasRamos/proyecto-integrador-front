@@ -14,26 +14,26 @@ export const Footer = () => {
         <div className="footer-brand-logos-boxes">
           <img
             className="ibanez"
-            src="/src/images/Logo-ibanez.svg"
+            src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464021237-Logo-ibanez.svg"
             alt="Logo-ibanez"
           />
         </div>
         <div className="footer-brand-logos-boxes">
           <img
             className="yamaha"
-            src="/src/images/Logo-Yamaha.svg"
+            src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464021600-Logo-Yamaha.svg"
             alt="Logo-Yamaha"
           />
         </div>
         <div className="footer-brand-logos-boxes">
           <img
             className="gibson"
-            src="/src/images/Logo-Gibson.svg"
+            src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464020878-Logo-Gibson.svg"
             alt="Logo-Gibson"
           />
         </div>
         <div className="footer-brand-logos-boxes">
-          <img className="esp" src="/src/images/Logo-Esp.svg" alt="Logo-Esp" />
+          <img className="esp" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464020494-Logo-Esp.svg" alt="Logo-Esp" />
         </div>
       </div>
 
@@ -67,7 +67,7 @@ export const Footer = () => {
             <Link to={""}>Forma de pago</Link>
           </div>
           <div className="footer-principal-information-logo">
-            <img src="/src/images/header-logo.svg" alt="logo" />
+            <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464019253-header-logo.svg" alt="logo" />
           </div>
       </div>
       <div className="footer-copyright">
