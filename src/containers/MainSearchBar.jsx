@@ -33,24 +33,23 @@ export const MainSearchBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      const clickedInsideStartDate = inputRefStartDate.current?.contains(e.target);
-      const clickedInsideEndDate = inputRefEndDate.current?.contains(e.target);
-  
-      if (!clickedInsideStartDate && !clickedInsideEndDate) {
-        setShowCalendar(false);
+      if (
+        (inputRefStartDate.current &&
+          inputRefStartDate.current.contains(e.target)) ||
+        (inputRefEndDate.current && inputRefEndDate.current.contains(e.target))
+      ) {
+        return;
       }
+      setShowCalendar(false);
     };
-  
-    if (showCalendar) {
-      document.addEventListener("click", handleClickOutside);
-    }
+
+    
+    document.addEventListener("click", handleClickOutside);
   
     return () => {
-      if (showCalendar) {
-        document.removeEventListener("click", handleClickOutside);
-      }
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, [inputRefStartDate, inputRefEndDate, setShowCalendar, showCalendar]);
+  }, [setShowCalendar, inputRefStartDate, inputRefEndDate]);
   
   return (
     <div>
