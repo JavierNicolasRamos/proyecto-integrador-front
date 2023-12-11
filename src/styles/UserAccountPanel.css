@@ -1,6 +1,7 @@
 .accountPanel {
-  margin: 2% 10% 2% 10%;
   display: flex;
+  justify-content: center;
+  padding: 5vw;
 }
 
 .accountButtons {
@@ -13,6 +14,7 @@
   gap: 5vh;
   padding-top: 4vh;
   align-items: center;
+  min-width: min-content;
 }
 
 .accountButtons button {
@@ -31,20 +33,19 @@
 .accountContent {
   background-color: var(--light-grey);
   width: 60vw;
+  display: flex;
+  justify-content: center;
   min-height: 60vh;
   border-radius: 0px 20px 20px 0px;
 }
 
 .selectedAccountButton {
-  width: 21vw !important;
+  min-width: 22vw ;
   position: relative;
-  left: 1.5vw;
+  left: 2vw;
 }
 
 @media (max-width: 1024px) {
-  .accountPanel {
-    margin: 2% 5% 2% 5%;
-  }
 
   .accountButtons button {
     font-size: 1rem
