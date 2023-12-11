@@ -8,6 +8,7 @@ import {
 } from "../components/index";
 import { RandomInstruments } from "./index";
 import "../styles/MainSearchBar.css";
+import "../styles/SearchResultCard.css";
 
 export const MainSearchBar = () => {
   const {
@@ -111,26 +112,37 @@ export const MainSearchBar = () => {
         <ValidationError message={"Completa ambas fechas"} />
       )}
       {isFetching && <Spinner />}
-      {Array.isArray(previewSearchResults) &&
-        previewSearchResults
-          .slice(0, 4)
-          .map(({ id, name, image }) => (
-            <SearchResultCard
-              key={id}
-              id={id}
-              name={name}
-              image={image && image[0] && image[0].image}
-            />
-          ))}
+      <div className="previewSearchResultsContainer">
+        {Array.isArray(previewSearchResults) && previewSearchResults.length > 0 &&
+          previewSearchResults
+            .slice(0, 4)
+            .map(({ id, name, image, score }) => (
+              <SearchResultCard
+                key={id}
+                id={id}
+                name={name}
+                image={image && image[0] && image[0].image}
+                score={score}
+              />
+            ))}
+        {Array.isArray(previewSearchResults) && previewSearchResults.length > 4 &&
+        <div className="searchResultCard">
+          <div className="searchResultInstrument searchResultInstrumentViewMore" onClick={handlerSubmit}> Ver todos los resultados
+          </div>
+        </div>}
+      </div>
       {Array.isArray(searchedInstruments) && searchedInstruments.length > 0 && (
         <RandomInstruments
           instruments={searchedInstruments}
           title="Resultados de tu búsqueda"
         />
       )}
-      {Array.isArray(searchedInstruments) && searchedInstruments.length === 0 && (
-        <h3 className="mainSearcBar-NoResults">No hubo resultados para tu búsqueda</h3>
-      )}
+      {Array.isArray(searchedInstruments) &&
+        searchedInstruments.length === 0 && (
+          <h3 className="mainSearcBar-NoResults">
+            No hubo resultados para tu búsqueda
+          </h3>
+        )}
     </div>
   );
 };

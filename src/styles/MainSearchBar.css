@@ -37,14 +37,20 @@
 }
 
 .mainSearcBar-NoResults {
-padding-top: 10px;
-display: flex;
-justify-content: center;
-font-family: var(--main-font);
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  font-family: var(--main-font);
+}
+
+.previewSearchResultsContainer {
+  width: 100%;
+  position: absolute;
+  z-index: 998;
+
 }
 
 @media (max-width: 768px) {
-
   .mainSearchBar {
     margin-top: -13vh;
   }
