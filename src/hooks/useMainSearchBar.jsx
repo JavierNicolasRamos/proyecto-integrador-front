@@ -53,9 +53,7 @@ export const useMainSearchBar = () => {
       getPreviewSearchResults();
     }, 250);
     return () => clearTimeout(timer);
-  }, [name, startDate, endDate]);
-
-  
+  }, [name, startDate, endDate]);  
 
   const handlerSubmit = async (e) => {
     e.preventDefault();

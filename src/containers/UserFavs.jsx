@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetAllLikes } from "../hooks/index";
 import { Card, Spinner } from "../components";
 import "../styles/UserFavs.css";
