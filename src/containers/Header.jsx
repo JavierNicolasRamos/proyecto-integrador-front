@@ -25,8 +25,9 @@ export const Header = () => {
       }
       <header className={`header ${!isHome ? 'hide' : ''}`}>
         <section className="header__search-bar">
-        { windowSize.width < 768 ? 
-          <img className="header__hamburger-menu" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464018874-hamburger-menu.svg" alt="Menu"/> : ''
+        { windowSize.width < 768 ?
+        //al hacer click en el menu se muestra el menu
+          <img className="header__hamburger-menu" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1701464018874-hamburger-menu.svg" alt="Menu" onClick={() => setShowMenu(!showMenu)}/> : ''
         }
         <Link to={"/home"} className="header__search-bar__logo">
           <img className="header__search-bar__img" src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1699641383924-LogoMR_2logo.svg" alt="Imagen del logo de music rental" />
@@ -35,7 +36,6 @@ export const Header = () => {
             ? <HeaderProfile />                
             : <HeaderButtons /> 
           }
-
         </section>
       </header>
       <Menu showMenu={showMenu}/> 
