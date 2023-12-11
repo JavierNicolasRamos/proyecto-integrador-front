@@ -2,10 +2,7 @@ import axios from "axios";
 
 const errorMessages = {
   500: "Error del servidor",
-  400: "Error del cliente",
-  401: "No autorizado",
-  403: "Acceso prohibido",
-  404: "No se encontraron productos",
+  400: "No se puede reservar un instrumento que usted creo",
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
@@ -16,7 +13,8 @@ const URL = {
 };
 
 const handlerErrors = (e) => {
-  throw new Error(errorMessages[e.status] || e.message);
+  console.log(e.response.status)
+  throw new Error(e.response.status);
 };
 
 export const getBookings = async () => {
@@ -37,7 +35,7 @@ export const getBookings = async () => {
   }
 };
 
-export const postBooking = async (data) => {
+export const postBooking = async (formData) => {
 
   const config = {
     headers: {
@@ -46,11 +44,9 @@ export const postBooking = async (data) => {
   };
 
   try {
-    const { data, status } = await axios.post(`${URL.list}`, config);
+    const { data, status } = await axios.post(`${URL.list}`, formData, config);
     return { data, status };
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    handlerErrors(e)
   }
 };

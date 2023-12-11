@@ -31,7 +31,6 @@ export const getReviewsByInstrument = async (id) => {
 
   try {
     const { data, status } = await axios.get(`${URL.getReviewsInstrument}?id=${id}`, config);
-    console.log("data desde service", data);
     return { data, status };
   } catch (e) {
     const data = e.response.data;

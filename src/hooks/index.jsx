@@ -31,3 +31,4 @@ export { useMainSearchBar } from "./useMainSearchBar";
 export { usePostReview } from "./usePostReview";
 export { useHandlerResize } from "./useHandlerResize"
 export { useGetInstrumentReviews } from "./useGetInstrumentReviews";
+export { usePostBooking } from "./usePostBooking"

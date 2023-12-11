@@ -125,10 +125,13 @@ export const deleteInstrument = async (id) => {
 };
 
 export const getDisabledDates = async (id) => {
+  console.log(id)
   try {
     const { data } = await axios.get(`${URL.calendar}${id}`);
+    console.log(data)
     return data;
   } catch (e) {
+    console.log(e)
     handlerErrors(e);
   }
 };

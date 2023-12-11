@@ -18,6 +18,10 @@ const URL = {
   getAllFavs: `${backUrl}/favourite`,
 };
 
+const handlerErrors = (e) => {
+  throw new Error(errorMessages[e.response.status] || e.message);
+};
+
 export const getAllFavs = async (email) => {
 
   const config = {
@@ -27,12 +31,11 @@ export const getAllFavs = async (email) => {
   };
 
   try {
-    const { data, status } = await axios.get(`${URL.getAllFavs}?email=${encodeURIComponent(email)}`, config);
-    return {data, status};
+    const { data } = await axios.get(`${URL.getAllFavs}?email=${encodeURIComponent(email)}`, config);
+    console.log(data)
+    return {data};
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    handlerErrors(e)
   }
 
 };

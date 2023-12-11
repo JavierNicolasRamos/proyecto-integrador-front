@@ -15,6 +15,5 @@ export const Button = ({text, route = '', color}) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired
 }

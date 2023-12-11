@@ -6,7 +6,7 @@
 
 .reservation__container{
   background-color: var(--white);
-  min-height: 40vh;
+  min-height: 60vh;
   width: 60vw;
   margin: 0 auto;
   border-radius: 15px 15px 15px 15px;
@@ -40,16 +40,21 @@
 
 .reservation__instrument-info{
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   width: 90%;
+  min-height: 40vh;
 }
 
 .reservation__instrument-info__container{
   display: flex;
   flex-direction: column;
-  min-width: 35%;
+  min-width: 30%;
   padding: 1vw;
   gap: 5vh;
+  min-height: 30vh;
+  max-height: 30vh;
 }
 
 .reservation__instrument-name{
@@ -65,9 +70,10 @@
 .reservation__instrument-detail{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 35%;
   gap: 5vh;
+  min-height: 30vh;
+  max-height: 30vh;
   padding: 1vw;
 }
 
@@ -79,24 +85,39 @@
 }
 
 .reservation__instrument-date{
-  display: flex;
+  display: inline-flex;
+  flex-direction: column;
   margin: 0 auto;
   gap: 1vw;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.reservation__instrument-date__container{
+  display: flex;
+  gap: 1vw;
 }
 
 .reservation__instrument-date__start,
 .reservation__instrument-date__end{
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   outline: 3px solid var(--total-black);
   min-height: 4vh;
-  padding-left: 1vw;
   width: 10vw;
 }
 
-.reservatioon__actions-buttons{
+.reservation__instrument-date__panel{
+  display: block;
+  position: absolute;
+  top: 62%;
+}
+
+.reservation__actions-buttons{
   display: flex;
   justify-content: right;
   gap: 2vw;
