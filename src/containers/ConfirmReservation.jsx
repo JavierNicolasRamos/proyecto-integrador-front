@@ -11,6 +11,7 @@ export const ConfirmReservation = () => {
   const { instrument, image } = useInstrument(id)
   const { user } = useUserAccountData()
   const [rangeValue, setRangeValue] = useState([])
+  const { divRef, divSize } = useHandlerResize()
   const initialFormData = {
     bookingDto: {
       bookingStart: rangeValue[0],
@@ -53,33 +54,23 @@ export const ConfirmReservation = () => {
         <h3 className="reservation__title">Confirmación de reserva</h3>
         <div className="reservation__user-info">
           <div className="reservation__user-name">
-            <h4>Nombre:</h4>
             <p>{user.name} {user.surname}</p>
           </div>
           <div className="reservation__user-email">
-            <h4>Correo:</h4>
             <p>{sessionStorage.getItem("email")}</p>
           </div>
         </div>
+        <h2 className="reservation__instrument-name">{instrument.name}</h2>
         <div className="reservation__instrument-info">
-          <div className="reservation__instrument-info__container">
-            <h4>Producto</h4>
-            <div className="reservation__instrument-name">
-              <img src={image} alt={`Imagen del producto`} />
-              <p>{instrument.name}</p>
+            <div className="reservation__instrument-info__container">
+              <img className="reservation__instrument-info__image"src={image} alt={`Imagen del producto`} />
+              <p className="reservation__instrument-info__text">{instrument.detail}</p>
             </div>
-          </div>
-          <div className="reservation__instrument-detail">
-            <h4>Descripcion</h4>
-            <p className="reservation__instrument-detail-text">{instrument.detail}</p>
-          </div>
-          <div className="reservation__instrument-date">
-            <RangeCalendar id={id} onChange={handlerRangeChange} size={200}/>
-            <div className="reservation__instrument-date__container">
+            <div className="reservation__instrument-info__date" ref={divRef}>
+              <RangeCalendar id={id} onChange={handlerRangeChange} size={divSize <= 180 ? 180 : divSize}/>
               <div className="reservation__instrument-date__start">{rangeValue[0] === undefined ? 'Desde' : rangeValue[0]}</div>
               <div className="reservation__instrument-date__end">{rangeValue[1] === undefined ? 'Hasta' : rangeValue[1]}</div>
             </div>
-          </div>
         </div>
         <div className="reservation__actions-buttons">
           <Button
