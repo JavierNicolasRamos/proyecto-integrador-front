@@ -1,0 +1,23 @@
+.notReserveOwn{
+  background-color: var(--grey);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.notReserveOwn__container{
+  font-family: var(--main-font);
+  padding: 3vw;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  background-color: var(--dark-grey);
+  width: 45%;
+  min-height: 40vh;
+  margin: 0 auto;
+  gap: 5vh;
+}

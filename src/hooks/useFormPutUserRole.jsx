@@ -8,17 +8,9 @@ export const useFormPutUserRole = (user) => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
-  const [jwt, setJwt] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
-  }, []);
 
   const submitForm = async () => {
-
-    const { data, status } = await updateUserRole(user.id, jwt);
-
+    const { data, status } = await updateUserRole(user.id);
     return { data, status };
   };
 

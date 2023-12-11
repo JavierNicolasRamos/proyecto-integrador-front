@@ -10,6 +10,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   deleteFav: `${backUrl}/favourite/remove`,
@@ -17,7 +18,11 @@ const URL = {
   getAllFavs: `${backUrl}/favourite`,
 };
 
-export const getAllFavs = async (email, jwt) => {
+const handlerErrors = (e) => {
+  throw new Error(errorMessages[e.response.status] || e.message);
+};
+
+export const getAllFavs = async (email) => {
 
   const config = {
     headers: {
@@ -26,17 +31,15 @@ export const getAllFavs = async (email, jwt) => {
   };
 
   try {
-    const { data, status } = await axios.get(`${URL.getAllFavs}?email=${encodeURIComponent(email)}`, config);
-    return {data, status};
+    const { data } = await axios.get(`${URL.getAllFavs}?email=${encodeURIComponent(email)}`, config);
+    return {data};
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    handlerErrors(e)
   }
 
 };
 
-export const postFav = async (id, email, jwt) => {
+export const postFav = async (id, email) => {
 
   const config = {
     headers: {
@@ -59,7 +62,7 @@ export const postFav = async (id, email, jwt) => {
   }
 };
 
-export const deleteFav = async (id, email, jwt) => {
+export const deleteFav = async (id, email) => {
 
     const config = {
       headers: {

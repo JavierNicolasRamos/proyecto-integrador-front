@@ -4,10 +4,8 @@ import { getReviewsByInstrument } from "../services/index";
 export const useGetInstrumentReviews = (id) => {
   const [reviews, setReviews] = useState([]);
 
-  const jwt = sessionStorage.getItem("jwt");
-
   const getReviews = async () => {
-    const { data } = await getReviewsByInstrument(id, jwt);
+    const { data } = await getReviewsByInstrument(id);
     setReviews(data);
   };
 

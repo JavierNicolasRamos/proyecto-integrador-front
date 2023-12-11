@@ -12,7 +12,11 @@
   max-width: 230px;
   min-width: 230px;
   max-height: 45vh;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.card:hover{
+  outline: 3px solid var(--red);
 }
 
 .card-img__container{
@@ -46,11 +50,6 @@
   width: 100%;
   padding: .5vw;
   word-wrap: break-word;
-}
-
-.card__details-name:hover{
-  color: var(--red);
-  cursor: pointer;
 }
 
 .card__details-category {

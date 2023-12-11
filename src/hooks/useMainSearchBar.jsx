@@ -55,8 +55,6 @@ export const useMainSearchBar = () => {
     return () => clearTimeout(timer);
   }, [name, startDate, endDate]);
 
-  
-
   const handlerSubmit = async (e) => {
     e.preventDefault();
     setIsFetching(true);
@@ -69,12 +67,12 @@ export const useMainSearchBar = () => {
 
   const handleDateFieldFocus = (fieldName) => {
     setTimeout(() => {
-    setFocusedDateField(fieldName);
-    const inputRef = fieldName === "startDate" ? inputRefStartDate : inputRefEndDate;
-    const rect = inputRef.current.getBoundingClientRect();
-    setCalendarPosition({ top: rect.bottom, left: rect.left });
-    setShowCalendar(true);
-}, 100);
+      setFocusedDateField(fieldName);
+      const inputRef = fieldName === "startDate" ? inputRefStartDate : inputRefEndDate;
+      const rect = inputRef.current.getBoundingClientRect();
+      setCalendarPosition({ top: rect.bottom, left: rect.left });
+      setShowCalendar(true);
+    }, 100);
   };
 
   const handleCalendarSelect = (selectedDate) => {

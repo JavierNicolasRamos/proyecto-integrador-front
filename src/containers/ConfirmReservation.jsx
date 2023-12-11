@@ -1,14 +1,51 @@
-import { useInstrument } from "../hooks"
+import { useEffect, useState } from 'react';
+import { useHandlerResize, useInstrument, usePostBooking, useUserAccountData } from "../hooks"
 import { useParams } from 'react-router-dom';
-import { useUser } from "../context/UserContext";
 import { Button } from "../components/Button";
+import { RangeCalendar } from "../components";
 import "../styles/ConfirmReservation.css"
 
 export const ConfirmReservation = () => {
 
   const { id } = useParams()
-  const { user } = useUser()
   const { instrument, image } = useInstrument(id)
+  const { user } = useUserAccountData()
+  const [rangeValue, setRangeValue] = useState([])
+  const initialFormData = {
+    bookingDto: {
+      bookingStart: rangeValue[0],
+      bookingEnd: rangeValue[1],
+      activeBooking: true
+    },
+    buyerDto: {
+      email: sessionStorage.getItem("email") || ''
+    },
+    instrumentDto: {
+      id: id || ''
+    }
+  };
+  let [formData, setFormData] = useState(initialFormData)
+  const { handlerConfirm } = usePostBooking()
+
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      bookingDto: {
+        bookingStart: rangeValue[0],
+        bookingEnd: rangeValue[1],
+        activeBooking: true
+      }
+    });
+  }, [rangeValue]);
+
+  const handlerRangeChange = (value) => {
+    const data = value.map(date => date.toISOString().split('T')[0])
+    setRangeValue(data)
+  };
+
+  const handlerSubmit = () => {
+    handlerConfirm(formData)
+  }
 
   return (
     <div className="reservation">
@@ -37,21 +74,25 @@ export const ConfirmReservation = () => {
             <p className="reservation__instrument-detail-text">{instrument.detail}</p>
           </div>
           <div className="reservation__instrument-date">
-            <h4>Desde</h4>
-            <p>20/11/2011</p>
-            <h4>Hasta</h4>
-            <p>20/11/2011</p>
+            <RangeCalendar id={id} onChange={handlerRangeChange} size={200}/>
+            <div className="reservation__instrument-date__container">
+              <div className="reservation__instrument-date__start">{rangeValue[0] === undefined ? 'Desde' : rangeValue[0]}</div>
+              <div className="reservation__instrument-date__end">{rangeValue[1] === undefined ? 'Hasta' : rangeValue[1]}</div>
+            </div>
           </div>
         </div>
-        <div className="reservatioon__actions-buttons">
+        <div className="reservation__actions-buttons">
           <Button
             text={"Volver"}
             route={`/product/detail/${id}`}
+            color={"grey"}
           />
-          <Button
-            text={"Confirmar"}
-            color={"red"}
-          />
+          <button
+            className='btn red'
+            onClick={handlerSubmit}
+           >
+            Confirmar
+          </button>
         </div>
       </div>
     </div>

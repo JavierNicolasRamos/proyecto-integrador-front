@@ -13,13 +13,6 @@ export const useFetchAdminProductList = () => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(true);
-  const [jwt, setJwt] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
-
 
   const params = {
     page: currentPage - 1,
@@ -53,7 +46,7 @@ export const useFetchAdminProductList = () => {
 
   // Delete handler
   const handlerDelete = async (id) => {
-    const { data, status } = await deleteInstrument(id, jwt)
+    const { data, status } = await deleteInstrument(id)
 
     if (status === 200) {
       setIsFetching(false);
