@@ -2,25 +2,27 @@
   display: flex;
   color: var(--white);
   font-family: var(--main-font);
-  gap: 7vw;
   width: 100%;
   position: relative;
-  padding: 5vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .accountDataTitleContainer {
-  padding-top: 5vw;
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5vw;
+  width: 25%;
+  color: var(--red);
+  font-size: 2vw;
 }
 
 .accountDataContentContainer {
-  padding-top: 5vw;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.5vw;
+  font-size: 2vw;
 }
 
 .accountInitials {

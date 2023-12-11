@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Heart } from './index';
 import { useUser } from '../context/UserContext';
 import "../styles/Card.css";
 
 export const Card = ({ id, name, image, score, category, reviewCount }) => {
   
-  const navigate = useNavigate();
   const { isLogged } = useUser()
 
   return (

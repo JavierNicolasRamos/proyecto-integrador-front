@@ -46,7 +46,7 @@ export const RangeCalendar = ({ size, fontSize, id, onChange }) => {
 
 RangeCalendar.defaultProps = {
   size: 240,
-  fontSize: 18
+  fontSize: 16
 };
 
 RangeCalendar.propTypes = {
