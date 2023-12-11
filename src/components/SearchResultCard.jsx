@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import "../styles/SearchResultCard.css";
 
-export const SearchResultCard = ({ id, name, image }) => {
+export const SearchResultCard = ({ id, name, image, score }) => {
   const navigate = useNavigate();
 
   const handlerClick = () => {
@@ -12,12 +12,15 @@ export const SearchResultCard = ({ id, name, image }) => {
   return (
     <div className="searchResultCard">
     <div className="searchResultInstrument" onClick={handlerClick} >
+      <div className="searchResultNameAndImgContainer">
       <div className="searchResultCardImgContainer">
         <img src={image} alt={name} />
       </div>
-      <h3 className="searchResultCardName">
+      <div className="searchResultCardName">
         {name}
-      </h3>
+      </div>
+      </div>
+      <p className="searchResultCardScore">⭐ {score}</p>
     </div>
     </div>
   );

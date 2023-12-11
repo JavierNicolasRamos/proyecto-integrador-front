@@ -31,6 +31,7 @@ export const useMainSearchBar = () => {
   };
 
   const getPreviewSearchResults = async () => {
+    setSearchedInstruments(null)
     setIsFetching(true);
     const query = buildQuery();
     const { data, status } = await searchInstruments(query);
@@ -41,7 +42,7 @@ export const useMainSearchBar = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       getPreviewSearchResults();
-    }, 500);
+    }, 250);
     return () => clearTimeout(timer);
   }, [name, startDate, endDate]);
 
