@@ -19,7 +19,7 @@ export const InstrumentReviews = ({ id }) => {
                   }
                 >
                   <img
-                    src="/src/images/Star.svg"
+                    src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1702168226277-Star.svg"
                     alt={`scoreStar${starValue}`}
                   />
                 </div>

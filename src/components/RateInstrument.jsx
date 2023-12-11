@@ -17,7 +17,7 @@ export const RateInstrument = ({
                 className={score >= starValue ? "" : "scoreStarUnfilled"}
                 onClick={() => setScore(starValue)}
             >
-                <img src="/src/images/Star.svg" alt={`scoreStar${starValue}`} />
+                <img src="https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1702168226277-Star.svg" alt={`scoreStar${starValue}`} />
             </div>
         ))}
     </div>
