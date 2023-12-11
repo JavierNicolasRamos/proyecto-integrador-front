@@ -1,5 +1,5 @@
 import "../styles/UserAccountPanel.css";
-import { useUserAccountPanel } from "../hooks/index";
+import { useRedirectLogin, useUserAccountPanel } from "../hooks/index";
 import { UserAccountData, UserBookingsList, UserFavs } from "./index";
 
 export const UserAccountPanel = () => {
@@ -12,8 +12,11 @@ export const UserAccountPanel = () => {
     handlefavoritesBtn,
   } = useUserAccountPanel();
 
+  const { handlerUserNotAllowed } = useRedirectLogin()
+
   return (
     <div className="accountPanel">
+      {handlerUserNotAllowed()}
       <section className="accountButtons">
         <button className={showAccountData ? "selectedAccountButton" : ""} onClick={() => {handleAccountBtn()}}>Cuenta</button>
         <button className={showBookings ? "selectedAccountButton" : ""} onClick={() => {handleBookingsBtn()}}>Mis Reservas</button>

@@ -1,6 +1,6 @@
 import { useUserAccountData } from "../hooks/index";
+import { HeaderProfile, Spinner } from "../components";
 import "../styles/UserAccountData.css";
-import { Spinner } from "../components";
 
 export const UserAccountData = () => {
 
@@ -19,7 +19,8 @@ export const UserAccountData = () => {
         <div className="accountDataContent">{user.surname}</div>
         <div className="accountDataContent">{user.email}</div>
       </div>
-      <div className="accountInitials">{avatar}</div>
+      
+      <div className="accountInitials"><HeaderProfile/></div>
     </section>
   );
 };

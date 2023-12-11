@@ -9,6 +9,8 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
+
 
 const URL = {
   list : `${backUrl}/characteristic/list`,
@@ -21,7 +23,7 @@ const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getCharacteristic = async (jwt) => {
+export const getCharacteristic = async () => {
 
   const config = {
     headers: {
@@ -37,7 +39,7 @@ export const getCharacteristic = async (jwt) => {
   }
 };
 
-export const postCharacteristic = async (formData, jwt) => {
+export const postCharacteristic = async (formData) => {
 
   const config = {
     headers: {
@@ -56,7 +58,7 @@ export const postCharacteristic = async (formData, jwt) => {
   }
 };
 
-export const putCharacteristic = async (characteristic, jwt) => {
+export const putCharacteristic = async (characteristic) => {
 
   const config = {
     headers: {
@@ -75,7 +77,7 @@ export const putCharacteristic = async (characteristic, jwt) => {
   }
 };
 
-export const deleteCharacteristic = async (id, jwt) => {
+export const deleteCharacteristic = async (id) => {
 
   const config = {
     headers: {

@@ -10,7 +10,6 @@ export const useFormPutCharacteristic = (presentCharacteristic) => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
-  const [jwt, setJwt] = useState("");
 
   const icons = [
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269359389-1170628_1.png",
@@ -30,61 +29,55 @@ export const useFormPutCharacteristic = (presentCharacteristic) => {
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366113-peso1_1.png",
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366474-VERI_1.png",
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269366834-vol1_1.png"
-]
-  
+  ]
 
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
+  const handlerIconSelection = (event) => {
+    const src = event.target.src;
+    setIcon(src);
+  };
 
-    const handlerIconSelection = (event) => {
-      const src = event.target.src;
-      setIcon(src);
-    };
+  const validateForm = () => {
+    if (
+      !name ||
+      name.trim().length < 3 ||
+      !icon
+    ) {
+      return false;
+    } else {
+      return true
+    }
+  };
 
-    const validateForm = () => {
-      if (
-        !name ||
-        name.trim().length < 3 ||
-        !icon
-      ) {
-        return false;
+  const handlerSubmit = async (e) => {
+    e.preventDefault();
+    const validated = validateForm()
+
+    const formData = {
+      id: presentCharacteristic.presentCharacteristic.id,
+      name: name,
+      icon: icon,
+    }
+
+    if (validated === true) {
+      setIsFetching(true);
+      const {data, status} = await putCharacteristic(formData)
+      if (status === 200) {
+        setIsFetching(false);
+        setSuccess(true);
+        setResultContent(`La característica ${data.name} ha sido editada correctamente`);
+        setShowResult(true);
       } else {
-        return true
+        setIsFetching(false);
+        setSuccess(false);
+        setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
+        setShowResult(true);
       }
-    };
-
-    const handlerSubmit = async (e) => {
-      e.preventDefault();
-      const validated = validateForm()
-  
-      const formData = {
-        id: presentCharacteristic.presentCharacteristic.id,
-        name: name,
-        icon: icon,
-      }
-  
-      if (validated === true) {
-        setIsFetching(true);
-        const {data, status} = await putCharacteristic(formData, jwt)
-        if (status === 200) {
-          setIsFetching(false);
-          setSuccess(true);
-          setResultContent(`La característica ${data.name} ha sido editada correctamente`);
-          setShowResult(true);
-        } else {
-          setIsFetching(false);
-          setSuccess(false);
-          setResultContent(`Ha ocurrido un error. ${data ? data : "Asegúrese de estar logueado como administrador para efectuar esta acción"}`);
-          setShowResult(true);
-        }
-      } else {
-        setShowError(true)
-      }
-      
-      
-    };
+    } else {
+      setShowError(true)
+    }
+    
+    
+  };
 
   return {
     name,

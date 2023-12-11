@@ -4,15 +4,9 @@ import { getAllCategories, deleteCategory } from "../services/index";
 export const useFetchAdminCategoryList = () => {
   const [category, setCategory] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-  const [jwt, setJwt] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
-  }, []);
 
   const fetchCategories = () => {
     getAllCategories()
@@ -26,7 +20,7 @@ export const useFetchAdminCategoryList = () => {
 
   // Delete handler
   const handlerDelete = async (id) => {
-    const { data, status } = await deleteCategory(id, jwt);
+    const { data, status } = await deleteCategory(id);
 
     if (status === 200) {
       setIsFetching(false);

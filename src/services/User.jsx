@@ -9,6 +9,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
+const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   register: `${backUrl}/users/register`,
@@ -76,7 +77,7 @@ export const loginUser = async(formData) => {
   }
 }
 
-export const getAllUsers = async (jwt) => {
+export const getAllUsers = async () => {
 
   const config = {
     headers: {
@@ -92,7 +93,7 @@ export const getAllUsers = async (jwt) => {
   }
 };
 
-export const putUser = async (user, jwt) => {
+export const putUser = async (user) => {
 
   const config = {
     headers: {
@@ -111,14 +112,13 @@ export const putUser = async (user, jwt) => {
   }
 };
 
-export const updateUserRole = async (id, jwt) => {
+export const updateUserRole = async (id) => {
 
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
     }
   };
-
 
   try {
     const { data, status } = await axios.put(`${URL.updateRole}${id}`, null, config);
@@ -130,14 +130,13 @@ export const updateUserRole = async (id, jwt) => {
   }
 };
 
-export const getUserByEmail = async (email, jwt) => {
+export const getUserByEmail = async (email) => {
 
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
     }
   };
-
 
   try {
     const { data, status } = await axios.get(`${URL.getByEmail}${email}`, config);
@@ -149,6 +148,3 @@ export const getUserByEmail = async (email, jwt) => {
     return { data, status };
   }
 };
-
-
-

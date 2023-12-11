@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NotFound, ChangeEmail, CreateCharacteristic, CreateCategory, PolicyBlock, RegisterSuccess } from "../components/index";
-import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel, NotAllowed, ConfirmReservation } from "../containers/index";
+import { Register, Login, Home, InstrumentPanel, ProductList, Gallery, Detail, CreateInstrument, AdminPanel, AdminCategoryList, CharacteristicList, UserList, UserAccountPanel, NotAllowed, ConfirmReservation, ReservationSuccess, AboutUs, NotReserveOwn } from "../containers/index";
 import { App } from "../App";
 
 export const AppRoutes = () => (
@@ -8,6 +8,7 @@ export const AppRoutes = () => (
     <Route path="/" element={<App />}>
         <Route path="*" element={<NotFound code="404" text="Not Found" />} />
         <Route path="/accessDenied" element={<NotAllowed />} />
+        <Route path="/reserveDenied" element={<NotReserveOwn />} />
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -15,11 +16,13 @@ export const AppRoutes = () => (
         <Route path="/product/detail/:id" element={<Detail/>} />
         <Route path="/product/gallery/:id" element={<Gallery />} />
         <Route path="/product/confirmReservation/:id" element={<ConfirmReservation/>} />
+        <Route path="/reservationSuccess/" element={<ReservationSuccess/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/register/success/changeEmail" element={<ChangeEmail />} />
         <Route path="/search/instruments" element={<InstrumentPanel />} />
         <Route path="account" element={<UserAccountPanel />} />
+        <Route path="aboutUs" element={<AboutUs/>} />
         <Route path="admin" element={<AdminPanel />} />
         <Route path="admin/category/create" element={<CreateCategory />} />
         <Route path="admin/category/list" element={<AdminCategoryList />} />

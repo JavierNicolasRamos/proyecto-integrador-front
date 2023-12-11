@@ -2,6 +2,7 @@
     position: absolute;
     right: 2%;
     top: 2%;
+    z-index: 200;
   }
   
   .card-img__like:hover{

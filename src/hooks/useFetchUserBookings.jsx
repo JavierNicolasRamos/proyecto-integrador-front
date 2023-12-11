@@ -4,13 +4,10 @@ import { getBookings } from "../services/index";
 export const useFetchUserBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-
-
-  const jwt = sessionStorage.getItem("jwt");
   const email = sessionStorage.getItem("email");
 
   const fetchBookings = async () => {
-    const { data } = await getBookings(jwt);
+    const { data } = await getBookings();
     const filteredBookings = data.filter(
       (booking) => booking.user.email === email
     );

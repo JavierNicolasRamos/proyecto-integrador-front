@@ -7,7 +7,6 @@ export const useRedirectLogin = () => {
   const { isLogged } = useUser()
   const location = useLocation()
 
-
   const handlerRedirect = (role) =>{
     switch (role) {
       case "USER":
@@ -22,11 +21,9 @@ export const useRedirectLogin = () => {
   }
 
   const handlerUserNotAllowed = () => {
-    
     if (
-      isLogged === false && 
-      (sessionStorage.getItem('role') === "USER" || sessionStorage.getItem('role') === null) && 
-      location.pathname.includes("admin")
+      (sessionStorage.getItem('role') === "USER" && location.pathname.includes("admin")) || 
+      (location.pathname.includes("account") && sessionStorage.getItem('role') === null )
     ) {
       return <Navigate to={"/accessDenied"} />;
     } else {

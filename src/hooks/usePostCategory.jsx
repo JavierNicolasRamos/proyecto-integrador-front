@@ -10,12 +10,6 @@ export const usePostCategory = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
-  const [jwt, setJwt] = useState("");
-
-  useEffect(() => {
-    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
-    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
-    }, []);
 
   const validateForm = () => {
     if (
@@ -54,7 +48,7 @@ export const usePostCategory = () => {
 
     if (validated === true) {
       setIsFetching(true);
-      const { data, status } = await postCategory(formData, jwt);
+      const { data, status } = await postCategory(formData);
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);

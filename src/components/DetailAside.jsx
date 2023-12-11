@@ -4,12 +4,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { RangeCalendar } from '../components/index';
 import "../styles/DetailAside.css"
+import { useCalendar } from '../hooks';
 
-export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) => {
+export const DetailAside = ({ name, detail }) => {
   const { id } = useParams();
   const {isLogged} = useUser()
   const navigate = useNavigate();
-  
+
   return (
     <aside className="detail-container">
         <div className="detail__instrument-info">
@@ -19,11 +20,6 @@ export const DetailAside = ({name, detail /*TODO: Agregar fechas ocupadas */}) =
             <h3 className="detail__instruments-description__disponibility__title">Disponibilidad</h3>
             <RangeCalendar id={id}/>
             <div className="detail__instruments-description__actions">
-              <Button
-                route={""}
-                text={"Mis reservas"}
-                color={"grey"}
-              />
               <Button
                 route={ isLogged ? `/product/confirmReservation/${id}` : '/login'}
                 text={"Reservar"}
