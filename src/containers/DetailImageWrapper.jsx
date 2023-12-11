@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import "../styles/DetailImageWrapper.css"
 
 export const DetailImageWrapper = ({id, name, image}) => {
 
   const [newImage, setNewImage] = useState(image[0].image)
+
+  useEffect(() => {
+    setNewImage(image[0].image)
+  }, [image, id])
 
   const handlerMouseEnterImage = (e) => {
     setNewImage(e.target.src)

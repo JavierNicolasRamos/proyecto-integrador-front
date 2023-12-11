@@ -47,8 +47,8 @@ export const Detail = () => {
             />
         </>
       )}
-      <ProductCarousel/>
       <InstrumentReviews id={id}/>
+      <ProductCarousel/>
     </>
   );
 };

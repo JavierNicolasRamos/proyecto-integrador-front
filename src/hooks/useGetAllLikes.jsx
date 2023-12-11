@@ -6,7 +6,6 @@ export const useGetAllLikes = () => {
   const jwt = sessionStorage.getItem("jwt");
   const [allLikes, setAllLikes] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-  const [error, setError] = useState()
 
   const getAllLikes = async () => {
     const { data } = await getAllFavs(email, jwt);

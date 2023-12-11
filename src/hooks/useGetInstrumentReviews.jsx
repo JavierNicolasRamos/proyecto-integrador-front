@@ -4,14 +4,14 @@ import { getReviewsByInstrument } from "../services/index";
 export const useGetInstrumentReviews = (id) => {
   const [reviews, setReviews] = useState([]);
 
-  const getReviews = async () => {
+  const getReviews = async (id) => {
     const { data } = await getReviewsByInstrument(id);
     setReviews(data);
   };
 
   useEffect(() => {
-    getReviews();
-  }, []);
+    getReviews(id);
+  }, [id]);
 
   return { reviews };
 };

@@ -1,3 +1,4 @@
+import { PropTypes } from "prop-types";
 import { useGetInstrumentReviews } from "../hooks/index";
 import "../styles/InstrumentReviews.css";
 
@@ -35,4 +36,8 @@ export const InstrumentReviews = ({ id }) => {
       )}
     </div>
   );
+};
+
+InstrumentReviews.propTypes = {
+  id: PropTypes.string.isRequired,
 };
