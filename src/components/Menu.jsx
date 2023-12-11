@@ -36,7 +36,7 @@ const routes = {
   "default": [
     { to: "/home", text: "Inicio" },
     { to: "/search/instruments", text: "Productos" },
-    { to: "", text: "Contacto" }, //TODO: change to refer to contact page when implemented
+    { to: "/aboutUs", text: "Contacto" }, //TODO: change to refer to contact page when implemented
   ],
 };
 

@@ -1,20 +1,20 @@
 :root {
   --black: #252525;
-  --body: #e5e5e5; 
+  --body: #e5e5e5;
   --btn: #292f33;
-  --dark-grey: #191D20;
-  --facebook: #3B589A;
-  --form-error: rgba(237, 40, 57, 0.50);
+  --dark-grey: #191d20;
+  --facebook: #3b589a;
+  --form-error: rgba(237, 40, 57, 0.5);
   --form-success: rgba(77, 189, 58, 0.56);
   --grey: #393838;
   --light-grey: #4f4f4f;
   --main-font: Helvetica, Arial, sans-serif;
   --red: #ed2839;
   --secondary-font: "Calibri", Arial, sans-serif;
-  --title: #1E1E1E;
+  --title: #1e1e1e;
   --total-black: #000000;
-  --white: #FFF;
-  --white-grey: #D9D9D9;
+  --white: #fff;
+  --white-grey: #d9d9d9;
 }
 
 * {
@@ -61,6 +61,18 @@ body {
   z-index: 4;
 }
 
+@media (max-width: 768px) {
+  .navigation-menu {
+    position: absolute;
+    top: 20vh;
+    flex-direction: column;
+    background-color: var(--dark-grey);
+    height: 30vh;
+    width: 25vw;
+    outline: 1px solid var(--dark-grey);
+  }
+}
+
 .navigation-menu a {
   text-decoration: none;
   color: var(--white);
@@ -69,10 +81,10 @@ body {
   font-weight: 700;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
-.red{
+.red {
   background-color: var(--red);
 }
