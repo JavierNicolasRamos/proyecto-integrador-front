@@ -61,7 +61,6 @@ export const useMainSearchBar = () => {
       setFocusedDateField(fieldName);
       const inputRef = fieldName === "startDate" ? inputRefStartDate : inputRefEndDate;
       const rect = inputRef.current.getBoundingClientRect();
-      console.log(rect)
       setCalendarPosition({ top: rect.bottom, left: rect.left });
       setShowCalendar(true);
     }, 100);

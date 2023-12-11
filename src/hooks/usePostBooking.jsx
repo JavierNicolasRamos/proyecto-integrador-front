@@ -8,8 +8,6 @@ export const usePostBooking = () => {
   const [isFetching, setIsFetching] = useState(true)
 
   const handlerConfirm = (formData) => {
-
-    console.log(formData)
     
     postBooking(formData)
     .then(()=>{

@@ -27,24 +27,7 @@ export const ConfirmReservation = () => {
   let [formData, setFormData] = useState(initialFormData)
   const { handlerConfirm } = usePostBooking()
 
-  // useEffect(() => {
-  //   setFormData({
-  //     ...formData,
-  //     bookingDto: {
-  //       bookingStart: rangeValue[0],
-  //       bookingEnd: rangeValue[1],
-  //       activeBooking: true
-  //     }
-  //   });
-  // }, [rangeValue]);
-
-  const handlerRangeChange = (value) => {
-    const data = value.map(date => date.toISOString().split('T')[0])
-    setRangeValue(data)
-  };
-
-  const handlerSubmit = () => {
-    console.log(rangeValue[0], rangeValue[1])
+  useEffect(() => {
     setFormData({
       ...formData,
       bookingDto: {
@@ -53,7 +36,14 @@ export const ConfirmReservation = () => {
         activeBooking: true
       }
     });
-    console.log(first)
+  }, [rangeValue]);
+
+  const handlerRangeChange = (value) => {
+    const data = value.map(date => date.toISOString().split('T')[0])
+    setRangeValue(data)
+  };
+
+  const handlerSubmit = () => {
     handlerConfirm(formData)
   }
 
@@ -88,7 +78,6 @@ export const ConfirmReservation = () => {
             <div className="reservation__instrument-date__container">
               <div className="reservation__instrument-date__start">{rangeValue[0] === undefined ? 'Desde' : rangeValue[0]}</div>
               <div className="reservation__instrument-date__end">{rangeValue[1] === undefined ? 'Hasta' : rangeValue[1]}</div>
-              {console.log(rangeValue[0], rangeValue[1])}
             </div>
           </div>
         </div>

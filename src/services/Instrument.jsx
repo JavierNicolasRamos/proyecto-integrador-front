@@ -125,13 +125,10 @@ export const deleteInstrument = async (id) => {
 };
 
 export const getDisabledDates = async (id) => {
-  console.log(id)
   try {
     const { data } = await axios.get(`${URL.calendar}${id}`);
-    console.log(data)
     return data;
   } catch (e) {
-    console.log(e)
     handlerErrors(e);
   }
 };
@@ -157,7 +154,6 @@ export const searchInstruments = async (query) => {
 
   try {
     const { data, status } = await axios.get(`${URL.search}?${query}`);
-    console.log(data, status);
     return { data, status };
   } catch (e) {
     const data = e.response.data;

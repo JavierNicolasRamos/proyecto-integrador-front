@@ -32,7 +32,6 @@ export const getAllFavs = async (email) => {
 
   try {
     const { data } = await axios.get(`${URL.getAllFavs}?email=${encodeURIComponent(email)}`, config);
-    console.log(data)
     return {data};
   } catch (e) {
     handlerErrors(e)

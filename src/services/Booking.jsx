@@ -13,7 +13,6 @@ const URL = {
 };
 
 const handlerErrors = (e) => {
-  console.log(e.response.status)
   throw new Error(e.response.status);
 };
 

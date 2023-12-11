@@ -10,7 +10,6 @@ export const useGetAllLikes = () => {
   useEffect(() => {
     getAllFavs(email)
     .then((data)=>{
-      console.log(data.data)
       setAllLikes(data)
     })
     .catch((e)=>{
