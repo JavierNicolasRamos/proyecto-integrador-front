@@ -73,6 +73,7 @@
 .reservation__instrument-info__image{
   object-fit: contain;
   width: 15vw;
+  height: 15vw;
 }
 
 .reservation__instrument-info__text{
@@ -111,4 +112,12 @@
   width: 90%;
   margin: 0 auto;
   padding: 2vw 0;
+}
+
+.reservation__message{
+  text-align: right;
+  color: var(--form-success);
+  font-size: 2vw;
+  padding: 2vw;
+  font-weight: 700;
 }

@@ -5,9 +5,11 @@ import { useState } from "react";
 export const usePostBooking = () => {
 
   const navigate = useNavigate();
-  const [isFetching, setIsFetching] = useState(true)
+  const [isFetching, setIsFetching] = useState()
 
   const handlerConfirm = (formData) => {
+    
+    setIsFetching(true)
     
     postBooking(formData)
     .then(()=>{
@@ -22,5 +24,5 @@ export const usePostBooking = () => {
 
   }
 
-  return { handlerConfirm }
+  return { handlerConfirm, isFetching }
 }

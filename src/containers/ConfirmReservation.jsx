@@ -26,7 +26,7 @@ export const ConfirmReservation = () => {
     }
   };
   let [formData, setFormData] = useState(initialFormData)
-  const { handlerConfirm } = usePostBooking()
+  const { handlerConfirm, isFetching } = usePostBooking()
 
   useEffect(() => {
     setFormData({
@@ -72,19 +72,26 @@ export const ConfirmReservation = () => {
               <div className="reservation__instrument-date__end">{rangeValue[1] === undefined ? 'Hasta' : rangeValue[1]}</div>
             </div>
         </div>
-        <div className="reservation__actions-buttons">
-          <Button
-            text={"Volver"}
-            route={`/product/detail/${id}`}
-            color={"grey"}
-          />
-          <button
-            className='btn red'
-            onClick={handlerSubmit}
-           >
-            Confirmar
-          </button>
-        </div>
+            { 
+              !isFetching 
+              ? (
+                <div className="reservation__actions-buttons">
+                  <Button
+                    text={"Volver"}
+                    route={`/product/detail/${id}`}
+                    color={"grey"}
+                  />
+                  <button
+                    className='btn red'
+                    onClick={handlerSubmit}
+                  >
+                    Confirmar
+                  </button>
+                </div>
+              ):(
+                <p className="reservation__message">Creando la reserva, aguarde </p>
+              )  
+            }
       </div>
     </div>
   )
