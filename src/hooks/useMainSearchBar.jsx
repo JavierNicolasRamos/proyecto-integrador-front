@@ -61,7 +61,7 @@ export const useMainSearchBar = () => {
     e.preventDefault();
     setIsFetching(true);
     const query = buildQuery();
-    const { data, status } = await searchInstruments(query);
+    const { data } = await searchInstruments(query);
     setIsFetching(false);
     setSearchedInstruments(data);
     setPreviewSearchResults(null)
