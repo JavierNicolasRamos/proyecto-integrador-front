@@ -7,11 +7,11 @@
   color: var(--title);
   background-color: var(--body);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  min-height: 40vh;
+  min-height: 380px;
   height: 43vh;
   max-width: 230px;
   min-width: 230px;
-  max-height: 45vh;
+  max-height: 380px;
   transition: all .1s ease-in-out;
 }
 
@@ -25,8 +25,8 @@
 
 .card .card__image {
   width: 100%;
-  min-height: 25vh;
-  max-height: 25vh;
+  min-height: 20vh;
+  max-height: 20vh;
   object-position: center center;
   object-fit: cover;
 }
