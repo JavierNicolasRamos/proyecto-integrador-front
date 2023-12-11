@@ -13,6 +13,7 @@ export const useMainSearchBar = () => {
   const inputRefStartDate = useRef(null); 
   const inputRefEndDate = useRef(null);   
   const [calendarPosition, setCalendarPosition] = useState({ top: 0, left: 0 });
+  const [error, setError] = useState(null);
 
   const buildQuery = () => {
     let query = "";
@@ -30,13 +31,21 @@ export const useMainSearchBar = () => {
     return query;
   };
 
-  const getPreviewSearchResults = async () => {
+  const getPreviewSearchResults = () => {
     setSearchedInstruments(null)
     setIsFetching(true);
     const query = buildQuery();
-    const { data, status } = await searchInstruments(query);
-    setIsFetching(false);
-    setPreviewSearchResults(data);
+    searchInstruments(query)
+    .then(({ data }) => {
+      setIsFetching(false);
+      setPreviewSearchResults(data);
+    })
+    .catch((e) => {
+      setError(e);
+    })
+    .finally(() => {
+      setIsFetching(false);
+    });
   };
 
   useEffect(() => {
@@ -50,7 +59,7 @@ export const useMainSearchBar = () => {
     e.preventDefault();
     setIsFetching(true);
     const query = buildQuery();
-    const { data, status } = await searchInstruments(query);
+    const { data } = await searchInstruments(query);
     setIsFetching(false);
     setSearchedInstruments(data);
     setPreviewSearchResults(null)
@@ -97,5 +106,6 @@ export const useMainSearchBar = () => {
     inputRefStartDate,  
     inputRefEndDate,    
     calendarPosition,
+    error
   };
 };

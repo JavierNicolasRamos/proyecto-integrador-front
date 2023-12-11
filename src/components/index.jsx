@@ -25,14 +25,14 @@ export { Pagination } from "./Pagination";
 export { PolicyBlock } from "./PolicyBlock";
 export { ProductCarousel } from "../containers/ProductCarousel";
 export { RangeCalendar } from "./RangeCalendar";
+export { RateInstrument } from "./RateInstrument";
 export { RegisterSuccess } from "../containers/RegisterSuccess"
 export { ResultConfirmationDialog } from "./ResultConfirmationDialog";
+export { SearchResultCard } from "./SearchResultCard";
 export { ShareSocial } from "./ShareSocial";
 export { SingleCalendar } from "./SingleCalendar";
 export { Spinner } from "./Spinner";
 export { UserCard } from "./UserCard";
-export { ValidationError } from "./ValidationError";
 export { AboutUsCard } from "./AboutUsCard";
-export { SearchResultCard } from "./SearchResultCard";
-export { RateInstrument } from "./RateInstrument";
 export { InstrumentReviews } from "./InstrumentReviews";
+export { ValidationError } from "./ValidationError";

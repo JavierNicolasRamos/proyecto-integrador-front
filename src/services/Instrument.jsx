@@ -25,7 +25,7 @@ const URL = {
 };
 
 const handlerErrors = (e) => {
-  throw new Error(errorMessages[e.status] || e.message);
+  throw new Error(errorMessages[e.response.status] || e.message);
 };
 
 export const getAllInstruments = async () => {
@@ -151,13 +151,10 @@ export const postSelectedDates = async (dates) => {
 
 
 export const searchInstruments = async (query) => {
-
   try {
-    const { data, status } = await axios.get(`${URL.search}?${query}`);
-    return { data, status };
+    const { data } = await axios.get(`${URL.search}?${query}`);
+    return { data };
   } catch (e) {
-    const data = e.response.data;
-    const status = "";
-    return { data, status };
+    handlerErrors(e);
   }
 };
