@@ -1,6 +1,6 @@
+import { PropTypes } from "prop-types"
 import { Link } from "react-router-dom"
 import "../styles/AboutUsCard.css"
-import { Button } from "./Button"
 
 export const AboutUsCard = ({image, name, github, linkedin}) => {
   return (
@@ -16,3 +16,10 @@ export const AboutUsCard = ({image, name, github, linkedin}) => {
     </>
   )
 }
+
+AboutUsCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+};
