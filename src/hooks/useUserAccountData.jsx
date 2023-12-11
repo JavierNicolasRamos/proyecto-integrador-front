@@ -7,9 +7,10 @@ export const useUserAccountData = () => {
 
   const email = sessionStorage.getItem("email");
   const avatar = sessionStorage.getItem("avatar");
+  const jwt = sessionStorage.getItem("jwt");
 
   const getUserData = async () => {
-    const { data } = await getUserByEmail(email);
+    const { data } = await getUserByEmail(email, jwt);
     setUser(data);
     setIsFetching(false);
   };

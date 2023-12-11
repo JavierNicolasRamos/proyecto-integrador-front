@@ -5,7 +5,6 @@ import "../styles/UserAccountData.css";
 export const UserAccountData = () => {
 
   const { user, isFetching } = useUserAccountData()
-  console.log(user)
 
   return (
     <section className="accountData">

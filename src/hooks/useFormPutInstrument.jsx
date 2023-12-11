@@ -20,6 +20,12 @@ export const useFormPutInstrument = (presentInstrument) => {
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
+  }, []);
 
   const handleCheckboxChange = (event, option) => {
     const { checked } = event.target;
@@ -71,7 +77,7 @@ export const useFormPutInstrument = (presentInstrument) => {
       deleted: null,
     };
 
-    const { data, status } = await putInstrument(instrument);
+    const { data, status } = await putInstrument(instrument, jwt);
 
     return { data, status };
   };

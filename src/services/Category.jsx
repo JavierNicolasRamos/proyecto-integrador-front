@@ -9,7 +9,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
-const jwt = sessionStorage.getItem('jwt')
+// const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   list: `${backUrl}/category/list`,
@@ -43,7 +43,7 @@ export const getAllCategories = async () => {
   }
 };
 
-export const postCategory = async (formData) => {
+export const postCategory = async (formData, jwt) => {
 
   const config = {
     headers: {
@@ -64,7 +64,7 @@ export const postCategory = async (formData) => {
   }
 };
 
-export const deleteCategory = async (id) => {
+export const deleteCategory = async (id, jwt) => {
 
   const config = {
     headers: {

@@ -10,7 +10,7 @@ const errorMessages = {
 
 
 const backUrl = import.meta.env.VITE_APIBACKEND
-const jwt = sessionStorage.getItem('jwt')
+// const jwt = sessionStorage.getItem('jwt')
 
 const URL = {
   createInstrument: `${backUrl}/instruments`,
@@ -72,7 +72,7 @@ export const getAllInstrumentsPaginated = async (customizedParams) => {
   }
 };
 
-export const postInstrument = async (formData) => {
+export const postInstrument = async (formData, jwt) => {
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -90,7 +90,7 @@ export const postInstrument = async (formData) => {
   }
 };
 
-export const putInstrument = async (instrument) => {
+export const putInstrument = async (instrument, jwt) => {
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -107,7 +107,7 @@ export const putInstrument = async (instrument) => {
   }
 };
 
-export const deleteInstrument = async (id) => {
+export const deleteInstrument = async (id, jwt) => {
   const config = {
     headers: {
       'Authorization': `Bearer ${jwt}`
@@ -124,7 +124,7 @@ export const deleteInstrument = async (id) => {
   }
 };
 
-export const getDisabledDates = async (id) => {
+export const getDisabledDates = async (id, jwt) => {
   try {
     const { data } = await axios.get(`${URL.calendar}${id}`);
     return data;
@@ -133,7 +133,7 @@ export const getDisabledDates = async (id) => {
   }
 };
 
-export const postSelectedDates = async (dates) => {
+export const postSelectedDates = async (dates, jwt) => {
 
   const config = {
     headers: {

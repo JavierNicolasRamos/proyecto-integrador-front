@@ -10,6 +10,7 @@ export const usePostReview = (id) => {
   const [resultContent, setResultContent] = useState("");
   const [isFetching, setIsFetching] = useState(false);
   const email = sessionStorage.getItem("email");
+  const jwt = sessionStorage.getItem("jwt");
 
   const submitForm = async () => {
     const reviewDto = {
@@ -24,7 +25,7 @@ export const usePostReview = (id) => {
 
       setIsFetching(true);
 
-      const { data, status } = await postReview(reviewDto);
+      const { data, status } = await postReview(reviewDto, jwt);
 
       if (status === 200) {
         setIsFetching(false);

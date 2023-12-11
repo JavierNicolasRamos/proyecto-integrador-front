@@ -3,9 +3,11 @@ import { getAllUsers } from "../services/index";
 
 export const useFetchAdminUserList = () => {
   const [users, setUsers] = useState([]);
+  const jwt = sessionStorage.getItem("jwt");
+
 
   const fetchUser = () => {
-    getAllUsers().then((users) => setUsers(users));
+    getAllUsers(jwt).then((users) => setUsers(users));
   };
 
   useEffect(() => {

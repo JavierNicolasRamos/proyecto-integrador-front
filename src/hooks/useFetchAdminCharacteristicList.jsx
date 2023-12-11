@@ -7,9 +7,11 @@ export const useFetchAdminCharacteristicList = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
+  const jwt = sessionStorage.getItem("jwt");
+
 
   const fetchCharacteristic = () => {
-    getCharacteristic()
+    getCharacteristic(jwt)
       .then((characteristics) => setCharacteristics(characteristics))
       .finally(() => setIsFetching(false));
   };
@@ -20,7 +22,7 @@ export const useFetchAdminCharacteristicList = () => {
 
   // Delete handler
   const handlerDelete = async (id) => {
-    const { data, status } = await deleteCharacteristic(id);
+    const { data, status } = await deleteCharacteristic(id, jwt);
 
     if (status === 200) {
       setIsFetching(false);
