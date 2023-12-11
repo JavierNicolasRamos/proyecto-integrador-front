@@ -13,14 +13,15 @@
   width: 100%;
   background-color: var(--red);
   height: 10vh;
-  font-size: 2.5rem;
+  font-size: 2vw;
 }
 
 .detail__instrument-description {
   padding: 3vh 2vw;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  max-height: 30vh;
+  font-size: 1.4vw;
+  line-height: 2.3vw;
+  max-height: 50vh;
+  font-weight: 400;
   overflow: hidden;
   overflow-y: scroll;
   scrollbar-color: var(--red) var(--white); /* Cambia estos valores a tu preferencia */
@@ -35,17 +36,19 @@
   border-radius: 1000px;
 }
 
-
 .detail__instruments-description__disponibility {
   text-align: center;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .detail__instruments-description__disponibility__title {
-  font-size: 1.6em;
+  font-size: 1.6vw;
   background-color: var(--red);
-  margin-bottom: 3vh;
-  padding: 1vh;
   display: flex;
+  height: 6vh;
   justify-content: center;
   align-items: center;
 }
@@ -54,13 +57,14 @@
   .detail-container{
     max-width: 100%;
   }
-
+  
   .detail__instrument-name {
+    justify-content: center;
     padding-left: 2vw;
     width: 100%;
     background-color: var(--red);
     height: 5vh;
-    font-size: 2rem;
+    font-size: 5vw;
   }
 
   .detail__instrument-description {
@@ -70,6 +74,10 @@
     max-height: 30vh;
     overflow: hidden;
     overflow-y: scroll;
+  }
+
+  .detail__instruments-description__disponibility__title {
+    font-size: 4vw;
   }
 
 }
