@@ -42,7 +42,6 @@ export const MainSearchBar = () => {
       }
       setShowCalendar(false);
     };
-
     
     document.addEventListener("click", handleClickOutside);
   
