@@ -3,18 +3,19 @@ import { getAllFavs } from "../services/index";
 
 export const useGetAllLikes = () => {
   const email = sessionStorage.getItem("email");
+  const jwt = sessionStorage.getItem("jwt");
   const [allLikes, setAllLikes] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState()
 
+  const getAllLikes = async () => {
+    const { data } = await getAllFavs(email, jwt);
+    setAllLikes(data)
+    setIsFetching(false);
+  };
+
   useEffect(() => {
-    getAllFavs(email)
-    .then((data)=>{
-      setAllLikes(data)
-    })
-    .catch((e)=>{
-      setError(e)
-    });
+    getAllLikes(email)
   }, []);
 
   return { allLikes, isFetching };

@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const errorMessages = {
-  500: "Error del servidor",
-  400: "No se puede reservar un instrumento que usted creo",
-};
+// const errorMessages = {
+//   500: "Error del servidor",
+//   400: "No se puede reservar un instrumento que usted creo",
+// };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
 const jwt = sessionStorage.getItem('jwt')

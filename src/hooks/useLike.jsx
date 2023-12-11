@@ -8,17 +8,22 @@ export const useLike = (id) => {
   const [like, setLike] = useState(false);
   const { allLikes } = useGetAllLikes();
 
-  // const likeInstrument = async () => {
-  //   const { status } = await postFav(id, email);
-  //   status === 200 ? setLike(true) : null;
-  // };
+  useEffect(() => {
+    const isLiked = allLikes.some((likedItem) => likedItem.id === id);
+    setLike(isLiked);
+  }, [allLikes, id]);
 
-  // const dislikeInstrument = async () => {
-  //   const { status } = await deleteFav(id, email);
-  //   if (status === 200) {
-  //     setLike(false);
-  //   }
-  // };
+  const likeInstrument = async () => {
+    const { status } = await postFav(id, email);
+    status === 200 ? setLike(true) : null;
+  };
+
+  const dislikeInstrument = async () => {
+    const { status } = await deleteFav(id, email);
+    if (status === 200) {
+      setLike(false);
+    }
+  };
 
   const handlerClickLike = (e) => {
     e.preventDefault()

@@ -22,7 +22,6 @@ export const useFetchUserBookings = () => {
     fetchBookings();
   }, []);
 
-
   return {
     bookings,
     isFetching,
