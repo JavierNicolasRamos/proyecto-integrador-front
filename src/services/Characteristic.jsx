@@ -9,7 +9,7 @@ const errorMessages = {
 };
 
 const backUrl = import.meta.env.VITE_APIBACKEND
-const jwt = sessionStorage.getItem('jwt')
+// const jwt = sessionStorage.getItem('jwt')
 
 
 const URL = {
@@ -23,7 +23,7 @@ const handlerErrors = (e) => {
   throw new Error(errorMessages[e.status] || e.message);
 };
 
-export const getCharacteristic = async () => {
+export const getCharacteristic = async (jwt) => {
 
   const config = {
     headers: {
@@ -39,7 +39,7 @@ export const getCharacteristic = async () => {
   }
 };
 
-export const postCharacteristic = async (formData) => {
+export const postCharacteristic = async (formData, jwt) => {
 
   const config = {
     headers: {
@@ -58,7 +58,7 @@ export const postCharacteristic = async (formData) => {
   }
 };
 
-export const putCharacteristic = async (characteristic) => {
+export const putCharacteristic = async (characteristic, jwt) => {
 
   const config = {
     headers: {
@@ -77,7 +77,7 @@ export const putCharacteristic = async (characteristic) => {
   }
 };
 
-export const deleteCharacteristic = async (id) => {
+export const deleteCharacteristic = async (id, jwt) => {
 
   const config = {
     headers: {

@@ -9,6 +9,12 @@ export const usePostCharacteristic = () => {
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
   const [resultContent, setResultContent] = useState("");
+  const [jwt, setJwt] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null
+  }, []);
 
   const icons = [
     "https://s3.us-east-2.amazonaws.com/1023c04-grupo1/1700269359389-1170628_1.png",
@@ -58,7 +64,7 @@ export const usePostCharacteristic = () => {
 
     if (validated === true) {
       setIsFetching(true);
-      const {data, status} = await postCharacteristic(formData)
+      const {data, status} = await postCharacteristic(formData, jwt)
       if (status === 200) {
         setIsFetching(false);
         setSuccess(true);

@@ -36,7 +36,6 @@ export const useHandlerResize = () => {
     };
   }, [prevWidth]);
 
-  console.log(divSize)
 
   return { divRef, divSize };
 };

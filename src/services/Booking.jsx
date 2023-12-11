@@ -16,7 +16,7 @@ const handlerErrors = (e) => {
   throw new Error(e.response.status);
 };
 
-export const getBookings = async () => {
+export const getBookings = async (jwt) => {
 
   const config = {
     headers: {

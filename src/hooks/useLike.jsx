@@ -7,6 +7,8 @@ export const useLike = (id) => {
   const email = sessionStorage.getItem("email");
   const [like, setLike] = useState(false);
   const { allLikes } = useGetAllLikes();
+  const jwt = sessionStorage.getItem("jwt");
+
 
   useEffect(() => {
     const isLiked = allLikes.some((likedItem) => likedItem.id === id);
@@ -14,12 +16,12 @@ export const useLike = (id) => {
   }, [allLikes, id]);
 
   const likeInstrument = async () => {
-    const { status } = await postFav(id, email);
+    const { status } = await postFav(id, email, jwt);
     status === 200 ? setLike(true) : null;
   };
 
   const dislikeInstrument = async () => {
-    const { status } = await deleteFav(id, email);
+    const { status } = await deleteFav(id, email, jwt);
     if (status === 200) {
       setLike(false);
     }

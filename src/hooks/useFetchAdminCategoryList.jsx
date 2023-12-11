@@ -6,13 +6,18 @@ export const useFetchAdminCategoryList = () => {
   const [isFetching, setIsFetching] = useState(true);
   const [showResult, setShowResult] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [jwt, setJwt] = useState("");
   const [resultContent, setResultContent] = useState("");
+
+  useEffect(() => {
+    const jwtFromSessionStorage = sessionStorage.getItem("jwt");
+    jwtFromSessionStorage ? setJwt(jwtFromSessionStorage) : null;
+  }, []);
 
   const fetchCategories = () => {
     getAllCategories()
       .then((category) => setCategory(category))
-      .finally(() => setIsFetching(false));
-  };
+  }
 
   useEffect(() => {
     fetchCategories();
@@ -20,7 +25,7 @@ export const useFetchAdminCategoryList = () => {
 
   // Delete handler
   const handlerDelete = async (id) => {
-    const { data, status } = await deleteCategory(id);
+    const { data, status } = await deleteCategory(id, jwt);
 
     if (status === 200) {
       setIsFetching(false);
